@@ -9,6 +9,44 @@ h1, h2, h3, h4, h5 {
 	font-family: 'Open Sans', sans-serif;
 }
 
+#menu {
+	height: 110%;
+	width: 13em;
+	display: block;
+	position: fixed;
+	margin: -1.5em 0 -1.5em -13em;
+	padding-top: 4em;
+	background: rgba(0,0,0,0.93);
+	transition: .2s;
+}
+
+#menu a {
+	color: #fff;
+	text-decoration: none;
+	display: list-item;
+	list-style-type: none;
+	margin: .3em;
+	padding: .3em;
+}
+
+.menuSection {
+	margin: .4em .8em;
+	border-bottom: 1px solid #444;
+	padding-bottom: .2em;
+}
+
+.menuButt {
+	font-size: 2em;
+	position: fixed;
+	margin: -.2em .5em;
+	background: rgba(0,0,0,0.93);
+	color: #fff;
+	border: none;
+	z-index: 5;
+	border-radius: 3px;
+	outline: none;
+}
+
 #currentLocal {
 	margin: auto;
 	text-align: center;
