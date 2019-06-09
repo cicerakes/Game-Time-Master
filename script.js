@@ -174,7 +174,7 @@ function timeCalc() {
 		if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
 			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z");
 		} else if (gameData[i].timezone == "America/Danmarkshavn") {
-			gameBody.getElementsByTagName("p")[7].textContent(gameTimes[i].serverTime.format("HH:mm") + " UTC");
+			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm") + " UTC";
 		} else {
 			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm z");
 		}
