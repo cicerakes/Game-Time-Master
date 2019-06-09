@@ -11,10 +11,10 @@ h1, h2, h3, h4, h5 {
 
 #menu {
 	height: 110%;
-	width: 13em;
+	width: 15em;
 	display: block;
 	position: fixed;
-	margin: -1.5em 0 -1.5em -13em;
+	margin: -1.5em 0 -1.5em -15em;
 	padding-top: 4em;
 	background: rgba(0,0,0,0.93);
 	transition: .2s;
