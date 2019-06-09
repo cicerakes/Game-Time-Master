@@ -11,7 +11,6 @@ Then this is for you!
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature Roadmap
-- Search function.
 - Filter specific games and save this setting per browser.
 - Add an option to refresh and display every second.
 - Add an option to switch between 12 and 24 hour time formats.
