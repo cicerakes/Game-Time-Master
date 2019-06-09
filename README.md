@@ -7,6 +7,8 @@ Then this is for you!
 - Show the time remaining until a game server's daily reset.
 - Automatically refreshes data every minute.
 
+Feel free to request for more games to be added by creating an issue [here](/issues).
+
 ## Feature roadmap
 - Search function.
 - Filter specific games and save this setting per browser.
