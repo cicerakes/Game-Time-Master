@@ -163,6 +163,7 @@ function timeCalc() {
 
 	// Print refreshed values.
 	document.getElementById("currentLocalTime").textContent = now.format("HH:mm");
+	document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
 	for (i = 0; i < gameData.length; i++) {
 		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
 		var gameBody = gameCont.getElementsByClassName("gameTimes")[0];
