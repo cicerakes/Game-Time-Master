@@ -122,6 +122,9 @@ for (i = 0; i < gameData.length; i++) {
 	if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
+	} else if (gameData[i].timezone == "America/Danmarkshavn") {
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format("HH:mm") + " UTC</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format("HH:mm") + " UTC</p>");
 	} else {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format("HH:mm z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format("HH:mm z") + "</p>");
@@ -169,6 +172,8 @@ function timeCalc() {
 		// Add prefix for timezone abbreviation if it's an offset.
 		if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
 			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z");
+		} else if (gameData[i].timezone == "America/Danmarkshavn") {
+			gameBody.getElementsByTagName("p")[7].textContent(gameTimes[i].serverTime.format("HH:mm") + " UTC");
 		} else {
 			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm z");
 		}
