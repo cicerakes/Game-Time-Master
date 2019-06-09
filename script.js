@@ -194,3 +194,20 @@ function toggleMenu(button) {
 		button.textContent = "✖";
 	}
 }
+
+function searchFilter () {
+	var searchTerm = document.getElementById("filterSearchBox").value;
+
+	for (i = 0; i < gameData.length; i++) {
+		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
+		var gameHead = gameCont.getElementsByClassName("gameHeader")[0];
+
+		if (!gameHead.getElementsByTagName("h3")[0].textContent.toUpperCase().includes(searchTerm.toUpperCase())) {
+			// Hide.
+			gameCont.style.display = "none";
+		} else {
+			// Show.
+			gameCont.style.display = "inline-table";
+		}
+	}
+}

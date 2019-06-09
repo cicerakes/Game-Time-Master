@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5 {
 	transition: .2s;
 }
 
-#menu a {
+#menu a, #menu p {
 	color: #fff;
 	text-decoration: none;
 	display: list-item;
@@ -29,10 +29,19 @@ h1, h2, h3, h4, h5 {
 	padding: .3em;
 }
 
+#menu p {
+	padding-bottom: 0;
+}
+
 .menuSection {
 	margin: .4em .8em;
 	border-bottom: 1px solid #444;
 	padding-bottom: .2em;
+}
+
+#filterSearchBox {
+	width: 92%;
+	margin: .3em;
 }
 
 .menuButt {
