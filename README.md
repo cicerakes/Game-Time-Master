@@ -7,7 +7,7 @@ Then this is for you!
 - Show the time remaining until a game server's daily reset.
 - Automatically refreshes data every minute.
 
-Feel free to request for more games to be added by creating an issue [here](/issues).
+Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature roadmap
 - Search function.
