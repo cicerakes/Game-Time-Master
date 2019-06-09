@@ -74,17 +74,17 @@ var gameData = [
 ];
 
 // Show local time data.
-var now = moment();
-var nowZone = moment.tz.guess();
+var now = moment(), 
+nowZone = moment.tz.guess();
 document.getElementById("currentLocalTime").textContent = now.format("HH:mm");
 document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
 document.getElementById("currentLocalTimezone").textContent = nowZone + " — " + now.format("[GMT ]Z");
 
 // Convert game times to local time zone and store results.
 var gameTimes = [];
-for (i = 0; i < gameData.length; i++) {
-	var gameTimezone = gameData[i].timezone;
-	var currentServerTime = now.clone().tz(gameTimezone);
+for (let i = 0; i < gameData.length; i++) {
+	var gameTimezone = gameData[i].timezone, 
+	currentServerTime = now.clone().tz(gameTimezone);
 	gameData[i].dailyReset = moment.tz(gameData[i].dailyReset, "HH:mm", gameTimezone);
 
 	// Calculate time left until daily reset.
@@ -110,10 +110,10 @@ for (i = 0; i < gameData.length; i++) {
 }
 
 // Loop print the results as divs into #resultsContainer.
-for (i = 0; i < gameData.length; i++) {
-	var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
-	var gameHead = gameCont.getElementsByClassName("gameHeader")[0];
-	var gameBody = gameCont.getElementsByClassName("gameTimes")[0];
+for (let i = 0; i < gameData.length; i++) {
+	var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+	gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
+	gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
 	gameHead.insertAdjacentHTML("beforeend", "<h4>" + gameData[i].server + "</h4>");
 	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].dailyReset.format("HH:mm") + "</p>");
@@ -139,9 +139,9 @@ function timeCalc() {
 	now = moment();
 
 	// Refresh converted times.
-	for (i = 0; i < gameData.length; i++) {
-		var gameTimezone = gameData[i].timezone;
-		var currentServerTime = now.clone().tz(gameTimezone);
+	for (let i = 0; i < gameData.length; i++) {
+		var gameTimezone = gameData[i].timezone, 
+		currentServerTime = now.clone().tz(gameTimezone);
 	
 		// Calculate time left until daily reset.
 		var sameDayReset = currentServerTime.to(gameData[i].dailyReset);
@@ -164,9 +164,9 @@ function timeCalc() {
 	// Print refreshed values.
 	document.getElementById("currentLocalTime").textContent = now.format("HH:mm");
 	document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
-	for (i = 0; i < gameData.length; i++) {
-		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
-		var gameBody = gameCont.getElementsByClassName("gameTimes")[0];
+	for (let i = 0; i < gameData.length; i++) {
+		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+		gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
 		gameBody.getElementsByTagName("p")[1].textContent = gameTimes[i].dailyReset.format("HH:mm");
 		gameBody.getElementsByTagName("p")[3].textContent = gameTimes[i].timeToReset;
@@ -198,9 +198,9 @@ function toggleMenu(button) {
 function searchFilter () {
 	var searchTerm = document.getElementById("filterSearchBox").value;
 
-	for (i = 0; i < gameData.length; i++) {
-		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
-		var gameHead = gameCont.getElementsByClassName("gameHeader")[0];
+	for (let i = 0; i < gameData.length; i++) {
+		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+		gameHead = gameCont.getElementsByClassName("gameHeader")[0];
 
 		if (!gameHead.getElementsByTagName("h3")[0].textContent.toUpperCase().includes(searchTerm.toUpperCase())) {
 			// Hide.
