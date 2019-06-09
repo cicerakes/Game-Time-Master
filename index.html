@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>It's time</title>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro&display=swap"">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+		<link rel="stylesheet" href="style.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script src="moment-timezone-with-data-10-year-range.min.js"></script>
+		<script src="moment-precise-range.js"></script>
+	</head>
+	<body>
+		<div id="currentLocal">
+			<h2>Your local time:</h2>
+			<p id="currentLocalTime">Time</p>
+			<p id="currentLocalDate">Date</p>
+			<p id="currentLocalTimezone" title="Region - Timezone">Region/Timezone</p>
+		</div>
+		<div id="resultsContainer">
+			<div id="azur" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Azur Lane</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="bd" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Brown Dust</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="dragalia" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Dragalia Lost</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="epic7" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Epic Seven</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="fgo" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Fate/Grand Order</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="feh" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Fire Emblem Heroes</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="gfl" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Girls Frontline</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="gbf" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Granblue Fantasy</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="kr" class="gameContainer">
+				<div class="gameHeader">
+					<h3>King's Raid</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="langrisser" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Langrisser</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="revue" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Revue Starlight Re LIVE</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div id="sdorica" class="gameContainer">
+				<div class="gameHeader">
+					<h3>Sdorica</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,102 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	background: #ddd;
+	color: #111;
+	font-size: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Open Sans', sans-serif;
+}
+
+#currentLocal {
+	margin: auto;
+	text-align: center;
+}
+
+#currentLocal h2 {
+	margin-block-end: 0;
+}
+
+#currentLocal p {
+	margin-block-start: .2em;
+    margin-block-end: .2em;
+}
+
+#currentLocalTime {
+	font-size: 2em;
+}
+
+#resultsContainer {
+	padding-top: 1em;
+	width:97%;
+	margin: auto;
+	text-align: center;
+}
+
+.gameContainer {
+    margin: auto;
+	display: inline-table;
+	padding: 1em;
+	margin: .5em;
+	width: 25%;
+	background: #eee;
+	box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.75);
+	text-align: initial;
+	border-radius: 3px;
+}
+
+.gameHeader {
+	display: table-row;
+}
+
+.gameHeader h3 {
+	display: table-cell;
+	font-size: 1.4em;
+}
+
+.gameHeader h4 {
+	display: table-cell;
+	text-align: right;
+	color: #555;
+	font-size: 18px;
+}
+
+.gameTimes {
+	display: table-row;
+}
+
+.gameTimes p:nth-of-type(odd) {
+	font-weight: bold;
+}
+
+.gameTimes div {
+	width: 49%;
+	display: table-cell;
+}
+
+.localTimes {
+	padding-right: .3em;
+}
+
+.serverTimes {
+	padding-left: .3em;
+}
+
+@media (max-width: 1500px) {
+	.gameContainer {
+		width: 30%;
+	}
+}
+
+@media (max-width: 1200px) {
+	.gameContainer {
+		width: 40%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.gameContainer {
+		width: 90%;
+	}
+} 
