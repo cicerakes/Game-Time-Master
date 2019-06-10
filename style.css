@@ -98,8 +98,9 @@ h1, h2, h3, h4, h5 {
 	border-radius: 3px;
 }
 
-.gameHeader {
-	display: table-row;
+.gameHeader, .gameTimes {
+	display: table;
+	width: 100%;
 }
 
 .gameHeader h3 {
@@ -112,10 +113,7 @@ h1, h2, h3, h4, h5 {
 	text-align: right;
 	color: #555;
 	font-size: 18px;
-}
-
-.gameTimes {
-	display: table-row;
+	vertical-align: middle;
 }
 
 .gameTimes p:nth-of-type(odd) {
