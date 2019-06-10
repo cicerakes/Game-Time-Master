@@ -51,7 +51,7 @@ header h1 {
 	padding-top: 4em;
 	background: #eee;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
-	transition: .2s;
+	transition: .2s ease-in-out;
 	z-index: 2;
 }
 
@@ -101,7 +101,7 @@ header h1 {
 
 #currentLocal p {
 	margin-block-start: .2em;
-    margin-block-end: .2em;
+	margin-block-end: .2em;
 }
 
 #currentLocalTime {
@@ -116,7 +116,7 @@ header h1 {
 }
 
 .gameContainer {
-    margin: auto;
+	margin: auto;
 	display: inline-table;
 	padding: 1em;
 	margin: .5em;
