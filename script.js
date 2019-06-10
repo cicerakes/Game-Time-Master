@@ -196,7 +196,7 @@ function timeCalc() {
 function toggleMenu(button) {
 	if (document.getElementById("menu").style.marginLeft == "0px") {
 		// Close.
-		document.getElementById("menu").style.marginLeft = "-15em";
+		document.getElementById("menu").style.marginLeft = "-16em";
 
 		button.textContent = "☰";
 	} else {

@@ -1,27 +1,62 @@
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	background: #ddd;
+	background: #eee;
 	color: #111;
 	font-size: 20px;
 }
 
 h1, h2, h3, h4, h5 {
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+}
+
+header {
+	background: #7e56c1;
+	height: 65px;
+	width: 100%;
+	position: fixed;
+	box-shadow: 0 3px 8px 0 rgba(0,0,0,0.3);
+	z-index: 4;
+}
+
+header h1 {
+	display: inline;
+	color: #fff;
+	font-size: 1.6em;
+	position: relative;
+	top: -3px;
+}
+
+.menuButt {
+	font-size: 2em;
+	position: relative;
+	margin: .2em;
+	background: transparent;
+	color: #fff;
+	height: 50px;
+	width: 50px;
+	border: none;
+	z-index: 5;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
 }
 
 #menu {
-	height: 110%;
+	height: 100%;
 	width: 15em;
 	display: block;
 	position: fixed;
-	margin: -1.5em 0 -1.5em -15em;
+	margin-left: -16em;
 	padding-top: 4em;
-	background: rgba(0,0,0,0.93);
+	background: #eee;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 	transition: .2s;
+	z-index: 2;
 }
 
 #menu a, #menu p, #menu label {
-	color: #fff;
+	color: #111;
 	text-decoration: none;
 	display: list-item;
 	list-style-type: none;
@@ -39,35 +74,28 @@ h1, h2, h3, h4, h5 {
 
 .menuSection {
 	margin: .4em .8em;
-	border-bottom: 1px solid #444;
+	border-bottom: 1px solid #d2d2d2;
 	padding-bottom: .2em;
 }
 
 #filterSearchBox {
-	width: 92%;
 	margin: .3em;
-}
-
-.menuButt {
-	font-size: 2em;
-	position: fixed;
-	margin: -.2em .5em;
-	background: rgba(0,0,0,0.93);
-	color: #fff;
-	border: none;
-	z-index: 5;
 	border-radius: 3px;
-	outline: none;
-	cursor: pointer;
+	border: 1px solid #bbb;
+	position: relative;
+	top: 13px;
+	right: .6em;
+	float: right;
 }
 
 #currentLocal {
 	margin: auto;
 	text-align: center;
+	padding-top: 80px;
 }
 
 #currentLocal h2 {
-	margin-block-end: 0;
+	margin: 0;
 }
 
 #currentLocal p {
@@ -92,7 +120,7 @@ h1, h2, h3, h4, h5 {
 	padding: 1em;
 	margin: .5em;
 	width: 25%;
-	background: #eee;
+	background: #f8f8f8;
 	box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.75);
 	text-align: initial;
 	border-radius: 3px;
@@ -173,7 +201,7 @@ h1, h2, h3, h4, h5 {
 	background-color: #fff;
 	border-radius: 50%;
 	transition: .2s;
-	box-shadow: 0 0 2px 2px rgba(0,0,0,.2);
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
 }
 
 input:checked + .slider {
@@ -198,8 +226,18 @@ input:checked + .slider:before {
 	}
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
 	.gameContainer {
 		width: auto;
 	}
 } 
+
+@media (max-width: 620px) {
+	header h1 {
+		display: none;
+	}
+
+	#filterSearchBox {
+		width: 50%;
+	}
+}

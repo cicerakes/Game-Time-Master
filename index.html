@@ -3,10 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#7e57c2">
 
 		<title>Game Time Master</title>
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600|Source+Sans+Pro:400,600&display=swap">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
 		<link rel="stylesheet" href="style.css">
 
@@ -15,12 +16,12 @@
 		<script src="moment-precise-range.js"></script>
 	</head>
 	<body>
-		<button class="menuButt" onclick="toggleMenu(this)">☰</button>
+		<header>
+			<button class="menuButt" onclick="toggleMenu(this)">☰</button>
+			<h1>Game Time Master</h1>
+			<input type="search" id="filterSearchBox" placeholder="Search for game" oninput="searchFilter()">
+		</header>
 		<div id="menu">
-			<div class="menuSection">
-				<p>Search:</p>
-				<input type="search" id="filterSearchBox" placeholder="Game" oninput="searchFilter()">
-			</div>
 			<div class="menuSection">
 				<label class="optionName" for="12HrTimeSwitch">
 					12-hour time format
