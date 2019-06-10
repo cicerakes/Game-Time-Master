@@ -73,10 +73,19 @@ var gameData = [
 	}
 ];
 
+// Check saved settings.
+var timeFormat = "HH:mm";
+
+if (localStorage['12HrTimeSwitch'] == "true") {
+	timeFormat = "h:mm A";
+
+	document.getElementById("12HrTimeSwitch").checked = true;
+}
+
 // Show local time data.
 var now = moment(), 
 nowZone = moment.tz.guess();
-document.getElementById("currentLocalTime").textContent = now.format("HH:mm");
+document.getElementById("currentLocalTime").textContent = now.format(timeFormat);
 document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
 document.getElementById("currentLocalTimezone").textContent = nowZone + " — " + now.format("[GMT ]Z");
 
@@ -116,18 +125,18 @@ for (let i = 0; i < gameData.length; i++) {
 	gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
 	gameHead.insertAdjacentHTML("beforeend", "<h4>" + gameData[i].server + "</h4>");
-	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].dailyReset.format("HH:mm") + "</p>");
+	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].dailyReset.format(timeFormat) + "</p>");
 	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].timeToReset + "</p>");
 	// Add prefix for timezone abbreviation if it's an offset.
 	if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
 	} else if (gameData[i].timezone == "America/Danmarkshavn") {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format("HH:mm") + " UTC</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format("HH:mm") + " UTC</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format(timeFormat) + " UTC</p>");
 	} else {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format("HH:mm z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format("HH:mm z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat + " z") + "</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format(timeFormat + " z") + "</p>");
 	}
 }
 
@@ -162,21 +171,24 @@ function timeCalc() {
 	}
 
 	// Print refreshed values.
-	document.getElementById("currentLocalTime").textContent = now.format("HH:mm");
+	document.getElementById("currentLocalTime").textContent = now.format(timeFormat);
 	document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
 	for (let i = 0; i < gameData.length; i++) {
 		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 		gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
-		gameBody.getElementsByTagName("p")[1].textContent = gameTimes[i].dailyReset.format("HH:mm");
+		gameBody.getElementsByTagName("p")[1].textContent = gameTimes[i].dailyReset.format(timeFormat);
 		gameBody.getElementsByTagName("p")[3].textContent = gameTimes[i].timeToReset;
 		// Add prefix for timezone abbreviation if it's an offset.
 		if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
-			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm") + " UTC" + gameTimes[i].serverTime.format("Z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z");
 		} else if (gameData[i].timezone == "America/Danmarkshavn") {
-			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm") + " UTC";
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC";
+			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format(timeFormat) + " UTC";
 		} else {
-			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format("HH:mm z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat + " z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format(timeFormat + " z");
 		}
 	}
 }
@@ -209,5 +221,20 @@ function searchFilter () {
 			// Show.
 			gameCont.style.display = "inline-table";
 		}
+	}
+}
+
+function settingToggle(setting) {
+	var settingId = setting.id;
+
+	localStorage[settingId] = setting.checked;
+
+	if (settingId == "12HrTimeSwitch") {
+		if (setting.checked) {
+			timeFormat = "h:mm A";
+		} else {
+			timeFormat = "HH:mm";
+		}
+		timeCalc();
 	}
 }
