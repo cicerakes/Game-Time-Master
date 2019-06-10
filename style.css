@@ -66,6 +66,7 @@ header h1 {
 
 #menu label {
 	cursor: pointer;
+	user-select: none;
 }
 
 #menu p {
