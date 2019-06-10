@@ -13,6 +13,7 @@ Feel free to request for more games to be added by creating an issue [here](http
 ## Feature Roadmap
 - Filter specific games and save this setting per browser.
 - Add an option to refresh and display every second.
+- Dark/night mode.
 
 ## External Scripts
 `moment.js` `moment-timezone-with-data-10-year-range.min.js`  
