@@ -37,9 +37,18 @@ header h1 {
 	width: 50px;
 	border: none;
 	z-index: 5;
-	border-radius: 3px;
+	border-radius: 30px;
 	outline: none;
 	cursor: pointer;
+	transition: .1s;
+}
+
+.menuButt:hover {
+	background :rgba(77,43,144,.2);
+}
+
+.menuButt:active {
+	background: rgba(77,43,144,.5);
 }
 
 #menu {
@@ -84,13 +93,22 @@ header h1 {
 	border: none;
 	position: relative;
 	width: 20%;
-	top: 13px;
+	top: 12px;
 	right: .6em;
 	float: right;
 	outline: none;
 	padding: .5em;
-	box-shadow: 0 0 6px 2px rgba(0,0,0,.25);
-    transition: .3s;
+	box-shadow: 0 1px 9px 1px rgba(0,0,0,.3);
+	transition: .3s;
+}
+
+#filterSearchBox:focus {
+	box-shadow: 0 1px 9px 2px rgba(0,0,0,.5);
+}
+
+#filterSearchOpen {
+	float: right;
+	display: none;
 }
 
 #currentLocal {
@@ -241,6 +259,15 @@ input:checked + .slider:before {
 		width: auto;
 	}
 
+	#filterSearchOpen {
+		display: block;
+	}
+
+	#filterSearchBox {
+		width: 0%;
+		display: none;
+	}
+
 	#filterSearchBox:focus {
 		width: 85%;
 	}
@@ -248,18 +275,25 @@ input:checked + .slider:before {
 	#filterSearchBox:focus + h1 {
 		display: none;
 	}
+
+	#filterSearchBox:focus + #filterSearchOpen {
+		display: none;
+	}
 } 
 
 @media (max-width: 620px) {
-	header h1 {
-		display: none;
-	}
-
-	#filterSearchBox {
-		width: 50%;
-	}
-
 	#filterSearchBox:focus {
 		width: 75%;
+	}
+
+	header h1 {
+		font-size: 1.2em;
+		top: -6px;
+	}
+}
+
+@media (max-width: 360px) {
+	header h1 {
+		font-size: 1em;
 	}
 }

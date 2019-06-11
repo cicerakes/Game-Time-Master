@@ -196,7 +196,7 @@ function timeCalc() {
 function toggleMenu(button) {
 	if (document.getElementById("menu").style.marginLeft == "0px") {
 		// Close.
-		document.getElementById("menu").style.marginLeft = "-16em";
+		document.getElementById("menu").removeAttribute("style");
 
 		button.textContent = "☰";
 	} else {
@@ -219,7 +219,7 @@ function searchFilter () {
 			gameCont.style.display = "none";
 		} else {
 			// Show.
-			gameCont.style.display = "inline-table";
+			gameCont.removeAttribute("style");
 		}
 	}
 }
@@ -236,5 +236,32 @@ function settingToggle(setting) {
 			timeFormat = "HH:mm";
 		}
 		timeCalc();
+	}
+}
+
+function showSearch(button) {
+	var searchBox = document.getElementById("filterSearchBox");
+
+	button.style.display = "none";
+	document.getElementsByTagName("header")[0].getElementsByTagName("h1")[0].style.display = "none";
+	searchBox.style.display = "block";
+	searchBox.style.width = null;
+	searchBox.focus();
+}
+
+function searchHide(searchBox) {
+	var searchButton = document.getElementById("filterSearchOpen");
+
+	if (searchButton.style.display == "none") {
+		searchBox.style.width = 0;
+		// Wait for animation before changing display.
+		setTimeout(
+			function () {
+				document.getElementsByTagName("header")[0].getElementsByTagName("h1")[0].removeAttribute("style");
+				searchBox.removeAttribute("style");
+				searchButton.style.display = null;
+			},
+			200
+		);
 	}
 }
