@@ -80,13 +80,17 @@ header h1 {
 }
 
 #filterSearchBox {
-	margin: .3em;
 	border-radius: 3px;
-	border: 1px solid #bbb;
+	border: none;
 	position: relative;
+	width: 20%;
 	top: 13px;
 	right: .6em;
 	float: right;
+	outline: none;
+	padding: .5em;
+	box-shadow: 0 0 6px 2px rgba(0,0,0,.25);
+    transition: .3s;
 }
 
 #currentLocal {
@@ -226,11 +230,23 @@ input:checked + .slider:before {
 	.gameContainer {
 		width: 40%;
 	}
+
+	#filterSearchBox:focus {
+		width: 30%;
+	}
 }
 
 @media (max-width: 768px) {
 	.gameContainer {
 		width: auto;
+	}
+
+	#filterSearchBox:focus {
+		width: 85%;
+	}
+
+	#filterSearchBox:focus + h1 {
+		display: none;
 	}
 } 
 
@@ -241,5 +257,9 @@ input:checked + .slider:before {
 
 	#filterSearchBox {
 		width: 50%;
+	}
+
+	#filterSearchBox:focus {
+		width: 75%;
 	}
 }
