@@ -15,6 +15,7 @@ Feel free to request for more games to be added by creating an issue [here](http
 
 ## Feature Roadmap
 - Filter specific games and save this setting per browser.
+- Add option to display dates as well.
 - Add an option to refresh and display every second.
 - Dark/night mode.
 
