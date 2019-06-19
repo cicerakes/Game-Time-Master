@@ -96,7 +96,7 @@ document.getElementById("currentLocalDate").textContent = now.format("dddd, Do M
 document.getElementById("currentLocalTimezone").textContent = nowZone + " — " + now.format("[GMT ]Z");
 
 // Convert game times to local time zone and store results.
-var gameTimes = [];
+var gameDataConverted = [];
 for (let i = 0; i < gameData.length; i++) {
 	var gameTimezone = gameData[i].timezone, 
 	currentServerTime = now.clone().tz(gameTimezone);
@@ -115,7 +115,7 @@ for (let i = 0; i < gameData.length; i++) {
 	var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
 	// Store.
-	gameTimes.push(
+	gameDataConverted.push(
 		{
 			dailyReset: localResetTime,
 			serverTime: currentServerTime,
@@ -131,18 +131,18 @@ for (let i = 0; i < gameData.length; i++) {
 	gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
 	gameHead.insertAdjacentHTML("beforeend", "<h4>" + gameData[i].server + "</h4>");
-	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].dailyReset.format(timeFormat) + "</p>");
-	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].timeToReset + "</p>");
+	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].dailyReset.format(timeFormat) + "</p>");
+	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].timeToReset + "</p>");
 	// Add prefix for timezone abbreviation if it's an offset.
-	if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z") + "</p>");
+	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z") + "</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z") + "</p>");
 	} else if (gameData[i].timezone == "America/Danmarkshavn") {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format(timeFormat) + " UTC</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC</p>");
 	} else {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat + " z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameTimes[i].serverTime.format(timeFormat + " z") + "</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
 	}
 }
 
@@ -171,9 +171,9 @@ function timeCalc() {
 		var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 	
 		// Replace converted times.
-		gameTimes[i].dailyReset = localResetTime;
-		gameTimes[i].serverTime = currentServerTime;
-		gameTimes[i].timeToReset = timeRemaining;
+		gameDataConverted[i].dailyReset = localResetTime;
+		gameDataConverted[i].serverTime = currentServerTime;
+		gameDataConverted[i].timeToReset = timeRemaining;
 	}
 
 	// Print refreshed values.
@@ -183,18 +183,18 @@ function timeCalc() {
 		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 		gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
-		gameBody.getElementsByTagName("p")[1].textContent = gameTimes[i].dailyReset.format(timeFormat);
-		gameBody.getElementsByTagName("p")[3].textContent = gameTimes[i].timeToReset;
+		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].dailyReset.format(timeFormat);
+		gameBody.getElementsByTagName("p")[3].textContent = gameDataConverted[i].timeToReset;
 		// Add prefix for timezone abbreviation if it's an offset.
-		if (gameTimes[i].serverTime.format("z").includes("-") || gameTimes[i].serverTime.format("z").includes("+")) {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z");
-			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format(timeFormat) + " UTC" + gameTimes[i].serverTime.format("Z");
+		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z");
 		} else if (gameData[i].timezone == "America/Danmarkshavn") {
 			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC";
-			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format(timeFormat) + " UTC";
+			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC";
 		} else {
 			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat + " z");
-			gameBody.getElementsByTagName("p")[7].textContent = gameTimes[i].serverTime.format(timeFormat + " z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
 		}
 	}
 }
