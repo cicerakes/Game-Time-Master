@@ -82,7 +82,7 @@ var gameData = [
 // Check saved settings.
 var timeFormat = "HH:mm";
 
-if (localStorage['12HrTimeSwitch'] == "true") {
+if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	timeFormat = "h:mm A";
 
 	document.getElementById("12HrTimeSwitch").checked = true;
@@ -232,8 +232,7 @@ function searchFilter () {
 
 function settingToggle(setting) {
 	var settingId = setting.id;
-
-	localStorage[settingId] = setting.checked;
+	localStorage.setItem([settingId], setting.checked);
 
 	if (settingId == "12HrTimeSwitch") {
 		if (setting.checked) {
