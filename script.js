@@ -25,6 +25,12 @@ var gameData = [
 	},
 	{
 		game: "Fate/Grand Order",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
+		game: "Fate/Grand Order",
 		server: "NA",
 		timezone: "America/Los_Angeles",
 		dailyReset: "21:00"
