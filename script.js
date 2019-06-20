@@ -79,6 +79,19 @@ var gameData = [
 	}
 ];
 
+// Initialise list of filtered/hidden games using gameData.
+var gameFilter = [];
+
+for (let i = 0; i < gameData.length; i++) {
+	gameFilter.push(
+		{
+			game: gameData[i].game,
+			server: gameData[i].server,
+			shown: "true"
+		}
+	);
+}
+
 // Check saved settings.
 var timeFormat = "HH:mm";
 
@@ -86,6 +99,54 @@ if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	timeFormat = "h:mm A";
 
 	document.getElementById("12HrTimeSwitch").checked = true;
+}
+
+// Hide game containers.
+if (localStorage.getItem('gameFilterList') != null) {
+	var gameFilterSaved = getLocalStorageObject('gameFilterList');
+
+	for (let i = 0; i < gameFilterSaved.length; i++) {
+		if (gameFilterSaved[i].shown == "false") {
+			var serverCount = 0;
+			var skippedParent = false;
+			var containerPosition = 0;
+
+			for (let y = 0; y < document.getElementById("gameFilterSettings").childElementCount; y++, containerPosition++) {
+				var gameLabel = document.getElementById("gameFilterSettings").children[y];
+				var gameName = gameLabel.textContent.trim();
+
+				if (gameFilter[i].game == gameName && gameLabel.className.includes("gameParent")) {
+					skippedParent = true;
+
+					for (let x = 0; x < gameFilter.length; x++) {
+						if (gameFilter[x].game == gameFilterSaved[i].game) {
+							serverCount++;
+						}
+					}
+				} else if (gameFilter[i].game == gameName) {
+					gameLabel.getElementsByTagName("input")[0].checked = false;
+					toggleGameServerHide(containerPosition);
+				}
+				
+				if (skippedParent) {
+					y++;
+					for (let z = 0; z < serverCount; z++) {
+						gameLabel = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("label")[z];
+
+						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server && gameFilterSaved[i].shown == "false") {
+							gameLabel.getElementsByTagName("input")[0].checked = false;
+							toggleGameServerHide(containerPosition, gameLabel.getElementsByTagName("input")[0]);
+						}
+						containerPosition++;
+					}
+					containerPosition--;
+					skippedParent = false;
+					serverCount = 0;
+				}
+				
+			}
+		}
+	}
 }
 
 // Show local time data.
@@ -269,4 +330,125 @@ function searchHide(searchBox) {
 			200
 		);
 	}
+}
+
+function getLocalStorageObject(ObjectName) {
+	var parsedObject = JSON.parse(localStorage.getItem(ObjectName));
+
+	return parsedObject;
+}
+
+function menuChildrenToggle(dropArrow) {
+	var gameChild = dropArrow.parentElement.nextElementSibling;
+
+	if (gameChild.style.height == (gameChild.childElementCount * 41) + "px") {
+		// Close.
+		dropArrow.removeAttribute("style");
+		gameChild.removeAttribute("style");
+	} else {
+		// Open.
+		dropArrow.style.transform = "rotate(225deg)";
+		dropArrow.style.top = "10px";
+		gameChild.style.height = (gameChild.childElementCount * 41) + "px";
+	}
+}
+
+function toggleGameServerHide(position, child) {
+	if (gameFilter[position].shown == "true") {
+		// Hide.
+		gameFilter[position].shown = "false";
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].style.display = "none";
+
+		// Check if other children are hidden.
+		if (child != undefined) {
+			var parent = child.parentElement.parentElement.previousElementSibling.getElementsByTagName("input")[0];
+			var gameName = child.parentElement.parentElement.previousElementSibling.textContent.trim();
+			var allHidden = true;
+
+			for (let i = 0; i < gameFilter.length; i++) {
+				if (gameFilter[i].game == gameName) {
+					if (gameFilter[i].shown == "true") {
+						allHidden = false;
+					}
+				}
+			}
+			if (allHidden ==  true) {
+				parent.checked = false;
+				parent.indeterminate = false;
+			} else {
+				parent.checked = true;
+				parent.indeterminate = true;
+			}
+		}
+	} else {
+		// Show.
+		gameFilter[position].shown = "true";
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].removeAttribute("style");
+
+		// Check if other children are shown.
+		if (child != undefined) {
+			var parent = child.parentElement.parentElement.previousElementSibling.getElementsByTagName("input")[0];
+			var gameName = child.parentElement.parentElement.previousElementSibling.textContent.trim();
+			var allShown = true;
+
+			for (let i = 0; i < gameFilter.length; i++) {
+				if (gameFilter[i].game == gameName) {
+					if (gameFilter[i].shown == "false") {
+						allShown = false;
+					}
+				}
+			}
+			if (allShown ==  true) {
+				parent.checked = true;
+				parent.indeterminate = false;
+			} else {
+				parent.checked = true;
+				parent.indeterminate = true;
+			}
+		}
+	}
+	// Store.
+	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+}
+
+function toggleGameParentHide(gameSwitch) {
+	var gameName = gameSwitch.parentElement.textContent.trim();
+	var parentSwitchStatus = gameSwitch.checked;
+	var childrenHolder = gameSwitch.parentElement.nextElementSibling;
+	var serverCount = 0;
+
+	if (parentSwitchStatus == false) {
+		// Hide servers.
+		for (let i = 0; i < gameFilter.length; i++) {
+			if (gameFilter[i].game == gameName) {
+				serverCount++;
+
+				gameFilter[i].shown = "false";
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].style.display = "none";
+			}
+		}
+		// Toggle switch off.
+		for (let i = 0; i < serverCount; i++) {
+			childrenHolder.getElementsByClassName("optionName")[i].getElementsByTagName("input")[0].checked = false;
+		}
+		gameSwitch.checked = false;
+		gameSwitch.indeterminate = false;
+	} else {
+		// Show servers.
+		for (let i = 0; i < gameFilter.length; i++) {
+			if (gameFilter[i].game == gameName) {
+				serverCount++;
+
+				gameFilter[i].shown = "true";
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].removeAttribute("style");
+			}
+		}
+		// Toggle switch on.
+		for (let i = 0; i < serverCount; i++) {
+			childrenHolder.getElementsByClassName("optionName")[i].getElementsByTagName("input")[0].checked = true;
+		}
+		gameSwitch.checked = true;
+	}
+	// Store.
+	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 }

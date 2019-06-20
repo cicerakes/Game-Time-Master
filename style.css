@@ -52,16 +52,17 @@ header h1 {
 }
 
 #menu {
-	height: 100%;
+	height: 90%;
 	width: 15em;
 	display: block;
 	position: fixed;
 	margin-left: -16em;
-	padding-top: 4em;
+	padding: 4em 0 2em;
 	background: #eee;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 	transition: .2s ease-in-out;
 	z-index: 2;
+	overflow-y: auto;
 }
 
 #menu a, #menu p, #menu label {
@@ -86,6 +87,88 @@ header h1 {
 	margin: .4em .8em;
 	border-bottom: 1px solid #d2d2d2;
 	padding-bottom: .2em;
+}
+
+.gameParent {
+	margin-bottom: 0 !important;
+}
+
+.gameParent button {
+	position: relative;
+	top: 5px;
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	background: transparent;
+	transform: rotate(45deg);
+	border-top: none;
+	border-left: none;
+	border-right: 2px solid #aaa;
+	border-bottom: 2px solid #aaa;
+	outline: none;
+	cursor: pointer;
+	float: right;
+	transition: .2s;
+}
+
+#gameFilterSettings input {
+	margin-right: 5px;
+	visibility: hidden;
+}
+
+#gameFilterSettings input::before {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: transparent;
+	position: relative;
+	left: -3px;
+	bottom: 3px;
+	margin: 0 !important;
+	border-radius: 3px;
+	border: 1px solid #777;
+	transition: .2s;
+	cursor: pointer;
+	visibility: visible;
+}
+
+#gameFilterSettings input::after {
+	border-radius: 3px;
+	background: transparent;
+	color: #fff;
+	display: block;
+	position: relative;
+	top: -24px;
+	font-size: 15px;
+	transition: .2s;
+	cursor: pointer;
+	visibility: hidden;
+}
+
+#gameFilterSettings input:checked::before, #gameFilterSettings input:indeterminate::before {
+	background-color: #7e57c2;
+	border-color: #7e57c2;
+}
+
+#gameFilterSettings input:checked::after {
+	content: "✓";
+	visibility: visible;
+}
+
+#gameFilterSettings input:indeterminate::after {
+	content: "—";
+	font-weight: bold;
+	top: -25px;
+	visibility: visible;
+}
+
+.gameChildren {
+	width: 90%;
+	margin-left: 9%;
+	height: 0;
+	overflow: hidden;
+	transition: .2s;
 }
 
 #filterSearchBox {

@@ -23,6 +23,67 @@
 			<h1>Game Time Master</h1>
 		</header>
 		<div id="menu">
+			<div id="gameFilterSettings" class="menuSection">
+				<label class="optionName" for="azurLane">
+					<input type="checkbox" id="azurLane" onchange="toggleGameServerHide(0)" checked>
+					Azur Lane
+				</label>
+				<label class="optionName" for="brownDust">
+					<input type="checkbox" id="brownDust" onchange="toggleGameServerHide(1)" checked>
+					Brown Dust
+				</label>
+				<label class="optionName" for="dragalia">
+					<input type="checkbox" id="dragalia" onchange="toggleGameServerHide(2)" checked>
+					Dragalia Lost
+				</label>
+				<label class="optionName" for="e7">
+					<input type="checkbox" id="e7" onchange="toggleGameServerHide(3)" checked>
+					Epic Seven
+				</label>
+				<label class="optionName gameParent" for="fgoChildren">
+					<input type="checkbox" id="fgo" onchange="toggleGameParentHide(this)" checked>
+					Fate/Grand Order
+					<button id="fgoChildren" onclick="menuChildrenToggle(this)"></button>
+				</label>
+				<div class="gameChildren">
+					<label class="optionName" for="fgoJP">
+						<input type="checkbox" id="fgoJP" onchange="toggleGameServerHide(4, this)" checked>
+						JP
+					</label>
+					<label class="optionName" for="fgoNA">
+						<input type="checkbox" id="fgoNA" onchange="toggleGameServerHide(5, this)" checked>
+						NA
+					</label>
+				</div>
+				<label class="optionName" for="feh">
+					<input type="checkbox" id="feh" onchange="toggleGameServerHide(6)" checked>
+					Fire Emblem Heroes
+				</label>
+				<label class="optionName" for="gfl">
+					<input type="checkbox" id="gfl" onchange="toggleGameServerHide(7)" checked>
+					Girls Frontline
+				</label>
+				<label class="optionName" for="gbf">
+					<input type="checkbox" id="gbf" onchange="toggleGameServerHide(8)" checked>
+					Granblue Fantasy
+				</label>
+				<label class="optionName" for="kingsRaid">
+					<input type="checkbox" id="kingsRaid" onchange="toggleGameServerHide(9)" checked>
+					King's Raid
+				</label>
+				<label class="optionName" for="langrisser">
+					<input type="checkbox" id="langrisser" onchange="toggleGameServerHide(10)" checked>
+					Langrisser
+				</label>
+				<label class="optionName" for="revue">
+					<input type="checkbox" id="revue" onchange="toggleGameServerHide(11)" checked>
+					Revue Starlight Re LIVE
+				</label>
+				<label class="optionName" for="sdorica">
+					<input type="checkbox" id="sdorica" onchange="toggleGameServerHide(12)" checked>
+					Sdorica
+				</label>
+			</div>
 			<div class="menuSection">
 				<label class="optionName" for="12HrTimeSwitch">
 					12-hour time format

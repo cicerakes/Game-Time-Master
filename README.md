@@ -10,11 +10,11 @@ Then this is for you!
 - All calculations take daylight savings into account where applicable.
 - Choose between 24-hour and 12-hour time formats.
 - Search for specific games.
+- Filter specific games and save this setting per browser.
 
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature Roadmap
-- Filter specific games and save this setting per browser.
 - Add option to display dates as well.
 - Add an option to refresh and display every second.
 - Dark/night mode.
@@ -23,9 +23,9 @@ Feel free to request for more games to be added by creating an issue [here](http
 `moment.min.js` `moment-timezone-with-data-10-year-range.min.js`  
 Copyright © JS Foundation and other contributors.  
 Licensed under the MIT License.  
-For more details see here: https://github.com/moment/moment/blob/develop/LICENSE.
+For more details see [here](https://github.com/moment/moment/blob/develop/LICENSE).
 
 `moment-precise-range.js`  
 Copyright © 2014 Rob Dawson.  
 Licensed under the MIT License.  
-For more details see here: https://github.com/codebox/moment-precise-range/blob/master/LICENSE.md.
+For more details see [here](https://github.com/codebox/moment-precise-range/blob/master/LICENSE.md).
