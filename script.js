@@ -138,10 +138,13 @@ if (localStorage.getItem('gameFilterList') != null) {
 					y++;
 					for (let z = 0; z < serverCount; z++) {
 						gameLabel = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("label")[z];
-
-						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server && gameFilterSaved[i].shown == "false") {
-							gameLabel.getElementsByTagName("input")[0].checked = false;
-							toggleGameServerHide(containerPosition, gameLabel.getElementsByTagName("input")[0]);
+						
+						// Compare current child with saved filters to see if there's a match.
+						for (let a = 0; a < gameFilterSaved.length; a++) {
+							if (gameFilterSaved[a].game == gameFilter[containerPosition].game && gameFilterSaved[a].server == gameFilter[containerPosition].server && gameFilterSaved[a].shown == "false") {
+								gameLabel.getElementsByTagName("input")[0].checked = false;
+								toggleGameServerHide(containerPosition, gameLabel.getElementsByTagName("input")[0]);
+							}
 						}
 						containerPosition++;
 					}
