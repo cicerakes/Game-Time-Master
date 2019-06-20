@@ -24,6 +24,12 @@ var gameData = [
 		dailyReset: "10:00"
 	},
 	{
+		game: "Epic Seven",
+		server: "Korea",
+		timezone: "Asia/Seoul",
+		dailyReset: "03:00"
+	},
+	{
 		game: "Fate/Grand Order",
 		server: "JP",
 		timezone: "Asia/Tokyo",

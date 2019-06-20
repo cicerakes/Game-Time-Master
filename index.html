@@ -36,10 +36,21 @@
 					<input type="checkbox" id="dragalia" onchange="toggleGameServerHide(2)" checked>
 					Dragalia Lost
 				</label>
-				<label class="optionName" for="e7">
-					<input type="checkbox" id="e7" onchange="toggleGameServerHide(3)" checked>
+				<label class="optionName gameParent" for="e7Children">
+					<input type="checkbox" id="e7" onchange="toggleGameParentHide(this)" checked>
 					Epic Seven
+					<button id="e7Children" onclick="menuChildrenToggle(this)"></button>
 				</label>
+				<div class="gameChildren">
+					<label class="optionName" for="e7Global">
+						<input type="checkbox" id="e7Global" onchange="toggleGameServerHide(3, this)" checked>
+						Global
+					</label>
+					<label class="optionName" for="e7Korea">
+						<input type="checkbox" id="e7Korea" onchange="toggleGameServerHide(4, this)" checked>
+						Korea
+					</label>
+				</div>
 				<label class="optionName gameParent" for="fgoChildren">
 					<input type="checkbox" id="fgo" onchange="toggleGameParentHide(this)" checked>
 					Fate/Grand Order
@@ -47,40 +58,40 @@
 				</label>
 				<div class="gameChildren">
 					<label class="optionName" for="fgoJP">
-						<input type="checkbox" id="fgoJP" onchange="toggleGameServerHide(4, this)" checked>
+						<input type="checkbox" id="fgoJP" onchange="toggleGameServerHide(5, this)" checked>
 						JP
 					</label>
 					<label class="optionName" for="fgoNA">
-						<input type="checkbox" id="fgoNA" onchange="toggleGameServerHide(5, this)" checked>
+						<input type="checkbox" id="fgoNA" onchange="toggleGameServerHide(6, this)" checked>
 						NA
 					</label>
 				</div>
 				<label class="optionName" for="feh">
-					<input type="checkbox" id="feh" onchange="toggleGameServerHide(6)" checked>
+					<input type="checkbox" id="feh" onchange="toggleGameServerHide(7)" checked>
 					Fire Emblem Heroes
 				</label>
 				<label class="optionName" for="gfl">
-					<input type="checkbox" id="gfl" onchange="toggleGameServerHide(7)" checked>
+					<input type="checkbox" id="gfl" onchange="toggleGameServerHide(8)" checked>
 					Girls Frontline
 				</label>
 				<label class="optionName" for="gbf">
-					<input type="checkbox" id="gbf" onchange="toggleGameServerHide(8)" checked>
+					<input type="checkbox" id="gbf" onchange="toggleGameServerHide(9)" checked>
 					Granblue Fantasy
 				</label>
 				<label class="optionName" for="kingsRaid">
-					<input type="checkbox" id="kingsRaid" onchange="toggleGameServerHide(9)" checked>
+					<input type="checkbox" id="kingsRaid" onchange="toggleGameServerHide(10)" checked>
 					King's Raid
 				</label>
 				<label class="optionName" for="langrisser">
-					<input type="checkbox" id="langrisser" onchange="toggleGameServerHide(10)" checked>
+					<input type="checkbox" id="langrisser" onchange="toggleGameServerHide(11)" checked>
 					Langrisser
 				</label>
 				<label class="optionName" for="revue">
-					<input type="checkbox" id="revue" onchange="toggleGameServerHide(11)" checked>
+					<input type="checkbox" id="revue" onchange="toggleGameServerHide(12)" checked>
 					Revue Starlight Re LIVE
 				</label>
 				<label class="optionName" for="sdorica">
-					<input type="checkbox" id="sdorica" onchange="toggleGameServerHide(12)" checked>
+					<input type="checkbox" id="sdorica" onchange="toggleGameServerHide(13)" checked>
 					Sdorica
 				</label>
 			</div>
@@ -141,6 +152,21 @@
 			<div class="gameContainer">
 				<div class="gameHeader">
 					<h3>Dragalia Lost</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<h3>Epic Seven</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
