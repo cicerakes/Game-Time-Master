@@ -3,7 +3,7 @@ name: Game request
 about: Request to have a game or server added.
 title: Add info for [GAME_NAME] (SERVER/REGION)
 labels: Game request
-assignees: ''
+assignees: cicerakes
 
 ---
 

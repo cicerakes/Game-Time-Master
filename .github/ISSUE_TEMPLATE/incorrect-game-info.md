@@ -3,7 +3,7 @@ name: Incorrect game info
 about: Report a game having incorrect information.
 title: "[GAME_NAME] has incorrect data"
 labels: Game data correction
-assignees: ''
+assignees: cicerakes
 
 ---
 
