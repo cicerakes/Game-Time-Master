@@ -72,6 +72,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "OVERHIT",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Revue Starlight Re LIVE",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
