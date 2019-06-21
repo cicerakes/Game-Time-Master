@@ -245,6 +245,7 @@ header h1 {
 .gameHeader, .gameTimes {
 	display: table;
 	width: 100%;
+	min-height: 64px;
 }
 
 .gameHeader h3 {
@@ -257,7 +258,6 @@ header h1 {
 	text-align: right;
 	color: #555;
 	font-size: 18px;
-	vertical-align: middle;
 }
 
 .gameTimes p:nth-of-type(odd) {
