@@ -291,8 +291,10 @@ function searchFilter () {
 			// Hide.
 			gameCont.style.display = "none";
 		} else {
-			// Show.
-			gameCont.removeAttribute("style");
+			// Show, if game isn't filtered.
+			if (gameFilter[i].shown == "true") {
+				gameCont.removeAttribute("style");
+			}
 		}
 	}
 }
