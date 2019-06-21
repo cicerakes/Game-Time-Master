@@ -240,19 +240,23 @@ function timeCalc() {
 	for (let i = 0; i < gameData.length; i++) {
 		var gameTimezone = gameData[i].timezone, 
 		currentServerTime = now.clone().tz(gameTimezone);
-	
-		// Calculate time left until daily reset.
-		var sameDayReset = currentServerTime.to(gameData[i].dailyReset);
-		if (sameDayReset.includes("ago")) {
-			var timeRemaining = currentServerTime.preciseDiff(gameData[i].dailyReset.clone().add(1, "d"), true);
-		} else {
-			var timeRemaining = currentServerTime.preciseDiff(gameData[i].dailyReset, true);
-		}
-		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
-	
+
 		// Convert to local.
 		var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 	
+		// Calculate time left until daily reset.
+		var sameDayReset = now.preciseDiff(localResetTime, true);
+		if (sameDayReset.firstDateWasLater == true) {
+			if (sameDayReset.days == 1) {
+				var timeRemaining = now.preciseDiff(localResetTime.clone().add(2, "d"), true);
+			} else {
+				var timeRemaining = now.preciseDiff(localResetTime.clone().add(1, "d"), true);
+			}
+		} else {
+			var timeRemaining = now.preciseDiff(localResetTime, true);
+		}
+		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+
 		// Replace converted times.
 		gameDataConverted[i].dailyReset = localResetTime;
 		gameDataConverted[i].serverTime = currentServerTime;
