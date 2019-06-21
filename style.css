@@ -260,6 +260,18 @@ header h1 {
 	font-size: 18px;
 }
 
+.gameIcon {
+	display: table-cell;
+	width: 40px;
+	vertical-align: top;
+	padding-right: 6px;
+}
+
+.gameIcon img {
+	width: 35px;
+	border-radius: 5px;
+}
+
 .gameTimes p:nth-of-type(odd) {
 	font-weight: bold;
 }
