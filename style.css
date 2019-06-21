@@ -52,12 +52,13 @@ header h1 {
 }
 
 #menu {
-	height: 91%;
 	width: 15em;
 	display: block;
 	position: fixed;
 	margin-left: -16em;
-	padding: 4em 0 2em;
+	top: 65px;
+	bottom: 0;
+	padding: 0 0 1em;
 	background: #eee;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 	transition: .2s ease-in-out;
