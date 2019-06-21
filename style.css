@@ -52,7 +52,7 @@ header h1 {
 }
 
 #menu {
-	height: 90%;
+	height: 91%;
 	width: 15em;
 	display: block;
 	position: fixed;
@@ -75,6 +75,7 @@ header h1 {
 }
 
 #menu label {
+	max-height: 23px;
 	cursor: pointer;
 	user-select: none;
 }
@@ -109,57 +110,65 @@ header h1 {
 	cursor: pointer;
 	float: right;
 	transition: .2s;
+	z-index: 4;
+}
+
+.gameParent button + label {
+	position: absolute;
+	margin: -1.5em 0 0 1.1em !important;
+	width: 73%;
+	height: 23px;
+	z-index: 4;
 }
 
 #gameFilterSettings input {
 	margin-right: 5px;
-	visibility: hidden;
+	display: none;
 }
 
-#gameFilterSettings input::before {
+#gameFilterSettings input + .optionName::before {
 	content: "";
 	display: inline-block;
 	width: 16px;
 	height: 16px;
 	background: transparent;
 	position: relative;
+	top: 3px;
 	left: -3px;
-	bottom: 3px;
 	margin: 0 !important;
 	border-radius: 3px;
 	border: 1px solid #777;
 	transition: .2s;
 	cursor: pointer;
-	visibility: visible;
 }
 
-#gameFilterSettings input::after {
+#gameFilterSettings input + .optionName::after {
 	border-radius: 3px;
 	background: transparent;
 	color: #fff;
 	display: block;
 	position: relative;
-	top: -24px;
+	top: -18px;
 	font-size: 15px;
 	transition: .2s;
 	cursor: pointer;
 	visibility: hidden;
 }
 
-#gameFilterSettings input:checked::before, #gameFilterSettings input:indeterminate::before {
+#gameFilterSettings input:checked + .optionName::before, #gameFilterSettings input:indeterminate + .optionName::before {
 	background-color: #7e57c2;
 	border-color: #7e57c2;
 }
 
-#gameFilterSettings input:checked::after {
+#gameFilterSettings input:checked + .optionName::after {
 	content: "✓";
 	visibility: visible;
 }
 
-#gameFilterSettings input:indeterminate::after {
+#gameFilterSettings input:indeterminate + .optionName::after {
 	content: "—";
 	font-weight: bold;
-	top: -25px;
+	top: -20px;
 	visibility: visible;
 }
 

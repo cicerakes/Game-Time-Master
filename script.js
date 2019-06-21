@@ -117,42 +117,39 @@ if (localStorage.getItem('gameFilterList') != null) {
 			var skippedParent = false;
 			var containerPosition = 0;
 
-			for (let y = 0; y < document.getElementById("gameFilterSettings").childElementCount; y++, containerPosition++) {
+			for (let y = 1; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
 				var gameLabel = document.getElementById("gameFilterSettings").children[y];
 				var gameName = gameLabel.textContent.trim();
 
-				if (gameFilter[i].game == gameName && gameLabel.className.includes("gameParent")) {
+				if (gameLabel.className.includes("gameParent")) {
 					skippedParent = true;
 
 					for (let x = 0; x < gameFilter.length; x++) {
-						if (gameFilter[x].game == gameFilterSaved[i].game) {
+						if (gameFilter[x].game == gameData[containerPosition].game) {
 							serverCount++;
 						}
 					}
-				} else if (gameFilter[i].game == gameName) {
-					gameLabel.getElementsByTagName("input")[0].checked = false;
+				} else if (gameFilterSaved[i].game == gameName) {
+					gameLabel.previousElementSibling.checked = false;
 					toggleGameServerHide(containerPosition);
 				}
 				
+				// Look at next div for the children.
 				if (skippedParent) {
 					y++;
-					for (let z = 0; z < serverCount; z++) {
-						gameLabel = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("label")[z];
-						
-						// Compare current child with saved filters to see if there's a match.
-						for (let a = 0; a < gameFilterSaved.length; a++) {
-							if (gameFilterSaved[a].game == gameFilter[containerPosition].game && gameFilterSaved[a].server == gameFilter[containerPosition].server && gameFilterSaved[a].shown == "false") {
-								gameLabel.getElementsByTagName("input")[0].checked = false;
-								toggleGameServerHide(containerPosition, gameLabel.getElementsByTagName("input")[0]);
-							}
+					for (let z = 0; z < serverCount; z++, containerPosition++) {
+						childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
+
+						// Compare current child with server in saved filter to see if there's a match.
+						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
+							childInput.checked = false;
+							toggleGameServerHide(containerPosition, childInput);
 						}
-						containerPosition++;
 					}
 					containerPosition--;
 					skippedParent = false;
 					serverCount = 0;
 				}
-				
 			}
 		}
 	}
@@ -350,7 +347,7 @@ function getLocalStorageObject(ObjectName) {
 function menuChildrenToggle(dropArrow) {
 	var gameChild = dropArrow.parentElement.nextElementSibling;
 
-	if (gameChild.style.height == (gameChild.childElementCount * 41) + "px") {
+	if (gameChild.style.height == (gameChild.childElementCount * 20.5) + "px") {
 		// Close.
 		dropArrow.removeAttribute("style");
 		gameChild.removeAttribute("style");
@@ -358,7 +355,7 @@ function menuChildrenToggle(dropArrow) {
 		// Open.
 		dropArrow.style.transform = "rotate(225deg)";
 		dropArrow.style.top = "10px";
-		gameChild.style.height = (gameChild.childElementCount * 41) + "px";
+		gameChild.style.height = (gameChild.childElementCount * 20.5) + "px";
 	}
 }
 
@@ -370,8 +367,8 @@ function toggleGameServerHide(position, child) {
 
 		// Check if other children are hidden.
 		if (child != undefined) {
-			var parent = child.parentElement.parentElement.previousElementSibling.getElementsByTagName("input")[0];
-			var gameName = child.parentElement.parentElement.previousElementSibling.textContent.trim();
+			var parent = child.parentElement.previousElementSibling.previousElementSibling;
+			var gameName = parent.nextElementSibling.textContent.trim();
 			var allHidden = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
@@ -396,8 +393,8 @@ function toggleGameServerHide(position, child) {
 
 		// Check if other children are shown.
 		if (child != undefined) {
-			var parent = child.parentElement.parentElement.previousElementSibling.getElementsByTagName("input")[0];
-			var gameName = child.parentElement.parentElement.previousElementSibling.textContent.trim();
+			var parent = child.parentElement.previousElementSibling.previousElementSibling;
+			var gameName = parent.nextElementSibling.textContent.trim();
 			var allShown = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
@@ -421,9 +418,9 @@ function toggleGameServerHide(position, child) {
 }
 
 function toggleGameParentHide(gameSwitch) {
-	var gameName = gameSwitch.parentElement.textContent.trim();
+	var gameName = gameSwitch.nextElementSibling.textContent.trim();
 	var parentSwitchStatus = gameSwitch.checked;
-	var childrenHolder = gameSwitch.parentElement.nextElementSibling;
+	var childrenHolder = gameSwitch.nextElementSibling.nextElementSibling;
 	var serverCount = 0;
 
 	if (parentSwitchStatus == false) {
@@ -438,7 +435,7 @@ function toggleGameParentHide(gameSwitch) {
 		}
 		// Toggle switch off.
 		for (let i = 0; i < serverCount; i++) {
-			childrenHolder.getElementsByClassName("optionName")[i].getElementsByTagName("input")[0].checked = false;
+			childrenHolder.getElementsByTagName("input")[i].checked = false;
 		}
 		gameSwitch.checked = false;
 		gameSwitch.indeterminate = false;
@@ -454,7 +451,7 @@ function toggleGameParentHide(gameSwitch) {
 		}
 		// Toggle switch on.
 		for (let i = 0; i < serverCount; i++) {
-			childrenHolder.getElementsByClassName("optionName")[i].getElementsByTagName("input")[0].checked = true;
+			childrenHolder.getElementsByTagName("input")[i].checked = true;
 		}
 		gameSwitch.checked = true;
 	}

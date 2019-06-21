@@ -24,74 +24,76 @@
 		</header>
 		<div id="menu">
 			<div id="gameFilterSettings" class="menuSection">
+				<input type="checkbox" id="azurLane" onchange="toggleGameServerHide(0)" checked>
 				<label class="optionName" for="azurLane">
-					<input type="checkbox" id="azurLane" onchange="toggleGameServerHide(0)" checked>
 					Azur Lane
 				</label>
+				<input type="checkbox" id="brownDust" onchange="toggleGameServerHide(1)" checked>
 				<label class="optionName" for="brownDust">
-					<input type="checkbox" id="brownDust" onchange="toggleGameServerHide(1)" checked>
 					Brown Dust
 				</label>
+				<input type="checkbox" id="dragalia" onchange="toggleGameServerHide(2)" checked>
 				<label class="optionName" for="dragalia">
-					<input type="checkbox" id="dragalia" onchange="toggleGameServerHide(2)" checked>
 					Dragalia Lost
 				</label>
-				<label class="optionName gameParent" for="e7Children">
-					<input type="checkbox" id="e7" onchange="toggleGameParentHide(this)" checked>
+				<input type="checkbox" id="e7" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="e7">
 					Epic Seven
 					<button id="e7Children" onclick="menuChildrenToggle(this)"></button>
+					<label class="" for="e7Children"></label>
 				</label>
 				<div class="gameChildren">
+					<input type="checkbox" id="e7Global" onchange="toggleGameServerHide(3, this)" checked>
 					<label class="optionName" for="e7Global">
-						<input type="checkbox" id="e7Global" onchange="toggleGameServerHide(3, this)" checked>
 						Global
 					</label>
+					<input type="checkbox" id="e7Korea" onchange="toggleGameServerHide(4, this)" checked>
 					<label class="optionName" for="e7Korea">
-						<input type="checkbox" id="e7Korea" onchange="toggleGameServerHide(4, this)" checked>
 						Korea
 					</label>
 				</div>
-				<label class="optionName gameParent" for="fgoChildren">
-					<input type="checkbox" id="fgo" onchange="toggleGameParentHide(this)" checked>
+				<input type="checkbox" id="fgo" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="fgo">
 					Fate/Grand Order
 					<button id="fgoChildren" onclick="menuChildrenToggle(this)"></button>
+					<label class="" for="fgoChildren"></label>
 				</label>
 				<div class="gameChildren">
+					<input type="checkbox" id="fgoJP" onchange="toggleGameServerHide(5, this)" checked>
 					<label class="optionName" for="fgoJP">
-						<input type="checkbox" id="fgoJP" onchange="toggleGameServerHide(5, this)" checked>
 						JP
 					</label>
+					<input type="checkbox" id="fgoNA" onchange="toggleGameServerHide(6, this)" checked>
 					<label class="optionName" for="fgoNA">
-						<input type="checkbox" id="fgoNA" onchange="toggleGameServerHide(6, this)" checked>
 						NA
 					</label>
 				</div>
+				<input type="checkbox" id="feh" onchange="toggleGameServerHide(7)" checked>
 				<label class="optionName" for="feh">
-					<input type="checkbox" id="feh" onchange="toggleGameServerHide(7)" checked>
 					Fire Emblem Heroes
 				</label>
+				<input type="checkbox" id="gfl" onchange="toggleGameServerHide(8)" checked>
 				<label class="optionName" for="gfl">
-					<input type="checkbox" id="gfl" onchange="toggleGameServerHide(8)" checked>
 					Girls Frontline
 				</label>
+				<input type="checkbox" id="gbf" onchange="toggleGameServerHide(9)" checked>
 				<label class="optionName" for="gbf">
-					<input type="checkbox" id="gbf" onchange="toggleGameServerHide(9)" checked>
 					Granblue Fantasy
 				</label>
+				<input type="checkbox" id="kingsRaid" onchange="toggleGameServerHide(10)" checked>
 				<label class="optionName" for="kingsRaid">
-					<input type="checkbox" id="kingsRaid" onchange="toggleGameServerHide(10)" checked>
 					King's Raid
 				</label>
+				<input type="checkbox" id="langrisser" onchange="toggleGameServerHide(11)" checked>
 				<label class="optionName" for="langrisser">
-					<input type="checkbox" id="langrisser" onchange="toggleGameServerHide(11)" checked>
 					Langrisser
 				</label>
+				<input type="checkbox" id="revue" onchange="toggleGameServerHide(12)" checked>
 				<label class="optionName" for="revue">
-					<input type="checkbox" id="revue" onchange="toggleGameServerHide(12)" checked>
 					Revue Starlight Re LIVE
 				</label>
+				<input type="checkbox" id="sdorica" onchange="toggleGameServerHide(13)" checked>
 				<label class="optionName" for="sdorica">
-					<input type="checkbox" id="sdorica" onchange="toggleGameServerHide(13)" checked>
 					Sdorica
 				</label>
 			</div>
