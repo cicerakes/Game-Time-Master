@@ -51,7 +51,7 @@ var gameData = [
 		game: "Girls Frontline",
 		server: "EN",
 		timezone: "Pacific/Pitcairn",
-		dailyReset: "05:00"
+		dailyReset: "00:00"
 	},
 	{
 		game: "Granblue Fantasy",
