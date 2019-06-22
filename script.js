@@ -78,6 +78,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Idle Heroes",
+		server: "Global",
+		timezone: "America/Danmarkshavn",
+		dailyReset: "00:00"
+	},
+	{
 		game: "King's Raid",
 		server: "America",
 		timezone: "America/New_York",
