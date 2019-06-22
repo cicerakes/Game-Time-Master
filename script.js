@@ -27,7 +27,7 @@ var gameData = [
 		game: "Dragalia Lost",
 		server: "Global",
 		timezone: "America/Danmarkshavn",
-		dailyReset: "06:00"
+		dailyReset: "07:00"
 	},
 	{
 		game: "Epic Seven",
@@ -63,7 +63,7 @@ var gameData = [
 		game: "Fire Emblem Heroes",
 		server: "Global",
 		timezone: "America/Danmarkshavn",
-		dailyReset: "06:00"
+		dailyReset: "07:00"
 	},
 	{
 		game: "Girls Frontline",
