@@ -1,5 +1,11 @@
 var gameData = [
 	{
+		game: "AFK Arena",
+		server: "Global",
+		timezone: "America/Danmarkshavn",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Azur Lane",
 		server: "English",
 		timezone: "America/Los_Angeles",
