@@ -94,6 +94,12 @@ var gameData = [
 		server: "Global",
 		timezone: "America/Danmarkshavn",
 		dailyReset: "21:00"
+	},
+	{
+		game: "Toram Online",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
 	}
 ];
 
