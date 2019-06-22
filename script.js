@@ -125,13 +125,13 @@ if (localStorage.getItem('gameFilterList') != null) {
 
 	for (let i = 0; i < gameFilterSaved.length; i++) {
 		if (gameFilterSaved[i].shown == "false") {
-			var serverCount = 0;
-			var skippedParent = false;
-			var containerPosition = 0;
+			var serverCount = 0, 
+			skippedParent = false, 
+			containerPosition = 0;
 
 			for (let y = 1; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
-				var gameLabel = document.getElementById("gameFilterSettings").children[y];
-				var gameName = gameLabel.textContent.trim();
+				var gameLabel = document.getElementById("gameFilterSettings").children[y], 
+				gameName = gameLabel.textContent.trim();
 
 				if (gameLabel.className.includes("gameParent")) {
 					skippedParent = true;
@@ -145,7 +145,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 					gameLabel.previousElementSibling.checked = false;
 					toggleGameServerHide(containerPosition);
 				}
-				
+
 				// Look at next div for the children.
 				if (skippedParent) {
 					y++;
@@ -187,6 +187,7 @@ for (let i = 0; i < gameData.length; i++) {
 	// Calculate time left until daily reset.
 	var sameDayReset = now.preciseDiff(localResetTime, true);
 	if (sameDayReset.firstDateWasLater == true) {
+		// Add 1 extra day if reset time is yesterday; Add 2 if yesterday midnight.
 		if (sameDayReset.days == 1) {
 			var timeRemaining = now.preciseDiff(localResetTime.clone().add(2, "d"), true);
 		} else {
@@ -243,10 +244,11 @@ function timeCalc() {
 
 		// Convert to local.
 		var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
-	
+
 		// Calculate time left until daily reset.
 		var sameDayReset = now.preciseDiff(localResetTime, true);
 		if (sameDayReset.firstDateWasLater == true) {
+			// Add 1 extra day if reset time is yesterday; Add 2 if yesterday midnight.
 			if (sameDayReset.days == 1) {
 				var timeRemaining = now.preciseDiff(localResetTime.clone().add(2, "d"), true);
 			} else {
@@ -389,9 +391,9 @@ function toggleGameServerHide(position, child) {
 
 		// Check if other children are hidden.
 		if (child != undefined) {
-			var parent = child.parentElement.previousElementSibling.previousElementSibling;
-			var gameName = parent.nextElementSibling.textContent.trim();
-			var allHidden = true;
+			var parent = child.parentElement.previousElementSibling.previousElementSibling, 
+			gameName = parent.nextElementSibling.textContent.trim(), 
+			allHidden = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
 				if (gameFilter[i].game == gameName) {
@@ -400,7 +402,7 @@ function toggleGameServerHide(position, child) {
 					}
 				}
 			}
-			if (allHidden ==  true) {
+			if (allHidden == true) {
 				parent.checked = false;
 				parent.indeterminate = false;
 			} else {
@@ -415,9 +417,9 @@ function toggleGameServerHide(position, child) {
 
 		// Check if other children are shown.
 		if (child != undefined) {
-			var parent = child.parentElement.previousElementSibling.previousElementSibling;
-			var gameName = parent.nextElementSibling.textContent.trim();
-			var allShown = true;
+			var parent = child.parentElement.previousElementSibling.previousElementSibling, 
+			gameName = parent.nextElementSibling.textContent.trim(), 
+			allShown = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
 				if (gameFilter[i].game == gameName) {
@@ -426,7 +428,7 @@ function toggleGameServerHide(position, child) {
 					}
 				}
 			}
-			if (allShown ==  true) {
+			if (allShown == true) {
 				parent.checked = true;
 				parent.indeterminate = false;
 			} else {
@@ -440,10 +442,10 @@ function toggleGameServerHide(position, child) {
 }
 
 function toggleGameParentHide(gameSwitch) {
-	var gameName = gameSwitch.nextElementSibling.textContent.trim();
-	var parentSwitchStatus = gameSwitch.checked;
-	var childrenHolder = gameSwitch.nextElementSibling.nextElementSibling;
-	var serverCount = 0;
+	var gameName = gameSwitch.nextElementSibling.textContent.trim(), 
+	parentSwitchStatus = gameSwitch.checked, 
+	childrenHolder = gameSwitch.nextElementSibling.nextElementSibling, 
+	serverCount = 0;
 
 	if (parentSwitchStatus == false) {
 		// Hide servers.
