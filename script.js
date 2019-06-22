@@ -19,6 +19,12 @@ var gameData = [
 	},
 	{
 		game: "Epic Seven",
+		server: "Europe",
+		timezone: "Europe/Paris",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Epic Seven",
 		server: "Global",
 		timezone: "America/Danmarkshavn",
 		dailyReset: "10:00"
