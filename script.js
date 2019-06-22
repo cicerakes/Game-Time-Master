@@ -161,7 +161,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 
 			for (let y = 1; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
 				var gameLabel = document.getElementById("gameFilterSettings").children[y], 
-				gameName = gameLabel.textContent.trim();
+				gameName = gameData[containerPosition].game;
 
 				if (gameLabel.className.includes("gameParent")) {
 					skippedParent = true;
@@ -422,7 +422,7 @@ function toggleGameServerHide(position, child) {
 		// Check if other children are hidden.
 		if (child != undefined) {
 			var parent = child.parentElement.previousElementSibling.previousElementSibling, 
-			gameName = parent.nextElementSibling.textContent.trim(), 
+			gameName = gameData[position].game, 
 			allHidden = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
@@ -448,7 +448,7 @@ function toggleGameServerHide(position, child) {
 		// Check if other children are shown.
 		if (child != undefined) {
 			var parent = child.parentElement.previousElementSibling.previousElementSibling, 
-			gameName = parent.nextElementSibling.textContent.trim(), 
+			gameName = gameData[position].game, 
 			allShown = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
