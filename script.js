@@ -142,6 +142,12 @@ var gameData = [
 		server: "Global",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
+	},
+	{
+		game: "Valkyrie Anatomia: The Origin",
+		server: "Global",
+		timezone: "Brazil/West",
+		dailyReset: "11:00"
 	}
 ];
 
