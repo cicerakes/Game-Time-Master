@@ -120,6 +120,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Tokyo Afterschool Summoners",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Toram Online",
 		server: "Global",
 		timezone: "Asia/Tokyo",
