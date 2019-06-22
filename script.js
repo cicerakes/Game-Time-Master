@@ -84,6 +84,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Looney Tunes World of Mayhem",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "18:00"
+	},
+	{
 		game: "OVERHIT",
 		server: "Global",
 		timezone: "Asia/Seoul",
