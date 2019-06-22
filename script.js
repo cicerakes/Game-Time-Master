@@ -108,6 +108,12 @@ var gameData = [
 		dailyReset: "21:00"
 	},
 	{
+		game: "SHIN MEGAMI TENSEI Liberation Dx2",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "18:00"
+	},
+	{
 		game: "Toram Online",
 		server: "Global",
 		timezone: "Asia/Tokyo",
