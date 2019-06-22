@@ -12,6 +12,12 @@ var gameData = [
 		dailyReset: "20:00"
 	},
 	{
+		game: "Destiny Child",
+		server: "Global",
+		timezone: "America/Danmarkshavn",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Dragalia Lost",
 		server: "Global",
 		timezone: "America/Danmarkshavn",
