@@ -12,6 +12,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Boku no Hero Academia: Smash Rising",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Brown Dust",
 		server: "Global & Europe",
 		timezone: "America/Danmarkshavn",
