@@ -108,6 +108,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Magia Record",
+		server: "NA",
+		timezone: "America/Los_Angeles",
+		dailyReset: "01:00"
+	},
+	{
 		game: "OVERHIT",
 		server: "Global",
 		timezone: "Asia/Seoul",
