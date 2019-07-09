@@ -51,6 +51,13 @@ header h1 {
 	background: rgba(77,43,144,.5);
 }
 
+#outsideMenu {
+	width: 0;
+	height: 0;
+	position: fixed;
+	z-index: 1;
+}
+
 #menu {
 	width: 15em;
 	display: block;

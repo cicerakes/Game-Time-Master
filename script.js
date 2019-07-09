@@ -360,17 +360,24 @@ function timeCalc() {
 	}
 }
 
-function toggleMenu(button) {
+function toggleMenu() {
+	var menuButton = document.getElementById("mainMenuButt");
+
 	if (document.getElementById("menu").style.marginLeft == "0px") {
 		// Close.
 		document.getElementById("menu").removeAttribute("style");
 
-		button.textContent = "☰";
+		menuButton.textContent = "☰";
+
+		document.getElementById("outsideMenu").removeAttribute("style");
 	} else {
 		// Open.
 		document.getElementById("menu").style.marginLeft = "0px";
 
-		button.textContent = "✖";
+		menuButton.textContent = "✖";
+
+		document.getElementById("outsideMenu").style.width = "100%";
+		document.getElementById("outsideMenu").style.height = "100%";
 	}
 }
 
