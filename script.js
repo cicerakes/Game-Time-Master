@@ -6,6 +6,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Astral Chronicles",
+		server: "Global",
+		timezone: "Asia/Singapore",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Azur Lane",
 		server: "English",
 		timezone: "America/Los_Angeles",
