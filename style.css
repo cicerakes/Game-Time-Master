@@ -427,6 +427,22 @@ input:checked + .slider:before {
 	color: #eee;
 }
 
+.dark #menu {
+	background: #242424;
+}
+
+.dark #menu a, .dark #menu p, .dark #menu label {
+	color: #eee;
+}
+
+.dark .gameParent button {
+	border-color: #686868;
+}
+
+.dark .menuSection {
+	border-color: #404040;
+}
+
 .dark .gameContainer {
 	background: #1d1d1d;
 }
