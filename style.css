@@ -412,3 +412,16 @@ input:checked + .slider:before {
 		font-size: 1em;
 	}
 }
+
+.dark {
+	background: #111;
+	color: #eee;
+}
+
+.dark .gameContainer {
+	background: #1b1b1b;
+}
+
+.dark .gameHeader h4 {
+	color: #aaa;
+}
