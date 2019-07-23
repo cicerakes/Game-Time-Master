@@ -418,6 +418,10 @@ input:checked + .slider:before {
 	color: #eee;
 }
 
+.dark header {
+	background: #322646;
+}
+
 .dark .gameContainer {
 	background: #1b1b1b;
 }
