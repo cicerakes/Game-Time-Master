@@ -428,7 +428,7 @@ input:checked + .slider:before {
 }
 
 .dark .gameContainer {
-	background: #1b1b1b;
+	background: #1d1d1d;
 }
 
 .dark .gameHeader h4 {
