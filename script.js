@@ -196,6 +196,10 @@ if (localStorage.getItem('12HrTimeSwitch') == "true") {
 
 	document.getElementById("12HrTimeSwitch").checked = true;
 }
+if (localStorage.getItem('darkThemeSwitch') == "true") {
+	document.body.classList.add("dark");
+	document.getElementById("darkThemeSwitch").checked = true;
+}
 
 // Hide game containers.
 if (localStorage.getItem('gameFilterList') != null) {
@@ -417,6 +421,12 @@ function settingToggle(setting) {
 			timeFormat = "HH:mm";
 		}
 		timeCalc();
+	} else if (settingId == "darkThemeSwitch") {
+		if (setting.checked) {
+			document.body.classList.add("dark");
+		} else {
+			document.body.classList.remove("dark");
+		}
 	}
 }
 
