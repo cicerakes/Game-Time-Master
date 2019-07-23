@@ -422,6 +422,11 @@ input:checked + .slider:before {
 	background: #322646;
 }
 
+.dark #filterSearchBox {
+	background: #2c2c2c;
+	color: #eee;
+}
+
 .dark .gameContainer {
 	background: #1b1b1b;
 }
