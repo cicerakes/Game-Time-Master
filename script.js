@@ -227,7 +227,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 					}
 				} else if (gameFilterSaved[i].game == gameName) {
 					gameLabel.previousElementSibling.checked = false;
-					toggleGameServerHide(containerPosition);
+					toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition]);
 				}
 
 				// Look at next div for the children.
@@ -239,7 +239,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 						// Compare current child with server in saved filter to see if there's a match.
 						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
 							childInput.checked = false;
-							toggleGameServerHide(containerPosition, childInput);
+							toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition], true);
 						}
 					}
 					containerPosition--;
@@ -474,15 +474,22 @@ function menuChildrenToggle(dropArrow) {
 	}
 }
 
-function toggleGameServerHide(position, child) {
+function toggleGameServerHide(toggle, child) {
+	// Find the server's position in gameData.
+	for (var position = 0; position < gameData.length; position++) {
+		if (document.getElementsByClassName("gameServerToggle")[position] == toggle) {
+			break;
+		}
+	}
+
 	if (gameFilter[position].shown == "true") {
 		// Hide.
 		gameFilter[position].shown = "false";
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].style.display = "none";
 
 		// Check if other children are hidden.
-		if (child != undefined) {
-			var parent = child.parentElement.previousElementSibling.previousElementSibling, 
+		if (child == true) {
+			var parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
 			gameName = gameData[position].game, 
 			allHidden = true;
 
@@ -507,8 +514,8 @@ function toggleGameServerHide(position, child) {
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].removeAttribute("style");
 
 		// Check if other children are shown.
-		if (child != undefined) {
-			var parent = child.parentElement.previousElementSibling.previousElementSibling, 
+		if (child == true) {
+			var parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
 			gameName = gameData[position].game, 
 			allShown = true;
 
