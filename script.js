@@ -234,7 +234,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 				if (skippedParent) {
 					y++;
 					for (let z = 0; z < serverCount; z++, containerPosition++) {
-						childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
+						var childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
 
 						// Compare current child with server in saved filter to see if there's a match.
 						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
