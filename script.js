@@ -44,8 +44,8 @@ var gameData = [
 	{
 		game: "Elune",
 		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "17:00"
+		timezone: "America/Danmarkshavn",
+		dailyReset: "00:00"
 	},
 	{
 		game: "Epic Seven",
