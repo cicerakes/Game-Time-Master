@@ -13,13 +13,13 @@ Then this is for you!
 - Choose between 24-hour and 12-hour time formats.
 - Search for specific games.
 - Filter specific games and save this setting per browser.
+- Dark/night mode.
 
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature Roadmap
 - Add option to display dates as well.
 - Add an option to refresh and display every second.
-- Dark/night mode.
 
 ## External Scripts
 `moment.min.js` `moment-timezone-with-data-10-year-range.min.js`  
