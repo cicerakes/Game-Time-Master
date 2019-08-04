@@ -412,3 +412,61 @@ input:checked + .slider:before {
 		font-size: 1em;
 	}
 }
+
+.dark {
+	background: #111;
+	color: #eee;
+}
+
+.dark ::-webkit-scrollbar, .dark::-webkit-scrollbar {
+	background: #1d1d1d;
+}
+
+.dark ::-webkit-scrollbar-track, .dark::-webkit-scrollbar-track {
+	background: #1d1d1d;
+}
+
+.dark ::-webkit-scrollbar-thumb, .dark::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.07);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover, .dark::-webkit-scrollbar-thumb:hover {
+	background:rgba(255,255,255,0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb:active, .dark::-webkit-scrollbar-thumb:active {
+	background:rgba(126,86,193,0.3);
+}
+
+.dark header {
+	background: #322646;
+}
+
+.dark #filterSearchBox {
+	background: #2c2c2c;
+	color: #eee;
+}
+
+.dark #menu {
+	background: #242424;
+}
+
+.dark #menu a, .dark #menu p, .dark #menu label {
+	color: #eee;
+}
+
+.dark .gameParent button {
+	border-color: #686868;
+}
+
+.dark .menuSection {
+	border-color: #404040;
+}
+
+.dark .gameContainer {
+	background: #1d1d1d;
+}
+
+.dark .gameHeader h4 {
+	color: #aaa;
+}
