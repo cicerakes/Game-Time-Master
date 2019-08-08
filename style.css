@@ -281,6 +281,11 @@ header h1 {
 
 .gameTimes p:nth-of-type(odd) {
 	font-weight: bold;
+	margin-block-end: 5px;
+}
+
+.gameTimes p:nth-of-type(even) {
+	margin-block-start: 5px;
 }
 
 .gameTimes div {
