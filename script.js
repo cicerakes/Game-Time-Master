@@ -2,7 +2,7 @@ var gameData = [
 	{
 		game: "AFK Arena",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "00:00"
 	},
 	{
@@ -26,25 +26,25 @@ var gameData = [
 	{
 		game: "Brown Dust",
 		server: "Global & Europe",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "20:00"
 	},
 	{
 		game: "Destiny Child",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "04:00"
 	},
 	{
 		game: "Dragalia Lost",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "07:00"
 	},
 	{
 		game: "Elune",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "00:00"
 	},
 	{
@@ -56,7 +56,7 @@ var gameData = [
 	{
 		game: "Epic Seven",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "10:00"
 	},
 	{
@@ -80,7 +80,7 @@ var gameData = [
 	{
 		game: "Fire Emblem Heroes",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "07:00"
 	},
 	{
@@ -98,7 +98,7 @@ var gameData = [
 	{
 		game: "Idle Heroes",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "00:00"
 	},
 	{
@@ -146,7 +146,7 @@ var gameData = [
 	{
 		game: "Sdorica",
 		server: "Global",
-		timezone: "America/Danmarkshavn",
+		timezone: "Etc/UTC",
 		dailyReset: "21:00"
 	},
 	{
@@ -309,9 +309,6 @@ for (let i = 0; i < gameData.length; i++) {
 	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z") + "</p>");
-	} else if (gameData[i].timezone == "America/Danmarkshavn") {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC</p>");
 	} else {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat + " z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
@@ -366,9 +363,6 @@ function timeCalc() {
 		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
 			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z");
-		} else if (gameData[i].timezone == "America/Danmarkshavn") {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC";
-			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC";
 		} else {
 			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat + " z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
