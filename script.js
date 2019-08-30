@@ -398,13 +398,16 @@ function toggleMenu() {
 }
 
 function searchFilter () {
-	var searchTerm = document.getElementById("filterSearchBox").value;
+	// Convert search term to uppercase and remove accent marks.
+	var searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 
 	for (let i = 0; i < gameData.length; i++) {
+		// Find game name for each container, convert to uppercase, and remove accent marks.
 		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
-		gameHead = gameCont.getElementsByClassName("gameHeader")[0];
+		gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
+		gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 
-		if (!gameHead.getElementsByTagName("h3")[0].textContent.toUpperCase().includes(searchTerm.toUpperCase())) {
+		if (!gameName.includes(searchTerm)) {
 			// Hide.
 			gameCont.style.display = "none";
 		} else {
