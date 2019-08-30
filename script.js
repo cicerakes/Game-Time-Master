@@ -132,6 +132,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Pokemon Masters",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "06:00"
+	},
+	{
 		game: "Revue Starlight Re LIVE",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
