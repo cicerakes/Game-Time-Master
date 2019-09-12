@@ -145,6 +145,12 @@ var gameData = [
 	},
 	{
 		game: "Saint Seiya: Awakening",
+		server: "Global",
+		timezone: "Etc/GMT+4",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Saint Seiya: Awakening",
 		server: "SEA",
 		timezone: "Asia/Jakarta",
 		dailyReset: "05:00"
