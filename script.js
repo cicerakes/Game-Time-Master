@@ -186,6 +186,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Tokyo NECRO: SUICIDE MISSION",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Toram Online",
 		server: "Global",
 		timezone: "Asia/Tokyo",
