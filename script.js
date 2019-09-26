@@ -84,6 +84,12 @@ var gameData = [
 		dailyReset: "21:00"
 	},
 	{
+		game: "Final Gear",
+		server: "CN",
+		timezone: "Asia/Shanghai",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Fire Emblem Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
