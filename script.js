@@ -30,6 +30,12 @@ var gameData = [
 		dailyReset: "20:00"
 	},
 	{
+		game: "CIRCLET PRINCESS",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Destiny Child",
 		server: "Global",
 		timezone: "Etc/UTC",
