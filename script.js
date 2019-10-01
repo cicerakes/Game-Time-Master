@@ -138,6 +138,12 @@ var gameData = [
 		dailyReset: "01:00"
 	},
 	{
+		game: "Oshiro Project:RE Castle Defense",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "OVERHIT",
 		server: "Global",
 		timezone: "Asia/Seoul",
