@@ -213,7 +213,7 @@ var gameData = [
 		game: "UNITIA: Shintaku no Shito x Shuuen no Megami",
 		server: "JP",
 		timezone: "Asia/Tokyo",
-		dailyReset: "07:00"
+		dailyReset: "06:00"
 	},
 	{
 		game: "Valkyrie Anatomia: The Origin",
