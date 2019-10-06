@@ -317,8 +317,12 @@ for (let i = 0; i < gameData.length; i++) {
 	// Change local reset time to tomorrow if it has already passed.
 	var todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
 	if (todayResetPassed) {
-		// Add 24 hours, not 1 day, to fix local daylight savings not applying.
-		localResetTime.add(24, "h");
+		if (gameData[i].dailyReset.hours() == 0) {
+			// Add 48 hours to fix midnight reset using previous day.
+			localResetTime.add(48, "h");
+		} else {
+			localResetTime.add(24, "h");
+		}
 	}
 
 	// Calculate time left until daily reset.
@@ -372,8 +376,12 @@ function timeCalc() {
 		// Change local reset time to tomorrow if it has already passed.
 		var todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
 		if (todayResetPassed) {
-			// Add 24 hours, not 1 day, to fix local daylight savings not applying.
-			localResetTime.add(24, "h");
+			if (gameData[i].dailyReset.hours() == 0) {
+				// Add 48 hours to fix midnight reset using previous day.
+				localResetTime.add(48, "h");
+			} else {
+				localResetTime.add(24, "h");
+			}
 		}
 
 		// Calculate time left until daily reset.
