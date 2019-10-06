@@ -314,18 +314,15 @@ for (let i = 0; i < gameData.length; i++) {
 	// Convert to local.
 	var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
-	// Calculate time left until daily reset.
-	var sameDayReset = now.preciseDiff(localResetTime, true);
-	if (sameDayReset.firstDateWasLater == true) {
-		// Add 1 extra day if reset time is yesterday; Add 2 if yesterday midnight.
-		if (sameDayReset.days == 1) {
-			var timeRemaining = now.preciseDiff(localResetTime.clone().add(2, "d"), true);
-		} else {
-			var timeRemaining = now.preciseDiff(localResetTime.clone().add(1, "d"), true);
-		}
-	} else {
-		var timeRemaining = now.preciseDiff(localResetTime, true);
+	// Change local reset time to tomorrow if it has already passed.
+	var todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
+	if (todayResetPassed) {
+		// Add 24 hours, not 1 day, to fix local daylight savings not applying.
+		localResetTime.add(24, "h");
 	}
+
+	// Calculate time left until daily reset.
+	var timeRemaining = now.preciseDiff(localResetTime, true);
 	timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
 
 	// Store.
@@ -372,18 +369,15 @@ function timeCalc() {
 		// Convert to local.
 		var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
-		// Calculate time left until daily reset.
-		var sameDayReset = now.preciseDiff(localResetTime, true);
-		if (sameDayReset.firstDateWasLater == true) {
-			// Add 1 extra day if reset time is yesterday; Add 2 if yesterday midnight.
-			if (sameDayReset.days == 1) {
-				var timeRemaining = now.preciseDiff(localResetTime.clone().add(2, "d"), true);
-			} else {
-				var timeRemaining = now.preciseDiff(localResetTime.clone().add(1, "d"), true);
-			}
-		} else {
-			var timeRemaining = now.preciseDiff(localResetTime, true);
+		// Change local reset time to tomorrow if it has already passed.
+		var todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
+		if (todayResetPassed) {
+			// Add 24 hours, not 1 day, to fix local daylight savings not applying.
+			localResetTime.add(24, "h");
 		}
+
+		// Calculate time left until daily reset.
+		var timeRemaining = now.preciseDiff(localResetTime, true);
 		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
 
 		// Replace converted times.
