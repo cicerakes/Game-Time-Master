@@ -42,6 +42,12 @@ var gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "DISSIDIA FINAL FANTASY OPERA OMNIA",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "08:00"
+	},
+	{
 		game: "Dragalia Lost",
 		server: "Global",
 		timezone: "Etc/UTC",
