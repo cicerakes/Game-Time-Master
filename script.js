@@ -132,6 +132,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "LAST CLOUDIA",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Looney Tunes World of Mayhem",
 		server: "Global",
 		timezone: "America/Los_Angeles",
