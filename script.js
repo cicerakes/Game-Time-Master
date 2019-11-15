@@ -42,6 +42,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Dengeki Bunko: Crossing Void",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "12:00"
+	},
+	{
 		game: "Destiny Child",
 		server: "Global",
 		timezone: "Etc/UTC",
