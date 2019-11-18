@@ -66,6 +66,12 @@ var gameData = [
 		dailyReset: "07:00"
 	},
 	{
+		game: "Dream Eater",
+		server: "Taiwan",
+		timezone: "Asia/Taipei",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Elune",
 		server: "Global",
 		timezone: "Etc/UTC",
