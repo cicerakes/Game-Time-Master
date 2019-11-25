@@ -168,6 +168,12 @@ var gameData = [
 		dailyReset: "01:00"
 	},
 	{
+		game: "Millennium War Aigis",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Oshiro Project:RE Castle Defense",
 		server: "JP",
 		timezone: "Asia/Tokyo",
