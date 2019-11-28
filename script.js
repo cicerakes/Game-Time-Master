@@ -256,7 +256,13 @@ var gameData = [
 		server: "Global",
 		timezone: "Brazil/West",
 		dailyReset: "11:00"
-	}
+	},
+	{
+		game: "World Flipper",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
 ];
 
 // Initialise list of filtered/hidden games using gameData.
