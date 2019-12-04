@@ -192,6 +192,12 @@ var gameData = [
 		dailyReset: "06:00"
 	},
 	{
+		game: "Princess Connect! Re:Dive",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Revue Starlight Re LIVE",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
@@ -262,7 +268,7 @@ var gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
-	},
+	}
 ];
 
 // Initialise list of filtered/hidden games using gameData.
