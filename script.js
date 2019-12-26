@@ -132,6 +132,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Honkai Impact 3rd",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Idle Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
