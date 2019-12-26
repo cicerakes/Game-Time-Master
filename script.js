@@ -120,7 +120,7 @@ var gameData = [
 		dailyReset: "07:00"
 	},
 	{
-		game: "Girls Frontline",
+		game: "Girls' Frontline",
 		server: "EN",
 		timezone: "Etc/GMT-8",
 		dailyReset: "00:00"
