@@ -133,8 +133,14 @@ var gameData = [
 	},
 	{
 		game: "Honkai Impact 3rd",
-		server: "Global",
-		timezone: "Etc/GMT-8",
+		server: "Americas",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Honkai Impact 3rd",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
 		dailyReset: "04:00"
 	},
 	{
