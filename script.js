@@ -6,6 +6,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Arknights",
+		server: "EN",
+		timezone: "Etc/GMT+7",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Ash Arms",
 		server: "JP",
 		timezone: "Asia/Tokyo",
