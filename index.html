@@ -10,7 +10,7 @@
 		<meta name="description" content="Automatically convert mobile game server times to your local time zone.">
 
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600|Source+Sans+Pro:400,600&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Source+Sans+Pro:400,600&display=swap">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
 		<link rel="stylesheet" href="style.css">
 
@@ -28,6 +28,7 @@
 		<div id="outsideMenu" onclick="toggleMenu()"></div>
 		<div id="menu">
 			<div id="gameFilterSettings" class="menuSection">
+				<h2 class="sectionHeading">Games</h2>
 				<input type="checkbox" id="afkArena" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="afkArena">
 					AFK Arena
@@ -258,6 +259,7 @@
 				</label>
 			</div>
 			<div class="menuSection">
+				<h2 class="sectionHeading">Settings</h2>
 				<label class="optionName" for="12HrTimeSwitch">
 					12-hour time format
 					<label class="switch">
@@ -274,6 +276,7 @@
 				</label>
 			</div>
 			<div class="menuSection">
+				<h2 class="sectionHeading">Feedback</h2>
 				<a href="https://github.com/cicerakes/Game-Time-Master/issues/new?assignees=&labels=Game+request&template=game-request.md&title=Add+info+for+[GAME_NAME]+(SERVER%2FREGION)">Request a game</a>
 				<a href="https://github.com/cicerakes/Game-Time-Master/issues/new?assignees=&labels=Game+data+correction&template=incorrect-game-info.md&title=[GAME_NAME]+has+incorrect+data">Report incorrect times</a>
 			</div>

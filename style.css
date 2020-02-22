@@ -98,6 +98,13 @@ header h1 {
 	padding-bottom: .2em;
 }
 
+.sectionHeading {
+	font-size: 14px;
+	color: #555;
+	margin: .8em .95em 0;
+	font-weight: normal;
+}
+
 .gameParent {
 	margin-bottom: 0 !important;
 }
