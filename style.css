@@ -496,6 +496,10 @@ input:checked + .slider:before {
 	border-color: #404040;
 }
 
+.dark .sectionHeading {
+	color: #aaa;
+}
+
 .dark .gameContainer {
 	background: #1d1d1d;
 }
