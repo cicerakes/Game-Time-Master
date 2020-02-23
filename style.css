@@ -97,7 +97,7 @@ header h1 {
 	border-bottom: 1px solid #d2d2d2;
 	padding-bottom: .2em;
 	overflow: hidden;
-	transition: ease-in-out .3s;
+	transition: ease-in-out .2s;
 }
 
 .sectionHeading {
