@@ -10,7 +10,7 @@
 		<meta name="description" content="Automatically convert mobile game server times to your local time zone.">
 
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600|Source+Sans+Pro:400,600&display=swap">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Source+Sans+Pro:400,600&display=swap">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
 		<link rel="stylesheet" href="style.css">
 
@@ -28,6 +28,9 @@
 		<div id="outsideMenu" onclick="toggleMenu()"></div>
 		<div id="menu">
 			<div id="gameFilterSettings" class="menuSection">
+				<h2 class="sectionHeading">Games</h2>
+				<button id="gamesMenuSection" class="sectionToggleArrow" onclick="gamesMenuSectionToggle(this)"></button>
+				<label for="gamesMenuSection"></label>
 				<input type="checkbox" id="afkArena" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="afkArena">
 					AFK Arena
@@ -91,7 +94,7 @@
 				<input type="checkbox" id="e7" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="e7">
 					Epic Seven
-					<button id="e7Children" onclick="menuChildrenToggle(this)"></button>
+					<button id="e7Children" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="e7Children"></label>
 				</label>
 				<div class="gameChildren">
@@ -111,7 +114,7 @@
 				<input type="checkbox" id="fgo" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="fgo">
 					Fate/Grand Order
-					<button id="fgoChildren" onclick="menuChildrenToggle(this)"></button>
+					<button id="fgoChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="fgoChildren"></label>
 				</label>
 				<div class="gameChildren">
@@ -143,7 +146,7 @@
 				<input type="checkbox" id="hi3" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="hi3">
 					Honkai Impact 3rd
-					<button id="hi3Children" onclick="menuChildrenToggle(this)"></button>
+					<button id="hi3Children" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="hi3Children"></label>
 				</label>
 				<div class="gameChildren">
@@ -207,7 +210,7 @@
 				<input type="checkbox" id="saintSeiya" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="saintSeiya">
 					Saint Seiya: Awakening
-					<button id="saintSeiyaChildren" onclick="menuChildrenToggle(this)"></button>
+					<button id="saintSeiyaChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="saintSeiyaChildren"></label>
 				</label>
 				<div class="gameChildren">
@@ -258,6 +261,7 @@
 				</label>
 			</div>
 			<div class="menuSection">
+				<h2 class="sectionHeading">Settings</h2>
 				<label class="optionName" for="12HrTimeSwitch">
 					12-hour time format
 					<label class="switch">
@@ -274,12 +278,11 @@
 				</label>
 			</div>
 			<div class="menuSection">
+				<h2 class="sectionHeading">Feedback</h2>
 				<a href="https://github.com/cicerakes/Game-Time-Master/issues/new?assignees=&labels=Game+request&template=game-request.md&title=Add+info+for+[GAME_NAME]+(SERVER%2FREGION)">Request a game</a>
 				<a href="https://github.com/cicerakes/Game-Time-Master/issues/new?assignees=&labels=Game+data+correction&template=incorrect-game-info.md&title=[GAME_NAME]+has+incorrect+data">Report incorrect times</a>
-			</div>
-			<div class="menuSection">
 				<a href="https://github.com/cicerakes/Game-Time-Master">GitHub</a>
-				<a href="https://www.reddit.com/r/gachagaming/comments/c3a9pa/promo_web_page_to_automatically_convert_game">Reddit thread</a>
+				<a href="https://www.reddit.com/message/compose/?to=PM_ME_YOUR_PET_CATS">Reddit message</a>
 			</div>
 		</div>
 		<div id="currentLocal">

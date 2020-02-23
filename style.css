@@ -96,20 +96,23 @@ header h1 {
 	margin: .4em .8em;
 	border-bottom: 1px solid #d2d2d2;
 	padding-bottom: .2em;
+	overflow: hidden;
+	transition: .2s ease-in-out;
 }
 
-.gameParent {
-	margin-bottom: 0 !important;
+.sectionHeading {
+	font-size: 14px;
+	font-weight: normal;
+	color: #555;
+	margin: .7em .95em 0;
 }
 
-.gameParent button {
+.sectionToggleArrow {
 	position: relative;
-	top: 5px;
 	width: 10px;
 	height: 10px;
 	padding: 0;
 	background: transparent;
-	transform: rotate(45deg);
 	border-top: none;
 	border-left: none;
 	border-right: 2px solid #aaa;
@@ -121,7 +124,32 @@ header h1 {
 	z-index: 4;
 }
 
-.gameParent button + label {
+.sectionHeading + .sectionToggleArrow {
+	top: -10px;
+	right: 10px;
+	background: transparent;
+	transform: rotate(225deg);
+}
+
+.sectionHeading + .sectionToggleArrow + label {
+	position: absolute;
+	margin: -1.5em 0 0 0em !important;
+	padding: .5em !important;
+	width: 85%;
+	height: 23px;
+	z-index: 4;
+}
+
+.gameParent {
+	margin-bottom: 0 !important;
+}
+
+.gameParent .sectionToggleArrow {
+	top: 5px;
+	transform: rotate(45deg);
+}
+
+.gameParent .sectionToggleArrow + label {
 	position: absolute;
 	margin: -1.5em 0 0 1.1em !important;
 	width: 73%;
@@ -460,12 +488,16 @@ input:checked + .slider:before {
 	color: #eee;
 }
 
-.dark .gameParent button {
+.dark .sectionToggleArrow {
 	border-color: #686868;
 }
 
 .dark .menuSection {
 	border-color: #404040;
+}
+
+.dark .sectionHeading {
+	color: #aaa;
 }
 
 .dark .gameContainer {

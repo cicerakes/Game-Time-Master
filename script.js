@@ -582,6 +582,26 @@ function getLocalStorageObject(ObjectName) {
 	return parsedObject;
 }
 
+// Store the original height of the games section in menu, for later usage when hiding/showing.
+var gamesMenuSectionHeight = document.getElementById("gameFilterSettings").offsetHeight + "px";
+// Set the section height to a value (instead of auto) to enable initial transistion animation.
+document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight;
+
+function gamesMenuSectionToggle(dropArrow) {
+	var menuSection = dropArrow.parentElement;
+
+	if (menuSection.style.height == "36px") {
+		// Open.
+		dropArrow.removeAttribute("style");
+		menuSection.style.height = gamesMenuSectionHeight;
+	} else {
+		// Close.
+		dropArrow.style.transform = "rotate(45deg)";
+		dropArrow.style.top = "-15px";
+		menuSection.style.height = "36px";
+	}
+}
+
 function menuChildrenToggle(dropArrow) {
 	var gameChild = dropArrow.parentElement.nextElementSibling;
 
