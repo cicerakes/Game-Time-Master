@@ -102,9 +102,9 @@ header h1 {
 
 .sectionHeading {
 	font-size: 14px;
-	color: #555;
-	margin: .8em .95em 0;
 	font-weight: normal;
+	color: #555;
+	margin: .7em .95em 0;
 }
 
 .sectionHeading + button {
