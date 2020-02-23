@@ -331,7 +331,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 			skippedParent = false, 
 			containerPosition = 0;
 
-			for (let y = 1; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
+			for (let y = 4; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
 				var gameLabel = document.getElementById("gameFilterSettings").children[y], 
 				gameName = gameData[containerPosition].game;
 
