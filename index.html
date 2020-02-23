@@ -29,7 +29,7 @@
 		<div id="menu">
 			<div id="gameFilterSettings" class="menuSection">
 				<h2 class="sectionHeading">Games</h2>
-				<button id="gamesMenuSection" onclick="gamesMenuSectionToggle(this)"></button>
+				<button id="gamesMenuSection" class="sectionToggleArrow" onclick="gamesMenuSectionToggle(this)"></button>
 				<label for="gamesMenuSection"></label>
 				<input type="checkbox" id="afkArena" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="afkArena">
@@ -94,7 +94,7 @@
 				<input type="checkbox" id="e7" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="e7">
 					Epic Seven
-					<button id="e7Children" onclick="menuChildrenToggle(this)"></button>
+					<button id="e7Children" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="e7Children"></label>
 				</label>
 				<div class="gameChildren">
@@ -114,7 +114,7 @@
 				<input type="checkbox" id="fgo" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="fgo">
 					Fate/Grand Order
-					<button id="fgoChildren" onclick="menuChildrenToggle(this)"></button>
+					<button id="fgoChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="fgoChildren"></label>
 				</label>
 				<div class="gameChildren">
@@ -146,7 +146,7 @@
 				<input type="checkbox" id="hi3" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="hi3">
 					Honkai Impact 3rd
-					<button id="hi3Children" onclick="menuChildrenToggle(this)"></button>
+					<button id="hi3Children" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="hi3Children"></label>
 				</label>
 				<div class="gameChildren">
@@ -210,7 +210,7 @@
 				<input type="checkbox" id="saintSeiya" onchange="toggleGameParentHide(this)" checked>
 				<label class="optionName gameParent" for="saintSeiya">
 					Saint Seiya: Awakening
-					<button id="saintSeiyaChildren" onclick="menuChildrenToggle(this)"></button>
+					<button id="saintSeiyaChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
 					<label for="saintSeiyaChildren"></label>
 				</label>
 				<div class="gameChildren">
