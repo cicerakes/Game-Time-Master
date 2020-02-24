@@ -18,8 +18,10 @@ Then this is for you!
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature Roadmap
-- Add option to display dates as well.
-- Add an option to refresh and display every second.
+- Display dates.
+- Refresh and display every second.
+- Manually set time zone (for when auto detect is wrong).
+- Add custom game servers.
 
 ## External Scripts
 `moment.min.js` `moment-timezone-with-data-10-year-range.min.js`  
