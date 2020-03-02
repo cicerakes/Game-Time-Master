@@ -252,6 +252,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "The Seven Deadly Sins: Grand Cross",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "The Seven Deadly Sins: Hikari to Yami no Grand Cross",
 		server: "JP",
 		timezone: "Asia/Tokyo",
