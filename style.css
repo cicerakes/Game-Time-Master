@@ -336,6 +336,22 @@ header h1 {
 	white-space: nowrap;
 }
 
+.gameParent span {
+	width: 85%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.gameParent::before {
+	top: -1px !important;
+}
+
+.gameParent::after {
+	top: -24px !important;
+} 
+
 .switch {
 	position: relative;
 	width: 38px;
