@@ -258,7 +258,7 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "The Seven Deadly Sins: Hikari to Yami no Grand Cross",
+		game: "The Seven Deadly Sins: Grand Cross",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00"
