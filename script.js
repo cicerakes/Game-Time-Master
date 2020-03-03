@@ -254,7 +254,7 @@ var gameData = [
 	{
 		game: "The Seven Deadly Sins: Grand Cross",
 		server: "Global",
-		timezone: "Etc/UTC",
+		timezone: "Etc/GMT+7",
 		dailyReset: "00:00"
 	},
 	{
