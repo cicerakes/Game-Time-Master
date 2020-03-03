@@ -349,8 +349,12 @@ header h1 {
 }
 
 .gameParent::after {
+	top: -22px !important;
+}
+
+#gameFilterSettings input:indeterminate + .gameParent::after {
 	top: -24px !important;
-} 
+}
 
 .switch {
 	position: relative;
