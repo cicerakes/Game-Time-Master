@@ -42,7 +42,7 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "Brown Dust",
+		game: "Brave Nine",
 		server: "Global & Europe",
 		timezone: "Etc/UTC",
 		dailyReset: "20:00"
