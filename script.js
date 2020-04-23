@@ -144,6 +144,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "GUNDAM BATTLE: GUNPLA WARFARE",
+		server: "JP & NA",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Honkai Impact 3rd",
 		server: "Americas",
 		timezone: "Etc/GMT+5",
