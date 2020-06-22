@@ -662,7 +662,7 @@ function toggleGameServerHide(toggle, child) {
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].style.display = "none";
 
 		// Check if other children are hidden.
-		if (child == true) {
+		if (child) {
 			var parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
 			gameName = gameData[position].game, 
 			allHidden = true;
@@ -674,7 +674,7 @@ function toggleGameServerHide(toggle, child) {
 					}
 				}
 			}
-			if (allHidden == true) {
+			if (allHidden) {
 				parent.checked = false;
 				parent.indeterminate = false;
 			} else {
@@ -688,7 +688,7 @@ function toggleGameServerHide(toggle, child) {
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].removeAttribute("style");
 
 		// Check if other children are shown.
-		if (child == true) {
+		if (child) {
 			var parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
 			gameName = gameData[position].game, 
 			allShown = true;
@@ -700,7 +700,7 @@ function toggleGameServerHide(toggle, child) {
 					}
 				}
 			}
-			if (allShown == true) {
+			if (allShown) {
 				parent.checked = true;
 				parent.indeterminate = false;
 			} else {
