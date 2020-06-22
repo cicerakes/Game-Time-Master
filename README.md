@@ -18,7 +18,6 @@ Then this is for you!
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature Roadmap
-- Display dates.
 - Refresh and display every second.
 - Manually set time zone (for when auto detect is wrong).
 - Add custom game servers.
