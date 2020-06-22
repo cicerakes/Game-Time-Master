@@ -440,8 +440,8 @@ for (let i = 0; i < gameData.length; i++) {
 	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].timeToReset + "</p>");
 	// Add prefix for timezone abbreviation if it's an offset.
 	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
+		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
 	} else {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat + " z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
@@ -498,8 +498,8 @@ function timeCalc() {
 		gameBody.getElementsByTagName("p")[3].textContent = gameDataConverted[i].timeToReset;
 		// Add prefix for timezone abbreviation if it's an offset.
 		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z");
-			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("Z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
 		} else {
 			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat + " z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
