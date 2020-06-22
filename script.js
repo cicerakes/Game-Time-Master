@@ -321,12 +321,18 @@ for (let i = 0; i < gameData.length; i++) {
 }
 
 // Check saved settings.
-var timeFormat = "HH:mm";
+var timeFormat = "HH:mm",
+showServerDate = false;
 
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	timeFormat = "h:mm A";
 
 	document.getElementById("12HrTimeSwitch").checked = true;
+}
+if (localStorage.getItem('showServerDateSwitch') == "true") {
+	showServerDate = true;
+
+	document.getElementById("showServerDateSwitch").checked = true;
 }
 if (localStorage.getItem('darkThemeSwitch') == "true") {
 	document.body.classList.add("dark");
@@ -440,8 +446,11 @@ for (let i = 0; i < gameData.length; i++) {
 		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat + " z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
 	}
+	// Add date to curent server time if the setting is on.
+	if (showServerDate) {
+		gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
+	}
 }
-
 // Refresh time values every minute.
 setInterval(timeCalc, 60000);
 
@@ -494,6 +503,9 @@ function timeCalc() {
 		} else {
 			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat + " z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
+		}
+		if (showServerDate) {
+			gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
 		}
 	}
 }
@@ -550,6 +562,13 @@ function settingToggle(setting) {
 			timeFormat = "h:mm A";
 		} else {
 			timeFormat = "HH:mm";
+		}
+		timeCalc();
+	} else if (settingId == "showServerDateSwitch") {
+		if (setting.checked) {
+			showServerDate = true;
+		} else {
+			showServerDate = false;
 		}
 		timeCalc();
 	} else if (settingId == "darkThemeSwitch") {
