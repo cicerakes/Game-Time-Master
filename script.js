@@ -150,6 +150,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Hero Cantare",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Honkai Impact 3rd",
 		server: "Americas",
 		timezone: "Etc/GMT+5",
