@@ -182,7 +182,7 @@ var gameData = [
 	{
 		game: "Langrisser",
 		server: "Global",
-		timezone: "America/Regina",
+		timezone: "America/Chicago",
 		dailyReset: "00:00"
 	},
 	{
