@@ -264,6 +264,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "TALES OF CRESTORIA",
+		server: "JP & EN",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "The Seven Deadly Sins: Grand Cross",
 		server: "Global",
 		timezone: "Etc/GMT+7",
