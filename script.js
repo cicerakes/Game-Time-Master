@@ -36,12 +36,6 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "Boku no Hero Academia: Smash Rising",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
 		game: "Brave Nine",
 		server: "Global & Europe",
 		timezone: "Etc/UTC",
@@ -213,12 +207,6 @@ var gameData = [
 		game: "Oshiro Project:RE Castle Defense",
 		server: "JP",
 		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "OVERHIT",
-		server: "Global",
-		timezone: "Asia/Seoul",
 		dailyReset: "05:00"
 	},
 	{
