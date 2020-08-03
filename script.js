@@ -128,7 +128,7 @@ var gameData = [
 	{
 		game: "Girls' Frontline",
 		server: "EN",
-		timezone: "Etc/GMT-8",
+		timezone: "Etc/GMT+8",
 		dailyReset: "00:00"
 	},
 	{
