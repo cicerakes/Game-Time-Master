@@ -262,12 +262,13 @@ header h1 {
 	padding-top: 1em;
 	width:97%;
 	margin: auto;
-	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .gameContainer {
 	margin: auto;
-	display: inline-table;
 	padding: 1em;
 	margin: .5em;
 	width: 25%;
@@ -280,7 +281,6 @@ header h1 {
 .gameHeader, .gameTimes {
 	display: table;
 	width: 100%;
-	min-height: 64px;
 }
 
 .gameHeader h3 {
