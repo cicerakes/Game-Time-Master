@@ -328,6 +328,10 @@ if (localStorage.getItem('showServerDateSwitch') == "true") {
 
 	document.getElementById("showServerDateSwitch").checked = true;
 }
+if (localStorage.getItem('compactModeSwitch') == "true") {
+	document.body.classList.add("compact");
+	document.getElementById("compactModeSwitch").checked = true;
+}
 if (localStorage.getItem('darkThemeSwitch') == "true") {
 	document.body.classList.add("dark");
 	document.getElementById("darkThemeSwitch").checked = true;
@@ -566,6 +570,12 @@ function settingToggle(setting) {
 			showServerDate = false;
 		}
 		timeCalc();
+	} else if (settingId == "compactModeSwitch") {
+		if (setting.checked) {
+			document.body.classList.add("compact");
+		} else {
+			document.body.classList.remove("compact");
+		}
 	} else if (settingId == "darkThemeSwitch") {
 		if (setting.checked) {
 			document.body.classList.add("dark");

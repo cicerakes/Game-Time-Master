@@ -527,3 +527,24 @@ input:checked + .slider:before {
 .dark .gameHeader h4 {
 	color: #aaa;
 }
+
+.compact .serverTimes {
+	display: none;
+}
+
+.compact .localTimes {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 50% 50%;
+	padding-right: 0;
+}
+
+.compact .localTimes p {
+	margin-block-start: .5em;
+	margin-block-end: .2em;
+}
+
+.compact .localTimes p:nth-of-type(even) {
+	grid-row-start: 2;
+	margin: 0;
+}
