@@ -314,6 +314,7 @@ header h1 {
 
 .gameTimes p:nth-of-type(even) {
 	margin-block-start: 5px;
+	margin-block-end: 0;
 }
 
 .gameTimes div {
