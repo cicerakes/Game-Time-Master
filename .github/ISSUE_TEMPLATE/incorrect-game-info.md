@@ -1,7 +1,7 @@
 ---
 name: Incorrect game info
 about: Report a game having incorrect information.
-title: "[GAME_NAME] has incorrect data"
+title: "[GAME_NAME] (SERVER/REGION) has incorrect data"
 labels: Game data correction
 assignees: cicerakes
 
@@ -10,8 +10,7 @@ assignees: cicerakes
 - **Game:**
 - **Server region/language:**
 
-**What information requires correction:**
-Also provide the correct info it should be changed to.
+**Correct information:**
 - **Timezone (location or offset):** 
 - **Daily server reset time:**
 
