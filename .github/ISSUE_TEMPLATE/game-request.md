@@ -9,5 +9,5 @@ assignees: cicerakes
 
 - **Game:**
 - **Server region/language:**
-- **Timezone (location or offset):**
+- **Server timezone (location or offset):**
 - **Daily server reset time:**
