@@ -138,6 +138,36 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Guardian Tales",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "00:00"
+	},
+	{
+		game: "Guardian Tales",
+		server: "NA",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
+		game: "Guardian Tales",
+		server: "EU",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
+		game: "Guardian Tales",
+		server: "LA",
+		timezone: "America/Maceio",
+		dailyReset: "00:00"
+	},
+	{
+		game: "Guardian Tales",
+		server: "OC",
+		timezone: "Australia/Brisbane",
+		dailyReset: "00:00"
+	},
+	{
 		game: "GUNDAM BATTLE: GUNPLA WARFARE",
 		server: "JP & NA",
 		timezone: "Asia/Tokyo",
