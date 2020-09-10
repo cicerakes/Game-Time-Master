@@ -252,6 +252,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "SINoALICE",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00"
+	},
+	{
 		game: "TALES OF CRESTORIA",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
