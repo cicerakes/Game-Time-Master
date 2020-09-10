@@ -147,7 +147,8 @@ var gameData = [
 		game: "Guardian Tales",
 		server: "NA",
 		timezone: "America/Los_Angeles",
-		dailyReset: "00:00"
+		dailyReset: "08:00",
+		utcDailyReset: true
 	},
 	{
 		game: "Guardian Tales",
@@ -431,10 +432,19 @@ document.getElementById("currentLocalTimezone").textContent = nowZone + " — " 
 // Convert game times to local time zone and store results.
 var gameDataConverted = [];
 for (let i = 0; i < gameData.length; i++) {
-	var gameTimezone = gameData[i].timezone, 
-	currentServerTime = now.clone().tz(gameTimezone);
-	gameData[i].dailyReset = moment.tz(gameData[i].dailyReset, "HH:mm", gameTimezone);
-
+	// If daily reset changes during daylight savings, convert using UTC first.
+	if (gameData[i].utcDailyReset) {
+		var gameTimezone = gameData[i].timezone, 
+		currentServerTime = now.clone().tz(gameTimezone);
+		gameData[i].dailyReset = moment.tz(gameData[i].dailyReset, "HH:mm", "Etc/UTC");
+		// Convert to server time.
+		gameData[i].dailyReset = gameData[i].dailyReset.clone().tz(gameTimezone);
+	} else {
+		var gameTimezone = gameData[i].timezone, 
+		currentServerTime = now.clone().tz(gameTimezone);
+		gameData[i].dailyReset = moment.tz(gameData[i].dailyReset, "HH:mm", gameTimezone);
+	}
+	
 	// Convert to local.
 	var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 

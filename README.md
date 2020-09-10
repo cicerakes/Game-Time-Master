@@ -8,8 +8,8 @@ Then this is for you!
 - Shows the time remaining until a game server's daily reset.
 - Automatically refreshes data every minute.
 - All calculations take daylight savings into account where applicable.
-  - This assumes the servers keep the same times (e.g. 06:00 PST-> 06:00 PDT).  
-  If this causes issues then it will be adjusted in the future on a per game basis.
+  - By default this assumes that servers keep the same times (e.g. 06:00 PST-> 06:00 PDT).  
+  If a game doesn't (e.g. 05:00 PST-> 06:00 PDT), then it will be adjusted for that game.
 - Choose between 24-hour and 12-hour time formats.
 - Search for specific games.
 - Filter specific games and save this setting per browser.
