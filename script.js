@@ -353,17 +353,29 @@ for (let i = 0; i < gameData.length; i++) {
 
 // Check saved settings.
 var timeFormat = "HH:mm",
-showServerDate = false;
+resetTimeFormat = "HH:mm",
+twelveHourFormat = false,
+showServerDate = false,
+showSeconds = false;
 
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
-	timeFormat = "h:mm A";
+	twelveHourFormat = true;
 
 	document.getElementById("12HrTimeSwitch").checked = true;
+	
+	setTimeFormat();
 }
 if (localStorage.getItem('showServerDateSwitch') == "true") {
 	showServerDate = true;
 
 	document.getElementById("showServerDateSwitch").checked = true;
+}
+if (localStorage.getItem('showSecondsSwitch') == "true") {
+	showSeconds = true;
+
+	document.getElementById("showSecondsSwitch").checked = true;
+
+	setTimeFormat();
 }
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
@@ -460,7 +472,12 @@ for (let i = 0; i < gameData.length; i++) {
 
 	// Calculate time left until daily reset.
 	var timeRemaining = now.preciseDiff(localResetTime, true);
-	timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+	// Display seconds if the setting is on.
+	if (showSeconds) {
+		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
+	} else {
+		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+	}
 
 	// Store.
 	gameDataConverted.push(
@@ -479,14 +496,14 @@ for (let i = 0; i < gameData.length; i++) {
 	gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
 	gameHead.insertAdjacentHTML("beforeend", "<h4>" + gameData[i].server + "</h4>");
-	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].dailyReset.format(timeFormat) + "</p>");
+	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].dailyReset.format(resetTimeFormat) + "</p>");
 	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].timeToReset + "</p>");
 	// Add prefix for timezone abbreviation if it's an offset.
 	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
 	} else {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(timeFormat + " z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(resetTimeFormat + " z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
 	}
 	// Add date to curent server time if the setting is on.
@@ -494,8 +511,44 @@ for (let i = 0; i < gameData.length; i++) {
 		gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
 	}
 }
-// Refresh time values every minute.
-setInterval(timeCalc, 60000);
+
+// Refresh time values every minute/second.
+var refresh;
+
+setRefresh();
+
+function setRefresh() {
+	// Clear previous interval if it exists.
+	if (typeof refresh !== 'undefined') {
+		clearInterval(refresh);
+	}
+	
+	// Set interval based on saved setting.
+	if (showSeconds) {
+		refresh = setInterval(timeCalc, 1000);
+	} else {
+		refresh = setInterval(timeCalc, 60000);
+	}
+}
+
+// Figure out the time format.
+function setTimeFormat() {
+	if (twelveHourFormat) {
+		resetTimeFormat = "h:mm A";
+		if (showSeconds) {
+			timeFormat = "h:mm:ss A";
+		} else {
+			timeFormat = "h:mm A";
+		}
+	} else {
+		resetTimeFormat = "HH:mm";
+		if (showSeconds) {
+			timeFormat = "HH:mm:ss";
+		} else {
+			timeFormat = "HH:mm";
+		}
+	}
+}
 
 function timeCalc() {
 	// Refresh time.
@@ -522,7 +575,12 @@ function timeCalc() {
 
 		// Calculate time left until daily reset.
 		var timeRemaining = now.preciseDiff(localResetTime, true);
-		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+		// Display seconds if the setting is on.
+		if (showSeconds) {
+			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
+		} else {
+			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+		}
 
 		// Replace converted times.
 		gameDataConverted[i].dailyReset = localResetTime;
@@ -537,14 +595,14 @@ function timeCalc() {
 		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 		gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
-		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].dailyReset.format(timeFormat);
+		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].dailyReset.format(resetTimeFormat);
 		gameBody.getElementsByTagName("p")[3].textContent = gameDataConverted[i].timeToReset;
 		// Add prefix for timezone abbreviation if it's an offset.
 		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
 		} else {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(timeFormat + " z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(resetTimeFormat + " z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
 		}
 		// Add date to curent server time if the setting is on.
@@ -603,10 +661,11 @@ function settingToggle(setting) {
 
 	if (settingId == "12HrTimeSwitch") {
 		if (setting.checked) {
-			timeFormat = "h:mm A";
+			twelveHourFormat = true;
 		} else {
-			timeFormat = "HH:mm";
+			twelveHourFormat = false;
 		}
+		setTimeFormat()
 		timeCalc();
 	} else if (settingId == "showServerDateSwitch") {
 		if (setting.checked) {
@@ -615,6 +674,15 @@ function settingToggle(setting) {
 			showServerDate = false;
 		}
 		timeCalc();
+	} else if (settingId == "showSecondsSwitch") {
+		if (setting.checked) {
+			showSeconds = true;
+		} else {
+			showSeconds = false;
+		}
+		setTimeFormat();
+		timeCalc();
+		setRefresh();
 	} else if (settingId == "compactModeSwitch") {
 		if (setting.checked) {
 			document.body.classList.add("compact");
