@@ -354,7 +354,7 @@ for (let i = 0; i < gameData.length; i++) {
 // Check saved settings.
 var timeFormat = "HH:mm",
 showServerDate = false,
-displaySeconds = false;
+showSeconds = false;
 
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	timeFormat = "h:mm A";
@@ -366,10 +366,10 @@ if (localStorage.getItem('showServerDateSwitch') == "true") {
 
 	document.getElementById("showServerDateSwitch").checked = true;
 }
-if (localStorage.getItem('displaySecondsSwitch') == "true") {
-	displaySeconds = true;
+if (localStorage.getItem('showSecondsSwitch') == "true") {
+	showSeconds = true;
 
-	document.getElementById("displaySecondsSwitch").checked = true;
+	document.getElementById("showSecondsSwitch").checked = true;
 }
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
@@ -513,7 +513,7 @@ function setRefresh() {
 	}
 	
 	// Set interval based on saved setting.
-	if (displaySeconds) {
+	if (showSeconds) {
 		refresh = setInterval(timeCalc, 1000);
 	} else {
 		refresh = setInterval(timeCalc, 60000);
@@ -638,11 +638,11 @@ function settingToggle(setting) {
 			showServerDate = false;
 		}
 		timeCalc();
-	} else if (settingId == "displaySecondsSwitch") {
+	} else if (settingId == "showSecondsSwitch") {
 		if (setting.checked) {
-			displaySeconds = true;
+			showSeconds = true;
 		} else {
-			displaySeconds = false;
+			showSeconds = false;
 		}
 		setRefresh();
 	} else if (settingId == "compactModeSwitch") {
