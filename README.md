@@ -7,9 +7,10 @@ Then this is for you!
 - Converts all game server times to your local time zone.
 - Shows the time remaining until a game server's daily reset.
 - Automatically refreshes data every minute.
+  - Option to refresh and display every second.
 - All calculations take daylight savings into account where applicable.
-  - By default, this assumes that servers keep the same times (e.g. 06:00 PST-> 06:00 PDT).  
-  If a game doesn't (e.g. 05:00 PST-> 06:00 PDT), then it will be adjusted for that game.
+  - By default, this assumes that servers keep the same times (e.g. 06:00 PST -> 06:00 PDT).  
+  If a game doesn't (e.g. 05:00 PST -> 06:00 PDT), then it will be adjusted for that game.
 - Choose between 24-hour and 12-hour time formats.
 - Search for specific games.
 - Filter specific games and save this setting per browser.
@@ -18,7 +19,6 @@ Then this is for you!
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
 
 ## Feature Roadmap
-- Refresh and display every second.
 - Manually set time zone (for when auto detect is wrong).
 - Add custom game servers.
 
