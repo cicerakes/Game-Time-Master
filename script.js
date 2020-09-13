@@ -353,13 +353,16 @@ for (let i = 0; i < gameData.length; i++) {
 
 // Check saved settings.
 var timeFormat = "HH:mm",
+twelveHourFormat = false,
 showServerDate = false,
 showSeconds = false;
 
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
-	timeFormat = "h:mm A";
+	twelveHourFormat = true;
 
 	document.getElementById("12HrTimeSwitch").checked = true;
+	
+	setTimeFormat();
 }
 if (localStorage.getItem('showServerDateSwitch') == "true") {
 	showServerDate = true;
@@ -370,6 +373,8 @@ if (localStorage.getItem('showSecondsSwitch') == "true") {
 	showSeconds = true;
 
 	document.getElementById("showSecondsSwitch").checked = true;
+
+	setTimeFormat();
 }
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
@@ -520,6 +525,19 @@ function setRefresh() {
 	}
 }
 
+// Figure out the time format.
+function setTimeFormat() {
+	if (twelveHourFormat && showSeconds) {
+		timeFormat = "h:mm:ss A";
+	} else if (twelveHourFormat) {
+		timeFormat = "h:mm A";
+	} else if (!twelveHourFormat && showSeconds) {
+		timeFormat = "HH:mm:ss";
+	} else {
+		timeFormat = "HH:mm";
+	}
+}
+
 function timeCalc() {
 	// Refresh time.
 	now = moment();
@@ -626,10 +644,11 @@ function settingToggle(setting) {
 
 	if (settingId == "12HrTimeSwitch") {
 		if (setting.checked) {
-			timeFormat = "h:mm A";
+			twelveHourFormat = true;
 		} else {
-			timeFormat = "HH:mm";
+			twelveHourFormat = false;
 		}
+		setTimeFormat()
 		timeCalc();
 	} else if (settingId == "showServerDateSwitch") {
 		if (setting.checked) {
@@ -644,6 +663,8 @@ function settingToggle(setting) {
 		} else {
 			showSeconds = false;
 		}
+		setTimeFormat();
+		timeCalc();
 		setRefresh();
 	} else if (settingId == "compactModeSwitch") {
 		if (setting.checked) {
