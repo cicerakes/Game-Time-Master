@@ -353,7 +353,8 @@ for (let i = 0; i < gameData.length; i++) {
 
 // Check saved settings.
 var timeFormat = "HH:mm",
-showServerDate = false;
+showServerDate = false,
+displaySeconds = false;
 
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	timeFormat = "h:mm A";
@@ -364,6 +365,11 @@ if (localStorage.getItem('showServerDateSwitch') == "true") {
 	showServerDate = true;
 
 	document.getElementById("showServerDateSwitch").checked = true;
+}
+if (localStorage.getItem('displaySecondsSwitch') == "true") {
+	displaySeconds = true;
+
+	document.getElementById("displaySecondsSwitch").checked = true;
 }
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
@@ -494,8 +500,25 @@ for (let i = 0; i < gameData.length; i++) {
 		gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
 	}
 }
-// Refresh time values every minute.
-setInterval(timeCalc, 60000);
+
+// Refresh time values every minute/second.
+var refresh;
+
+setRefresh();
+
+function setRefresh() {
+	// Clear previous interval if it exists.
+	if (typeof refresh !== 'undefined') {
+		clearInterval(refresh);
+	}
+	
+	// Set interval based on saved setting.
+	if (displaySeconds) {
+		refresh = setInterval(timeCalc, 1000);
+	} else {
+		refresh = setInterval(timeCalc, 60000);
+	}
+}
 
 function timeCalc() {
 	// Refresh time.
@@ -615,6 +638,13 @@ function settingToggle(setting) {
 			showServerDate = false;
 		}
 		timeCalc();
+	} else if (settingId == "displaySecondsSwitch") {
+		if (setting.checked) {
+			displaySeconds = true;
+		} else {
+			displaySeconds = false;
+		}
+		setRefresh();
 	} else if (settingId == "compactModeSwitch") {
 		if (setting.checked) {
 			document.body.classList.add("compact");
