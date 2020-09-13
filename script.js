@@ -471,7 +471,12 @@ for (let i = 0; i < gameData.length; i++) {
 
 	// Calculate time left until daily reset.
 	var timeRemaining = now.preciseDiff(localResetTime, true);
-	timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+	// Display seconds if the setting is on.
+	if (showSeconds) {
+		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
+	} else {
+		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+	}
 
 	// Store.
 	gameDataConverted.push(
@@ -563,7 +568,12 @@ function timeCalc() {
 
 		// Calculate time left until daily reset.
 		var timeRemaining = now.preciseDiff(localResetTime, true);
-		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+		// Display seconds if the setting is on.
+		if (showSeconds) {
+			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
+		} else {
+			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
+		}
 
 		// Replace converted times.
 		gameDataConverted[i].dailyReset = localResetTime;
