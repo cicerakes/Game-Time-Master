@@ -126,6 +126,24 @@ var gameData = [
 		dailyReset: "07:00"
 	},
 	{
+		game: "Genshin Impact",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Genshin Impact",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Genshin Impact",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Girls' Frontline",
 		server: "EN",
 		timezone: "Etc/GMT+8",

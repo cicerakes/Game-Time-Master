@@ -131,6 +131,26 @@
 				<label class="optionName" for="feh">
 					Fire Emblem Heroes
 				</label>
+				<input type="checkbox" id="genshinImpact" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="genshinImpact">
+					<span>Genshin Impact</span>
+					<button id="genshinImpactChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
+					<label for="genshinImpactChildren"></label>
+				</label>
+				<div class="gameChildren">
+					<input type="checkbox" id="genshinImpactAmerica" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="genshinImpactAmerica">
+						America
+					</label>
+					<input type="checkbox" id="genshinImpactAsia" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="genshinImpactAsia">
+						Asia
+					</label>
+					<input type="checkbox" id="genshinImpactEurope" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="genshinImpactEurope">
+						Europe
+					</label>
+				</div>
 				<input type="checkbox" id="gfl" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="gfl">
 					Girls' Frontline
@@ -723,6 +743,60 @@
 						<img src="game-icons/FireEmblemHeroes.jpg">
 					</div>
 					<h3>Fire Emblem Heroes</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/GenshinImpact.jpg">
+					</div>
+					<h3>Genshin Impact</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/GenshinImpact.jpg">
+					</div>
+					<h3>Genshin Impact</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/GenshinImpact.jpg">
+					</div>
+					<h3>Genshin Impact</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
