@@ -36,6 +36,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "BanG Dream! Girls Band Party!",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "08:00"
+	},
+	{
 		game: "Brave Nine",
 		server: "Global & Europe",
 		timezone: "Etc/UTC",
