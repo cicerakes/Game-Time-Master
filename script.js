@@ -117,7 +117,8 @@ var gameData = [
 		game: "Fate/Grand Order",
 		server: "NA",
 		timezone: "America/Los_Angeles",
-		dailyReset: "21:00"
+		dailyReset: "04:00",
+		utcDailyReset: true
 	},
 	{
 		game: "Final Gear",
