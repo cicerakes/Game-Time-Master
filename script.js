@@ -302,6 +302,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Shining Beyond",
+		server: "Global",
+		timezone: "Asia/Singapore",
+		dailyReset: "00:00"
+	},
+	{
 		game: "SINoALICE",
 		server: "Global",
 		timezone: "Etc/UTC",
