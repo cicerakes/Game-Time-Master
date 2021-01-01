@@ -899,3 +899,23 @@ function toggleGameParentHide(gameSwitch) {
 	// Store.
 	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 }
+
+function hideGameServerButton(button) {
+	// Get game name and server region.
+	var gameHeader = button.parentElement.parentElement.children[0], 
+	gameName = gameHeader.children[1].textContent, 
+	server = gameHeader.children[2].textContent;
+
+	// Find position in gameData.
+	for (var position = 0; position < gameData.length; position++) {
+		if (gameData[position].game == gameName && gameData[position].server == server) {
+			break;
+		}
+	}
+
+	// Use position to find switch and toggle it off.
+	document.getElementsByClassName("gameServerToggle")[position].checked = false;
+	//Trigger onchange to hide the game.
+	document.getElementsByClassName("gameServerToggle")[position].onchange();
+
+}

@@ -269,13 +269,14 @@ header h1 {
 
 .gameContainer {
 	margin: auto;
-	padding: 1em;
+	padding: 1em 1em 2.7em;
 	margin: .5em;
 	width: 25%;
 	background: #f8f8f8;
 	box-shadow: 0 2px 7px 0 rgba(0,0,0,0.4);
 	text-align: initial;
 	border-radius: 4px;
+	position: relative;
 }
 
 .gameHeader, .gameTimes {
@@ -407,6 +408,22 @@ input:checked + .slider:before {
 	background-color: #b084f4;
 }
 
+.gameContainer .buttons {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: .6em;
+}
+
+.buttons button {
+	cursor: pointer;
+	background: transparent;
+	color: #673ab7;
+	font-weight: bold;
+	border: 1px solid #d2d2d2;
+	padding: .2em .5em;
+	border-radius: 4px;
+}
+
 @media (max-width: 1500px) {
 	.gameContainer {
 		width: 30%;
@@ -527,6 +544,11 @@ input:checked + .slider:before {
 
 .dark .gameHeader h4 {
 	color: #aaa;
+}
+
+.dark .buttons button {
+	color: #9575cd;
+	border-color: #404040;
 }
 
 .compact .serverTimes {
