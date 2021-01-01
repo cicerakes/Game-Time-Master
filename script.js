@@ -754,6 +754,8 @@ function getLocalStorageObject(ObjectName) {
 var gamesMenuSectionHeight = document.getElementById("gameFilterSettings").offsetHeight + "px";
 // Set the section height to a value (instead of auto) to enable initial transistion animation.
 document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight;
+// Collapse the games section on page load.
+gamesMenuSectionToggle(document.getElementById("gamesMenuSection"));
 
 function gamesMenuSectionToggle(dropArrow) {
 	var menuSection = dropArrow.parentElement;
