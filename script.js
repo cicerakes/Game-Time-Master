@@ -24,12 +24,6 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
-		game: "Astral Chronicles",
-		server: "Global",
-		timezone: "Asia/Singapore",
-		dailyReset: "05:00"
-	},
-	{
 		game: "Azur Lane",
 		server: "English",
 		timezone: "America/Los_Angeles",
@@ -348,12 +342,6 @@ var gameData = [
 		server: "Global",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
-	},
-	{
-		game: "Valkyrie Anatomia: The Origin",
-		server: "Global",
-		timezone: "Brazil/West",
-		dailyReset: "11:00"
 	},
 	{
 		game: "World Flipper",
