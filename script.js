@@ -242,6 +242,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Magia Record",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Millennium War Aigis",
 		server: "JP",
 		timezone: "Asia/Tokyo",
