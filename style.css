@@ -571,3 +571,11 @@ input:checked + .slider:before {
 	grid-row-start: 2;
 	margin: 0;
 }
+
+.hideButtonsHidden .gameContainer {
+	padding: 1em;
+}
+
+.hideButtonsHidden .gameContainer .buttons {
+	display: none;
+}

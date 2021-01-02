@@ -396,6 +396,10 @@ if (localStorage.getItem('showSecondsSwitch') == "true") {
 
 	setTimeFormat();
 }
+if (localStorage.getItem('showHideButtonsSwitch') == "false") {
+	document.body.classList.add("hideButtonsHidden");
+	document.getElementById("showHideButtonsSwitch").checked = false;
+}
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
 	document.getElementById("compactModeSwitch").checked = true;
@@ -702,6 +706,12 @@ function settingToggle(setting) {
 		setTimeFormat();
 		timeCalc();
 		setRefresh();
+	} else if (settingId == "showHideButtonsSwitch") {
+		if (setting.checked) {
+			document.body.classList.remove("hideButtonsHidden");
+		} else {
+			document.body.classList.add("hideButtonsHidden");
+		}
 	} else if (settingId == "compactModeSwitch") {
 		if (setting.checked) {
 			document.body.classList.add("compact");
