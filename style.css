@@ -133,7 +133,7 @@ header h1 {
 
 .sectionHeading + .sectionToggleArrow + label {
 	position: absolute;
-	margin: -1.5em 0 0 0em !important;
+	margin: -1.5em 0 0 0 !important;
 	padding: .5em !important;
 	width: 85%;
 	height: 23px;
@@ -210,6 +210,11 @@ header h1 {
 
 #gameFilterSettings label.optionName:hover {
 	background: rgba(0, 0, 0, .04)
+}
+
+#gameFilterSettings[style="height: 36px;"] label:nth-of-type(2) {
+	margin-top: 1em;
+	transition-delay: .2s;
 }
 
 .gameChildren {
