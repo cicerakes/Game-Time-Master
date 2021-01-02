@@ -424,6 +424,10 @@ input:checked + .slider:before {
 	border-radius: 4px;
 }
 
+.buttons button:hover, .buttons button:focus {
+	background: rgba(126, 86, 193, 0.1);
+}
+
 @media (max-width: 1500px) {
 	.gameContainer {
 		width: 30%;
