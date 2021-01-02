@@ -208,6 +208,10 @@ header h1 {
 	visibility: visible;
 }
 
+#gameFilterSettings label.optionName:hover {
+	background: rgba(0, 0, 0, .04)
+}
+
 .gameChildren {
 	width: 90%;
 	margin-left: 9%;
@@ -528,6 +532,10 @@ input:checked + .slider:before {
 
 .dark #menu a, .dark #menu p, .dark #menu label {
 	color: #eee;
+}
+
+.dark #gameFilterSettings label.optionName:hover {
+	background: rgba(255, 255, 255, .04)
 }
 
 .dark .sectionToggleArrow {
