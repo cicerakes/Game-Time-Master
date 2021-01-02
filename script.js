@@ -751,9 +751,9 @@ function getLocalStorageObject(ObjectName) {
 }
 
 // Store the original height of the games section in menu, for later usage when hiding/showing.
-var gamesMenuSectionHeight = document.getElementById("gameFilterSettings").offsetHeight + "px";
+var gamesMenuSectionHeight = document.getElementById("gameFilterSettings").offsetHeight;
 // Set the section height to a value (instead of auto) to enable initial transistion animation.
-document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight;
+document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight + "px";
 // Collapse the games section on page load.
 gamesMenuSectionToggle(document.getElementById("gamesMenuSection"));
 
@@ -763,7 +763,7 @@ function gamesMenuSectionToggle(dropArrow) {
 	if (menuSection.style.height == "36px") {
 		// Open.
 		dropArrow.removeAttribute("style");
-		menuSection.style.height = gamesMenuSectionHeight;
+		menuSection.style.height = gamesMenuSectionHeight + "px";
 	} else {
 		// Close.
 		dropArrow.style.transform = "rotate(45deg)";
@@ -773,18 +773,28 @@ function gamesMenuSectionToggle(dropArrow) {
 }
 
 function menuChildrenToggle(dropArrow) {
-	var gameChild = dropArrow.parentElement.nextElementSibling;
+	var gameChild = dropArrow.parentElement.nextElementSibling, 
+	gameChildHeight = gameChild.childElementCount * 20.5;
 
-	if (gameChild.style.height == (gameChild.childElementCount * 20.5) + "px") {
+	if (gameChild.style.height == gameChildHeight + "px") {
 		// Close.
 		dropArrow.removeAttribute("style");
 		gameChild.removeAttribute("style");
+
+		// Re-calculate games section height.
+		gamesMenuSectionHeight = gamesMenuSectionHeight - gameChildHeight;
 	} else {
 		// Open.
 		dropArrow.style.transform = "rotate(225deg)";
 		dropArrow.style.top = "10px";
-		gameChild.style.height = (gameChild.childElementCount * 20.5) + "px";
+		gameChild.style.height = gameChildHeight + "px";
+
+		// Re-calculate games section height.
+		gamesMenuSectionHeight = gamesMenuSectionHeight + gameChildHeight;
 	}
+
+	// Set new games section height.
+	document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight + "px";
 }
 
 function toggleGameServerHide(toggle, child) {
