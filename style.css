@@ -151,7 +151,7 @@ header h1 {
 
 .gameParent .sectionToggleArrow + label {
 	position: absolute;
-	margin: -1.5em 0 0 1.1em !important;
+	margin: -1.65em 0 0 1.1em !important;
 	width: 73%;
 	height: 23px;
 	z-index: 4;
