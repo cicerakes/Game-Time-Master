@@ -248,6 +248,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Magicami",
+		server: "EN",
+		timezone: "America/New_York",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Millennium War Aigis",
 		server: "JP",
 		timezone: "Asia/Tokyo",
