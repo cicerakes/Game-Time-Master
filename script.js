@@ -218,6 +218,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "ILLUSION CONNECT",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00"
+	},
+	{
 		game: "King's Raid",
 		server: "America",
 		timezone: "America/New_York",
