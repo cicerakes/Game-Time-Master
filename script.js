@@ -939,9 +939,9 @@ function toggleGameParentHide(gameSwitch) {
 }
 
 function hideGameServerButton(button) {
-	// Get game name and server region.
+	// Get game name (removed accents) and server region.
 	var gameHeader = button.parentElement.parentElement.children[0], 
-	gameName = gameHeader.children[1].textContent, 
+	gameName = gameHeader.children[1].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""), 
 	server = gameHeader.children[2].textContent;
 
 	// Find position in gameData.
