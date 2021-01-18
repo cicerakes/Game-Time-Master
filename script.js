@@ -26,7 +26,7 @@ var gameData = [
 	{
 		game: "Azur Lane",
 		server: "EN",
-		timezone: "America/Los_Angeles",
+		timezone: "Etc/GMT+7",
 		dailyReset: "00:00"
 	},
 	{
