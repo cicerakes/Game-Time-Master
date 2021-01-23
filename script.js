@@ -302,6 +302,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Romancing SaGa Re;univerSe",
+		server: "Global",
+		timezone: "Etc/GMT-7",
+		dailyReset: "08:00"
+	},
+	{
 		game: "Saint Seiya: Awakening",
 		server: "Global",
 		timezone: "Etc/GMT+4",
