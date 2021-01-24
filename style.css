@@ -140,6 +140,12 @@ header h1 {
 	z-index: 4;
 }
 
+.menuIcon {
+	height: 1em;
+	margin-right: .5em;
+	vertical-align: bottom;
+}
+
 .gameParent {
 	margin-bottom: 0 !important;
 }
