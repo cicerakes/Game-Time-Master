@@ -47,10 +47,6 @@ header h1 {
 	background :rgba(77,43,144,.2);
 }
 
-.menuButt:active {
-	background: rgba(77,43,144,.5);
-}
-
 #outsideMenu {
 	width: 0;
 	height: 0;
@@ -256,6 +252,7 @@ header h1 {
 #filterSearchOpen {
 	float: right;
 	display: none;
+	margin: .2em;
 }
 
 #currentLocal {
@@ -504,6 +501,12 @@ input:checked + .slider:before {
 @media (max-width: 360px) {
 	header h1 {
 		font-size: 1em;
+	}
+}
+
+@media (min-width: 360px) {
+	.menuButt {
+		margin: .2em .6em .2em .2em;
 	}
 }
 
