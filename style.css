@@ -88,6 +88,14 @@ header h1 {
 	padding-bottom: 0;
 }
 
+#menu a, #gameFilterSettings label.optionName {
+	border-radius: 4px;
+}
+
+#menu a:hover, #gameFilterSettings label.optionName:hover {
+	background: rgba(0, 0, 0, .04);
+}
+
 .menuSection {
 	margin: .4em .8em;
 	border-bottom: 1px solid #d2d2d2;
@@ -208,14 +216,6 @@ header h1 {
 	font-weight: bold;
 	top: -20px;
 	visibility: visible;
-}
-
-#gameFilterSettings label.optionName {
-	border-radius: 4px;
-}
-
-#gameFilterSettings label.optionName:hover {
-	background: rgba(0, 0, 0, .04)
 }
 
 #gameFilterSettings[style="height: 36px;"] label:nth-of-type(2) {
@@ -556,8 +556,8 @@ input:checked + .slider:before {
 	color: #eee;
 }
 
-.dark #gameFilterSettings label.optionName:hover {
-	background: rgba(255, 255, 255, .04)
+.dark #menu a:hover, .dark #gameFilterSettings label.optionName:hover {
+	background: rgba(255, 255, 255, .04);
 }
 
 .dark .sectionToggleArrow {
