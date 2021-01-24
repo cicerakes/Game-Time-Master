@@ -374,6 +374,10 @@ header h1 {
 	top: -24px !important;
 }
 
+#mainSettings .optionName {
+	overflow: visible;
+}
+
 .switch {
 	position: relative;
 	width: 38px;
