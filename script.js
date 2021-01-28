@@ -296,6 +296,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "RED: Pride of Eden",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Revue Starlight Re LIVE",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
