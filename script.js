@@ -48,6 +48,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Cookie Run: Kingdom",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Dengeki Bunko: Crossing Void",
 		server: "Global",
 		timezone: "Etc/UTC",
