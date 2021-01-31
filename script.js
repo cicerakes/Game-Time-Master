@@ -72,6 +72,12 @@ var gameData = [
 		dailyReset: "07:00"
 	},
 	{
+		game: "DRAGON QUEST TACT",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "12:00"
+	},
+	{
 		game: "Dream Eater",
 		server: "Taiwan",
 		timezone: "Asia/Taipei",
