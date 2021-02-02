@@ -362,6 +362,12 @@ var gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "SWORD ART ONLINE Alicization Rising Steel",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "03:00"
+	},
+	{
 		game: "TALES OF CRESTORIA",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
