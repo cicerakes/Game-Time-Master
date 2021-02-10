@@ -36,6 +36,12 @@ var gameData = [
 		dailyReset: "08:00"
 	},
 	{
+		game: "Blue Archive",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Brave Nine",
 		server: "Global & Europe",
 		timezone: "Etc/UTC",
