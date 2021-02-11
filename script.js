@@ -272,6 +272,12 @@ var gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Love Live! School Idol Festival ALL STARS",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Magia Record",
 		server: "JP",
 		timezone: "Asia/Tokyo",
