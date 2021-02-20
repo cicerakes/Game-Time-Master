@@ -120,6 +120,12 @@ var gameData = [
 		dailyReset: "03:00"
 	},
 	{
+		game: "Exos Heroes",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "20:00"
+	},
+	{
 		game: "Fate/Grand Order",
 		server: "JP",
 		timezone: "Asia/Tokyo",
