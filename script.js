@@ -453,7 +453,8 @@ var timeFormat = "HH:mm",
 resetTimeFormat = "HH:mm",
 twelveHourFormat = false,
 showServerDate = false,
-showSeconds = false;
+showSeconds = false,
+showHidden = false;
 
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	twelveHourFormat = true;
@@ -477,6 +478,11 @@ if (localStorage.getItem('showSecondsSwitch') == "true") {
 if (localStorage.getItem('showHideButtonsSwitch') == "false") {
 	document.body.classList.add("hideButtonsHidden");
 	document.getElementById("showHideButtonsSwitch").checked = false;
+}
+if (localStorage.getItem('showHiddenInSearchSwitch') == "true") {
+	showHidden = true;
+
+	document.getElementById("showHiddenInSearchSwitch").checked = true;
 }
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
@@ -738,19 +744,34 @@ function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
 	var searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 
-	for (let i = 0; i < gameData.length; i++) {
-		// Find game name for each container, convert to uppercase, and remove accent marks.
-		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
-		gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
-		gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
-
-		if (!gameName.includes(searchTerm)) {
-			// Hide.
-			gameCont.style.display = "none";
-		} else {
-			// Show, if game isn't filtered.
-			if (gameFilter[i].shown == "true") {
-				gameCont.removeAttribute("style");
+	// If empty, reset search display results.
+	if (searchTerm == undefined || searchTerm == "") {
+		for (let i = 0; i < gameData.length; i++) {
+			var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
+			gameCont.removeAttribute("style");
+		}
+	} else {
+		for (let i = 0; i < gameData.length; i++) {
+			// Find game name for each container, convert to uppercase, and remove accent marks.
+			var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+			gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
+			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+	
+			if (!gameName.includes(searchTerm)) {
+				// Hide.
+				gameCont.style.display = "none";
+			} else {
+				// Show, if server isn't hidden (depending on showHidden setting).
+				// Don't show hidden servers if there's no search term(s).
+				if (showHidden && (searchTerm != undefined || searchTerm != "")) {
+					gameCont.style.display = "block";
+				} else if (gameFilter[i].shown == "true") {
+					gameCont.style.display = "block";
+				} else {
+					// Hide.
+					// Needed for when showHidden was on, but switched off later.
+					gameCont.style.display = "none";
+				}
 			}
 		}
 	}
@@ -790,6 +811,13 @@ function settingToggle(setting) {
 		} else {
 			document.body.classList.add("hideButtonsHidden");
 		}
+	} else if (settingId == "showHiddenInSearchSwitch") {
+		if (setting.checked) {
+			showHidden = true;
+		} else {
+			showHidden = false;
+		}
+		searchFilter();
 	} else if (settingId == "compactModeSwitch") {
 		if (setting.checked) {
 			document.body.classList.add("compact");
@@ -896,7 +924,9 @@ function toggleGameServerHide(toggle, child) {
 	if (gameFilter[position].shown == "true") {
 		// Hide.
 		gameFilter[position].shown = "false";
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].style.display = "none";
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].classList.add("hidden");
+		// Update button text.
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
 
 		// Check if other children are hidden.
 		if (child) {
@@ -922,7 +952,9 @@ function toggleGameServerHide(toggle, child) {
 	} else {
 		// Show.
 		gameFilter[position].shown = "true";
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].removeAttribute("style");
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].classList.remove("hidden");
+		// Update button text.
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
 
 		// Check if other children are shown.
 		if (child) {
@@ -946,6 +978,10 @@ function toggleGameServerHide(toggle, child) {
 			}
 		}
 	}
+	
+	// Refresh search results.
+	searchFilter();
+
 	// Store.
 	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 }
@@ -963,7 +999,9 @@ function toggleGameParentHide(gameSwitch) {
 				serverCount++;
 
 				gameFilter[i].shown = "false";
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].style.display = "none";
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].classList.add("hidden");
+				// Update button text.
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
 			}
 		}
 		// Toggle switch off.
@@ -979,7 +1017,9 @@ function toggleGameParentHide(gameSwitch) {
 				serverCount++;
 
 				gameFilter[i].shown = "true";
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].removeAttribute("style");
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].classList.remove("hidden");
+				// Update button text.
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
 			}
 		}
 		// Toggle switch on.
@@ -988,6 +1028,10 @@ function toggleGameParentHide(gameSwitch) {
 		}
 		gameSwitch.checked = true;
 	}
+	
+	// Refresh search results.
+	searchFilter();
+	
 	// Store.
 	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 }
@@ -1005,9 +1049,19 @@ function hideGameServerButton(button) {
 		}
 	}
 
-	// Use position to find switch and toggle it off.
-	document.getElementsByClassName("gameServerToggle")[position].checked = false;
-	//Trigger onchange to hide the game.
-	document.getElementsByClassName("gameServerToggle")[position].onchange();
+	// Use position to find switch.
+	var gameSwitch = document.getElementsByClassName("gameServerToggle")[position];
 
+	// Toggle switch.
+	if (gameSwitch.checked == false) {
+		gameSwitch.checked = true;
+		// Update button text.
+		button.textContent = "Hide";
+	} else {
+		gameSwitch.checked = false;
+		// Update button text.
+		button.textContent = "Show";
+	}
+	// Trigger onchange to hide/show the game.
+	gameSwitch.onchange();
 }

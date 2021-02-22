@@ -27,6 +27,10 @@ header h1 {
 	top: -3px;
 }
 
+.hidden {
+	display: none;
+}
+
 .menuButt {
 	font-size: 2em;
 	position: relative;
@@ -376,6 +380,13 @@ header h1 {
 
 #mainSettings .optionName {
 	overflow: visible;
+	max-height: 46px;
+	white-space: normal;
+}
+
+#mainSettings span {
+	width: 80%;
+	display: inline-block;
 }
 
 .switch {
@@ -393,6 +404,7 @@ header h1 {
 }
 
 .slider {
+	width: 100% !important;
 	position: absolute;
 	cursor: pointer;
 	top: 0;
