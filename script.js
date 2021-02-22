@@ -60,6 +60,12 @@ var gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "D4DJ Groovy Mix",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Dengeki Bunko: Crossing Void",
 		server: "Global",
 		timezone: "Etc/UTC",
