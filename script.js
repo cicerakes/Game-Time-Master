@@ -927,6 +927,7 @@ function toggleGameServerHide(toggle, child) {
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].classList.add("hidden");
 		// Update button text.
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
 
 		// Check if other children are hidden.
 		if (child) {
@@ -955,6 +956,7 @@ function toggleGameServerHide(toggle, child) {
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].classList.remove("hidden");
 		// Update button text.
 		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
+		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
 
 		// Check if other children are shown.
 		if (child) {
@@ -1002,6 +1004,7 @@ function toggleGameParentHide(gameSwitch) {
 				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].classList.add("hidden");
 				// Update button text.
 				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
 			}
 		}
 		// Toggle switch off.
@@ -1020,6 +1023,7 @@ function toggleGameParentHide(gameSwitch) {
 				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].classList.remove("hidden");
 				// Update button text.
 				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
+				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
 			}
 		}
 		// Toggle switch on.
@@ -1055,12 +1059,8 @@ function hideGameServerButton(button) {
 	// Toggle switch.
 	if (gameSwitch.checked == false) {
 		gameSwitch.checked = true;
-		// Update button text.
-		button.textContent = "Hide";
 	} else {
 		gameSwitch.checked = false;
-		// Update button text.
-		button.textContent = "Show";
 	}
 	// Trigger onchange to hide/show the game.
 	gameSwitch.onchange();
