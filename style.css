@@ -505,7 +505,7 @@ input:checked + .slider:before {
 
 @media (max-width: 620px) {
 	#filterSearchBox:focus {
-		width: 80%;
+		width: 78%;
 	}
 
 	header h1 {
