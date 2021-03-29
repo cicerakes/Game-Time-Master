@@ -488,7 +488,14 @@ if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
 	document.getElementById("compactModeSwitch").checked = true;
 }
+// If there's no saved dark theme setting, check for OS theme and apply that.
+// OS theme is used until user manually changes this setting.
 if (localStorage.getItem('darkThemeSwitch') == "true") {
+	document.body.classList.add("dark");
+	document.getElementById("darkThemeSwitch").checked = true;
+} else if (localStorage.getItem('darkThemeSwitch') == "false") {
+	// Do nothing and load default theme.
+} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 	document.body.classList.add("dark");
 	document.getElementById("darkThemeSwitch").checked = true;
 }
