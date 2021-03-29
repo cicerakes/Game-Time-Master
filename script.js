@@ -1,440 +1,3 @@
-var gameData = [
-	{
-		game: "AFK Arena",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Another Eden",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "15:00"
-	},
-	{
-		game: "Arknights",
-		server: "EN",
-		timezone: "Etc/GMT+7",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Ash Arms",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Azur Lane",
-		server: "EN",
-		timezone: "Etc/GMT+7",
-		dailyReset: "00:00"
-	},
-	{
-		game: "BanG Dream! Girls Band Party!",
-		server: "EN",
-		timezone: "Etc/UTC",
-		dailyReset: "08:00"
-	},
-	{
-		game: "Blue Archive",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Brave Nine",
-		server: "Global & Europe",
-		timezone: "Etc/UTC",
-		dailyReset: "20:00"
-	},
-	{
-		game: "CIRCLET PRINCESS",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Cookie Run: Kingdom",
-		server: "Global",
-		timezone: "Asia/Seoul",
-		dailyReset: "00:00"
-	},
-	{
-		game: "D4DJ Groovy Mix",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Dengeki Bunko: Crossing Void",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "12:00"
-	},
-	{
-		game: "Destiny Child",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "04:00"
-	},
-	{
-		game: "DISSIDIA FINAL FANTASY OPERA OMNIA",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "08:00"
-	},
-	{
-		game: "Dragalia Lost",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "07:00"
-	},
-	{
-		game: "DRAGON QUEST TACT",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "12:00"
-	},
-	{
-		game: "Dream Eater",
-		server: "Taiwan",
-		timezone: "Asia/Taipei",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Elune",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Epic Seven",
-		server: "Europe",
-		timezone: "Europe/Paris",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Epic Seven",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "10:00"
-	},
-	{
-		game: "Epic Seven",
-		server: "Korea",
-		timezone: "Asia/Seoul",
-		dailyReset: "03:00"
-	},
-	{
-		game: "Exos Heroes",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "20:00"
-	},
-	{
-		game: "Fate/Grand Order",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Fate/Grand Order",
-		server: "NA",
-		timezone: "America/Los_Angeles",
-		dailyReset: "04:00",
-		utcDailyReset: true
-	},
-	{
-		game: "Final Gear",
-		server: "CN",
-		timezone: "Asia/Shanghai",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Fire Emblem Heroes",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "07:00"
-	},
-	{
-		game: "Genshin Impact",
-		server: "America",
-		timezone: "Etc/GMT+5",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Genshin Impact",
-		server: "Asia",
-		timezone: "Etc/GMT-8",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Genshin Impact",
-		server: "Europe",
-		timezone: "Etc/GMT-1",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Girls' Frontline",
-		server: "EN",
-		timezone: "Etc/GMT+8",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Granblue Fantasy",
-		server: "JP & EN",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Guardian Tales",
-		server: "Asia",
-		timezone: "Etc/GMT-8",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Guardian Tales",
-		server: "NA",
-		timezone: "America/Los_Angeles",
-		dailyReset: "08:00",
-		utcDailyReset: true
-	},
-	{
-		game: "Guardian Tales",
-		server: "EU",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Guardian Tales",
-		server: "LA",
-		timezone: "America/Maceio",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Guardian Tales",
-		server: "OC",
-		timezone: "Australia/Brisbane",
-		dailyReset: "00:00"
-	},
-	{
-		game: "GUNDAM BATTLE: GUNPLA WARFARE",
-		server: "JP & NA",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Hero Cantare",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Honkai Impact 3rd",
-		server: "Americas",
-		timezone: "Etc/GMT+5",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Honkai Impact 3rd",
-		server: "Asia",
-		timezone: "Etc/GMT-8",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Honkai Impact 3rd",
-		server: "Europe",
-		timezone: "Etc/GMT-1",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Idle Heroes",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00"
-	},
-	{
-		game: "ILLUSION CONNECT",
-		server: "Global",
-		timezone: "Etc/GMT-8",
-		dailyReset: "05:00"
-	},
-	{
-		game: "King's Raid",
-		server: "America",
-		timezone: "America/New_York",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Langrisser",
-		server: "Global",
-		timezone: "America/Chicago",
-		dailyReset: "00:00"
-	},
-	{
-		game: "LAST CLOUDIA",
-		server: "EN",
-		timezone: "America/Los_Angeles",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Looney Tunes World of Mayhem",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "18:00"
-	},
-	{
-		game: "Love Live! School Idol Festival ALL STARS",
-		server: "Global",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Magia Record",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Magicami",
-		server: "EN",
-		timezone: "America/New_York",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Millennium War Aigis",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Oshiro Project:RE Castle Defense",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Pokemon Masters",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "06:00"
-	},
-	{
-		game: "Princess Connect! Re:Dive",
-		server: "EN",
-		timezone: "Etc/UTC",
-		dailyReset: "13:00"
-	},
-	{
-		game: "Princess Connect! Re:Dive",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "RED: Pride of Eden",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Revue Starlight Re LIVE",
-		server: "JP & EN",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Romancing SaGa Re;univerSe",
-		server: "Global",
-		timezone: "Etc/GMT-7",
-		dailyReset: "08:00"
-	},
-	{
-		game: "Saint Seiya: Awakening",
-		server: "Global",
-		timezone: "Etc/GMT+4",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Saint Seiya: Awakening",
-		server: "SEA",
-		timezone: "Asia/Jakarta",
-		dailyReset: "05:00"
-	},
-	{
-		game: "Sdorica",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "21:00"
-	},
-	{
-		game: "SHIN MEGAMI TENSEI Liberation Dx2",
-		server: "EN",
-		timezone: "America/Los_Angeles",
-		dailyReset: "18:00"
-	},
-	{
-		game: "Shining Beyond",
-		server: "Global",
-		timezone: "Asia/Singapore",
-		dailyReset: "00:00"
-	},
-	{
-		game: "SINoALICE",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "05:00"
-	},
-	{
-		game: "SWORD ART ONLINE Alicization Rising Steel",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "03:00"
-	},
-	{
-		game: "TALES OF CRESTORIA",
-		server: "JP & EN",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "The Seven Deadly Sins: Grand Cross",
-		server: "Global",
-		timezone: "Etc/GMT+7",
-		dailyReset: "00:00"
-	},
-	{
-		game: "The Seven Deadly Sins: Grand Cross",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Tokyo Afterschool Summoners",
-		server: "Global",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
-		game: "Tokyo NECRO: SUICIDE MISSION",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00"
-	},
-	{
-		game: "Toram Online",
-		server: "Global",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	},
-	{
-		game: "World Flipper",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00"
-	}
-];
-
 // Initialise list of filtered/hidden games using gameData.
 var gameFilter = [];
 
@@ -502,16 +65,16 @@ if (localStorage.getItem('darkThemeSwitch') == "true") {
 
 // Hide game containers.
 if (localStorage.getItem('gameFilterList') != null) {
-	var gameFilterSaved = getLocalStorageObject('gameFilterList');
+	const gameFilterSaved = getLocalStorageObject('gameFilterList');
 
 	for (let i = 0; i < gameFilterSaved.length; i++) {
 		if (gameFilterSaved[i].shown == "false") {
-			var serverCount = 0, 
+			let serverCount = 0, 
 			skippedParent = false, 
 			containerPosition = 0;
 
 			for (let y = 4; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
-				var gameLabel = document.getElementById("gameFilterSettings").children[y], 
+				const gameLabel = document.getElementById("gameFilterSettings").children[y], 
 				gameName = gameData[containerPosition].game;
 
 				if (gameLabel.className.includes("gameParent")) {
@@ -531,7 +94,7 @@ if (localStorage.getItem('gameFilterList') != null) {
 				if (skippedParent) {
 					y++;
 					for (let z = 0; z < serverCount; z++, containerPosition++) {
-						var childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
+						const childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
 
 						// Compare current child with server in saved filter to see if there's a match.
 						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
@@ -558,7 +121,7 @@ document.getElementById("currentLocalTimezone").textContent = nowZone + " — " 
 // Convert game times to local time zone and store results.
 var gameDataConverted = [];
 for (let i = 0; i < gameData.length; i++) {
-	var gameTimezone = gameData[i].timezone, 
+	let gameTimezone = gameData[i].timezone, 
 	currentServerTime = now.clone().tz(gameTimezone);
 	
 	// If daily reset changes during daylight savings, convert using UTC first.
@@ -571,10 +134,10 @@ for (let i = 0; i < gameData.length; i++) {
 	}
 	
 	// Convert to local.
-	var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
+	let localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
 	// Change local reset time to tomorrow if it has already passed.
-	var todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
+	const todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
 	if (todayResetPassed) {
 		if (gameData[i].dailyReset.hours() == 0) {
 			// Add 48 hours to fix midnight reset using previous day.
@@ -585,7 +148,7 @@ for (let i = 0; i < gameData.length; i++) {
 	}
 
 	// Calculate time left until daily reset.
-	var timeRemaining = now.preciseDiff(localResetTime, true);
+	let timeRemaining = now.preciseDiff(localResetTime, true);
 	// Display seconds if the setting is on.
 	if (showSeconds) {
 		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
@@ -605,7 +168,7 @@ for (let i = 0; i < gameData.length; i++) {
 
 // Loop print the results as divs into #resultsContainer.
 for (let i = 0; i < gameData.length; i++) {
-	var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+	const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 	gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
 	gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
@@ -670,14 +233,14 @@ function timeCalc() {
 
 	// Refresh converted times.
 	for (let i = 0; i < gameData.length; i++) {
-		var gameTimezone = gameData[i].timezone, 
+		let gameTimezone = gameData[i].timezone, 
 		currentServerTime = now.clone().tz(gameTimezone);
 
 		// Convert to local.
-		var localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
+		let localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
 		// Change local reset time to tomorrow if it has already passed.
-		var todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
+		const todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
 		if (todayResetPassed) {
 			if (gameData[i].dailyReset.hours() == 0) {
 				// Add 48 hours to fix midnight reset using previous day.
@@ -688,7 +251,7 @@ function timeCalc() {
 		}
 
 		// Calculate time left until daily reset.
-		var timeRemaining = now.preciseDiff(localResetTime, true);
+		let timeRemaining = now.preciseDiff(localResetTime, true);
 		// Display seconds if the setting is on.
 		if (showSeconds) {
 			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
@@ -706,7 +269,7 @@ function timeCalc() {
 	document.getElementById("currentLocalTime").textContent = now.format(timeFormat);
 	document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
 	for (let i = 0; i < gameData.length; i++) {
-		var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+		const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 		gameBody = gameCont.getElementsByClassName("gameTimes")[0];
 
 		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].dailyReset.format(resetTimeFormat);
@@ -727,7 +290,7 @@ function timeCalc() {
 }
 
 function toggleMenu() {
-	var menuButton = document.getElementById("mainMenuButt");
+	const menuButton = document.getElementById("mainMenuButt");
 
 	if (document.getElementById("menu").style.marginLeft == "0px") {
 		// Close.
@@ -749,18 +312,18 @@ function toggleMenu() {
 
 function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
-	var searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+	const searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 
 	// If empty, reset search display results.
 	if (searchTerm == undefined || searchTerm == "") {
 		for (let i = 0; i < gameData.length; i++) {
-			var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
+			const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
 			gameCont.removeAttribute("style");
 		}
 	} else {
 		for (let i = 0; i < gameData.length; i++) {
 			// Find game name for each container, convert to uppercase, and remove accent marks.
-			var gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
+			const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 			gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
 			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 	
@@ -785,7 +348,7 @@ function searchFilter () {
 }
 
 function settingToggle(setting) {
-	var settingId = setting.id;
+	const settingId = setting.id;
 	localStorage.setItem([settingId], setting.checked);
 
 	if (settingId == "12HrTimeSwitch") {
@@ -841,7 +404,7 @@ function settingToggle(setting) {
 }
 
 function showSearch(button) {
-	var searchBox = document.getElementById("filterSearchBox");
+	const searchBox = document.getElementById("filterSearchBox");
 
 	button.style.display = "none";
 	document.getElementsByTagName("header")[0].getElementsByTagName("h1")[0].style.display = "none";
@@ -851,7 +414,7 @@ function showSearch(button) {
 }
 
 function searchHide(searchBox) {
-	var searchButton = document.getElementById("filterSearchOpen");
+	const searchButton = document.getElementById("filterSearchOpen");
 
 	if (searchButton.style.display == "none") {
 		searchBox.style.width = 0;
@@ -868,7 +431,7 @@ function searchHide(searchBox) {
 }
 
 function getLocalStorageObject(ObjectName) {
-	var parsedObject = JSON.parse(localStorage.getItem(ObjectName));
+	const parsedObject = JSON.parse(localStorage.getItem(ObjectName));
 
 	return parsedObject;
 }
@@ -881,7 +444,7 @@ document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHei
 gamesMenuSectionToggle(document.getElementById("gamesMenuSection"));
 
 function gamesMenuSectionToggle(dropArrow) {
-	var menuSection = dropArrow.parentElement;
+	const menuSection = dropArrow.parentElement;
 
 	if (menuSection.style.height == "36px") {
 		// Open.
@@ -896,7 +459,7 @@ function gamesMenuSectionToggle(dropArrow) {
 }
 
 function menuChildrenToggle(dropArrow) {
-	var gameChild = dropArrow.parentElement.nextElementSibling, 
+	const gameChild = dropArrow.parentElement.nextElementSibling, 
 	gameChildHeight = gameChild.childElementCount * 20.5;
 
 	if (gameChild.style.height == gameChildHeight + "px") {
@@ -922,7 +485,8 @@ function menuChildrenToggle(dropArrow) {
 
 function toggleGameServerHide(toggle, child) {
 	// Find the server's position in gameData.
-	for (var position = 0; position < gameData.length; position++) {
+	let position = 0;
+	for (; position < gameData.length; position++) {
 		if (document.getElementsByClassName("gameServerToggle")[position] == toggle) {
 			break;
 		}
@@ -938,9 +502,9 @@ function toggleGameServerHide(toggle, child) {
 
 		// Check if other children are hidden.
 		if (child) {
-			var parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
-			gameName = gameData[position].game, 
-			allHidden = true;
+			const parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
+			gameName = gameData[position].game;
+			let allHidden = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
 				if (gameFilter[i].game == gameName) {
@@ -967,9 +531,9 @@ function toggleGameServerHide(toggle, child) {
 
 		// Check if other children are shown.
 		if (child) {
-			var parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
-			gameName = gameData[position].game, 
-			allShown = true;
+			const parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
+			gameName = gameData[position].game;
+			let allShown = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
 				if (gameFilter[i].game == gameName) {
@@ -996,10 +560,10 @@ function toggleGameServerHide(toggle, child) {
 }
 
 function toggleGameParentHide(gameSwitch) {
-	var gameName = gameSwitch.nextElementSibling.textContent.trim(), 
+	const gameName = gameSwitch.nextElementSibling.textContent.trim(), 
 	parentSwitchStatus = gameSwitch.checked, 
-	childrenHolder = gameSwitch.nextElementSibling.nextElementSibling, 
-	serverCount = 0;
+	childrenHolder = gameSwitch.nextElementSibling.nextElementSibling;
+	let serverCount = 0;
 
 	if (parentSwitchStatus == false) {
 		// Hide servers.
@@ -1049,19 +613,20 @@ function toggleGameParentHide(gameSwitch) {
 
 function hideGameServerButton(button) {
 	// Get game name (removed accents) and server region.
-	var gameHeader = button.parentElement.parentElement.children[0], 
+	const gameHeader = button.parentElement.parentElement.children[0], 
 	gameName = gameHeader.children[1].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""), 
 	server = gameHeader.children[2].textContent;
 
 	// Find position in gameData.
-	for (var position = 0; position < gameData.length; position++) {
+	let position = 0;
+	for (; position < gameData.length; position++) {
 		if (gameData[position].game == gameName && gameData[position].server == server) {
 			break;
 		}
 	}
 
 	// Use position to find switch.
-	var gameSwitch = document.getElementsByClassName("gameServerToggle")[position];
+	const gameSwitch = document.getElementsByClassName("gameServerToggle")[position];
 
 	// Toggle switch.
 	if (gameSwitch.checked == false) {
