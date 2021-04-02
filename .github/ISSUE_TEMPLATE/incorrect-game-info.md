@@ -12,6 +12,6 @@ assignees: cicerakes
 
 **Correct information:** 
 - **Timezone (location or offset):** 
-- **Daily server reset time:** 
+- **Server daily reset time:** 
 
 (Optional) Provide an explanation and/or links/screenshots as proof.

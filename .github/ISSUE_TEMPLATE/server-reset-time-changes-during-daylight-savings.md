@@ -11,5 +11,5 @@ assignees: cicerakes
 - **Game:** 
 - **Server region/language:** 
 
-- **First server reset time:** e.g. 05:00 PST
-- **Second server reset time:** e.g. 06:00 PDT
+- **First server daily reset time:** e.g. 05:00 PST
+- **Second server daily reset time:** e.g. 06:00 PDT
