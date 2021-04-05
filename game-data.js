@@ -428,6 +428,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Uma Musume Pretty Derby",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "World Flipper",
 		server: "JP",
 		timezone: "Asia/Tokyo",
