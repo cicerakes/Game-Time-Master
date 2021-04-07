@@ -248,6 +248,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Identity V",
+		server: "NA and EU",
+		timezone: "Etc/GMT+6",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Idle Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
