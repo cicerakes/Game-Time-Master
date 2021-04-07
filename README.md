@@ -14,9 +14,9 @@ Then this is for you!
 - Choose between 24-hour and 12-hour time formats.
 - Search for specific games.
 - Filter specific games and save this setting per browser.
-- Dark/night mode.
+- Dark/night mode, which is automatically enabled based on system preferences.
 
-Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues).
+Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues), or by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform).
 
 ## Feature Roadmap
 - Manually set time zone (for when auto detect is wrong).
