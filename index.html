@@ -35,6 +35,10 @@
 				<label class="optionName" for="afkArena">
 					AFK Arena
 				</label>
+				<input type="checkbox" id="ageOfIshtaria" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
+				<label class="optionName" for="ageOfIshtaria">
+					Age of Ishtaria
+				</label>
 				<input type="checkbox" id="anotherEden" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="anotherEden">
 					Another Eden
@@ -466,6 +470,27 @@
 						<img src="game-icons/AFKArena.jpg">
 					</div>
 					<h3>AFK Arena</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/AgeOfIshtaria.jpg">
+					</div>
+					<h3>Age of Ishtaria</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">

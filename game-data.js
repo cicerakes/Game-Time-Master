@@ -6,6 +6,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Age of Ishtaria",
+		server: "Global",
+		timezone: "Etc/GMT+8",
+		dailyReset: "16:00"
+	},
+	{
 		game: "Another Eden",
 		server: "Global",
 		timezone: "Etc/UTC",
