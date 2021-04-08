@@ -410,6 +410,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "THE iDOLM@STER MILLION LIVE! THEATER DAYS",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "The Seven Deadly Sins: Grand Cross",
 		server: "Global",
 		timezone: "Etc/GMT+7",
