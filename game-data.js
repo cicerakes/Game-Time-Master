@@ -440,6 +440,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Tower of Saviors",
+		server: "CN & EN",
+		timezone: "Etc/GMT-8",
+		dailyReset: "14:00"
+	},
+	{
 		game: "Uma Musume Pretty Derby",
 		server: "JP",
 		timezone: "Asia/Tokyo",
