@@ -87,6 +87,10 @@
 				<label class="optionName" for="destinyChild">
 					Destiny Child
 				</label>
+				<input type="checkbox" id="disgaeaRPG" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
+				<label class="optionName" for="disgaeaRPG">
+					Disgaea RPG
+				</label>
 				<input type="checkbox" id="dissidiaFFOO" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="dissidiaFFOO">
 					DISSIDIA FINAL FANTASY OPERA OMNIA
@@ -751,6 +755,27 @@
 						<img src="game-icons/DestinyChild.jpg">
 					</div>
 					<h3>Destiny Child</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DisgaeaRPG.jpg">
+					</div>
+					<h3>Disgaea RPG</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
