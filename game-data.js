@@ -278,6 +278,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Kemono Friends 3",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "King's Raid",
 		server: "America",
 		timezone: "America/New_York",
