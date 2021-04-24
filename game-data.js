@@ -332,6 +332,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "NieR Re[in]carnation",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Oshiro Project:RE Castle Defense",
 		server: "JP",
 		timezone: "Asia/Tokyo",
