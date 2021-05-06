@@ -31,6 +31,12 @@ const gameData = [
 	},
 	{
 		game: "Azur Lane",
+		server: "CN",
+		timezone: "Etc/GMT-8",
+		dailyReset: "00:00"
+	},
+	{
+		game: "Azur Lane",
 		server: "EN",
 		timezone: "Etc/GMT+7",
 		dailyReset: "00:00"
