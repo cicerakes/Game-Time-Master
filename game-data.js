@@ -296,6 +296,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "King's Raid",
+		server: "Asia",
+		timezone: "Etc/GMT+7",
+		dailyReset: "21:00"
+	},
+	{
 		game: "Langrisser",
 		server: "Global",
 		timezone: "America/Chicago",
