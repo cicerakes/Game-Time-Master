@@ -464,6 +464,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Tokyo 7th Sisters",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Tokyo Afterschool Summoners",
 		server: "Global",
 		timezone: "Asia/Tokyo",
