@@ -169,6 +169,12 @@ const gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "FINAL FANTASY BRAVE EXVIUS",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Final Gear",
 		server: "CN",
 		timezone: "Asia/Shanghai",
