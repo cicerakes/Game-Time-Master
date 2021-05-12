@@ -494,6 +494,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Touhou LostWord",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Tower of Saviors",
 		server: "CN & EN",
 		timezone: "Etc/GMT-8",
