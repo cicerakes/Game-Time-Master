@@ -386,6 +386,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Punishing: Gray Raven",
+		server: "China & Taiwain",
+		timezone: "Asia/Shanghai",
+		dailyReset: "04:00"
+	},
+	{
 		game: "RED: Pride of Eden",
 		server: "JP",
 		timezone: "Asia/Tokyo",
