@@ -116,8 +116,8 @@ const gameData = [
 	{
 		game: "Dragalia Lost",
 		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "07:00"
+		timezone: "America/Los_Angeles",
+		dailyReset: "23:00"
 	},
 	{
 		game: "DRAGON QUEST TACT",
