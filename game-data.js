@@ -392,6 +392,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Punishing: Gray Raven",
 		server: "China & Taiwain",
 		timezone: "Asia/Shanghai",
