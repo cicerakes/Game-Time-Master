@@ -476,6 +476,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "TenkafuMA!",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00"
+	},
+	{
 		game: "THE iDOLM@STER MILLION LIVE! THEATER DAYS",
 		server: "JP",
 		timezone: "Asia/Tokyo",
