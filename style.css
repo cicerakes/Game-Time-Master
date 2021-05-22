@@ -108,6 +108,10 @@ header h1 {
 	transition: .2s;
 }
 
+.menuSection.collapsed .gameParent, .menuSection.collapsed .gameParent button, .menuSection.collapsed .gameParent label {
+	z-index: -1;
+}
+
 .sectionHeading {
 	font-size: 14px;
 	font-weight: normal;

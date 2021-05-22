@@ -450,11 +450,13 @@ function gamesMenuSectionToggle(dropArrow) {
 		// Open.
 		dropArrow.removeAttribute("style");
 		menuSection.style.height = gamesMenuSectionHeight + "px";
+		menuSection.classList.remove("collapsed");
 	} else {
 		// Close.
 		dropArrow.style.transform = "rotate(45deg)";
 		dropArrow.style.top = "-15px";
 		menuSection.style.height = "36px";
+		menuSection.classList.add("collapsed");
 	}
 }
 
