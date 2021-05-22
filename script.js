@@ -137,7 +137,7 @@ for (let i = 0; i < gameData.length; i++) {
 	let localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
 	// Change local reset time to tomorrow if it has already passed.
-	const todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
+	const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
 	if (todayResetPassed) {
 		if (gameData[i].dailyReset.hours() == 0) {
 			// Add 48 hours to fix midnight reset using previous day.
@@ -148,7 +148,7 @@ for (let i = 0; i < gameData.length; i++) {
 	}
 
 	// Calculate time left until daily reset.
-	let timeRemaining = now.preciseDiff(localResetTime, true);
+	let timeRemaining = moment.preciseDiff(now, localResetTime, true);
 	// Display seconds if the setting is on.
 	if (showSeconds) {
 		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
@@ -240,7 +240,7 @@ function timeCalc() {
 		let localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
 
 		// Change local reset time to tomorrow if it has already passed.
-		const todayResetPassed = (now.preciseDiff(localResetTime, true)).firstDateWasLater;
+		const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
 		if (todayResetPassed) {
 			if (gameData[i].dailyReset.hours() == 0) {
 				// Add 48 hours to fix midnight reset using previous day.
@@ -251,7 +251,7 @@ function timeCalc() {
 		}
 
 		// Calculate time left until daily reset.
-		let timeRemaining = now.preciseDiff(localResetTime, true);
+		let timeRemaining = moment.preciseDiff(now, localResetTime, true);
 		// Display seconds if the setting is on.
 		if (showSeconds) {
 			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
