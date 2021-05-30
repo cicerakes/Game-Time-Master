@@ -85,6 +85,12 @@ const gameData = [
 	},
 	{
 		game: "D4DJ Groovy Mix",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "08:00"
+	},
+	{
+		game: "D4DJ Groovy Mix",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "04:00"
