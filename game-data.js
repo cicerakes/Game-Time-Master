@@ -187,6 +187,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "FINAL FANTASY Record Keeper",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "08:00"
+	},
+	{
 		game: "Final Gear",
 		server: "CN",
 		timezone: "Asia/Shanghai",
