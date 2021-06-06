@@ -241,6 +241,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Grand Summoners",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "21:00"
+	},
+	{
 		game: "Guardian Tales",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
