@@ -54,6 +54,12 @@ const gameData = [
 		dailyReset: "08:00"
 	},
 	{
+		game: "Bleach: Brave Souls",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Blue Archive",
 		server: "JP",
 		timezone: "Asia/Tokyo",
