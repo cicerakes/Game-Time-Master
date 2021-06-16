@@ -90,6 +90,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Crash Fever",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "06:00"
+	},
+	{
 		game: "D4DJ Groovy Mix",
 		server: "EN",
 		timezone: "Etc/UTC",
