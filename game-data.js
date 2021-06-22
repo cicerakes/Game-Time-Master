@@ -265,6 +265,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Grand Chase: Dimensional Chaser",
+		server: "Asia",
+		timezone: "Etc/GMT-9",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Grand Summoners",
 		server: "Global",
 		timezone: "Asia/Tokyo",
