@@ -6,7 +6,7 @@ Then this is for you!
 - Automatically detects your local time zone.
 - Converts all game server times to your local time zone.
 - Shows the time remaining until a game server's daily reset.
-- Automatically refreshes data every minute.
+- Automatically refreshes times every minute.
   - Option to refresh and display every second.
 - All calculations take daylight savings into account where applicable.
   - By default, this assumes that servers keep the same times (e.g. 06:00 PST -> 06:00 PDT).  
