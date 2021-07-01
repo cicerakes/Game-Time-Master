@@ -168,6 +168,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Eiyuu Senki WWX",
+		server: "EN",
+		timezone: "America/Atikokan",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Elune",
 		server: "Global",
 		timezone: "Etc/UTC",
