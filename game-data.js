@@ -422,6 +422,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "My Hero Academia: The Strongest Hero",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "05:00"
+	},
+	{
 		game: "NieR Re[in]carnation",
 		server: "JP",
 		timezone: "Asia/Tokyo",
