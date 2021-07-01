@@ -488,6 +488,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Rhythm Hive",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Romancing SaGa Re;univerSe",
 		server: "Global",
 		timezone: "Etc/GMT-7",
