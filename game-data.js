@@ -277,6 +277,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Girls' Frontline: Project Neural Cloud",
+		server: "CN",
+		timezone: "Asia/Shanghai",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Granblue Fantasy",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
