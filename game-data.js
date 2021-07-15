@@ -48,6 +48,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Atelier Online: Alchemist of Bressisle",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Auto Heroes",
 		server: "NA",
 		timezone: "America/New_York",
