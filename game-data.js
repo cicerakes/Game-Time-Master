@@ -48,6 +48,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Auto Heroes",
+		server: "NA",
+		timezone: "America/New_York",
+		dailyReset: "08:00"
+	},
+	{
 		game: "Azur Lane",
 		server: "CN",
 		timezone: "Etc/GMT-8",
