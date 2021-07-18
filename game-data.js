@@ -410,6 +410,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Legends of Runeterra",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "03:00"
+	},
+	{
 		game: "Looney Tunes World of Mayhem",
 		server: "Global",
 		timezone: "America/Los_Angeles",
