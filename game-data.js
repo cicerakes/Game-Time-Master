@@ -422,6 +422,12 @@ const gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Love Live! School Idol Festival",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Love Live! School Idol Festival ALL STARS",
 		server: "Global",
 		timezone: "Asia/Tokyo",
