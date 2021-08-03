@@ -398,6 +398,12 @@ const gameData = [
 		dailyReset: "21:00"
 	},
 	{
+		game: "KonoSuba: Fantastic Days",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Langrisser",
 		server: "Global",
 		timezone: "America/Chicago",
