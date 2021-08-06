@@ -478,7 +478,7 @@ const gameData = [
 	{
 		game: "NieR Re[in]carnation",
 		server: "Global",
-		timezone: "America/Los_Angeles",
+		timezone: "Pacific/Pitcairn",
 		dailyReset: "00:00"
 	},
 	{
