@@ -231,7 +231,7 @@ const gameData = [
 		game: "Fate/Grand Order",
 		server: "JP",
 		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
+		dailyReset: "04:00"
 	},
 	{
 		game: "Fate/Grand Order",
