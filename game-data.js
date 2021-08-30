@@ -150,6 +150,12 @@ const gameData = [
 		dailyReset: "22:00"
 	},
 	{
+		game: "DEAD OR ALIVE Xtreme Venus Vacation",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "19:00"
+	},
+	{
 		game: "Dengeki Bunko: Crossing Void",
 		server: "Global",
 		timezone: "Etc/UTC",
