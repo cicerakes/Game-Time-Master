@@ -464,6 +464,24 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "MapleStory M",
+		server: "America",
+		timezone: "Etc/GMT+8",
+		dailyReset: "00:00"
+	},
+	{
+		game: "MapleStory M",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "00:00"
+	},
+	{
+		game: "MapleStory M",
+		server: "Europe",
+		timezone: "Etc/GMT-2",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Millennium War Aigis",
 		server: "JP",
 		timezone: "Asia/Tokyo",
