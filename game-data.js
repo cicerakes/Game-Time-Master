@@ -144,6 +144,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "DanMachi - MEMORIA FREESE",
+		server: "EN",
+		timezone: "Etc/GMT+8",
+		dailyReset: "22:00"
+	},
+	{
 		game: "Dengeki Bunko: Crossing Void",
 		server: "Global",
 		timezone: "Etc/UTC",
