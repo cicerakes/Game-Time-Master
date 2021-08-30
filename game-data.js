@@ -548,6 +548,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Princess Connect! Re:Dive",
+		server: "TW",
+		timezone: "Asia/Taipei",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
 		server: "JP",
 		timezone: "Asia/Tokyo",
