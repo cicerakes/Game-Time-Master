@@ -368,6 +368,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "HoneyWorks Premium Live",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Honkai Impact 3rd",
 		server: "Americas",
 		timezone: "Etc/GMT+5",
