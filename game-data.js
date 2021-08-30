@@ -632,6 +632,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Shining Nikki",
+		server: "EN",
+		timezone: "Etc/GMT+7",
+		dailyReset: "05:00"
+	},
+	{
 		game: "SINoALICE",
 		server: "Global",
 		timezone: "Etc/UTC",
