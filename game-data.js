@@ -295,6 +295,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Girl Cafe Gun",
+		server: "Global",
+		timezone: "Etc/GMT+4",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Girls' Frontline",
 		server: "EN",
 		timezone: "Etc/GMT+8",
