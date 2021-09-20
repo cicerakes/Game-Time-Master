@@ -620,6 +620,12 @@ const gameData = [
 		dailyReset: "21:00"
 	},
 	{
+		game: "Shadowverse",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "SHIN MEGAMI TENSEI Liberation Dx2",
 		server: "EN",
 		timezone: "America/Los_Angeles",
