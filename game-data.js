@@ -578,6 +578,12 @@ const gameData = [
 		dailyReset: "06:00"
 	},
 	{
+		game: "Ragnarok X: Next Generation",
+		server: "SEA",
+		timezone: "Etc/GMT-7",
+		dailyReset: "05:00"
+	},
+	{
 		game: "RED: Pride of Eden",
 		server: "JP",
 		timezone: "Asia/Tokyo",
