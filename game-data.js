@@ -217,6 +217,12 @@ const gameData = [
 	},
 	{
 		game: "Epic Seven",
+		server: "Asia",
+		timezone: "Etc/UTC",
+		dailyReset: "18:00"
+	},
+	{
+		game: "Epic Seven",
 		server: "Europe",
 		timezone: "Europe/Paris",
 		dailyReset: "05:00"
