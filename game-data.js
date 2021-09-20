@@ -740,6 +740,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Toontown Rewritten",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Toram Online",
 		server: "Global",
 		timezone: "Asia/Tokyo",
