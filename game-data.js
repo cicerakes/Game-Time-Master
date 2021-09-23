@@ -374,6 +374,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "HELIOS Rising Heroes",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Hero Cantare",
 		server: "Global",
 		timezone: "America/Los_Angeles",
