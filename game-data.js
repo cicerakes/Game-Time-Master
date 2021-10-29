@@ -746,6 +746,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Time Princess",
+		server: "Global",
+		timezone: "Etc/GMT+5",
+		dailyReset: "01:00"
+	},
+	{
 		game: "Tokyo 7th Sisters",
 		server: "JP",
 		timezone: "Asia/Tokyo",
