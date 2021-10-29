@@ -150,6 +150,12 @@ const gameData = [
 		dailyReset: "22:00"
 	},
 	{
+		game: "Darkness Rises",
+		server: "NA",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
 		game: "DEAD OR ALIVE Xtreme Venus Vacation",
 		server: "Global",
 		timezone: "Etc/UTC",
