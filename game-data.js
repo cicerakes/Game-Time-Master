@@ -800,6 +800,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "WAR OF THE VISIONS FINAL FANTASY BRAVE EXVIUS",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
 		game: "World Flipper",
 		server: "JP",
 		timezone: "Asia/Tokyo",
