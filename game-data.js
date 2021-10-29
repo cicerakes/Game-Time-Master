@@ -554,6 +554,12 @@ const gameData = [
 		dailyReset: "06:00"
 	},
 	{
+		game: "Pokemon UNITE",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Princess Connect! Re:Dive",
 		server: "EN",
 		timezone: "Etc/UTC",
