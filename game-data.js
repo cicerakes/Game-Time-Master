@@ -114,6 +114,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Cloud Song: Saga of Skywalkers",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "06:00"
+	},
+	{
 		game: "Cookie Run: Kingdom",
 		server: "Global",
 		timezone: "Asia/Seoul",
