@@ -692,6 +692,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "SLIME - ISEKAI Memories",
+		server: "Europe",
+		timezone: "Europe/Paris",
+		dailyReset: "06:00"
+	},
+	{
 		game: "Summoners War",
 		server: "Global",
 		timezone: "America/Los_Angeles",
