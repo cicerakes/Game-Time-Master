@@ -204,12 +204,6 @@ const gameData = [
 		dailyReset: "12:00"
 	},
 	{
-		game: "Dream Eater",
-		server: "Taiwan",
-		timezone: "Asia/Taipei",
-		dailyReset: "00:00"
-	},
-	{
 		game: "Eiyuu Senki WWX",
 		server: "EN",
 		timezone: "America/Atikokan",
