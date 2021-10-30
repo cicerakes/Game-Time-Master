@@ -108,12 +108,6 @@ const gameData = [
 		dailyReset: "20:00"
 	},
 	{
-		game: "CIRCLET PRINCESS",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00"
-	},
-	{
 		game: "Cloud Song: Saga of Skywalkers",
 		server: "Global",
 		timezone: "Etc/GMT-8",
