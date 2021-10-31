@@ -681,6 +681,12 @@ const gameData = [
 	},
 	{
 		game: "SLIME - ISEKAI Memories",
+		server: "Americas",
+		timezone: "America/Chicago",
+		dailyReset: "06:00"
+	},
+	{
+		game: "SLIME - ISEKAI Memories",
 		server: "Europe",
 		timezone: "Europe/Paris",
 		dailyReset: "06:00"
