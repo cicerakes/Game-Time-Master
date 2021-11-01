@@ -416,6 +416,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Idle Angels",
+		server: "America",
+		timezone: "America/Argentina/Buenos_Aires",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Idle Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
