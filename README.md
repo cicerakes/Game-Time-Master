@@ -22,6 +22,9 @@ Feel free to request for more games to be added by creating an issue [here](http
 - Manually set time zone (for when auto detect is wrong).
 - Add custom game servers.
 
+## License
+This project is licensed under the [GNU General Public License v3.0](https://github.com/cicerakes/Game-Time-Master/blob/master/LICENSE).
+
 ## External Scripts
 `moment.min.js` `moment-timezone-with-data-10-year-range.min.js`  
 Copyright © JS Foundation and other contributors.  
