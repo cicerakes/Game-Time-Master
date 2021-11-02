@@ -35,7 +35,7 @@ Required data when adding a game:
 	- If a game's region/language is further split into multiple servers with multiple timezones, these are added as seperate servers.  
 	An example of this is a `Global` game with multiple servers such as `Americas`, `Asia`, and `Europe`.
 - Game server timezone
-	- This can be a location/region or offset. 
+	- This can be a region/language or offset. 
 	- You will need to find it in the tz database.  
 		- You can use [this Wikipedia page](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 			- Ensure its `Type` is `Canonical`, and if not, find what it links to which should be `Canonical`.
@@ -54,13 +54,13 @@ Required data when adding a game:
 	- GIF file format.
 	- Pascal case filename.  
 	Example: `GameName.gif`.
-	- If an icon already exists for the game in a different language/region, but looks different, simply append the language/region to the filename.  
+	- If an icon already exists for the game in a different region/language, but looks different, simply append the region/language to the filename.  
 	Examples: `GameNameGlobal.gif` and `GameNameJP.gif`.
 	- Saved to the `game-icons` folder.
 
 #### game-data.js
 All games in this array are sorted alphabetically by name, including any starting with "The".  
-If a game has multiple servers in the array, it is then further sorted alphabetically by language/region (`server`).
+If a game has multiple servers in the array, it is then further sorted alphabetically by region/language (`server`).
 
 A game server can be added with the following object template:
 ```js
@@ -109,13 +109,13 @@ Examples of values to change:
 	<label for="GAME_NAME_CHILDREN"></label>
 </label>
 <div class="gameChildren">
-	<input type="checkbox" id="GAME_NAME_LANGUAGE/REGION" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
-	<label class="optionName" for="GAME_NAME_LANGUAGE/REGION">
-		LANGUAGE/REGION
+	<input type="checkbox" id="GAME_NAME_REGION/LANGUAGE" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+	<label class="optionName" for="GAME_NAME_REGION/LANGUAGE">
+		REGION/LANGUAGE
 	</label>
-	<input type="checkbox" id="GAME_NAME_LANGUAGE/REGION_2" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
-	<label class="optionName" for="GAME_NAME_LANGUAGE/REGION_2">
-		LANGUAGE/REGION_2
+	<input type="checkbox" id="GAME_NAME_REGION/LANGUAGE_2" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+	<label class="optionName" for="GAME_NAME_REGION/LANGUAGE_2">
+		REGION/LANGUAGE_2
 	</label>
 </div>
 ```
@@ -124,9 +124,9 @@ Examples of values to change:
 - `GAME_NAME_IN_CAMEL_CASE`: `gameName`
 - `GAME_NAME_CHILDREN`: `gameNameChildren`
 	- Just append `Children` to `GAME_NAME_IN_CAMEL_CASE`.
-- `LANGUAGE/REGION`: `server` in [`game-data.js`](#game-data.js).
-- `GAME_NAME_LANGUAGE/REGION`: `gameNameEN`, `gameNameGlobal`, `gameNameJP`, etc.
-- `LANGUAGE/REGION_2` and `GAME_NAME_LANGUAGE/REGION_2`: The same as above, but for the second region/language. Add more as necessary.
+- `REGION/LANGUAGE`: `server` in [`game-data.js`](#game-data.js).
+- `GAME_NAME_REGION/LANGUAGE`: `gameNameEN`, `gameNameGlobal`, `gameNameJP`, etc.
+- `REGION/LANGUAGE_2` and `GAME_NAME_REGION/LANGUAGE_2`: The same as above, but for the second region/language. Add more as necessary.
 
 ##### div id="resultsContainer"
 ```html
