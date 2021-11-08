@@ -33,7 +33,8 @@ const gameData = [
 		game: "Alchemy Stars",
 		server: "US",
 		timezone: "America/Chicago",
-		dailyReset: "05:00"
+		dailyReset: "10:00",
+		utcDailyReset: true
 	},
 	{
 		game: "Another Eden",
