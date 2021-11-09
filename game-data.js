@@ -801,6 +801,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Ulala: Idle Adventure",
+		server: "NA",
+		timezone: "America/New_York",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Uma Musume Pretty Derby",
 		server: "JP",
 		timezone: "Asia/Tokyo",
