@@ -98,6 +98,12 @@ const gameData = [
 	},
 	{
 		game: "Blue Archive",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "19:00"
+	},
+	{
+		game: "Blue Archive",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "04:00"
