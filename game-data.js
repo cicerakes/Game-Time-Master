@@ -627,6 +627,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Revived Witch",
+		server: "EN",
+		timezone: "Etc/GMT+7",
+		dailyReset: "10:00"
+	},
+	{
 		game: "Revue Starlight Re LIVE",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
