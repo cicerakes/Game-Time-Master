@@ -290,6 +290,12 @@ const gameData = [
 		dailyReset: "07:00"
 	},
 	{
+		game: "Food Fantasy",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Genshin Impact",
 		server: "America",
 		timezone: "Etc/GMT+5",
