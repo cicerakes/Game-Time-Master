@@ -583,6 +583,10 @@
 				<label class="optionName" for="rhythmHive">
 					Rhythm Hive
 				</label>
+				<input type="checkbox" id="rockmanXDive" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
+				<label class="optionName" for="rockmanXDive">
+					ROCKMAN X DiVE
+				</label>
 				<input type="checkbox" id="romancingSagaReUniverse" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="romancingSagaReUniverse">
 					Romancing SaGa Re;univerSe
@@ -3061,6 +3065,27 @@
 						<img src="game-icons/RhythmHive.jpg">
 					</div>
 					<h3>Rhythm Hive</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/RockmanXDive.gif">
+					</div>
+					<h3>ROCKMAN X DiVE</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">

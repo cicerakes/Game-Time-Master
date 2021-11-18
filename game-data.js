@@ -651,6 +651,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "ROCKMAN X DiVE",
+		server: "Taiwan",
+		timezone: "Etc/GMT-8",
+		dailyReset: "20:00"
+	},
+	{
 		game: "Romancing SaGa Re;univerSe",
 		server: "Global",
 		timezone: "Etc/GMT-7",
