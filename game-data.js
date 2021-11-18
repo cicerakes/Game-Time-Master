@@ -678,7 +678,7 @@ const gameData = [
 		game: "Seven Knights 2",
 		server: "Global",
 		timezone: "Etc/UTC",
-		dailyReset: "00:00"
+		dailyReset: "05:00"
 	},
 	{
 		game: "Shadowverse",
