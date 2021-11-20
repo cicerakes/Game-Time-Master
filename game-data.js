@@ -91,6 +91,12 @@ const gameData = [
 		dailyReset: "08:00"
 	},
 	{
+		game: "BanG Dream! Girls Band Party!",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Bleach: Brave Souls",
 		server: "Global",
 		timezone: "Asia/Tokyo",
