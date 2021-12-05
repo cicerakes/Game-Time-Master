@@ -91,6 +91,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Azur Lane",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "BanG Dream! Girls Band Party!",
 		server: "EN",
 		timezone: "Etc/UTC",
