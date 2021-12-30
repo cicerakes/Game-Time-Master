@@ -738,7 +738,8 @@ const gameData = [
 		game: "Sky: Children of the Light",
 		server: "Global",
 		timezone: "America/Los_Angeles",
-		dailyReset: "00:00"
+		dailyReset: "08:00",
+		utcDailyReset: true
 	},
 	{
 		game: "SLIME - ISEKAI Memories",
