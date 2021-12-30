@@ -12,6 +12,12 @@ const gameData = [
 		dailyReset: "16:00"
 	},
 	{
+		game: "Alchemia Story",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Alchemy Stars",
 		server: "Global",
 		timezone: "Etc/UTC",
