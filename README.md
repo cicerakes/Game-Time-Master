@@ -24,6 +24,16 @@ Feel free to request for more games to be added by creating an issue [here](http
 
 ## Contributing
 ### Adding Game Servers
+#### Summary:
+- Add game server details to `game-data.js`.
+- Add game icon to `game-icons` folder.
+- Add a menu entry to `#gameFilterSettings` of `index.html`.
+- Add a `.gameContainer` entry to `index.html`.
+
+See below for more in-depth details.
+
+---
+
 Required data when adding a game: 
 - Game name
 	- If the game did not initially release in an English speaking region: 
