@@ -787,10 +787,22 @@
 				<label class="optionName" for="warOfTheVisionsFFBE">
 					WAR OF THE VISIONS FFBE
 				</label>
-				<input type="checkbox" id="worldFlipper" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
-				<label class="optionName" for="worldFlipper">
-					World Flipper
+				<input type="checkbox" id="worldFlipper" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="worldFlipper">
+					<span>World Flipper</span>
+					<button id="worldFlipperChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
+					<label for="worldFlipperChildren"></label>
 				</label>
+				<div class="gameChildren">
+					<input type="checkbox" id="worldFlipperGlobal" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="worldFlipperGlobal">
+						Global
+					</label>
+					<input type="checkbox" id="worldFlipperJP" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="worldFlipperJP">
+						JP
+					</label>
+				</div>
 			</div>
 			<div id="mainSettings" class="menuSection">
 				<h2 class="sectionHeading">Settings</h2>
@@ -4034,7 +4046,28 @@
 			<div class="gameContainer">
 				<div class="gameHeader">
 					<div class="gameIcon">
-						<img src="game-icons/WorldFlipper.jpg">
+						<img src="game-icons/WorldFlipper.gif">
+					</div>
+					<h3>World Flipper</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/WorldFlipper.gif">
 					</div>
 					<h3>World Flipper</h3>
 				</div>

@@ -911,6 +911,12 @@ const gameData = [
 	},
 	{
 		game: "World Flipper",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "20:00"
+	},
+	{
+		game: "World Flipper",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
