@@ -790,6 +790,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "THE iDOLM@STER CINDERELLA GIRLS: STARLIGHT STAGE",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "THE iDOLM@STER MILLION LIVE! THEATER DAYS",
 		server: "JP",
 		timezone: "Asia/Tokyo",
