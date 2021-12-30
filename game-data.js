@@ -229,6 +229,12 @@ const gameData = [
 		dailyReset: "12:00"
 	},
 	{
+		game: "Dream Girlfriend",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "23:00"
+	},
+	{
 		game: "Eiyuu Senki WWX",
 		server: "EN",
 		timezone: "America/Atikokan",
