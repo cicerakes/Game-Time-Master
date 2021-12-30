@@ -405,6 +405,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "HATSUNE MIKU: COLORFUL STAGE!",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "04:00"
+	},
+	{
 		game: "HELIOS Rising Heroes",
 		server: "JP",
 		timezone: "Asia/Tokyo",
