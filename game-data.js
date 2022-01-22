@@ -591,6 +591,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Mythic Heroes",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "NieR Re[in]carnation",
 		server: "Global",
 		timezone: "Pacific/Pitcairn",
