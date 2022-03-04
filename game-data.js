@@ -79,6 +79,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Assault Lily: Last Bullet",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Atelier Online: Alchemist of Bressisle",
 		server: "EN",
 		timezone: "Etc/UTC",
