@@ -314,6 +314,18 @@ const gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Figure Fantasy",
+		server: "America",
+		timezone: "Etc/GMT+4",
+		dailyReset: "08:00"
+	},
+	{
+		game: "Figure Fantasy",
+		server: "Europe",
+		timezone: "Etc/GMT-2",
+		dailyReset: "06:00"
+	},
+	{
 		game: "FINAL FANTASY BRAVE EXVIUS",
 		server: "Global",
 		timezone: "America/Los_Angeles",
