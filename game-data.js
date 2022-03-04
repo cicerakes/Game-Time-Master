@@ -561,6 +561,41 @@ const gameData = [
 		dailyReset: "18:00"
 	},
 	{
+		game: "Lost Ark",
+		server: "EU Central",
+		timezone: "Europe/Paris",
+		dailyReset: "10:00",
+		utcDailyReset: true
+	},
+	{
+		game: "Lost Ark",
+		server: "EU West",
+		timezone: "Etc/GMT",
+		dailyReset: "10:00",
+		utcDailyReset: true
+	},
+	{
+		game: "Lost Ark",
+		server: "NA East",
+		timezone: "America/New_York",
+		dailyReset: "10:00",
+		utcDailyReset: true
+	},
+	{
+		game: "Lost Ark",
+		server: "NA West",
+		timezone: "America/Los_Angeles",
+		dailyReset: "10:00",
+		utcDailyReset: true
+	},
+	{
+		game: "Lost Ark",
+		server: "South America",
+		timezone: "America/Sao_Paulo",
+		dailyReset: "10:00",
+		utcDailyReset: true
+	},
+	{
 		game: "Love Live! School Idol Festival",
 		server: "Global",
 		timezone: "Asia/Tokyo",
