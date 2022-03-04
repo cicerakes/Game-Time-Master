@@ -627,6 +627,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Paladins",
+		server: "NA",
+		timezone: "America/Los_Angeles",
+		dailyReset: "01:00"
+	},
+	{
 		game: "Pokemon Masters",
 		server: "Global",
 		timezone: "Etc/UTC",
