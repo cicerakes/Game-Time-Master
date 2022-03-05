@@ -905,6 +905,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "The Ants: Underground Kingdom",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "THE iDOLM@STER CINDERELLA GIRLS: STARLIGHT STAGE",
 		server: "JP",
 		timezone: "Asia/Tokyo",
