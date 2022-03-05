@@ -238,7 +238,8 @@ const gameData = [
 		game: "Dragalia Lost",
 		server: "Global",
 		timezone: "America/Los_Angeles",
-		dailyReset: "23:00"
+		dailyReset: "06:00",
+		utcDailyReset: true
 	},
 	{
 		game: "DRAGON BALL Z DOKKAN BATTLE",
