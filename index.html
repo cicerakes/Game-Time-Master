@@ -666,6 +666,10 @@
 					<label class="optionName" for="punishingGrayRavenGlobal">
 						Global
 					</label>
+					<input type="checkbox" id="punishingGrayRavenJapan" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="punishingGrayRavenJapan">
+						Japan
+					</label>
 				</div>
 				<input type="checkbox" id="ragnarokMEL" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="ragnarokMEL">
@@ -3428,6 +3432,27 @@
 						<img src="game-icons/ProjectSekaiColorfulStage.jpg">
 					</div>
 					<h3>Project SEKAI COLORFUL STAGE! feat. Hatsune Miku</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/PunishingGrayRaven.jpg">
+					</div>
+					<h3>Punishing: Gray Raven</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
