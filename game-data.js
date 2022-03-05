@@ -887,6 +887,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Tears of Themis",
+		server: "Taiwan",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
 		game: "TenkafuMA!",
 		server: "Global",
 		timezone: "Etc/GMT-8",
