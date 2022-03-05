@@ -243,6 +243,13 @@ const gameData = [
 	},
 	{
 		game: "DRAGON BALL Z DOKKAN BATTLE",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00",
+		utcDailyReset: true
+	},
+	{
+		game: "DRAGON BALL Z DOKKAN BATTLE",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00"
