@@ -739,7 +739,7 @@ const gameData = [
 		game: "Punishing: Gray Raven",
 		server: "Japan",
 		timezone: "Asia/Tokyo",
-		dailyReset: "07:00"
+		dailyReset: "04:00"
 	},
 	{
 		game: "Ragnarok M: Eternal Love",
