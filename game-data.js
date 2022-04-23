@@ -504,6 +504,12 @@ const gameData = [
 	},
 	{
 		game: "Honkai Impact 3rd",
+		server: "China",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Honkai Impact 3rd",
 		server: "Europe",
 		timezone: "Etc/GMT-1",
 		dailyReset: "04:00"
