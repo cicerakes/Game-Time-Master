@@ -1037,6 +1037,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Vikingard",
+		server: "America",
+		timezone: "Etc/GMT+6",
+		dailyReset: "00:00"
+	},
+	{
 		game: "WAR OF THE VISIONS FINAL FANTASY BRAVE EXVIUS",
 		server: "Global",
 		timezone: "America/Los_Angeles",
