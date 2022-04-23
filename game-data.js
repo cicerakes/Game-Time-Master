@@ -297,6 +297,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Ensemble Stars!! Music",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Epic Seven",
 		server: "Asia",
 		timezone: "Etc/UTC",
