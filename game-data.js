@@ -724,6 +724,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Onmyoji",
+		server: "EN",
+		timezone: "America/Panama",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Oshiro Project:RE Castle Defense",
 		server: "JP",
 		timezone: "Asia/Tokyo",
