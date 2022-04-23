@@ -527,6 +527,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Idle Huntress",
+		server: "Global",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00"
+	},
+	{
 		game: "ILLUSION CONNECT",
 		server: "Global",
 		timezone: "Etc/GMT-8",
