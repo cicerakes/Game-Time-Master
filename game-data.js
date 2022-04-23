@@ -49,6 +49,12 @@ const gameData = [
 		dailyReset: "15:00"
 	},
 	{
+		game: "Aotu World",
+		server: "CN",
+		timezone: "Asia/Shanghai",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Arknights",
 		server: "CN",
 		timezone: "Asia/Shanghai",
