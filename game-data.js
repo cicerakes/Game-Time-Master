@@ -97,6 +97,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Attack on Time:Kaisen of girls",
+		server: "EN",
+		timezone: "America/New_York",
+		dailyReset: "02:00"
+	},
+	{
 		game: "Auto Heroes",
 		server: "NA",
 		timezone: "America/New_York",
