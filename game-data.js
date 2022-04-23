@@ -1013,6 +1013,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Valkyrie Connect",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "06:00"
+	},
+	{
 		game: "Vanguard ZERO",
 		server: "EN",
 		timezone: "America/Los_Angeles",
