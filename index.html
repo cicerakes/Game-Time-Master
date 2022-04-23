@@ -231,10 +231,22 @@
 				<label class="optionName" for="disgaeaRPG">
 					Disgaea RPG
 				</label>
-				<input type="checkbox" id="twistedWonderland" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
-				<label class="optionName" for="twistedWonderland">
-					Disney Twisted-Wonderland
+				<input type="checkbox" id="twistedWonderland" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="twistedWonderland">
+					<span>Disney Twisted-Wonderland</span>
+					<button id="twistedWonderlandChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
+					<label for="twistedWonderlandChildren"></label>
 				</label>
+				<div class="gameChildren">
+					<input type="checkbox" id="twistedWonderlandEN" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="twistedWonderlandEN">
+						EN
+					</label>
+					<input type="checkbox" id="twistedWonderlandJP" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="twistedWonderlandJP">
+						JP
+					</label>
+				</div>
 				<input type="checkbox" id="dissidiaFFOO" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="dissidiaFFOO">
 					DISSIDIA FINAL FANTASY OPERA OMNIA
@@ -1751,6 +1763,27 @@
 						<img src="game-icons/DisgaeaRPG.gif">
 					</div>
 					<h3>Disgaea RPG</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DisneyTwisted-Wonderland.gif">
+					</div>
+					<h3>Disney Twisted-Wonderland</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">

@@ -235,6 +235,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Disney Twisted-Wonderland",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "DISSIDIA FINAL FANTASY OPERA OMNIA",
 		server: "Global",
 		timezone: "Etc/UTC",
