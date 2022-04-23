@@ -211,6 +211,12 @@ const gameData = [
 		dailyReset: "19:00"
 	},
 	{
+		game: "Demon God",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Dengeki Bunko: Crossing Void",
 		server: "Global",
 		timezone: "Etc/UTC",
