@@ -911,6 +911,12 @@ const gameData = [
 		dailyReset: "06:00"
 	},
 	{
+		game: "Soul Tide",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Summoners War",
 		server: "Global",
 		timezone: "America/Los_Angeles",
