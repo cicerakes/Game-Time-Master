@@ -910,6 +910,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Skullgirls",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "12:00"
+	},
+	{
 		game: "Sky: Children of the Light",
 		server: "Global",
 		timezone: "America/Los_Angeles",
