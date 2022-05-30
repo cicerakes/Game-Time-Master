@@ -43,6 +43,12 @@ const gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Alice Closet: Anime Dress Up",
+		server: "EN",
+		timezone: "Etc/GMT+4",
+		dailyReset: "12:00"
+	},
+	{
 		game: "Another Eden",
 		server: "Global",
 		timezone: "Etc/UTC",
