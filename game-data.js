@@ -241,6 +241,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Dislyte",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Disney Twisted-Wonderland",
 		server: "EN",
 		timezone: "America/Los_Angeles",
