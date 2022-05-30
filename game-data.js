@@ -886,6 +886,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Seven Mortal Sins X-TASY",
+		server: "EN",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Shadowverse",
 		server: "JP",
 		timezone: "Asia/Tokyo",
