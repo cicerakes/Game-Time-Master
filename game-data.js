@@ -291,6 +291,12 @@ const gameData = [
 		dailyReset: "23:00"
 	},
 	{
+		game: "Dream Meister and the Recollected Black Fairy",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Eiyuu Senki WWX",
 		server: "EN",
 		timezone: "America/Atikokan",
