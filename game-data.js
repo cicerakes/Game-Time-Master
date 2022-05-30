@@ -509,6 +509,18 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "GYEE",
+		server: "NA",
+		timezone: "Etc/GMT+4",
+		dailyReset: "04:00"
+	},
+	{
+		game: "GYEE",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
 		game: "HATSUNE MIKU: COLORFUL STAGE!",
 		server: "EN",
 		timezone: "America/Los_Angeles",
