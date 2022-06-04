@@ -182,6 +182,12 @@ const gameData = [
 	},
 	{
 		game: "Counter:Side",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Counter:Side",
 		server: "SEA",
 		timezone: "Etc/GMT-7",
 		dailyReset: "04:00"
