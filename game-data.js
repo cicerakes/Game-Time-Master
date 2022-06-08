@@ -748,6 +748,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Ni no Kuni: Cross Worlds",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "06:00"
+	},
+	{
 		game: "NieR Re[in]carnation",
 		server: "Global",
 		timezone: "Pacific/Pitcairn",
