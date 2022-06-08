@@ -223,6 +223,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Date A Live: Spirit Pledge",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "00:00"
+	},
+	{
 		game: "DEAD OR ALIVE Xtreme Venus Vacation",
 		server: "Global",
 		timezone: "Etc/UTC",
