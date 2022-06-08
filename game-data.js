@@ -754,6 +754,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "NARUTO X BORUTO NINJA VOLTAGE",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "09:00"
+	},
+	{
 		game: "Ni no Kuni: Cross Worlds",
 		server: "Global",
 		timezone: "Etc/GMT",
