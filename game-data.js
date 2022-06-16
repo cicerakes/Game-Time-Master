@@ -79,7 +79,13 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
-		game: "Artery Gear",
+		game: "Artery Gear: Fusion",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Artery Gear: Fusion",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
