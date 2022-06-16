@@ -482,7 +482,7 @@ input:checked + .slider:before {
 
 @media (max-width: 768px) {
 	.gameContainer {
-		width: auto;
+		width: 90%;
 	}
 
 	#filterSearchOpen {
