@@ -311,6 +311,7 @@ header h1 {
 .gameHeader h3 {
 	display: table-cell;
 	font-size: 1.4em;
+	padding-right: .3em;
 }
 
 .gameHeader h4 {
