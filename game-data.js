@@ -930,7 +930,7 @@ const gameData = [
 	{
 		game: "Seven Mortal Sins X-TASY",
 		server: "EN",
-		timezone: "Etc/GMT+5",
+		timezone: "Etc/GMT+4",
 		dailyReset: "04:00"
 	},
 	{
