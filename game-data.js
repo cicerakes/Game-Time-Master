@@ -611,6 +611,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "IRUNA Online",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "22:00"
+	},
+	{
 		game: "Kemono Friends 3",
 		server: "JP",
 		timezone: "Asia/Tokyo",
