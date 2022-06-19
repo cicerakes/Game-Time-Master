@@ -31,6 +31,12 @@ const gameData = [
 	},
 	{
 		game: "Alchemy Stars",
+		server: "LATAM",
+		timezone: "Etc/GMT+3",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Alchemy Stars",
 		server: "SEA",
 		timezone: "Etc/GMT-8",
 		dailyReset: "05:00"
