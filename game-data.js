@@ -86,14 +86,26 @@ const gameData = [
 	},
 	{
 		game: "Artery Gear: Fusion",
-		server: "EN",
-		timezone: "Etc/UTC",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Artery Gear: Fusion",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
 		dailyReset: "05:00"
 	},
 	{
 		game: "Artery Gear: Fusion",
 		server: "JP",
 		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Artery Gear: Fusion",
+		server: "Pacific",
+		timezone: "Etc/GMT-8",
 		dailyReset: "05:00"
 	},
 	{
