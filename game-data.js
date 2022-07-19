@@ -862,6 +862,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "PUBG MOBILE",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Punishing: Gray Raven",
 		server: "China & Taiwain",
 		timezone: "Asia/Shanghai",
