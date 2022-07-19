@@ -1080,7 +1080,7 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "SWORD ART ONLINE Alicization Rising Steel",
+		game: "SWORD ART ONLINE: Unleash Blading",
 		server: "Global",
 		timezone: "Etc/UTC",
 		dailyReset: "03:00"
