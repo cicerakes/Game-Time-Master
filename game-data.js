@@ -946,6 +946,12 @@ const gameData = [
 		dailyReset: "21:00"
 	},
 	{
+		game: "Senki Zesshou Symphogear XD Unlimited",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Seven Knights 2",
 		server: "Global",
 		timezone: "Etc/UTC",
