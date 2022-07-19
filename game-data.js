@@ -211,6 +211,12 @@ const gameData = [
 		dailyReset: "06:00"
 	},
 	{
+		game: "Crusaders Quest",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00"
+	},
+	{
 		game: "D4DJ Groovy Mix",
 		server: "EN",
 		timezone: "Etc/UTC",
