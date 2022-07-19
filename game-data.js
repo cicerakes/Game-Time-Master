@@ -785,6 +785,12 @@ const gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "MY HERO ULTRA IMPACT",
+		server: "EN",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Mythic Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
