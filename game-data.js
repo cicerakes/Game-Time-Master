@@ -869,7 +869,7 @@ const gameData = [
 		dailyReset: "01:00"
 	},
 	{
-		game: "Pokemon Masters",
+		game: "Pokemon Masters EX",
 		server: "Global",
 		timezone: "Etc/UTC",
 		dailyReset: "06:00"
