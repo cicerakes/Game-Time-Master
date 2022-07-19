@@ -781,7 +781,8 @@ const gameData = [
 		game: "My Hero Academia: The Strongest Hero",
 		server: "EN",
 		timezone: "America/Los_Angeles",
-		dailyReset: "05:00"
+		dailyReset: "13:00",
+		utcDailyReset: true
 	},
 	{
 		game: "Mythic Heroes",
