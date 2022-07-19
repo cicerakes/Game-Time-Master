@@ -821,6 +821,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Noah's Heart",
+		server: "Global",
+		timezone: "Etc/GMT+5",
+		dailyReset: "00:00"
+	},
+	{
 		game: "NU: carnival",
 		server: "EN",
 		timezone: "Etc/GMT-8",
