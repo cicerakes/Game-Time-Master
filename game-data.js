@@ -193,6 +193,12 @@ const gameData = [
 		dailyReset: "20:00"
 	},
 	{
+		game: "Captain Tsubasa: Dream Team",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "09:00"
+	},
+	{
 		game: "Cloud Song: Saga of Skywalkers",
 		server: "Global",
 		timezone: "Etc/GMT-8",
