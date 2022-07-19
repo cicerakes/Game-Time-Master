@@ -563,7 +563,7 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "GUNDAM BATTLE: GUNPLA WARFARE",
+		game: "GUNDAM BREAKER MOBILE",
 		server: "JP & NA",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
