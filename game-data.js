@@ -532,6 +532,12 @@ const gameData = [
 		dailyReset: "21:00"
 	},
 	{
+		game: "Grimlight",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Guardian Tales",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
