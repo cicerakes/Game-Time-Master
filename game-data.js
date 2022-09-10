@@ -857,6 +857,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Obey Me!",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "OCTOPATH TRAVELER: Champions of the Continent",
 		server: "EN",
 		timezone: "ETC/UTC",
