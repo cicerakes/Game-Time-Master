@@ -1073,6 +1073,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "SINoALICE",
+		server: "Japan",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Skullgirls",
 		server: "Global",
 		timezone: "America/Los_Angeles",
