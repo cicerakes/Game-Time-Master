@@ -719,6 +719,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Last Origin",
+		server: "Korea",
+		timezone: "Asia/Seoul",
+		dailyReset: "09:00"
+	},
+	{
 		game: "Legends of Runeterra",
 		server: "Global",
 		timezone: "America/Los_Angeles",
