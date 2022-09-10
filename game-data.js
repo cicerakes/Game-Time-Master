@@ -1182,6 +1182,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Tower of Fantasy",
+		server: "Global",
+		timezone: "America/New_York",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Tower of God: The Great Journey",
 		server: "KR",
 		timezone: "Asia/Seoul",
