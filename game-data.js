@@ -772,6 +772,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Love Nikki",
+		server: "EN",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Magia Record",
 		server: "JP",
 		timezone: "Asia/Tokyo",
