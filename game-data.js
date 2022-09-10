@@ -363,6 +363,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "ECHOES of MANA",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Eiyuu Senki WWX",
 		server: "EN",
 		timezone: "America/Atikokan",
