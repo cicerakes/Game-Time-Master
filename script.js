@@ -122,24 +122,25 @@ document.getElementById("currentLocalTimezone").textContent = nowZone + " — " 
 var gameDataConverted = [];
 for (let i = 0; i < gameData.length; i++) {
 	let gameTimezone = gameData[i].timezone, 
-	currentServerTime = now.clone().tz(gameTimezone);
+	currentServerTime = now.clone().tz(gameTimezone), 
+	todaysDailyReset = gameData[i].dailyReset;
 	
 	// If daily reset changes during daylight savings, convert using UTC first.
 	if (gameData[i].utcDailyReset) {
-		gameData[i].dailyReset = moment.tz(gameData[i].dailyReset, "HH:mm", "Etc/UTC");
+		todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", "Etc/UTC");
 		// Convert to server time.
-		gameData[i].dailyReset = gameData[i].dailyReset.clone().tz(gameTimezone);
+		todaysDailyReset = todaysDailyReset.clone().tz(gameTimezone);
 	} else {
-		gameData[i].dailyReset = moment.tz(gameData[i].dailyReset, "HH:mm", gameTimezone);
+		todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", gameTimezone);
 	}
 	
 	// Convert to local.
-	let localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
+	let localResetTime = todaysDailyReset.clone().tz(nowZone);
 
 	// Change local reset time to tomorrow if it has already passed.
 	const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
 	if (todayResetPassed) {
-		if (gameData[i].dailyReset.hours() == 0) {
+		if (todaysDailyReset.hours() == 0) {
 			// Add 48 hours to fix midnight reset using previous day.
 			localResetTime.add(48, "h");
 		} else {
@@ -157,11 +158,13 @@ for (let i = 0; i < gameData.length; i++) {
 	}
 
 	// Store.
+	// Server timezone todaysDailyReset is stored for printing below.
 	gameDataConverted.push(
 		{
 			dailyReset: localResetTime,
 			serverTime: currentServerTime,
-			timeToReset: timeRemaining
+			timeToReset: timeRemaining,
+			todaysServerReset: todaysDailyReset
 		}
 	);
 }
@@ -177,10 +180,10 @@ for (let i = 0; i < gameData.length; i++) {
 	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].timeToReset + "</p>");
 	// Add prefix for timezone abbreviation if it's an offset.
 	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
 	} else {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameData[i].dailyReset.format(resetTimeFormat + " z") + "</p>");
+		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z") + "</p>");
 		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
 	}
 	// Add date to curent server time if the setting is on.
@@ -234,15 +237,25 @@ function timeCalc() {
 	// Refresh converted times.
 	for (let i = 0; i < gameData.length; i++) {
 		let gameTimezone = gameData[i].timezone, 
-		currentServerTime = now.clone().tz(gameTimezone);
+		currentServerTime = now.clone().tz(gameTimezone), 
+		todaysDailyReset = gameData[i].dailyReset;
+
+		// If daily reset changes during daylight savings, convert using UTC first.
+		if (gameData[i].utcDailyReset) {
+			todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", "Etc/UTC");
+			// Convert to server time.
+			todaysDailyReset = todaysDailyReset.clone().tz(gameTimezone);
+		} else {
+			todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", gameTimezone);
+		}
 
 		// Convert to local.
-		let localResetTime = gameData[i].dailyReset.clone().tz(nowZone);
+		let localResetTime = todaysDailyReset.clone().tz(nowZone);
 
 		// Change local reset time to tomorrow if it has already passed.
 		const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
 		if (todayResetPassed) {
-			if (gameData[i].dailyReset.hours() == 0) {
+			if (todaysDailyReset.hours() == 0) {
 				// Add 48 hours to fix midnight reset using previous day.
 				localResetTime.add(48, "h");
 			} else {
@@ -263,6 +276,7 @@ function timeCalc() {
 		gameDataConverted[i].dailyReset = localResetTime;
 		gameDataConverted[i].serverTime = currentServerTime;
 		gameDataConverted[i].timeToReset = timeRemaining;
+		gameDataConverted[i].todaysServerReset = todaysDailyReset;
 	}
 
 	// Print refreshed values.
@@ -276,10 +290,10 @@ function timeCalc() {
 		gameBody.getElementsByTagName("p")[3].textContent = gameDataConverted[i].timeToReset;
 		// Add prefix for timezone abbreviation if it's an offset.
 		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
 		} else {
-			gameBody.getElementsByTagName("p")[5].textContent = gameData[i].dailyReset.format(resetTimeFormat + " z");
+			gameBody.getElementsByTagName("p")[5].textContent = gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z");
 			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
 		}
 		// Add date to curent server time if the setting is on.
