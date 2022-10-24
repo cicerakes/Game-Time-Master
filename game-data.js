@@ -1296,6 +1296,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "War Thunder",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Warframe",
 		server: "Global",
 		timezone: "Etc/GMT",
