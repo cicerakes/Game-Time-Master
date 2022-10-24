@@ -653,6 +653,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Hypnosis Mic -Alternative Rap Battle-",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Identity V",
 		server: "NA and EU",
 		timezone: "Etc/GMT+6",
