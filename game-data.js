@@ -363,6 +363,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Echocalypse",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "00:00"
+	},
+	{
 		game: "ECHOES of MANA",
 		server: "Global",
 		timezone: "Etc/UTC",
