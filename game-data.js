@@ -959,6 +959,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Psychic Idle",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00"
+	},
+	{
 		game: "PUBG MOBILE",
 		server: "Global",
 		timezone: "Etc/UTC",

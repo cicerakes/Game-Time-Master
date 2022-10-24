@@ -847,6 +847,10 @@
 				<label class="optionName" for="projectSekaiCS">
 					Project SEKAI COLORFUL STAGE! feat. Hatsune Miku
 				</label>
+				<input type="checkbox" id="psychicIdle" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
+				<label class="optionName" for="psychicIdle">
+					Psychic Idle
+				</label>
 				<input type="checkbox" id="PUBGMobile" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="PUBGMobile">
 					PUBG MOBILE
@@ -4515,6 +4519,27 @@
 						<img src="game-icons/ProjectSekaiColorfulStage.gif">
 					</div>
 					<h3>Project SEKAI COLORFUL STAGE! feat. Hatsune Miku</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/PsychicIdle.gif">
+					</div>
+					<h3>Psychic Idle</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
