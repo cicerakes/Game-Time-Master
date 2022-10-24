@@ -852,6 +852,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "MementoMori",
+		server: "Global",
+		timezone: "Etc/GMT-1",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Millennium War Aigis",
 		server: "JP",
 		timezone: "Asia/Tokyo",
