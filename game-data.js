@@ -478,6 +478,13 @@ const gameData = [
 		dailyReset: "08:00"
 	},
 	{
+		game: "FINAL FANTASY XIV",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "15:00",
+		utcDailyReset: true
+	},
+	{
 		game: "Final Gear",
 		server: "CN",
 		timezone: "Asia/Shanghai",
