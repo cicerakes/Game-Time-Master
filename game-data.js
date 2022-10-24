@@ -832,6 +832,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Mobile Legends: Adventure",
+		server: "Global",
+		timezone: "Etc/GMT+8",
+		dailyReset: "00:00"
+	},
+	{
 		game: "My Hero Academia: The Strongest Hero",
 		server: "EN",
 		timezone: "America/Los_Angeles",
