@@ -737,6 +737,12 @@ const gameData = [
 		dailyReset: "09:00"
 	},
 	{
+		game: "Legend Clover",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Legends of Runeterra",
 		server: "Global",
 		timezone: "America/Los_Angeles",
