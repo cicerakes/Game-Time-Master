@@ -539,6 +539,24 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "GODDESS OF VICTORY: NIKKE",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "05:00"
+	},
+	{
+		game: "GODDESS OF VICTORY: NIKKE",
+		server: "NA",
+		timezone: "Etc/GMT-9",
+		dailyReset: "05:00"
+	},
+	{
+		game: "GODDESS OF VICTORY: NIKKE",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Granblue Fantasy",
 		server: "JP & EN",
 		timezone: "Asia/Tokyo",
