@@ -955,6 +955,24 @@ const gameData = [
 		dailyReset: "01:00"
 	},
 	{
+		game: "Path to Nowhere",
+		server: "America",
+		timezone: "Etc/GMT+7",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Path to Nowhere",
+		server: "Asia-Pacific",
+		timezone: "Etc/GMT-7",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Path to Nowhere",
+		server: "Europe",
+		timezone: "Etc/GMT-2",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Pokemon Masters EX",
 		server: "Global",
 		timezone: "Etc/UTC",
