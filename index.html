@@ -1027,10 +1027,22 @@
 				<label class="optionName" for="sevenMortalSinsX-TASY">
 					Seven Mortal Sins X-TASY
 				</label>
-				<input type="checkbox" id="shadowverse" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
-				<label class="optionName" for="shadowverse">
-					Shadowverse
+				<input type="checkbox" id="shadowverse" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="shadowverse">
+					<span>Shadowverse</span>
+					<button id="shadowverseChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
+					<label for="shadowverseChildren"></label>
 				</label>
+				<div class="gameChildren">
+					<input type="checkbox" id="shadowverseGlobal" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="shadowverseGlobal">
+						Global
+					</label>
+					<input type="checkbox" id="shadowverseJP" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="shadowverseJP">
+						JP
+					</label>
+				</div>
 				<input type="checkbox" id="SMTLDx2" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="SMTLDx2">
 					SMT Liberation Dx2
@@ -5304,6 +5316,27 @@
 						<img src="game-icons/SevenMortalSinsX-TASY.gif">
 					</div>
 					<h3>Seven Mortal Sins X-TASY</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/Shadowverse.gif">
+					</div>
+					<h3>Shadowverse</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">

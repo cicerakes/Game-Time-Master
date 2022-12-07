@@ -1160,6 +1160,12 @@ const gameData = [
 	},
 	{
 		game: "Shadowverse",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "12:00"
+	},
+	{
+		game: "Shadowverse",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
