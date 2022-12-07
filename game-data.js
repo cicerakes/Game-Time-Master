@@ -846,6 +846,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Magic: The Gathering Arena",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "09:00"
+	},
+	{
 		game: "Magicami",
 		server: "EN",
 		timezone: "America/New_York",
