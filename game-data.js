@@ -961,6 +961,12 @@ const gameData = [
 		dailyReset: "09:00"
 	},
 	{
+		game: "ONE PIECE TREASURE CRUISE",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "07:00"
+	},
+	{
 		game: "Onmyoji",
 		server: "EN",
 		timezone: "America/Panama",
