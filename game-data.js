@@ -1,5 +1,11 @@
 const gameData = [
 	{
+		game: "A3!",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00"
+	},
+	{
 		game: "AFK Arena",
 		server: "Global",
 		timezone: "Etc/UTC",
