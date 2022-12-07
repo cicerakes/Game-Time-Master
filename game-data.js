@@ -533,12 +533,6 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "Girls' Frontline: Project Neural Cloud",
-		server: "CN",
-		timezone: "Asia/Shanghai",
-		dailyReset: "05:00"
-	},
-	{
 		game: "GODDESS OF VICTORY: NIKKE",
 		server: "Global",
 		timezone: "Etc/GMT-9",
@@ -911,6 +905,18 @@ const gameData = [
 		server: "Global",
 		timezone: "Etc/UTC",
 		dailyReset: "09:00"
+	},
+	{
+		game: "Neural Cloud",
+		server: "CN",
+		timezone: "Asia/Shanghai",
+		dailyReset: "05:00"
+	},
+	{
+		game: "Neural Cloud",
+		server: "EN",
+		timezone: "Etc/GMT+8",
+		dailyReset: "05:00"
 	},
 	{
 		game: "Ni no Kuni: Cross Worlds",
