@@ -1286,6 +1286,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "The Eminence in Shadow: Master of Garden",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "19:00"
+	},
+	{
 		game: "THE iDOLM@STER CINDERELLA GIRLS: STARLIGHT STAGE",
 		server: "JP",
 		timezone: "Asia/Tokyo",
