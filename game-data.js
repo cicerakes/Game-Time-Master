@@ -1226,6 +1226,12 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "SoulWorker",
+		server: "EN",
+		timezone: "Etc/GMT",
+		dailyReset: "01:00"
+	},
+	{
 		game: "Summoners War",
 		server: "Global",
 		timezone: "America/Los_Angeles",
