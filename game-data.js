@@ -1256,12 +1256,6 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
-		game: "SWORD ART ONLINE: Unleash Blading",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "03:00"
-	},
-	{
 		game: "Tears of Themis",
 		server: "Global",
 		timezone: "Etc/GMT-9",
