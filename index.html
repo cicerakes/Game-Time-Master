@@ -419,6 +419,10 @@
 				<label class="optionName" for="eternalTree">
 					Eternal Tree
 				</label>
+				<input type="checkbox" id="eversoul" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
+				<label class="optionName" for="eversoul">
+					Eversoul
+				</label>
 				<input type="checkbox" id="exosHeroes" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="exosHeroes">
 					Exos Heroes
@@ -2854,6 +2858,27 @@
 						<img src="game-icons/EternalTree.gif">
 					</div>
 					<h3>Eternal Tree</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/Eversoul.gif">
+					</div>
+					<h3>Eversoul</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
