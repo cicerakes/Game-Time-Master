@@ -907,8 +907,14 @@ const gameData = [
 	},
 	{
 		game: "MementoMori",
-		server: "Global",
+		server: "EU/Global",
 		timezone: "Etc/GMT-1",
+		dailyReset: "04:00"
+	},
+	{
+		game: "MementoMori",
+		server: "US",
+		timezone: "Etc/GMT+7",
 		dailyReset: "04:00"
 	},
 	{
