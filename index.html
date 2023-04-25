@@ -295,6 +295,38 @@
 				<label class="optionName" for="destinyChild">
 					Destiny Child
 				</label>
+				<input type="checkbox" id="diabloImmortal" onchange="toggleGameParentHide(this)" checked>
+				<label class="optionName gameParent" for="diabloImmortal">
+					<span>Diablo Immortal</span>
+					<button id="diabloImmortalChildren" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
+					<label for="diabloImmortalChildren"></label>
+				</label>
+				<div class="gameChildren">
+					<input type="checkbox" id="diabloImmortalEastAsia" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="diabloImmortalEastAsia">
+						East Asia
+					</label>
+					<input type="checkbox" id="diabloImmortalEurope" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="diabloImmortalEurope">
+						Europe
+					</label>
+					<input type="checkbox" id="diabloImmortalNA4" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="diabloImmortalNA4">
+						North America (UTC-4)
+					</label>
+					<input type="checkbox" id="diabloImmortalNA7" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="diabloImmortalNA7">
+						North America (UTC-7)
+					</label>
+					<input type="checkbox" id="diabloImmortalOceania" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="diabloImmortalOceania">
+						Oceania
+					</label>
+					<input type="checkbox" id="diabloImmortalSA" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="diabloImmortalSA">
+						South America
+					</label>
+				</div>
 				<input type="checkbox" id="disgaeaRPG" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="disgaeaRPG">
 					Disgaea RPG
@@ -2399,6 +2431,132 @@
 						<img src="game-icons/DestinyChild.gif">
 					</div>
 					<h3>Destiny Child</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DiabloImmortal.gif">
+					</div>
+					<h3>Diablo Immortal</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DiabloImmortal.gif">
+					</div>
+					<h3>Diablo Immortal</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DiabloImmortal.gif">
+					</div>
+					<h3>Diablo Immortal</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DiabloImmortal.gif">
+					</div>
+					<h3>Diablo Immortal</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DiabloImmortal.gif">
+					</div>
+					<h3>Diablo Immortal</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/DiabloImmortal.gif">
+					</div>
+					<h3>Diablo Immortal</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">

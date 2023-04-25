@@ -301,6 +301,42 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Diablo Immortal",
+		server: "East Asia",
+		timezone: "Etc/GMT-9",
+		dailyReset: "03:00"
+	},
+	{
+		game: "Diablo Immortal",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "03:00"
+	},
+	{
+		game: "Diablo Immortal",
+		server: "North America (UTC-4)",
+		timezone: "Etc/GMT+4",
+		dailyReset: "03:00"
+	},
+	{
+		game: "Diablo Immortal",
+		server: "North America (UTC-7)",
+		timezone: "Etc/GMT+7",
+		dailyReset: "03:00"
+	},
+	{
+		game: "Diablo Immortal",
+		server: "Oceania",
+		timezone: "Etc/GMT-10",
+		dailyReset: "03:00"
+	},
+	{
+		game: "Diablo Immortal",
+		server: "South America",
+		timezone: "Etc/GMT+3",
+		dailyReset: "03:00"
+	},
+	{
 		game: "Disgaea RPG",
 		server: "Global",
 		timezone: "Etc/GMT+4",
