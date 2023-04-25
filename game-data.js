@@ -1298,12 +1298,6 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
-		game: "THE ALCHEMIST CODE",
-		server: "Global",
-		timezone: "Etc/GMT+8",
-		dailyReset: "00:00"
-	},
-	{
 		game: "The Ants: Underground Kingdom",
 		server: "Global",
 		timezone: "Etc/UTC",
