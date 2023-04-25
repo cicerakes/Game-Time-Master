@@ -61,6 +61,12 @@ const gameData = [
 		dailyReset: "12:00"
 	},
 	{
+		game: "ALICE Fiction",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Another Eden",
 		server: "Global",
 		timezone: "Etc/UTC",
