@@ -673,6 +673,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Guild Wars 2",
+		server: "EU & NA",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "GUNDAM BREAKER MOBILE",
 		server: "JP & NA",
 		timezone: "Asia/Tokyo",
