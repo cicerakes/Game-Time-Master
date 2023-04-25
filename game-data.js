@@ -1093,6 +1093,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "RAID: Shadow Legends",
+		server: "EU",
+		timezone: "Etc/GMT-1",
+		dailyReset: "00:00"
+	},
+	{
 		game: "RED: Pride of Eden",
 		server: "JP",
 		timezone: "Asia/Tokyo",
