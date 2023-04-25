@@ -447,6 +447,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Evertale",
+		server: "Asia",
+		timezone: "Etc/GMT-9",
+		dailyReset: "10:00"
+	},
+	{
 		game: "Exos Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
