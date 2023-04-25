@@ -793,6 +793,12 @@ const gameData = [
 		dailyReset: "03:00"
 	},
 	{
+		game: "Limbus Company",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "06:00"
+	},
+	{
 		game: "Looney Tunes World of Mayhem",
 		server: "Global",
 		timezone: "America/Los_Angeles",
