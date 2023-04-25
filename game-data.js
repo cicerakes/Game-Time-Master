@@ -864,6 +864,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Mahjong Soul",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "14:00"
+	},
+	{
 		game: "MapleStory M",
 		server: "America",
 		timezone: "Etc/GMT+8",
