@@ -1159,6 +1159,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Rise of Eros",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "11:00"
+	},
+	{
 		game: "ROCKMAN X DiVE",
 		server: "Taiwan",
 		timezone: "Etc/GMT-8",
