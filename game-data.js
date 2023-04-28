@@ -751,6 +751,24 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Honkai: Star Rail",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Honkai: Star Rail",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Honkai: Star Rail",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Hypnosis Mic -Alternative Rap Battle-",
 		server: "JP",
 		timezone: "Asia/Tokyo",
