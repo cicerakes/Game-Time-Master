@@ -231,6 +231,10 @@ header h1 {
 	transition-delay: .2s;
 }
 
+#gameFilterSettings.collapsed .optionName {
+	display: none;
+}
+
 .gameChildren {
 	width: 90%;
 	margin-left: 9%;
