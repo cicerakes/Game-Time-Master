@@ -924,8 +924,8 @@ const gameData = [
 		utcDailyReset: true
 	},
 	{
-		game: "Love Live! School Idol Festival",
-		server: "Global",
+		game: "Love Live! School Idol Festival 2 MIRACLE LIVE!",
+		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00"
 	},
