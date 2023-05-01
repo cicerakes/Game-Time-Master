@@ -1130,12 +1130,6 @@ const gameData = [
 	},
 	{
 		game: "Princess Connect! Re:Dive",
-		server: "EN",
-		timezone: "Etc/UTC",
-		dailyReset: "13:00"
-	},
-	{
-		game: "Princess Connect! Re:Dive",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00"
