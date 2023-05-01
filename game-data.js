@@ -805,6 +805,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "IDOLiSH7",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00"
+	},
+	{
 		game: "ILLUSION CONNECT",
 		server: "Global",
 		timezone: "Etc/GMT-8",
