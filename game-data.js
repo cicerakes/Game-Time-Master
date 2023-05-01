@@ -79,6 +79,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Archeland",
+		server: "KR",
+		timezone: "Asia/Seoul",
+		dailyReset: "05:00"
+	},
+	{
 		game: "Arknights",
 		server: "CN",
 		timezone: "Asia/Shanghai",
