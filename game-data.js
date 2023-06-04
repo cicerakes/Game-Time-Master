@@ -1279,6 +1279,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "SEOUL Apocalypse",
+		server: "EN",
+		timezone: "Etc/GMT-8",
+		dailyReset: "07:00"
+	},
+	{
 		game: "Seven Knights 2",
 		server: "Global",
 		timezone: "Etc/UTC",
