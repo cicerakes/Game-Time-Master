@@ -6,6 +6,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Aether Gazer",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "05:00"
+	},
+	{
 		game: "AFK Arena",
 		server: "Global",
 		timezone: "Etc/UTC",
