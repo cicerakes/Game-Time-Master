@@ -373,13 +373,6 @@ const gameData = [
 		dailyReset: "08:00"
 	},
 	{
-		game: "Dragalia Lost",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "06:00",
-		utcDailyReset: true
-	},
-	{
 		game: "DRAGON BALL LEGENDS",
 		server: "Global",
 		timezone: "Etc/UTC",
