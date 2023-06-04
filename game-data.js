@@ -307,6 +307,13 @@ const gameData = [
 		dailyReset: "12:00"
 	},
 	{
+		game: "Destiny 2",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "17:00",
+		utcDailyReset: true
+	},
+	{
 		game: "Destiny Child",
 		server: "Global",
 		timezone: "Etc/UTC",
