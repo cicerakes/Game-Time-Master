@@ -1135,6 +1135,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "Phantasy Star Online 2: New Genesis",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "07:00"
+	},
+	{
 		game: "Pokemon Masters EX",
 		server: "Global",
 		timezone: "Etc/UTC",

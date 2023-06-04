@@ -1011,6 +1011,10 @@
 						Europe
 					</label>
 				</div>
+				<input type="checkbox" id="pso2ng" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
+				<label class="optionName" for="pso2ng">
+					Phantasy Star Online 2: New Genesis
+				</label>
 				<input type="checkbox" id="pokemonMastersEX" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="pokemonMastersEX">
 					Pok&eacute;mon Masters EX
@@ -5344,6 +5348,27 @@
 						<img src="game-icons/PathToNowhere.gif">
 					</div>
 					<h3>Path to Nowhere</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/PSO2NG.gif">
+					</div>
+					<h3>Phantasy Star Online 2: New Genesis</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">
