@@ -817,12 +817,6 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
-		game: "ILLUSION CONNECT",
-		server: "Global",
-		timezone: "Etc/GMT-8",
-		dailyReset: "05:00"
-	},
-	{
 		game: "IRUNA Online",
 		server: "Global",
 		timezone: "Etc/GMT+7",
