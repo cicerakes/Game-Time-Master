@@ -1105,6 +1105,12 @@ const gameData = [
 		dailyReset: "05:00"
 	},
 	{
+		game: "OUTERPLANE",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Paladins",
 		server: "NA",
 		timezone: "America/Los_Angeles",
