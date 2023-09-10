@@ -733,6 +733,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "Higan: Eruthyll",
+		server: "Global",
+		timezone: "Etc/GMT+8",
+		dailyReset: "05:00"
+	},
+	{
 		game: "HoneyWorks Premium Live",
 		server: "JP",
 		timezone: "Asia/Tokyo",
