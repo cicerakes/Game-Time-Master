@@ -950,6 +950,10 @@
 					<label class="optionName" for="nierReincarnationJP">
 						JP
 					</label>
+					<input type="checkbox" id="nierReincarnationSEA" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
+					<label class="optionName" for="nierReincarnationSEA">
+						SEA
+					</label>
 				</div>
 				<input type="checkbox" id="noahsHeart" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
 				<label class="optionName" for="noahsHeart">
@@ -5025,6 +5029,27 @@
 						<img src="game-icons/NiNoKuniCrossWorlds.gif">
 					</div>
 					<h3>Ni no Kuni: Cross Worlds</h3>
+				</div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p>
+						<p>Time Until Reset: </p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p>
+						<p>Current Server Time: </p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="game-icons/NierReincarnation.gif">
+					</div>
+					<h3>NieR Re[in]carnation</h3>
 				</div>
 				<div class="gameTimes">
 					<div class="localTimes">

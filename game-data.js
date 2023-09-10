@@ -1057,6 +1057,12 @@ const gameData = [
 		dailyReset: "00:00"
 	},
 	{
+		game: "NieR Re[in]carnation",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "00:00"
+	},
+	{
 		game: "Noah's Heart",
 		server: "Global",
 		timezone: "Etc/GMT+5",
