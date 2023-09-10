@@ -1370,6 +1370,12 @@ const gameData = [
 		dailyReset: "06:00"
 	},
 	{
+		game: "Snowbreak: Containment Zone",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Soul Tide",
 		server: "Global",
 		timezone: "Etc/GMT+7",
