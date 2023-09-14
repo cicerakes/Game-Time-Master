@@ -1177,6 +1177,18 @@ const gameData = [
 		dailyReset: "04:00"
 	},
 	{
+		game: "Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+		server: "KR",
+		timezone: "Asia/Seoul",
+		dailyReset: "04:00"
+	},
+	{
+		game: "Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+		server: "TW",
+		timezone: "Asia/Taipei",
+		dailyReset: "04:00"
+	},
+	{
 		game: "Psychic Idle",
 		server: "Global",
 		timezone: "Asia/Seoul",
