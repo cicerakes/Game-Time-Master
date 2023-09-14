@@ -326,7 +326,7 @@ function toggleMenu() {
 
 function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
-	const searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+	const searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
 
 	// If empty, reset search display results.
 	if (searchTerm == undefined || searchTerm == "") {
@@ -339,7 +339,7 @@ function searchFilter () {
 			// Find game name for each container, convert to uppercase, and remove accent marks.
 			const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
 			gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
-			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
 	
 			if (!gameName.includes(searchTerm)) {
 				// Hide.
