@@ -63,54 +63,6 @@ if (localStorage.getItem('darkThemeSwitch') == "true") {
 	document.getElementById("darkThemeSwitch").checked = true;
 }
 
-// Hide game containers.
-if (localStorage.getItem('gameFilterList') != null) {
-	const gameFilterSaved = getLocalStorageObject('gameFilterList');
-
-	for (let i = 0; i < gameFilterSaved.length; i++) {
-		if (gameFilterSaved[i].shown == "false") {
-			let serverCount = 0, 
-			skippedParent = false, 
-			containerPosition = 0;
-
-			for (let y = 4; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
-				const gameLabel = document.getElementById("gameFilterSettings").children[y], 
-				gameName = gameData[containerPosition].game;
-
-				if (gameLabel.className.includes("gameParent")) {
-					skippedParent = true;
-
-					for (let x = 0; x < gameFilter.length; x++) {
-						if (gameFilter[x].game == gameData[containerPosition].game) {
-							serverCount++;
-						}
-					}
-				} else if (gameFilterSaved[i].game == gameName) {
-					gameLabel.previousElementSibling.checked = false;
-					toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition]);
-				}
-
-				// Look at next div for the children.
-				if (skippedParent) {
-					y++;
-					for (let z = 0; z < serverCount; z++, containerPosition++) {
-						const childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
-
-						// Compare current child with server in saved filter to see if there's a match.
-						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
-							childInput.checked = false;
-							toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition], true);
-						}
-					}
-					containerPosition--;
-					skippedParent = false;
-					serverCount = 0;
-				}
-			}
-		}
-	}
-}
-
 // Show local time data.
 var now = moment(), 
 nowZone = moment.tz.guess();
@@ -169,26 +121,102 @@ for (let i = 0; i < gameData.length; i++) {
 	);
 }
 
-// Loop print the results as divs into #resultsContainer.
-for (let i = 0; i < gameData.length; i++) {
-	const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
-	gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
-	gameBody = gameCont.getElementsByClassName("gameTimes")[0];
+// Create divs for each game server and store them in a parent div.
+var gameResults = document.createElement("div");
+gameResults.id = "resultsContainer";
 
-	gameHead.insertAdjacentHTML("beforeend", "<h4>" + gameData[i].server + "</h4>");
-	gameBody.getElementsByTagName("p")[0].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].dailyReset.format(resetTimeFormat) + "</p>");
-	gameBody.getElementsByTagName("p")[2].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].timeToReset + "</p>");
+for (let i = 0; i < gameData.length; i++) {
+	let localResetTime = gameDataConverted[i].dailyReset.format(resetTimeFormat),
+	timeUntilReset = gameDataConverted[i].timeToReset,
+	serverResetTime,
+	currentServerTime;
+
 	// Add prefix for timezone abbreviation if it's an offset.
 	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z") + "</p>");
+		serverResetTime = gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
+		currentServerTime = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
 	} else {
-		gameBody.getElementsByTagName("p")[4].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z") + "</p>");
-		gameBody.getElementsByTagName("p")[6].insertAdjacentHTML("afterend", "<p>" + gameDataConverted[i].serverTime.format(timeFormat + " z") + "</p>");
+		serverResetTime = gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z");
+		currentServerTime = gameDataConverted[i].serverTime.format(timeFormat + " z");
 	}
+	
 	// Add date to curent server time if the setting is on.
 	if (showServerDate) {
-		gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
+		currentServerTime += "<br>" + gameDataConverted[i].serverTime.format("Do MMMM");
+	}
+	
+	// Add current game server to results div.
+	gameResults.innerHTML += `
+	<div class="gameContainer">
+		<div class="gameHeader">
+			<div class="gameIcon">
+				<img src="game-icons/${gameData[i].icon}.gif">
+			</div>
+			<h3>${gameData[i].game}</h3>
+			<h4>${gameData[i].server}</h4></div>
+		<div class="gameTimes">
+			<div class="localTimes">
+				<p>Local Reset Time: </p><p>${localResetTime}</p>
+				<p>Time Until Reset: </p><p>${timeUntilReset}</p>
+			</div>
+			<div class="serverTimes">
+				<p>Server Reset Time: </p><p>${serverResetTime}</p>
+				<p>Current Server Time: </p><p>${currentServerTime}</p>
+			</div>
+		</div>
+		<div class="buttons">
+			<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+		</div>
+	</div>`;
+}
+// Display the results div.
+document.body.appendChild(gameResults);
+
+// Hide game containers.
+if (localStorage.getItem('gameFilterList') != null) {
+	const gameFilterSaved = getLocalStorageObject('gameFilterList');
+
+	for (let i = 0; i < gameFilterSaved.length; i++) {
+		if (gameFilterSaved[i].shown == "false") {
+			let serverCount = 0, 
+			skippedParent = false, 
+			containerPosition = 0;
+
+			for (let y = 4; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
+				const gameLabel = document.getElementById("gameFilterSettings").children[y], 
+				gameName = gameData[containerPosition].game;
+
+				if (gameLabel.className.includes("gameParent")) {
+					skippedParent = true;
+
+					for (let x = 0; x < gameFilter.length; x++) {
+						if (gameFilter[x].game == gameData[containerPosition].game) {
+							serverCount++;
+						}
+					}
+				} else if (gameFilterSaved[i].game == gameName) {
+					gameLabel.previousElementSibling.checked = false;
+					toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition]);
+				}
+
+				// Look at next div for the children.
+				if (skippedParent) {
+					y++;
+					for (let z = 0; z < serverCount; z++, containerPosition++) {
+						const childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
+
+						// Compare current child with server in saved filter to see if there's a match.
+						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
+							childInput.checked = false;
+							toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition], true);
+						}
+					}
+					containerPosition--;
+					skippedParent = false;
+					serverCount = 0;
+				}
+			}
+		}
 	}
 }
 
