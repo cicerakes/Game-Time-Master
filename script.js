@@ -121,56 +121,63 @@ for (let i = 0; i < gameData.length; i++) {
 	);
 }
 
-// Create divs for each game server and store them in a parent div.
-var gameResults = document.createElement("div");
-gameResults.id = "resultsContainer";
+// Create divs for each game server using template.
+// If browser doesn't support templates, use innerHTML instead.
+if ("content" in document.createElement("template")) {
+	// Create and append resultsContainer for displaying results.
+	let gameResults = document.createElement("div");
+	gameResults.id = "resultsContainer";
+	document.body.appendChild(gameResults);
 
-for (let i = 0; i < gameData.length; i++) {
-	let localResetTime = gameDataConverted[i].dailyReset.format(resetTimeFormat),
-	timeUntilReset = gameDataConverted[i].timeToReset,
-	serverResetTime,
-	currentServerTime;
+	// For each game server, clone the template, add game info, then append to resultsContainer.
+	for (let i = 0; i < gameData.length; i++) {
+		const gameCont = document.getElementById("resultsContainer"),
+		template = document.getElementById("gameContTemplate"),
+		clone = template.content.cloneNode(true);
 
-	// Add prefix for timezone abbreviation if it's an offset.
-	if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-		serverResetTime = gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
-		currentServerTime = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
-	} else {
-		serverResetTime = gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z");
-		currentServerTime = gameDataConverted[i].serverTime.format(timeFormat + " z");
+		// Add game info.
+		clone.querySelectorAll("img")[0].src = "game-icons/" + gameData[i].icon + ".gif";
+		clone.querySelectorAll("h3")[0].textContent = gameData[i].game;
+		clone.querySelectorAll("h4")[0].textContent = gameData[i].server;
+
+		gameCont.appendChild(clone);
 	}
-	
-	// Add date to curent server time if the setting is on.
-	if (showServerDate) {
-		currentServerTime += "<br>" + gameDataConverted[i].serverTime.format("Do MMMM");
+} else {
+	// Create divs for each game server and store them in resultsContainer before appending.
+	let gameResults = document.createElement("div");
+	gameResults.id = "resultsContainer";
+
+	for (let i = 0; i < gameData.length; i++) {
+		// Add current game server to resultsContainer.
+		gameResults.innerHTML += `
+		<div class="gameContainer">
+			<div class="gameHeader">
+				<div class="gameIcon">
+					<img src="game-icons/${gameData[i].icon}.gif">
+				</div>
+				<h3>${gameData[i].game}</h3>
+				<h4>${gameData[i].server}</h4></div>
+			<div class="gameTimes">
+				<div class="localTimes">
+					<p>Local Reset Time: </p><p></p>
+					<p>Time Until Reset: </p><p></p>
+				</div>
+				<div class="serverTimes">
+					<p>Server Reset Time: </p><p></p>
+					<p>Current Server Time: </p><p></p>
+				</div>
+			</div>
+			<div class="buttons">
+				<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+			</div>
+		</div>`;
 	}
-	
-	// Add current game server to results div.
-	gameResults.innerHTML += `
-	<div class="gameContainer">
-		<div class="gameHeader">
-			<div class="gameIcon">
-				<img src="game-icons/${gameData[i].icon}.gif">
-			</div>
-			<h3>${gameData[i].game}</h3>
-			<h4>${gameData[i].server}</h4></div>
-		<div class="gameTimes">
-			<div class="localTimes">
-				<p>Local Reset Time: </p><p>${localResetTime}</p>
-				<p>Time Until Reset: </p><p>${timeUntilReset}</p>
-			</div>
-			<div class="serverTimes">
-				<p>Server Reset Time: </p><p>${serverResetTime}</p>
-				<p>Current Server Time: </p><p>${currentServerTime}</p>
-			</div>
-		</div>
-		<div class="buttons">
-			<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
-		</div>
-	</div>`;
+	// Display resultsContainer.
+	document.body.appendChild(gameResults);
 }
-// Display the results div.
-document.body.appendChild(gameResults);
+
+// Load game time data.
+timeCalc();
 
 // Hide game containers.
 if (localStorage.getItem('gameFilterList') != null) {

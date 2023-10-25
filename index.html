@@ -1460,6 +1460,30 @@
 			<p id="currentLocalTimezone" title="Region - Timezone">Region/Timezone</p>
 		</div>
 
+		<template id="gameContTemplate">
+			<div class="gameContainer">
+				<div class="gameHeader">
+					<div class="gameIcon">
+						<img src="">
+					</div>
+					<h3></h3>
+					<h4></h4></div>
+				<div class="gameTimes">
+					<div class="localTimes">
+						<p>Local Reset Time: </p><p></p>
+						<p>Time Until Reset: </p><p></p>
+					</div>
+					<div class="serverTimes">
+						<p>Server Reset Time: </p><p></p>
+						<p>Current Server Time: </p><p></p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+		</template>
+
 		<script src="game-data.js"></script>
 		<script src="script.js"></script>
 	</body>
