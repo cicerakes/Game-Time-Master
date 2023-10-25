@@ -1087,7 +1087,8 @@ const gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
-		icon: "love-live-sif-2"
+		icon: "love-live-sif-2",
+		menuName: "Love Live! SIF2"
 	},
 	{
 		game: "Love Nikki",
@@ -1336,14 +1337,14 @@ const gameData = [
 		icon: "phantasy-star-online-2-ng"
 	},
 	{
-		game: "Pokemon Masters EX",
+		game: "Pokémon Masters EX",
 		server: "Global",
 		timezone: "Etc/UTC",
 		dailyReset: "06:00",
 		icon: "pokemon-masters-ex"
 	},
 	{
-		game: "Pokemon UNITE",
+		game: "Pokémon UNITE",
 		server: "Global",
 		timezone: "Etc/UTC",
 		dailyReset: "00:00",
@@ -1557,7 +1558,8 @@ const gameData = [
 		server: "EN",
 		timezone: "America/Los_Angeles",
 		dailyReset: "18:00",
-		icon: "smt-l-dx2"
+		icon: "smt-l-dx2",
+		menuName: "SMT Liberation Dx2"
 	},
 	{
 		game: "Shining Beyond",
@@ -1684,14 +1686,16 @@ const gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
-		icon: "the-idolmaster-cgss"
+		icon: "the-idolmaster-cgss",
+		menuName: "THE iDOLM@STER CG:SS"
 	},
 	{
 		game: "THE iDOLM@STER MILLION LIVE! THEATER DAYS",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
-		icon: "the-idolmaster-million-live-theater-days"
+		icon: "the-idolmaster-million-live-theater-days",
+		menuName: "THE iDOLM@STER ML! TD"
 	},
 	{
 		game: "The Seven Deadly Sins: Grand Cross",
