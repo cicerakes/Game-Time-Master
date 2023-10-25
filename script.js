@@ -180,70 +180,161 @@ if ("content" in document.createElement("template")) {
 timeCalc();
 
 // Create game server menu entries.
+// If browser doesn't support templates, use innerHTML instead.
 let currentGameParent;
-for (let i = 0; i < gameData.length; i++) {
-	const gameFilterCont = document.getElementById("game-filter-settings");
-	// Use custom menu name if it exists.
-	let gameName = gameData[i].game;
-	// Prefix with a space for padding.
-	if (gameData[i].menuName) {
-		gameName = " " + gameData[i].menuName;
-	} else {
-		gameName = " " + gameName;
+if ("content" in document.createElement("template")) {
+	for (let i = 0; i < gameData.length; i++) {
+		const gameFilterCont = document.getElementById("game-filter-settings");
+		// Use custom menu name if it exists.
+		let gameName = gameData[i].game;
+		// Prefix with a space for padding.
+		if (gameData[i].menuName) {
+			gameName = " " + gameData[i].menuName;
+		} else {
+			gameName = " " + gameName;
+		}
+
+		// Use template depending on if game has more than 1 region.
+		if (gameData[i].game === currentGameParent) {
+			// If game has multiple servers and is NOT first server detected.
+			// Create child menu entry.
+			const template = document.getElementById("game-menu-children"),
+			clone = template.content.cloneNode(true),
+			input = clone.querySelectorAll("input")[0],
+			label = clone.querySelectorAll("label")[0];
+
+			input.id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			label.textContent = " " + gameData[i].server;
+
+			gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
+		} else if (gameData[i].game === gameData[i+1].game) {
+			// If game has multiple servers and is first server detected.
+			// Save name for checking children.
+			currentGameParent = gameData[i].game;
+
+			// Create parent menu entry.
+			const template = document.getElementById("game-menu-parent"),
+			clone = template.content.cloneNode(true),
+			inputs = clone.querySelectorAll("input"),
+			labels = clone.querySelectorAll("label"),
+			button = clone.querySelectorAll("button")[0],
+			span = clone.querySelectorAll("span")[0];
+
+			inputs[0].id = gameData[i].icon;
+			labels[0].htmlFor = gameData[i].icon;
+			labels[0].title = gameData[i].game;
+			span.textContent = gameName;
+			button.id = gameData[i].icon + "-children";
+			labels[1].htmlFor = gameData[i].icon + "-children";
+			// Also add the game as first child.
+			inputs[1].id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			labels[2].htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			labels[2].textContent = " " + gameData[i].server;
+
+			gameFilterCont.appendChild(clone);
+		} else {
+			// If the game has only 1 region/server.
+			const template = document.getElementById("game-menu-entry"),
+			clone = template.content.cloneNode(true),
+			input = clone.querySelectorAll("input")[0],
+			label = clone.querySelectorAll("label")[0];
+
+			input.id = gameData[i].icon;
+			label.htmlFor = gameData[i].icon;
+			label.textContent = gameName;
+			label.title = gameData[i].game;
+
+			gameFilterCont.appendChild(clone);
+		}
 	}
+} else {
+	for (let i = 0; i < gameData.length; i++) {
+		const gameFilterCont = document.getElementById("game-filter-settings");
+		// Use custom menu name if it exists.
+		let gameName = gameData[i].game;
+		// Prefix with a space for padding.
+		if (gameData[i].menuName) {
+			gameName = " " + gameData[i].menuName;
+		} else {
+			gameName = " " + gameName;
+		}
 
-	// Use template depending on if game has more than 1 region.
-	if (gameData[i].game === currentGameParent) {
-		// If game has multiple servers and is NOT first server detected.
-		// Create child menu entry.
-		const template = document.getElementById("game-menu-children"),
-		clone = template.content.cloneNode(true),
-		input = clone.querySelectorAll("input")[0],
-		label = clone.querySelectorAll("label")[0];
+		// Use template depending on if game has more than 1 region.
+		if (gameData[i].game === currentGameParent) {
+			// If game has multiple servers and is NOT first server detected.
+			// Create child menu entry.
+			let gameChild = document.createElement("div");
+			gameChild.id = ("game-menu-children");
+			gameChild.innerHTML = `
+			<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this, true)" checked>
+			<label class="option-name" for="">
+			</label>`;
+			let input = gameChild.querySelectorAll("input")[0],
+			label = gameChild.querySelectorAll("label")[0];
 
-		input.id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-		label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-		label.textContent = " " + gameData[i].server;
+			input.id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			label.textContent = " " + gameData[i].server;
 
-		gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
-	} else if (gameData[i].game === gameData[i+1].game) {
-		// If game has multiple servers and is first server detected.
-		// Save name for checking children.
-		currentGameParent = gameData[i].game;
+			let currentParent = gameFilterCont.querySelectorAll(".game-children:last-child"),
+			currentParentIndex = currentParent.length - 1;
+			currentParent = currentParent[currentParentIndex];
+			currentParent.appendChild(gameChild);
+		} else if (gameData[i].game === gameData[i+1].game) {
+			// If game has multiple servers and is first server detected.
+			// Save name for checking children.
+			currentGameParent = gameData[i].game;
 
-		// Create parent menu entry.
-		const template = document.getElementById("game-menu-parent"),
-		clone = template.content.cloneNode(true),
-		inputs = clone.querySelectorAll("input"),
-		labels = clone.querySelectorAll("label"),
-		button = clone.querySelectorAll("button")[0],
-		span = clone.querySelectorAll("span")[0];
+			// Create parent menu entry.
+			let gameParent = document.createElement("div");
+			gameParent.id = ("game-menu-parent");
+			gameParent.innerHTML = `
+			<input type="checkbox" id="" onchange="toggleGameParentHide(this)" checked>
+			<label class="option-name game-parent" for="">
+				<span></span>
+				<button id="" class="section-toggle-arrow" onclick="menuChildrenToggle(this)"></button>
+				<label for=""></label>
+			</label>
+			<div class="game-children">
+				<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this, true)" checked>
+				<label class="option-name" for=""></label>
+			</div>`;
+			let inputs = gameParent.querySelectorAll("input"),
+			labels = gameParent.querySelectorAll("label"),
+			button = gameParent.querySelectorAll("button")[0],
+			span = gameParent.querySelectorAll("span")[0];
 
-		inputs[0].id = gameData[i].icon;
-		labels[0].htmlFor = gameData[i].icon;
-		labels[0].title = gameData[i].game;
-		span.textContent = gameName;
-		button.id = gameData[i].icon + "-children";
-		labels[1].htmlFor = gameData[i].icon + "-children";
-		// Also add the game as first child.
-		inputs[1].id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-		labels[2].htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-		labels[2].textContent = " " + gameData[i].server;
+			inputs[0].id = gameData[i].icon;
+			labels[0].htmlFor = gameData[i].icon;
+			labels[0].title = gameData[i].game;
+			span.textContent = gameName;
+			button.id = gameData[i].icon + "-children";
+			labels[1].htmlFor = gameData[i].icon + "-children";
+			// Also add the game as first child.
+			inputs[1].id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			labels[2].htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			labels[2].textContent = " " + gameData[i].server;
 
-		gameFilterCont.appendChild(clone);
-	} else {
-		// If the game has only 1 region/server.
-		const template = document.getElementById("game-menu-entry"),
-		clone = template.content.cloneNode(true),
-		input = clone.querySelectorAll("input")[0],
-		label = clone.querySelectorAll("label")[0];
+			gameFilterCont.appendChild(gameParent);
+		} else {
+			// If the game has only 1 region/server.
+			let gameEntry = document.createElement("div");
+			gameEntry.id = ("game-menu-entry");
+			gameEntry.innerHTML = `
+			<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this)" checked>
+			<label class="option-name" for="" title="">
+			</label>`;
+			let input = gameEntry.querySelectorAll("input")[0],
+			label = gameEntry.querySelectorAll("label")[0];
 
-		input.id = gameData[i].icon;
-		label.htmlFor = gameData[i].icon;
-		label.textContent = gameName;
-		label.title = gameData[i].game;
+			input.id = gameData[i].icon;
+			label.htmlFor = gameData[i].icon;
+			label.textContent = gameName;
+			label.title = gameData[i].game;
 
-		gameFilterCont.appendChild(clone);
+			gameFilterCont.appendChild(gameEntry);
+		}
 	}
 }
 
