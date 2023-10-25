@@ -20,100 +20,101 @@
 	</head>
 	<body>
 		<header>
-			<button id="mainMenuButt" class="menuButt" onclick="toggleMenu()">☰</button>
-			<input type="search" id="filterSearchBox" placeholder="Search for game" oninput="searchFilter()" onblur="searchHide(this)">
-			<button id="filterSearchOpen" class="menuButt" onclick="showSearch(this)"><span style="top:-5px;left:1px;position:relative">⌕</span></button>
+			<button id="main-menu-btn" class="menu-btn" onclick="toggleMenu()">☰</button>
+			<input type="search" id="filter-search-box" placeholder="Search for game" oninput="searchFilter()" onblur="searchHide(this)">
+			<button id="filter-search-open" class="menu-btn" onclick="showSearch(this)"><span style="top:-5px;left:1px;position:relative">⌕</span></button>
 			<h1>Game Time Master</h1>
 		</header>
-		<div id="outsideMenu" onclick="toggleMenu()"></div>
+		<div id="outside-menu" onclick="toggleMenu()"></div>
 		<div id="menu">
-			<div id="gameFilterSettings" class="menuSection">
-				<h2 class="sectionHeading">Games</h2>
-				<button id="gamesMenuSection" class="sectionToggleArrow" onclick="gamesMenuSectionToggle(this)"></button>
-				<label for="gamesMenuSection"></label>
+			<div id="game-filter-settings" class="menu-section">
+				<h2 class="section-heading">Games</h2>
+				<button id="games-menu-section" class="section-toggle-arrow" onclick="gamesMenuSectionToggle(this)"></button>
+				<label for="games-menu-section"></label>
 			</div>
-			<div id="mainSettings" class="menuSection">
-				<h2 class="sectionHeading">Settings</h2>
-				<label class="optionName" for="12HrTimeSwitch">
+			<div id="main-settings" class="menu-section">
+				<h2 class="section-heading">Settings</h2>
+				<label class="option-name" for="12-hr-time-switch">
 					<span>12-hour time format</span>
 					<label class="switch">
-						<input type="checkbox" id="12HrTimeSwitch" onchange="settingToggle(this)">
+						<input type="checkbox" id="12-hr-time-switch" onchange="settingToggle(this)">
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="optionName" for="showServerDateSwitch">
+				<label class="option-name" for="show-server-date-switch">
 					<span>Show server date</span>
 					<label class="switch">
-						<input type="checkbox" id="showServerDateSwitch" onchange="settingToggle(this)">
+						<input type="checkbox" id="show-server-date-switch" onchange="settingToggle(this)">
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="optionName" for="showSecondsSwitch">
+				<label class="option-name" for="show-seconds-switch">
 					<span>Show seconds</span>
 					<label class="switch">
-						<input type="checkbox" id="showSecondsSwitch" onchange="settingToggle(this)">
+						<input type="checkbox" id="show-seconds-switch" onchange="settingToggle(this)">
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="optionName" for="showHideButtonsSwitch">
+				<label class="option-name" for="show-hide-buttons-switch">
 					<span>Show "Hide" buttons</span>
 					<label class="switch">
-						<input type="checkbox" id="showHideButtonsSwitch" onchange="settingToggle(this)" checked>
+						<input type="checkbox" id="show-hide-buttons-switch" onchange="settingToggle(this)" checked>
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="optionName" for="showHiddenInSearchSwitch">
+				<label class="option-name" for="show-hidden-in-search-switch">
 					<span>Show hidden servers in search results</span>
 					<label class="switch">
-						<input type="checkbox" id="showHiddenInSearchSwitch" onchange="settingToggle(this)">
+						<input type="checkbox" id="show-hidden-in-search-switch" onchange="settingToggle(this)">
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="optionName" for="compactModeSwitch">
+				<label class="option-name" for="compact-mode-switch">
 					<span>Compact mode</span>
 					<label class="switch">
-						<input type="checkbox" id="compactModeSwitch" onchange="settingToggle(this)">
+						<input type="checkbox" id="compact-mode-switch" onchange="settingToggle(this)">
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="optionName" for="darkThemeSwitch">
+				<label class="option-name" for="dark-theme-switch">
 					<span>Dark theme</span>
 					<label class="switch">
-						<input type="checkbox" id="darkThemeSwitch" onchange="settingToggle(this)">
+						<input type="checkbox" id="dark-theme-switch" onchange="settingToggle(this)">
 						<span class="slider"></span>
 					</label>
 				</label>
 			</div>
-			<div class="menuSection">
-				<h2 class="sectionHeading">Feedback</h2>
-				<a href="https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform"><img src="menu-icons/add.png" class="menuIcon">Request a game</a>
-				<a href="https://docs.google.com/forms/d/e/1FAIpQLSclB9i8A3m0iQOXu7Yry3U6ZK8nZfQOOMFrXwTXrUozfUcyCg/viewform"><img src="menu-icons/report.png" class="menuIcon">Report incorrect times</a>
-				<a href="https://github.com/cicerakes/Game-Time-Master"><img src="menu-icons/github.png" class="menuIcon">GitHub</a>
-				<a href="mailto:cicerakes.gtm@gmail.com"><img src="menu-icons/email.png" class="menuIcon">Email</a>
-				<a href="https://ko-fi.com/cicerakes" title="Ko-fi"><img src="menu-icons/ko-fi.png" class="menuIcon">Buy me a coffee</a>
+			<div class="menu-section">
+				<h2 class="section-heading">Feedback</h2>
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform"><img src="menu-icons/add.png" class="menu-icon">Request a game</a>
+				<a href="https://docs.google.com/forms/d/e/1FAIpQLSclB9i8A3m0iQOXu7Yry3U6ZK8nZfQOOMFrXwTXrUozfUcyCg/viewform"><img src="menu-icons/report.png" class="menu-icon">Report incorrect times</a>
+				<a href="https://github.com/cicerakes/Game-Time-Master"><img src="menu-icons/github.png" class="menu-icon">GitHub</a>
+				<a href="mailto:cicerakes.gtm@gmail.com"><img src="menu-icons/email.png" class="menu-icon">Email</a>
+				<a href="https://ko-fi.com/cicerakes" title="Ko-fi"><img src="menu-icons/ko-fi.png" class="menu-icon">Buy me a coffee</a>
 			</div>
 		</div>
-		<div id="currentLocal">
+		<div id="current-local">
 			<h2>Your local time:</h2>
-			<p id="currentLocalTime">Time</p>
-			<p id="currentLocalDate">Date</p>
-			<p id="currentLocalTimezone" title="Region - Timezone">Region/Timezone</p>
+			<p id="current-local-time">Time</p>
+			<p id="current-local-date">Date</p>
+			<p id="current-local-timezone" title="Region - Timezone">Region/Timezone</p>
 		</div>
 
-		<template id="gameContTemplate">
-			<div class="gameContainer">
-				<div class="gameHeader">
-					<div class="gameIcon">
+		<template id="game-cont">
+			<div class="game-container">
+				<div class="game-header">
+					<div class="game-icon">
 						<img src="">
 					</div>
 					<h3></h3>
-					<h4></h4></div>
-				<div class="gameTimes">
-					<div class="localTimes">
+					<h4></h4>
+				</div>
+				<div class="game-times">
+					<div class="local-times">
 						<p>Local Reset Time: </p><p></p>
 						<p>Time Until Reset: </p><p></p>
 					</div>
-					<div class="serverTimes">
+					<div class="server-times">
 						<p>Server Reset Time: </p><p></p>
 						<p>Current Server Time: </p><p></p>
 					</div>
@@ -123,27 +124,26 @@
 				</div>
 			</div>
 		</template>
-		<template id="gameMenuEntry">
-			<input type="checkbox" id="" class="gameServerToggle" onchange="toggleGameServerHide(this)" checked>
-			<label class="optionName" for="" title="">
+		<template id="game-menu-entry">
+			<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this)" checked>
+			<label class="option-name" for="" title="">
 			</label>
 		</template>
-		<template id="gameMenuParent">
+		<template id="game-menu-parent">
 			<input type="checkbox" id="" onchange="toggleGameParentHide(this)" checked>
-			<label class="optionName gameParent" for="">
+			<label class="option-name game-parent" for="">
 				<span></span>
-				<button id="" class="sectionToggleArrow" onclick="menuChildrenToggle(this)"></button>
+				<button id="" class="section-toggle-arrow" onclick="menuChildrenToggle(this)"></button>
 				<label for=""></label>
 			</label>
-			<div class="gameChildren">
-				<input type="checkbox" id="" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
-				<label class="optionName" for=""></label>
+			<div class="game-children">
+				<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this, true)" checked>
+				<label class="option-name" for=""></label>
 			</div>
 		</template>
-		<template id="gameMenuChild">
-			<input type="checkbox" id="worldFlipperGlobal" class="gameServerToggle" onchange="toggleGameServerHide(this, true)" checked>
-			<label class="optionName" for="worldFlipperGlobal">
-				Global
+		<template id="game-menu-children">
+			<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this, true)" checked>
+			<label class="option-name" for="">
 			</label>
 		</template>
 

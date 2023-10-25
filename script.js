@@ -22,53 +22,53 @@ showHidden = false;
 if (localStorage.getItem('12HrTimeSwitch') == "true") {
 	twelveHourFormat = true;
 
-	document.getElementById("12HrTimeSwitch").checked = true;
+	document.getElementById("12-hr-time-switch").checked = true;
 	
 	setTimeFormat();
 }
 if (localStorage.getItem('showServerDateSwitch') == "true") {
 	showServerDate = true;
 
-	document.getElementById("showServerDateSwitch").checked = true;
+	document.getElementById("show-server-date-switch").checked = true;
 }
 if (localStorage.getItem('showSecondsSwitch') == "true") {
 	showSeconds = true;
 
-	document.getElementById("showSecondsSwitch").checked = true;
+	document.getElementById("show-seconds-switch").checked = true;
 
 	setTimeFormat();
 }
 if (localStorage.getItem('showHideButtonsSwitch') == "false") {
-	document.body.classList.add("hideButtonsHidden");
-	document.getElementById("showHideButtonsSwitch").checked = false;
+	document.body.classList.add("hide-buttons-hidden");
+	document.getElementById("show-hide-buttons-switch").checked = false;
 }
 if (localStorage.getItem('showHiddenInSearchSwitch') == "true") {
 	showHidden = true;
 
-	document.getElementById("showHiddenInSearchSwitch").checked = true;
+	document.getElementById("show-hidden-in-search-switch").checked = true;
 }
 if (localStorage.getItem('compactModeSwitch') == "true") {
 	document.body.classList.add("compact");
-	document.getElementById("compactModeSwitch").checked = true;
+	document.getElementById("compact-mode-switch").checked = true;
 }
 // If there's no saved dark theme setting, check for OS theme and apply that.
 // OS theme is used until user manually changes this setting.
 if (localStorage.getItem('darkThemeSwitch') == "true") {
 	document.body.classList.add("dark");
-	document.getElementById("darkThemeSwitch").checked = true;
+	document.getElementById("dark-theme-switch").checked = true;
 } else if (localStorage.getItem('darkThemeSwitch') == "false") {
 	// Do nothing and load default theme.
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 	document.body.classList.add("dark");
-	document.getElementById("darkThemeSwitch").checked = true;
+	document.getElementById("dark-theme-switch").checked = true;
 }
 
 // Show local time data.
 var now = moment(), 
 nowZone = moment.tz.guess();
-document.getElementById("currentLocalTime").textContent = now.format(timeFormat);
-document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
-document.getElementById("currentLocalTimezone").textContent = nowZone + " — " + now.format("[GMT ]Z");
+document.getElementById("current-local-time").textContent = now.format(timeFormat);
+document.getElementById("current-local-date").textContent = now.format("dddd, Do MMMM, YYYY");
+document.getElementById("current-local-timezone").textContent = nowZone + " — " + now.format("[GMT ]Z");
 
 // Convert game times to local time zone and store results.
 var gameDataConverted = [];
@@ -124,15 +124,15 @@ for (let i = 0; i < gameData.length; i++) {
 // Create divs for each game server using template.
 // If browser doesn't support templates, use innerHTML instead.
 if ("content" in document.createElement("template")) {
-	// Create and append resultsContainer for displaying results.
+	// Create and append results-container for displaying results.
 	let gameResults = document.createElement("div");
-	gameResults.id = "resultsContainer";
+	gameResults.id = "results-container";
 	document.body.appendChild(gameResults);
 
-	// For each game server, clone the template, add game info, then append to resultsContainer.
+	// For each game server, clone the template, add game info, then append to results-container.
 	for (let i = 0; i < gameData.length; i++) {
-		const gameCont = document.getElementById("resultsContainer"),
-		template = document.getElementById("gameContTemplate"),
+		const gameCont = document.getElementById("results-container"),
+		template = document.getElementById("game-cont"),
 		clone = template.content.cloneNode(true);
 
 		// Add game info.
@@ -143,26 +143,26 @@ if ("content" in document.createElement("template")) {
 		gameCont.appendChild(clone);
 	}
 } else {
-	// Create divs for each game server and store them in resultsContainer before appending.
+	// Create divs for each game server and store them in results-container before appending.
 	let gameResults = document.createElement("div");
-	gameResults.id = "resultsContainer";
+	gameResults.id = "results-container";
 
 	for (let i = 0; i < gameData.length; i++) {
-		// Add current game server to resultsContainer.
+		// Add current game server to results-container.
 		gameResults.innerHTML += `
-		<div class="gameContainer">
-			<div class="gameHeader">
-				<div class="gameIcon">
+		<div class="game-container">
+			<div class="game-header">
+				<div class="game-icon">
 					<img src="game-icons/${gameData[i].icon}.gif">
 				</div>
 				<h3>${gameData[i].game}</h3>
 				<h4>${gameData[i].server}</h4></div>
-			<div class="gameTimes">
-				<div class="localTimes">
+			<div class="game-times">
+				<div class="local-times">
 					<p>Local Reset Time: </p><p></p>
 					<p>Time Until Reset: </p><p></p>
 				</div>
-				<div class="serverTimes">
+				<div class="server-times">
 					<p>Server Reset Time: </p><p></p>
 					<p>Current Server Time: </p><p></p>
 				</div>
@@ -172,7 +172,7 @@ if ("content" in document.createElement("template")) {
 			</div>
 		</div>`;
 	}
-	// Display resultsContainer.
+	// Display results-container.
 	document.body.appendChild(gameResults);
 }
 
@@ -182,7 +182,7 @@ timeCalc();
 // Create game server menu entries.
 let currentGameParent;
 for (let i = 0; i < gameData.length; i++) {
-	const gameFilterCont = document.getElementById("gameFilterSettings");
+	const gameFilterCont = document.getElementById("game-filter-settings");
 	// Use custom menu name if it exists.
 	let gameName = gameData[i].game;
 	// Prefix with a space for padding.
@@ -196,7 +196,7 @@ for (let i = 0; i < gameData.length; i++) {
 	if (gameData[i].game === currentGameParent) {
 		// If game has multiple servers and is NOT first server detected.
 		// Create child menu entry.
-		const template = document.getElementById("gameMenuChild"),
+		const template = document.getElementById("game-menu-children"),
 		clone = template.content.cloneNode(true),
 		input = clone.querySelectorAll("input")[0],
 		label = clone.querySelectorAll("label")[0];
@@ -205,14 +205,14 @@ for (let i = 0; i < gameData.length; i++) {
 		label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
 		label.textContent = " " + gameData[i].server;
 
-		gameFilterCont.querySelectorAll(".gameChildren:last-child")[0].appendChild(clone);
+		gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
 	} else if (gameData[i].game === gameData[i+1].game) {
 		// If game has multiple servers and is first server detected.
 		// Save name for checking children.
 		currentGameParent = gameData[i].game;
 
 		// Create parent menu entry.
-		const template = document.getElementById("gameMenuParent"),
+		const template = document.getElementById("game-menu-parent"),
 		clone = template.content.cloneNode(true),
 		inputs = clone.querySelectorAll("input"),
 		labels = clone.querySelectorAll("label"),
@@ -233,7 +233,7 @@ for (let i = 0; i < gameData.length; i++) {
 		gameFilterCont.appendChild(clone);
 	} else {
 		// If the game has only 1 region/server.
-		const template = document.getElementById("gameMenuEntry"),
+		const template = document.getElementById("game-menu-entry"),
 		clone = template.content.cloneNode(true),
 		input = clone.querySelectorAll("input")[0],
 		label = clone.querySelectorAll("label")[0];
@@ -257,11 +257,11 @@ if (localStorage.getItem('gameFilterList') != null) {
 			skippedParent = false, 
 			containerPosition = 0;
 
-			for (let y = 4; y < document.getElementById("gameFilterSettings").childElementCount; y+=2, containerPosition++) {
-				const gameLabel = document.getElementById("gameFilterSettings").children[y], 
+			for (let y = 4; y < document.getElementById("game-filter-settings").childElementCount; y+=2, containerPosition++) {
+				const gameLabel = document.getElementById("game-filter-settings").children[y], 
 				gameName = gameData[containerPosition].game;
 
-				if (gameLabel.className.includes("gameParent")) {
+				if (gameLabel.className.includes("game-parent")) {
 					skippedParent = true;
 
 					for (let x = 0; x < gameFilter.length; x++) {
@@ -271,19 +271,19 @@ if (localStorage.getItem('gameFilterList') != null) {
 					}
 				} else if (gameFilterSaved[i].game == gameName) {
 					gameLabel.previousElementSibling.checked = false;
-					toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition]);
+					toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition]);
 				}
 
 				// Look at next div for the children.
 				if (skippedParent) {
 					y++;
 					for (let z = 0; z < serverCount; z++, containerPosition++) {
-						const childInput = document.getElementById("gameFilterSettings").children[y].getElementsByTagName("input")[z];
+						const childInput = document.getElementById("game-filter-settings").children[y].getElementsByTagName("input")[z];
 
 						// Compare current child with server in saved filter to see if there's a match.
 						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
 							childInput.checked = false;
-							toggleGameServerHide(document.getElementsByClassName("gameServerToggle")[containerPosition], true);
+							toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition], true);
 						}
 					}
 					containerPosition--;
@@ -383,11 +383,11 @@ function timeCalc() {
 	}
 
 	// Print refreshed values.
-	document.getElementById("currentLocalTime").textContent = now.format(timeFormat);
-	document.getElementById("currentLocalDate").textContent = now.format("dddd, Do MMMM, YYYY");
+	document.getElementById("current-local-time").textContent = now.format(timeFormat);
+	document.getElementById("current-local-date").textContent = now.format("dddd, Do MMMM, YYYY");
 	for (let i = 0; i < gameData.length; i++) {
-		const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
-		gameBody = gameCont.getElementsByClassName("gameTimes")[0];
+		const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i], 
+		gameBody = gameCont.getElementsByClassName("game-times")[0];
 
 		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].dailyReset.format(resetTimeFormat);
 		gameBody.getElementsByTagName("p")[3].textContent = gameDataConverted[i].timeToReset;
@@ -407,7 +407,7 @@ function timeCalc() {
 }
 
 function toggleMenu() {
-	const menuButton = document.getElementById("mainMenuButt");
+	const menuButton = document.getElementById("main-menu-btn");
 
 	if (document.getElementById("menu").style.marginLeft == "0px") {
 		// Close.
@@ -415,33 +415,33 @@ function toggleMenu() {
 
 		menuButton.textContent = "☰";
 
-		document.getElementById("outsideMenu").removeAttribute("style");
+		document.getElementById("outside-menu").removeAttribute("style");
 	} else {
 		// Open.
 		document.getElementById("menu").style.marginLeft = "0px";
 
 		menuButton.textContent = "✖";
 
-		document.getElementById("outsideMenu").style.width = "100%";
-		document.getElementById("outsideMenu").style.height = "100%";
+		document.getElementById("outside-menu").style.width = "100%";
+		document.getElementById("outside-menu").style.height = "100%";
 	}
 }
 
 function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
-	const searchTerm = document.getElementById("filterSearchBox").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
+	const searchTerm = document.getElementById("filter-search-box").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
 
 	// If empty, reset search display results.
 	if (searchTerm == undefined || searchTerm == "") {
 		for (let i = 0; i < gameData.length; i++) {
-			const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i];
+			const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i];
 			gameCont.removeAttribute("style");
 		}
 	} else {
 		for (let i = 0; i < gameData.length; i++) {
 			// Find game name for each container, convert to uppercase, and remove accent marks.
-			const gameCont = document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i], 
-			gameHead = gameCont.getElementsByClassName("gameHeader")[0], 
+			const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i], 
+			gameHead = gameCont.getElementsByClassName("game-header")[0], 
 			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
 	
 			if (!gameName.includes(searchTerm)) {
@@ -468,7 +468,7 @@ function settingToggle(setting) {
 	const settingId = setting.id;
 	localStorage.setItem([settingId], setting.checked);
 
-	if (settingId == "12HrTimeSwitch") {
+	if (settingId == "12-hr-time-switch") {
 		if (setting.checked) {
 			twelveHourFormat = true;
 		} else {
@@ -476,14 +476,14 @@ function settingToggle(setting) {
 		}
 		setTimeFormat()
 		timeCalc();
-	} else if (settingId == "showServerDateSwitch") {
+	} else if (settingId == "show-server-date-switch") {
 		if (setting.checked) {
 			showServerDate = true;
 		} else {
 			showServerDate = false;
 		}
 		timeCalc();
-	} else if (settingId == "showSecondsSwitch") {
+	} else if (settingId == "show-seconds-switch") {
 		if (setting.checked) {
 			showSeconds = true;
 		} else {
@@ -492,26 +492,26 @@ function settingToggle(setting) {
 		setTimeFormat();
 		timeCalc();
 		setRefresh();
-	} else if (settingId == "showHideButtonsSwitch") {
+	} else if (settingId == "show-hide-buttons-switch") {
 		if (setting.checked) {
-			document.body.classList.remove("hideButtonsHidden");
+			document.body.classList.remove("hide-buttons-hidden");
 		} else {
-			document.body.classList.add("hideButtonsHidden");
+			document.body.classList.add("hide-buttons-hidden");
 		}
-	} else if (settingId == "showHiddenInSearchSwitch") {
+	} else if (settingId == "show-hidden-in-search-switch") {
 		if (setting.checked) {
 			showHidden = true;
 		} else {
 			showHidden = false;
 		}
 		searchFilter();
-	} else if (settingId == "compactModeSwitch") {
+	} else if (settingId == "compact-mode-switch") {
 		if (setting.checked) {
 			document.body.classList.add("compact");
 		} else {
 			document.body.classList.remove("compact");
 		}
-	} else if (settingId == "darkThemeSwitch") {
+	} else if (settingId == "dark-theme-switch") {
 		if (setting.checked) {
 			document.body.classList.add("dark");
 		} else {
@@ -521,7 +521,7 @@ function settingToggle(setting) {
 }
 
 function showSearch(button) {
-	const searchBox = document.getElementById("filterSearchBox");
+	const searchBox = document.getElementById("filter-search-box");
 
 	button.style.display = "none";
 	document.getElementsByTagName("header")[0].getElementsByTagName("h1")[0].style.display = "none";
@@ -531,7 +531,7 @@ function showSearch(button) {
 }
 
 function searchHide(searchBox) {
-	const searchButton = document.getElementById("filterSearchOpen");
+	const searchButton = document.getElementById("filter-search-open");
 
 	if (searchButton.style.display == "none") {
 		searchBox.style.width = 0;
@@ -554,11 +554,11 @@ function getLocalStorageObject(ObjectName) {
 }
 
 // Store the original height of the games section in menu, for later usage when hiding/showing.
-var gamesMenuSectionHeight = document.getElementById("gameFilterSettings").offsetHeight;
+var gamesMenuSectionHeight = document.getElementById("game-filter-settings").offsetHeight;
 // Set the section height to a value (instead of auto) to enable initial transistion animation.
-document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight + "px";
+document.getElementById("game-filter-settings").style.height = gamesMenuSectionHeight + "px";
 // Collapse the games section on page load.
-gamesMenuSectionToggle(document.getElementById("gamesMenuSection"));
+gamesMenuSectionToggle(document.getElementById("games-menu-section"));
 
 function gamesMenuSectionToggle(dropArrow) {
 	const menuSection = dropArrow.parentElement;
@@ -599,14 +599,14 @@ function menuChildrenToggle(dropArrow) {
 	}
 
 	// Set new games section height.
-	document.getElementById("gameFilterSettings").style.height = gamesMenuSectionHeight + "px";
+	document.getElementById("game-filter-settings").style.height = gamesMenuSectionHeight + "px";
 }
 
 function toggleGameServerHide(toggle, child) {
 	// Find the server's position in gameData.
 	let position = 0;
 	for (; position < gameData.length; position++) {
-		if (document.getElementsByClassName("gameServerToggle")[position] == toggle) {
+		if (document.getElementsByClassName("game-server-toggle")[position] == toggle) {
 			break;
 		}
 	}
@@ -614,10 +614,10 @@ function toggleGameServerHide(toggle, child) {
 	if (gameFilter[position].shown == "true") {
 		// Hide.
 		gameFilter[position].shown = "false";
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].classList.add("hidden");
+		document.getElementById("results-container").getElementsByClassName("game-container")[position].classList.add("hidden");
 		// Update button text.
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
 
 		// Check if other children are hidden.
 		if (child) {
@@ -643,10 +643,10 @@ function toggleGameServerHide(toggle, child) {
 	} else {
 		// Show.
 		gameFilter[position].shown = "true";
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].classList.remove("hidden");
+		document.getElementById("results-container").getElementsByClassName("game-container")[position].classList.remove("hidden");
 		// Update button text.
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
-		document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
+		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
+		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
 
 		// Check if other children are shown.
 		if (child) {
@@ -691,10 +691,10 @@ function toggleGameParentHide(gameSwitch) {
 				serverCount++;
 
 				gameFilter[i].shown = "false";
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].classList.add("hidden");
+				document.getElementById("results-container").getElementsByClassName("game-container")[i].classList.add("hidden");
 				// Update button text.
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
 			}
 		}
 		// Toggle switch off.
@@ -710,10 +710,10 @@ function toggleGameParentHide(gameSwitch) {
 				serverCount++;
 
 				gameFilter[i].shown = "true";
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].classList.remove("hidden");
+				document.getElementById("results-container").getElementsByClassName("game-container")[i].classList.remove("hidden");
 				// Update button text.
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
-				document.getElementById("resultsContainer").getElementsByClassName("gameContainer")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
+				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
+				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
 			}
 		}
 		// Toggle switch on.
@@ -745,7 +745,7 @@ function hideGameServerButton(button) {
 	}
 
 	// Use position to find switch.
-	const gameSwitch = document.getElementsByClassName("gameServerToggle")[position];
+	const gameSwitch = document.getElementsByClassName("game-server-toggle")[position];
 
 	// Toggle switch.
 	if (gameSwitch.checked == false) {
