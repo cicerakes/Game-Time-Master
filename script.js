@@ -363,7 +363,7 @@ function createGameFilterMenu() {
 		}
 	}
 }
-
+//TODO: check below for efficiency
 // Trigger onchange to hide/show games and update gameFilter to match what's saved.
 function hideFilteredGames() {
 	// Hide game containers.
@@ -438,22 +438,24 @@ function toggleMenu() {
 
 function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
-	const searchTerm = document.getElementById("filter-search-box").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
+	const searchTerm = document.getElementById("filter-search-box").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase(),
+	gameCont = document.getElementById("results-container"),
+    gameServers = gameCont.getElementsByClassName("game-container");
 
 	// If empty, reset search display results.
 	if (searchTerm == undefined || searchTerm == "") {
-		for (let i = 0; i < gameData.length; i++) {
-			const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i];
+		for (let i = 0; i < gameServers.length; i++) {
+			const gameCont = gameServers[i];
 			gameCont.removeAttribute("style");
 		}
 	} else {
-		for (let i = 0; i < gameData.length; i++) {
-			// Find game name for each container, convert to uppercase, and remove accent marks.
-			const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i],
-			gameHead = gameCont.getElementsByClassName("game-header")[0],
-			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
+		for (let i = 0; i < gameServers.length; i++) {
+			// Find game name for each container, convert to uppercase, and remove accent marks and spaces.
+			const gameCont = gameServers[i],
+			gameName = gameCont.getElementsByClassName("game-header")[0].getElementsByTagName("h3")[0].textContent,
+			gameNameConverted = gameName.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
 
-			if (!gameName.includes(searchTerm)) {
+			if (!gameNameConverted.includes(searchTerm)) {
 				// Hide.
 				gameCont.style.display = "none";
 			} else {
@@ -461,12 +463,20 @@ function searchFilter () {
 				// Don't show hidden servers if there's no search term(s).
 				if (showHidden && (searchTerm != undefined || searchTerm != "")) {
 					gameCont.style.display = "block";
-				} else if (gameFilter[i].shown == "true") {
-					gameCont.style.display = "block";
 				} else {
-					// Hide.
-					// Needed for when showHidden was on, but switched off later.
-					gameCont.style.display = "none";
+					const gameRegion = gameCont.getElementsByClassName("game-header")[0].getElementsByTagName("h4")[0].textContent;
+
+					for (let x = 0; x < gameFilter.length; x++) {
+						if (gameFilter[x].game == gameName && gameFilter[x].server == gameRegion && gameFilter[x].shown == "true") {
+							gameCont.style.display = "block";
+
+							break;
+						} else {
+							// Hide.
+							// Needed for when showHidden was on, but switched off later.
+							gameCont.style.display = "none";
+						}
+					}
 				}
 			}
 		}
@@ -626,7 +636,7 @@ function menuChildrenToggle(dropArrow) {
 function toggleGameServerHide(toggle, child) {
 	const label = toggle.nextElementSibling,
 	gameCont = document.getElementById("results-container"),
-    gameServers = gameCont.getElementsByClassName("game-container");
+	gameServers = gameCont.getElementsByClassName("game-container");
 	let parentLabel,
 	gameName,
 	gameRegion,
@@ -811,7 +821,7 @@ function clearGameResults() {
 // This will not edit gameFilter[].
 function refreshFilteredGames() {
 	const gameCont = document.getElementById("results-container"),
-    gameServers = gameCont.getElementsByClassName("game-container");
+	gameServers = gameCont.getElementsByClassName("game-container");
 
 	// For every game that's hidden in the filter, find it in #results-container and hide it.
 	for (let i = 0; i < gameFilter.length; i++) {
