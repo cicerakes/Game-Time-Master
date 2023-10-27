@@ -1,3 +1,8 @@
+// Ensure gameData is sorted.
+gameData.sort(function (a, b) {
+	return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+});
+
 // Initialise list of filtered/hidden games using gameData.
 var gameFilter = [];
 
@@ -363,7 +368,7 @@ function createGameFilterMenu() {
 		}
 	}
 }
-//TODO: check below for efficiency
+
 // Trigger onchange to hide/show games and update gameFilter to match what's saved.
 function hideFilteredGames() {
 	// Hide game containers.
