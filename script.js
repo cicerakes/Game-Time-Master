@@ -17,46 +17,52 @@ resetTimeFormat = "HH:mm",
 twelveHourFormat = false,
 showServerDate = false,
 showSeconds = false,
+sortByTimeRemaining = false,
 showHidden = false;
 
-if (localStorage.getItem('12HrTimeSwitch') == "true") {
+if (localStorage.getItem('12-hr-time-switch') == "true") {
 	twelveHourFormat = true;
 
 	document.getElementById("12-hr-time-switch").checked = true;
-	
+
 	setTimeFormat();
 }
-if (localStorage.getItem('showServerDateSwitch') == "true") {
+if (localStorage.getItem('show-server-date-switch') == "true") {
 	showServerDate = true;
 
 	document.getElementById("show-server-date-switch").checked = true;
 }
-if (localStorage.getItem('showSecondsSwitch') == "true") {
+if (localStorage.getItem('show-seconds-switch') == "true") {
 	showSeconds = true;
 
 	document.getElementById("show-seconds-switch").checked = true;
 
 	setTimeFormat();
 }
-if (localStorage.getItem('showHideButtonsSwitch') == "false") {
+if (localStorage.getItem("sort-by-time-remaining-switch") == "true") {
+	sortByTimeRemaining = true;
+
+	document.getElementById("sort-by-time-remaining-switch").checked = true;
+}
+if (localStorage.getItem('show-hide-buttons-switch') == "false") {
 	document.body.classList.add("hide-buttons-hidden");
 	document.getElementById("show-hide-buttons-switch").checked = false;
 }
-if (localStorage.getItem('showHiddenInSearchSwitch') == "true") {
+if (localStorage.getItem('show-hidden-in-search-switch') == "true") {
 	showHidden = true;
 
 	document.getElementById("show-hidden-in-search-switch").checked = true;
 }
-if (localStorage.getItem('compactModeSwitch') == "true") {
+if (localStorage.getItem('compact-mode-switch') == "true") {
 	document.body.classList.add("compact");
 	document.getElementById("compact-mode-switch").checked = true;
 }
 // If there's no saved dark theme setting, check for OS theme and apply that.
 // OS theme is used until user manually changes this setting.
-if (localStorage.getItem('darkThemeSwitch') == "true") {
+if (localStorage.getItem('dark-theme-switch') == "true") {
 	document.body.classList.add("dark");
 	document.getElementById("dark-theme-switch").checked = true;
-} else if (localStorage.getItem('darkThemeSwitch') == "false") {
+} else if (localStorage.getItem('dark-theme-switch') == "false") {
 	// Do nothing and load default theme.
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 	document.body.classList.add("dark");
@@ -64,7 +70,7 @@ if (localStorage.getItem('darkThemeSwitch') == "true") {
 }
 
 // Show local time data.
-var now = moment(), 
+var now = moment(),
 nowZone = moment.tz.guess();
 document.getElementById("current-local-time").textContent = now.format(timeFormat);
 document.getElementById("current-local-date").textContent = now.format("dddd, Do MMMM, YYYY");
@@ -73,10 +79,10 @@ document.getElementById("current-local-timezone").textContent = nowZone + " — 
 // Convert game times to local time zone and store results.
 var gameDataConverted = [];
 for (let i = 0; i < gameData.length; i++) {
-	let gameTimezone = gameData[i].timezone, 
-	currentServerTime = now.clone().tz(gameTimezone), 
-	todaysDailyReset = gameData[i].dailyReset;
-	
+	const gameTimezone = gameData[i].timezone,
+	currentServerTime = now.clone().tz(gameTimezone);
+	let todaysDailyReset = gameData[i].dailyReset;
+
 	// If daily reset changes during daylight savings, convert using UTC first.
 	if (gameData[i].utcDailyReset) {
 		todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", "Etc/UTC");
@@ -85,9 +91,9 @@ for (let i = 0; i < gameData.length; i++) {
 	} else {
 		todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", gameTimezone);
 	}
-	
+
 	// Convert to local.
-	let localResetTime = todaysDailyReset.clone().tz(nowZone);
+	const localResetTime = todaysDailyReset.clone().tz(nowZone);
 
 	// Change local reset time to tomorrow if it has already passed.
 	const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
@@ -101,33 +107,89 @@ for (let i = 0; i < gameData.length; i++) {
 	}
 
 	// Calculate time left until daily reset.
-	let timeRemaining = moment.preciseDiff(now, localResetTime, true);
-	// Display seconds if the setting is on.
-	if (showSeconds) {
-		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
-	} else {
-		timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
-	}
+	const timeRemaining = moment.preciseDiff(now, localResetTime, true);
 
 	// Store.
 	// Server timezone todaysDailyReset is stored for printing below.
 	gameDataConverted.push(
 		{
-			dailyReset: localResetTime,
+			game: gameData[i].game,
+			server: gameData[i].server,
+			timezone: gameData[i].timezone,
+			dailyReset: gameData[i].dailyReset,
+			icon: gameData[i].icon,
+			utcDailyReset: gameData[i].utcDailyReset,
+			localDailyReset: localResetTime,
 			serverTime: currentServerTime,
-			timeToReset: timeRemaining,
+			hoursTilReset: timeRemaining.hours,
+			minutesTilReset: timeRemaining.minutes,
+			secondsTilReset: timeRemaining.seconds,
 			todaysServerReset: todaysDailyReset
 		}
 	);
 }
 
-// Create divs for each game server using template.
-// If browser doesn't support templates, use innerHTML instead.
-if ("content" in document.createElement("template")) {
+// Create divs for each game server.
+createGameResults();
+
+// Load game time data.
+timeCalc();
+
+createGameFilterMenu();
+
+// Initial hiding of all filtered games.
+hideFilteredGames();
+
+// Refresh time values every minute/second.
+var refresh;
+
+setRefresh();
+
+function setRefresh() {
+	// Clear previous interval if it exists.
+	if (typeof refresh !== 'undefined') {
+		clearInterval(refresh);
+	}
+
+	// Set interval based on saved setting.
+	if (showSeconds) {
+		refresh = setInterval(timeCalc, 1000);
+	} else {
+		refresh = setInterval(timeCalc, 60000);
+	}
+}
+
+// Figure out the time format.
+function setTimeFormat() {
+	if (twelveHourFormat) {
+		resetTimeFormat = "h:mm A";
+		if (showSeconds) {
+			timeFormat = "h:mm:ss A";
+		} else {
+			timeFormat = "h:mm A";
+		}
+	} else {
+		resetTimeFormat = "HH:mm";
+		if (showSeconds) {
+			timeFormat = "HH:mm:ss";
+		} else {
+			timeFormat = "HH:mm";
+		}
+	}
+}
+
+function createGameResults() {
+	// Create divs for each game server using template.
 	// Create and append results-container for displaying results.
-	let gameResults = document.createElement("div");
+	const gameResults = document.createElement("div");
 	gameResults.id = "results-container";
 	document.body.appendChild(gameResults);
+
+	if (sortByTimeRemaining) {
+		sortDataByTimeRemaining();
+	} else {
+		sortDataByGameName();
+	}
 
 	// For each game server, clone the template, add game info, then append to results-container.
 	for (let i = 0; i < gameData.length; i++) {
@@ -136,53 +198,105 @@ if ("content" in document.createElement("template")) {
 		clone = template.content.cloneNode(true);
 
 		// Add game info.
-		clone.querySelectorAll("img")[0].src = "game-icons/" + gameData[i].icon + ".gif";
-		clone.querySelectorAll("h3")[0].textContent = gameData[i].game;
-		clone.querySelectorAll("h4")[0].textContent = gameData[i].server;
+		clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
+		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
+		clone.querySelectorAll("h4")[0].textContent = gameDataConverted[i].server;
 
 		gameCont.appendChild(clone);
 	}
-} else {
-	// Create divs for each game server and store them in results-container before appending.
-	let gameResults = document.createElement("div");
-	gameResults.id = "results-container";
-
-	for (let i = 0; i < gameData.length; i++) {
-		// Add current game server to results-container.
-		gameResults.innerHTML += `
-		<div class="game-container">
-			<div class="game-header">
-				<div class="game-icon">
-					<img src="game-icons/${gameData[i].icon}.gif">
-				</div>
-				<h3>${gameData[i].game}</h3>
-				<h4>${gameData[i].server}</h4></div>
-			<div class="game-times">
-				<div class="local-times">
-					<p>Local Reset Time: </p><p></p>
-					<p>Time Until Reset: </p><p></p>
-				</div>
-				<div class="server-times">
-					<p>Server Reset Time: </p><p></p>
-					<p>Current Server Time: </p><p></p>
-				</div>
-			</div>
-			<div class="buttons">
-				<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
-			</div>
-		</div>`;
-	}
-	// Display results-container.
-	document.body.appendChild(gameResults);
 }
 
-// Load game time data.
-timeCalc();
+function timeCalc() {
+	// Refresh time.
+	now = moment();
 
-// Create game server menu entries.
-// If browser doesn't support templates, use innerHTML instead.
-let currentGameParent;
-if ("content" in document.createElement("template")) {
+	// Refresh converted times.
+	for (let i = 0; i < gameData.length; i++) {
+		const gameTimezone = gameDataConverted[i].timezone,
+		currentServerTime = now.clone().tz(gameTimezone);
+		let todaysDailyReset = gameDataConverted[i].dailyReset;
+
+		// If daily reset changes during daylight savings, convert using UTC first.
+		if (gameDataConverted[i].utcDailyReset) {
+			todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", "Etc/UTC");
+			// Convert to server time.
+			todaysDailyReset = todaysDailyReset.clone().tz(gameTimezone);
+		} else {
+			todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", gameTimezone);
+		}
+
+		// Convert to local.
+		const localResetTime = todaysDailyReset.clone().tz(nowZone);
+
+		// Change local reset time to tomorrow if it has already passed.
+		const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
+		if (todayResetPassed) {
+			if (todaysDailyReset.hours() == 0) {
+				// Add 48 hours to fix midnight reset using previous day.
+				localResetTime.add(48, "h");
+			} else {
+				localResetTime.add(24, "h");
+			}
+		}
+
+		// Calculate time left until daily reset.
+		const timeRemaining = moment.preciseDiff(now, localResetTime, true);
+
+		// Replace converted times.
+		gameDataConverted[i].localDailyReset = localResetTime;
+		gameDataConverted[i].serverTime = currentServerTime;
+		gameDataConverted[i].hoursTilReset = timeRemaining.hours,
+		gameDataConverted[i].minutesTilReset = timeRemaining.minutes,
+		gameDataConverted[i].secondsTilReset = timeRemaining.seconds,
+		gameDataConverted[i].todaysServerReset = todaysDailyReset;
+	}
+
+	// If sorting by time remaining, refresh the sort order every hour.
+	// Currently no game has a reset time outside of x:00, so any more frequent is unnecessary.
+	if (sortByTimeRemaining && now.minutes() == 0 && (!showSeconds || now.seconds() == 1)) {
+		sortDataByTimeRemaining();
+		clearGameResults();
+		createGameResults();
+		refreshFilteredGames();
+		// Refresh search results in case search is being used during refresh.
+		searchFilter();
+	}
+
+	// Print refreshed values.
+	document.getElementById("current-local-time").textContent = now.format(timeFormat);
+	document.getElementById("current-local-date").textContent = now.format("dddd, Do MMMM, YYYY");
+	for (let i = 0; i < gameData.length; i++) {
+		const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i],
+		gameBody = gameCont.getElementsByClassName("game-times")[0];
+
+		let timeTilReset;
+		// Display seconds if the setting is on.
+		if (showSeconds) {
+			timeTilReset = gameDataConverted[i].hoursTilReset + " hours " + gameDataConverted[i].minutesTilReset + " minutes " + gameDataConverted[i].secondsTilReset + " seconds "
+		} else {
+			timeTilReset = gameDataConverted[i].hoursTilReset + " hours " + gameDataConverted[i].minutesTilReset + " minutes";
+		}
+
+		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].localDailyReset.format(resetTimeFormat);
+		gameBody.getElementsByTagName("p")[3].textContent = timeTilReset;
+		// Add prefix for timezone abbreviation if it's an offset.
+		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
+			gameBody.getElementsByTagName("p")[5].textContent = gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
+		} else {
+			gameBody.getElementsByTagName("p")[5].textContent = gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z");
+			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
+		}
+		// Add date to curent server time if the setting is on.
+		if (showServerDate) {
+			gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
+		}
+	}
+}
+
+function createGameFilterMenu() {
+	// Create game server menu entries.
+	let currentGameParent;
 	for (let i = 0; i < gameData.length; i++) {
 		const gameFilterCont = document.getElementById("game-filter-settings");
 		// Use custom menu name if it exists.
@@ -248,251 +362,55 @@ if ("content" in document.createElement("template")) {
 			gameFilterCont.appendChild(clone);
 		}
 	}
-} else {
-	for (let i = 0; i < gameData.length; i++) {
-		const gameFilterCont = document.getElementById("game-filter-settings");
-		// Use custom menu name if it exists.
-		let gameName = gameData[i].game;
-		// Prefix with a space for padding.
-		if (gameData[i].menuName) {
-			gameName = " " + gameData[i].menuName;
-		} else {
-			gameName = " " + gameName;
-		}
-
-		// Use template depending on if game has more than 1 region.
-		if (gameData[i].game === currentGameParent) {
-			// If game has multiple servers and is NOT first server detected.
-			// Create child menu entry.
-			let gameChild = document.createElement("div");
-			gameChild.id = ("game-menu-children");
-			gameChild.innerHTML = `
-			<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this, true)" checked>
-			<label class="option-name" for="">
-			</label>`;
-			let input = gameChild.querySelectorAll("input")[0],
-			label = gameChild.querySelectorAll("label")[0];
-
-			input.id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			label.textContent = " " + gameData[i].server;
-
-			let currentParent = gameFilterCont.querySelectorAll(".game-children:last-child"),
-			currentParentIndex = currentParent.length - 1;
-			currentParent = currentParent[currentParentIndex];
-			currentParent.appendChild(gameChild);
-		} else if (gameData[i].game === gameData[i+1].game) {
-			// If game has multiple servers and is first server detected.
-			// Save name for checking children.
-			currentGameParent = gameData[i].game;
-
-			// Create parent menu entry.
-			let gameParent = document.createElement("div");
-			gameParent.id = ("game-menu-parent");
-			gameParent.innerHTML = `
-			<input type="checkbox" id="" onchange="toggleGameParentHide(this)" checked>
-			<label class="option-name game-parent" for="">
-				<span></span>
-				<button id="" class="section-toggle-arrow" onclick="menuChildrenToggle(this)"></button>
-				<label for=""></label>
-			</label>
-			<div class="game-children">
-				<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this, true)" checked>
-				<label class="option-name" for=""></label>
-			</div>`;
-			let inputs = gameParent.querySelectorAll("input"),
-			labels = gameParent.querySelectorAll("label"),
-			button = gameParent.querySelectorAll("button")[0],
-			span = gameParent.querySelectorAll("span")[0];
-
-			inputs[0].id = gameData[i].icon;
-			labels[0].htmlFor = gameData[i].icon;
-			labels[0].title = gameData[i].game;
-			span.textContent = gameName;
-			button.id = gameData[i].icon + "-children";
-			labels[1].htmlFor = gameData[i].icon + "-children";
-			// Also add the game as first child.
-			inputs[1].id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			labels[2].htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			labels[2].textContent = " " + gameData[i].server;
-
-			gameFilterCont.appendChild(gameParent);
-		} else {
-			// If the game has only 1 region/server.
-			let gameEntry = document.createElement("div");
-			gameEntry.id = ("game-menu-entry");
-			gameEntry.innerHTML = `
-			<input type="checkbox" id="" class="game-server-toggle" onchange="toggleGameServerHide(this)" checked>
-			<label class="option-name" for="" title="">
-			</label>`;
-			let input = gameEntry.querySelectorAll("input")[0],
-			label = gameEntry.querySelectorAll("label")[0];
-
-			input.id = gameData[i].icon;
-			label.htmlFor = gameData[i].icon;
-			label.textContent = gameName;
-			label.title = gameData[i].game;
-
-			gameFilterCont.appendChild(gameEntry);
-		}
-	}
 }
 
-// Hide game containers.
-if (localStorage.getItem('gameFilterList') != null) {
-	const gameFilterSaved = getLocalStorageObject('gameFilterList');
+// Trigger onchange to hide/show games and update gameFilter to match what's saved.
+function hideFilteredGames() {
+	// Hide game containers.
+	if (localStorage.getItem('gameFilterList') != null) {
+		const gameFilterSaved = getLocalStorageObject('gameFilterList');
 
-	for (let i = 0; i < gameFilterSaved.length; i++) {
-		if (gameFilterSaved[i].shown == "false") {
-			let serverCount = 0, 
-			skippedParent = false, 
-			containerPosition = 0;
+		for (let i = 0; i < gameFilterSaved.length; i++) {
+			if (gameFilterSaved[i].shown == "false") {
+				let serverCount = 0,
+				skippedParent = false,
+				containerPosition = 0;
 
-			for (let y = 4; y < document.getElementById("game-filter-settings").childElementCount; y+=2, containerPosition++) {
-				const gameLabel = document.getElementById("game-filter-settings").children[y], 
-				gameName = gameData[containerPosition].game;
+				for (let y = 4; y < document.getElementById("game-filter-settings").childElementCount; y+=2, containerPosition++) {
+					const gameLabel = document.getElementById("game-filter-settings").children[y],
+					gameName = gameData[containerPosition].game;
 
-				if (gameLabel.className.includes("game-parent")) {
-					skippedParent = true;
+					if (gameLabel.className.includes("game-parent")) {
+						skippedParent = true;
 
-					for (let x = 0; x < gameFilter.length; x++) {
-						if (gameFilter[x].game == gameData[containerPosition].game) {
-							serverCount++;
+						for (let x = 0; x < gameFilter.length; x++) {
+							if (gameFilter[x].game == gameData[containerPosition].game) {
+								serverCount++;
+							}
 						}
+					} else if (gameFilterSaved[i].game == gameName) {
+						gameLabel.previousElementSibling.checked = false;
+						toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition]);
 					}
-				} else if (gameFilterSaved[i].game == gameName) {
-					gameLabel.previousElementSibling.checked = false;
-					toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition]);
-				}
 
-				// Look at next div for the children.
-				if (skippedParent) {
-					y++;
-					for (let z = 0; z < serverCount; z++, containerPosition++) {
-						const childInput = document.getElementById("game-filter-settings").children[y].getElementsByTagName("input")[z];
+					// Look at next div for the children.
+					if (skippedParent) {
+						y++;
+						for (let z = 0; z < serverCount; z++, containerPosition++) {
+							const childInput = document.getElementById("game-filter-settings").children[y].getElementsByTagName("input")[z];
 
-						// Compare current child with server in saved filter to see if there's a match.
-						if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
-							childInput.checked = false;
-							toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition], true);
+							// Compare current child with server in saved filter to see if there's a match.
+							if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
+								childInput.checked = false;
+								toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition], true);
+							}
 						}
+						containerPosition--;
+						skippedParent = false;
+						serverCount = 0;
 					}
-					containerPosition--;
-					skippedParent = false;
-					serverCount = 0;
 				}
 			}
-		}
-	}
-}
-
-// Refresh time values every minute/second.
-var refresh;
-
-setRefresh();
-
-function setRefresh() {
-	// Clear previous interval if it exists.
-	if (typeof refresh !== 'undefined') {
-		clearInterval(refresh);
-	}
-	
-	// Set interval based on saved setting.
-	if (showSeconds) {
-		refresh = setInterval(timeCalc, 1000);
-	} else {
-		refresh = setInterval(timeCalc, 60000);
-	}
-}
-
-// Figure out the time format.
-function setTimeFormat() {
-	if (twelveHourFormat) {
-		resetTimeFormat = "h:mm A";
-		if (showSeconds) {
-			timeFormat = "h:mm:ss A";
-		} else {
-			timeFormat = "h:mm A";
-		}
-	} else {
-		resetTimeFormat = "HH:mm";
-		if (showSeconds) {
-			timeFormat = "HH:mm:ss";
-		} else {
-			timeFormat = "HH:mm";
-		}
-	}
-}
-
-function timeCalc() {
-	// Refresh time.
-	now = moment();
-
-	// Refresh converted times.
-	for (let i = 0; i < gameData.length; i++) {
-		let gameTimezone = gameData[i].timezone, 
-		currentServerTime = now.clone().tz(gameTimezone), 
-		todaysDailyReset = gameData[i].dailyReset;
-
-		// If daily reset changes during daylight savings, convert using UTC first.
-		if (gameData[i].utcDailyReset) {
-			todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", "Etc/UTC");
-			// Convert to server time.
-			todaysDailyReset = todaysDailyReset.clone().tz(gameTimezone);
-		} else {
-			todaysDailyReset = moment.tz(todaysDailyReset, "HH:mm", gameTimezone);
-		}
-
-		// Convert to local.
-		let localResetTime = todaysDailyReset.clone().tz(nowZone);
-
-		// Change local reset time to tomorrow if it has already passed.
-		const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
-		if (todayResetPassed) {
-			if (todaysDailyReset.hours() == 0) {
-				// Add 48 hours to fix midnight reset using previous day.
-				localResetTime.add(48, "h");
-			} else {
-				localResetTime.add(24, "h");
-			}
-		}
-
-		// Calculate time left until daily reset.
-		let timeRemaining = moment.preciseDiff(now, localResetTime, true);
-		// Display seconds if the setting is on.
-		if (showSeconds) {
-			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes " + timeRemaining.seconds + " seconds "
-		} else {
-			timeRemaining = timeRemaining.hours + " hours " + timeRemaining.minutes + " minutes";
-		}
-
-		// Replace converted times.
-		gameDataConverted[i].dailyReset = localResetTime;
-		gameDataConverted[i].serverTime = currentServerTime;
-		gameDataConverted[i].timeToReset = timeRemaining;
-		gameDataConverted[i].todaysServerReset = todaysDailyReset;
-	}
-
-	// Print refreshed values.
-	document.getElementById("current-local-time").textContent = now.format(timeFormat);
-	document.getElementById("current-local-date").textContent = now.format("dddd, Do MMMM, YYYY");
-	for (let i = 0; i < gameData.length; i++) {
-		const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i], 
-		gameBody = gameCont.getElementsByClassName("game-times")[0];
-
-		gameBody.getElementsByTagName("p")[1].textContent = gameDataConverted[i].dailyReset.format(resetTimeFormat);
-		gameBody.getElementsByTagName("p")[3].textContent = gameDataConverted[i].timeToReset;
-		// Add prefix for timezone abbreviation if it's an offset.
-		if (gameDataConverted[i].serverTime.format("z").includes("-") || gameDataConverted[i].serverTime.format("z").includes("+")) {
-			gameBody.getElementsByTagName("p")[5].textContent = gameDataConverted[i].todaysServerReset.format(resetTimeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
-			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat) + " UTC" + gameDataConverted[i].serverTime.format("z");
-		} else {
-			gameBody.getElementsByTagName("p")[5].textContent = gameDataConverted[i].todaysServerReset.format(resetTimeFormat + " z");
-			gameBody.getElementsByTagName("p")[7].textContent = gameDataConverted[i].serverTime.format(timeFormat + " z");
-		}
-		// Add date to curent server time if the setting is on.
-		if (showServerDate) {
-			gameBody.getElementsByTagName("p")[7].insertAdjacentHTML("beforeend", "<br>" + gameDataConverted[i].serverTime.format("Do MMMM"));
 		}
 	}
 }
@@ -531,10 +449,10 @@ function searchFilter () {
 	} else {
 		for (let i = 0; i < gameData.length; i++) {
 			// Find game name for each container, convert to uppercase, and remove accent marks.
-			const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i], 
-			gameHead = gameCont.getElementsByClassName("game-header")[0], 
+			const gameCont = document.getElementById("results-container").getElementsByClassName("game-container")[i],
+			gameHead = gameCont.getElementsByClassName("game-header")[0],
 			gameName = gameHead.getElementsByTagName("h3")[0].textContent.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase();
-	
+
 			if (!gameName.includes(searchTerm)) {
 				// Hide.
 				gameCont.style.display = "none";
@@ -583,6 +501,18 @@ function settingToggle(setting) {
 		setTimeFormat();
 		timeCalc();
 		setRefresh();
+	} else if (settingId == "sort-by-time-remaining-switch") {
+		if (setting.checked) {
+			sortByTimeRemaining = true;
+		} else {
+			sortByTimeRemaining = false;
+		}
+		clearGameResults();
+		createGameResults();
+		timeCalc();
+		refreshFilteredGames();
+		// Refresh search results in case search is being used during toggle.
+		searchFilter();
 	} else if (settingId == "show-hide-buttons-switch") {
 		if (setting.checked) {
 			document.body.classList.remove("hide-buttons-hidden");
@@ -669,7 +599,7 @@ function gamesMenuSectionToggle(dropArrow) {
 }
 
 function menuChildrenToggle(dropArrow) {
-	const gameChild = dropArrow.parentElement.nextElementSibling, 
+	const gameChild = dropArrow.parentElement.nextElementSibling,
 	gameChildHeight = gameChild.childElementCount * 20.5;
 
 	if (gameChild.style.height == gameChildHeight + "px") {
@@ -694,74 +624,115 @@ function menuChildrenToggle(dropArrow) {
 }
 
 function toggleGameServerHide(toggle, child) {
-	// Find the server's position in gameData.
-	let position = 0;
-	for (; position < gameData.length; position++) {
-		if (document.getElementsByClassName("game-server-toggle")[position] == toggle) {
+	const label = toggle.nextElementSibling,
+	gameCont = document.getElementById("results-container"),
+    gameServers = gameCont.getElementsByClassName("game-container");
+	let parentLabel,
+	gameName,
+	gameRegion,
+	beingShown,
+	position = 0;
+
+	if (!child) {
+		// If game with one server.
+		gameName = label.title;
+		// Region is retrieved later.
+	} else {
+		// If game with multiple servers.
+		// Find game name from parent.
+		parentLabel = toggle.parentElement.previousElementSibling;
+		gameName = parentLabel.getElementsByTagName("span")[0].innerText;
+		// Game region is taken from label, with leading space removed.
+		gameRegion = label.innerText.trim();
+	}
+
+	// Find game in filter list.
+	for (; position < gameFilter.length; position++) {
+		// Must match both game name and region, unless there's only one.
+		if (gameFilter[position].game == gameName && (gameFilter[position].server == gameRegion || !child)) {
+			if (gameFilter[position].shown == "false") {
+				// Show.
+				gameFilter[position].shown = "true";
+				beingShown = true;
+
+				break;
+			} else {
+				// Hide.
+				gameFilter[position].shown = "false";
+				beingShown = false;
+
+				break;
+			}
+		}
+	}
+
+	// Find game div.
+	for (let i = 0; i < gameServers.length; i++) {
+		const gameServer = gameServers[i];
+
+		if (gameServer.getElementsByTagName("h3")[0].innerText == gameFilter[position].game && gameServer.getElementsByTagName("h4")[0].innerText == gameFilter[position].server) {
+			if (beingShown) {
+				gameServer.classList.remove("hidden");
+				// Update button text.
+				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
+				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
+			} else {
+				gameServer.classList.add("hidden");
+				// Update button text.
+				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+			}
+
 			break;
 		}
 	}
 
-	if (gameFilter[position].shown == "true") {
-		// Hide.
-		gameFilter[position].shown = "false";
-		document.getElementById("results-container").getElementsByClassName("game-container")[position].classList.add("hidden");
-		// Update button text.
-		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
-		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+	if (child) {
+		const parentCheck = parentLabel.previousElementSibling;
 
-		// Check if other children are hidden.
-		if (child) {
-			const parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
-			gameName = gameData[position].game;
-			let allHidden = true;
-
-			for (let i = 0; i < gameFilter.length; i++) {
-				if (gameFilter[i].game == gameName) {
-					if (gameFilter[i].shown == "true") {
-						allHidden = false;
-					}
-				}
-			}
-			if (allHidden) {
-				parent.checked = false;
-				parent.indeterminate = false;
-			} else {
-				parent.checked = true;
-				parent.indeterminate = true;
-			}
-		}
-	} else {
-		// Show.
-		gameFilter[position].shown = "true";
-		document.getElementById("results-container").getElementsByClassName("game-container")[position].classList.remove("hidden");
-		// Update button text.
-		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
-		document.getElementById("results-container").getElementsByClassName("game-container")[position].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
-
-		// Check if other children are shown.
-		if (child) {
-			const parent = toggle.parentElement.previousElementSibling.previousElementSibling, 
-			gameName = gameData[position].game;
-			let allShown = true;
+		if (beingShown) {
+			// Check if other children are shown.
+			let allChildrenShown = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
 				if (gameFilter[i].game == gameName) {
 					if (gameFilter[i].shown == "false") {
-						allShown = false;
+						allChildrenShown = false;
 					}
 				}
 			}
-			if (allShown) {
-				parent.checked = true;
-				parent.indeterminate = false;
+			if (allChildrenShown) {
+				parentCheck.checked = true;
+				parentCheck.indeterminate = false;
 			} else {
-				parent.checked = true;
-				parent.indeterminate = true;
+				parentCheck.checked = true;
+				parentCheck.indeterminate = true;
+			}
+		
+		} else {
+			// Check if other children are hidden.
+			let allChildrenHidden = true;
+
+			for (let i = 0; i < gameFilter.length; i++) {
+				if (gameFilter[i].game == gameName) {
+					if (gameFilter[i].shown == "true") {
+						allChildrenHidden = false;
+
+						break;
+					}
+				}
+			}
+
+			if (allChildrenHidden) {
+				parentCheck.checked = false;
+				parentCheck.indeterminate = false;
+			} else {
+				parentCheck.checked = true;
+				parentCheck.indeterminate = true;
 			}
 		}
 	}
-	
+
 	// Refresh search results.
 	searchFilter();
 
@@ -770,61 +741,33 @@ function toggleGameServerHide(toggle, child) {
 }
 
 function toggleGameParentHide(gameSwitch) {
-	const gameName = gameSwitch.nextElementSibling.textContent.trim(), 
-	parentSwitchStatus = gameSwitch.checked, 
-	childrenHolder = gameSwitch.nextElementSibling.nextElementSibling;
-	let serverCount = 0;
+	const parentSwitchStatus = gameSwitch.checked,
+	childrenSwitches = gameSwitch.nextElementSibling.nextElementSibling.getElementsByTagName("input");
 
 	if (parentSwitchStatus == false) {
-		// Hide servers.
-		for (let i = 0; i < gameFilter.length; i++) {
-			if (gameFilter[i].game == gameName) {
-				serverCount++;
-
-				gameFilter[i].shown = "false";
-				document.getElementById("results-container").getElementsByClassName("game-container")[i].classList.add("hidden");
-				// Update button text.
-				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
-				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+		// Hide child servers.
+		for (let i = 0; i < childrenSwitches.length; i++) {
+			if (childrenSwitches[i].checked == true) {
+				childrenSwitches[i].checked = false;
+				toggleGameServerHide(childrenSwitches[i], true);
 			}
+			
 		}
-		// Toggle switch off.
-		for (let i = 0; i < serverCount; i++) {
-			childrenHolder.getElementsByTagName("input")[i].checked = false;
-		}
-		gameSwitch.checked = false;
-		gameSwitch.indeterminate = false;
 	} else {
-		// Show servers.
-		for (let i = 0; i < gameFilter.length; i++) {
-			if (gameFilter[i].game == gameName) {
-				serverCount++;
-
-				gameFilter[i].shown = "true";
-				document.getElementById("results-container").getElementsByClassName("game-container")[i].classList.remove("hidden");
-				// Update button text.
-				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
-				document.getElementById("results-container").getElementsByClassName("game-container")[i].getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
+		// Show child servers.
+		for (let i = 0; i < childrenSwitches.length; i++) {
+			if (childrenSwitches[i].checked == false) {
+				childrenSwitches[i].checked = true;
+				toggleGameServerHide(childrenSwitches[i], true);
 			}
 		}
-		// Toggle switch on.
-		for (let i = 0; i < serverCount; i++) {
-			childrenHolder.getElementsByTagName("input")[i].checked = true;
-		}
-		gameSwitch.checked = true;
 	}
-	
-	// Refresh search results.
-	searchFilter();
-	
-	// Store.
-	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 }
 
 function hideGameServerButton(button) {
 	// Get game name (removed accents) and server region.
-	const gameHeader = button.parentElement.parentElement.children[0], 
-	gameName = gameHeader.children[1].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""), 
+	const gameHeader = button.parentElement.parentElement.children[0],
+	gameName = gameHeader.children[1].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
 	server = gameHeader.children[2].textContent;
 
 	// Find position in gameData.
@@ -846,4 +789,46 @@ function hideGameServerButton(button) {
 	}
 	// Trigger onchange to hide/show the game.
 	gameSwitch.onchange();
+}
+
+function sortDataByTimeRemaining() {
+	gameDataConverted.sort(function (a, b) {
+		return a.hoursTilReset - b.hoursTilReset || a.minutesTilReset - b.minutesTilReset;
+	});
+}
+
+function sortDataByGameName() {
+	gameDataConverted.sort(function (a, b) {
+		return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+	});
+}
+
+function clearGameResults() {
+	document.getElementById("results-container").remove();
+}
+
+// Re-hide filtered games when refreshing #results-container (due to sorting by time).
+// This will not edit gameFilter[].
+function refreshFilteredGames() {
+	const gameCont = document.getElementById("results-container"),
+    gameServers = gameCont.getElementsByClassName("game-container");
+
+	// For every game that's hidden in the filter, find it in #results-container and hide it.
+	for (let i = 0; i < gameFilter.length; i++) {
+		if (gameFilter[i].shown == "false") {
+			for (let x = 0; x < gameServers.length; x++) {
+				const gameServer = gameServers[x];
+		
+				if (gameServer.getElementsByTagName("h3")[0].innerText == gameFilter[i].game && gameServer.getElementsByTagName("h4")[0].innerText == gameFilter[i].server) {
+					gameServer.classList.add("hidden");
+					// Update button text.
+					gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+					gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+
+					break;
+				}
+			}
+		}
+		
+	}
 }
