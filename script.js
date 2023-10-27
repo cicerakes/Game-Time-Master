@@ -656,7 +656,7 @@ function toggleGameServerHide(toggle, child) {
 		// If game with multiple servers.
 		// Find game name from parent.
 		parentLabel = toggle.parentElement.previousElementSibling;
-		gameName = parentLabel.getElementsByTagName("span")[0].innerText.trim();
+		gameName = parentLabel.title;
 		// Game region is taken from label, with leading space removed.
 		gameRegion = label.innerText.trim();
 	}
