@@ -23,7 +23,7 @@ twelveHourFormat = false,
 showServerDate = false,
 showSeconds = false,
 sortByTimeRemaining = false,
-showHidden = false;
+showHidden = true;
 
 if (localStorage.getItem('12-hr-time-switch') == "true") {
 	twelveHourFormat = true;
@@ -53,10 +53,10 @@ if (localStorage.getItem('show-hide-buttons-switch') == "false") {
 	document.body.classList.add("hide-buttons-hidden");
 	document.getElementById("show-hide-buttons-switch").checked = false;
 }
-if (localStorage.getItem('show-hidden-in-search-switch') == "true") {
-	showHidden = true;
+if (localStorage.getItem('show-hidden-in-search-switch') == "false") {
+	showHidden = false;
 
-	document.getElementById("show-hidden-in-search-switch").checked = true;
+	document.getElementById("show-hidden-in-search-switch").checked = false;
 }
 if (localStorage.getItem('compact-mode-switch') == "true") {
 	document.body.classList.add("compact");
