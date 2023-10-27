@@ -656,7 +656,7 @@ function toggleGameServerHide(toggle, child) {
 		// If game with multiple servers.
 		// Find game name from parent.
 		parentLabel = toggle.parentElement.previousElementSibling;
-		gameName = parentLabel.getElementsByTagName("span")[0].innerText;
+		gameName = parentLabel.getElementsByTagName("span")[0].innerText.trim();
 		// Game region is taken from label, with leading space removed.
 		gameRegion = label.innerText.trim();
 	}
@@ -782,7 +782,7 @@ function toggleGameParentHide(gameSwitch) {
 function hideGameServerButton(button) {
 	// Get game name (removed accents) and server region.
 	const gameHeader = button.parentElement.parentElement.children[0],
-	gameName = gameHeader.children[1].textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""),
+	gameName = gameHeader.children[1].textContent,
 	server = gameHeader.children[2].textContent;
 
 	// Find position in gameData.
@@ -802,8 +802,13 @@ function hideGameServerButton(button) {
 	} else {
 		gameSwitch.checked = false;
 	}
+
 	// Trigger onchange to hide/show the game.
-	gameSwitch.onchange();
+	if (gameSwitch.parentElement.className == "game-children") {
+		toggleGameServerHide(gameSwitch, true);
+	} else {
+		toggleGameServerHide(gameSwitch);
+	}
 }
 
 function sortDataByTimeRemaining() {
