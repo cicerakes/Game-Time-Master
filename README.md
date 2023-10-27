@@ -22,9 +22,8 @@ Feel free to request for more games to be added by creating an issue [here](http
 - Manually set time zone (for when auto detect is wrong).
 - Add custom game servers.
 
-## Contributing
-### Adding Game Servers
-#### Summary:
+## Contributing (Adding Game Servers)
+### Summary:
 - Add game server details to `game-data.js`.
 - Add game icon to `game-icons` folder.
 
@@ -32,7 +31,7 @@ See below for more in-depth details.
 
 ---
 
-Required data when adding a game: 
+### Required data when adding a game
 - Game name
 	- If the game did not initially release in an English speaking region: 
 		- Prioritise using its official English translation name when available, otherwise  
@@ -69,7 +68,7 @@ Required data when adding a game:
 	Examples: `game-name-global.gif` and `game-name-jp.gif`.
 	- Saved to the `game-icons` folder.
 
-#### game-data.js
+### game-data.js
 For readability, all games in this array are sorted alphabetically by name, including any starting with "The".  
 If a game has multiple servers in the array, it is then further sorted alphabetically by region/language (`server`).
 
@@ -88,7 +87,7 @@ A game server can be added with the following object template:
 
 There are two additional optional properties which can be added:
 
-##### utcDailyReset
+#### utcDailyReset
 
 `utcDailyReset` is a boolen which decides if the `dailyReset` is interpretated as having `Etc/UTC` as its timezone first, before converting and displaying it to the user as its appropriate `timezone` property.
 
@@ -100,7 +99,7 @@ If set to `true`, the `dailyReset` **must** use UTC/GMT.
 
 For most games this is does not apply, and can be omitted from the object.
 
-##### menuName
+#### menuName
 
 `menuName` is a string which allows games to have custom display names in the game filter list.
 
