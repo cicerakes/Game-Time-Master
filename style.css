@@ -31,7 +31,7 @@ header h1 {
 	display: none;
 }
 
-.menuButt {
+.menu-btn {
 	font-size: 2em;
 	position: relative;
 	margin: .2em;
@@ -47,11 +47,11 @@ header h1 {
 	transition: .1s;
 }
 
-.menuButt:hover {
+.menu-btn:hover {
 	background :rgba(77,43,144,.2);
 }
 
-#outsideMenu {
+#outside-menu {
 	width: 0;
 	height: 0;
 	position: fixed;
@@ -92,15 +92,15 @@ header h1 {
 	padding-bottom: 0;
 }
 
-#menu a, #gameFilterSettings label.optionName {
+#menu a, #game-filter-settings label.option-name {
 	border-radius: 4px;
 }
 
-#menu a:hover, #gameFilterSettings label.optionName:hover {
+#menu a:hover, #game-filter-settings label.option-name:hover {
 	background: rgba(0, 0, 0, .04);
 }
 
-.menuSection {
+.menu-section {
 	margin: .4em .8em;
 	border-bottom: 1px solid #d2d2d2;
 	padding-bottom: .2em;
@@ -108,18 +108,18 @@ header h1 {
 	transition: .2s;
 }
 
-.menuSection.collapsed .gameParent, .menuSection.collapsed .gameParent button, .menuSection.collapsed .gameParent label {
+.menu-section.collapsed .game-parent, .menu-section.collapsed .game-parent button, .menu-section.collapsed .game-parent label {
 	z-index: -1;
 }
 
-.sectionHeading {
+.section-heading {
 	font-size: 14px;
 	font-weight: normal;
 	color: #555;
 	margin: .7em .95em 0;
 }
 
-.sectionToggleArrow {
+.section-toggle-arrow {
 	position: relative;
 	width: 10px;
 	height: 10px;
@@ -136,14 +136,14 @@ header h1 {
 	z-index: 4;
 }
 
-.sectionHeading + .sectionToggleArrow {
+.section-heading + .section-toggle-arrow {
 	top: -10px;
 	right: 10px;
 	background: transparent;
 	transform: rotate(225deg);
 }
 
-.sectionHeading + .sectionToggleArrow + label {
+.section-heading + .section-toggle-arrow + label {
 	position: absolute;
 	margin: -1.5em 0 0 0 !important;
 	padding: .5em !important;
@@ -152,22 +152,22 @@ header h1 {
 	z-index: 4;
 }
 
-.menuIcon {
+.menu-icon {
 	height: 1em;
 	margin-right: .5em;
 	vertical-align: bottom;
 }
 
-.gameParent {
+.game-parent {
 	margin-bottom: 0 !important;
 }
 
-.gameParent .sectionToggleArrow {
+.game-parent .section-toggle-arrow {
 	top: 5px;
 	transform: rotate(45deg);
 }
 
-.gameParent .sectionToggleArrow + label {
+.game-parent .section-toggle-arrow + label {
 	position: absolute;
 	margin: -1.65em 0 0 1.1em !important;
 	width: 73%;
@@ -175,12 +175,12 @@ header h1 {
 	z-index: 4;
 }
 
-#gameFilterSettings input {
+#game-filter-settings input {
 	margin-right: 5px;
 	display: none;
 }
 
-#gameFilterSettings input + .optionName::before {
+#game-filter-settings input + .option-name::before {
 	content: "";
 	display: inline-block;
 	width: 16px;
@@ -196,7 +196,7 @@ header h1 {
 	cursor: pointer;
 }
 
-#gameFilterSettings input + .optionName::after {
+#game-filter-settings input + .option-name::after {
 	border-radius: 3px;
 	background: transparent;
 	color: #fff;
@@ -209,33 +209,33 @@ header h1 {
 	visibility: hidden;
 }
 
-#gameFilterSettings input:checked + .optionName::before, #gameFilterSettings input:indeterminate + .optionName::before {
+#game-filter-settings input:checked + .option-name::before, #game-filter-settings input:indeterminate + .option-name::before {
 	background-color: #7e57c2;
 	border-color: #7e57c2;
 }
 
-#gameFilterSettings input:checked + .optionName::after {
+#game-filter-settings input:checked + .option-name::after {
 	content: "✓";
 	visibility: visible;
 }
 
-#gameFilterSettings input:indeterminate + .optionName::after {
+#game-filter-settings input:indeterminate + .option-name::after {
 	content: "—";
 	font-weight: bold;
 	top: -20px;
 	visibility: visible;
 }
 
-#gameFilterSettings[style="height: 36px;"] label:nth-of-type(2) {
+#game-filter-settings[style="height: 36px;"] label:nth-of-type(2) {
 	margin-top: 1em;
 	transition-delay: .2s;
 }
 
-#gameFilterSettings.collapsed .optionName {
+#game-filter-settings.collapsed .option-name {
 	display: none;
 }
 
-.gameChildren {
+.game-children {
 	width: 90%;
 	margin-left: 9%;
 	height: 0;
@@ -243,7 +243,7 @@ header h1 {
 	transition: .2s;
 }
 
-#filterSearchBox {
+#filter-search-box {
 	border-radius: 3px;
 	border: none;
 	position: relative;
@@ -257,36 +257,36 @@ header h1 {
 	transition: .3s;
 }
 
-#filterSearchBox:focus {
+#filter-search-box:focus {
 	box-shadow: 0 1px 9px 2px rgba(0,0,0,.5);
 }
 
-#filterSearchOpen {
+#filter-search-open {
 	float: right;
 	display: none;
 	margin: .2em;
 }
 
-#currentLocal {
+#current-local {
 	margin: auto;
 	text-align: center;
 	padding-top: 80px;
 }
 
-#currentLocal h2 {
+#current-local h2 {
 	margin: 0;
 }
 
-#currentLocal p {
+#current-local p {
 	margin-block-start: .2em;
 	margin-block-end: .2em;
 }
 
-#currentLocalTime {
+#current-local-time {
 	font-size: 2em;
 }
 
-#resultsContainer {
+#results-container {
 	padding-top: 1em;
 	width:97%;
 	margin: auto;
@@ -295,7 +295,7 @@ header h1 {
 	justify-content: center;
 }
 
-.gameContainer {
+.game-container {
 	margin: auto;
 	padding: 1em 1em 2.7em;
 	margin: .5em;
@@ -307,67 +307,67 @@ header h1 {
 	position: relative;
 }
 
-.gameHeader, .gameTimes {
+.game-header, .game-times {
 	display: table;
 	width: 100%;
 }
 
-.gameHeader h3 {
+.game-header h3 {
 	display: table-cell;
 	font-size: 1.4em;
 	padding-right: .3em;
 }
 
-.gameHeader h4 {
+.game-header h4 {
 	display: table-cell;
 	text-align: right;
 	color: #555;
 	font-size: 18px;
 }
 
-.gameIcon {
+.game-icon {
 	display: table-cell;
 	width: 40px;
 	vertical-align: top;
 	padding-right: 6px;
 }
 
-.gameIcon img {
+.game-icon img {
 	width: 35px;
 	border-radius: 6px;
 }
 
-.gameTimes p:nth-of-type(odd) {
+.game-times p:nth-of-type(odd) {
 	font-weight: bold;
 	margin-block-end: 5px;
 }
 
-.gameTimes p:nth-of-type(even) {
+.game-times p:nth-of-type(even) {
 	margin-block-start: 5px;
 	margin-block-end: 0;
 }
 
-.gameTimes div {
+.game-times div {
 	width: 49%;
 	display: table-cell;
 }
 
-.localTimes {
+.local-times {
 	padding-right: .3em;
 }
 
-.serverTimes {
+.server-times {
 	padding-left: .3em;
 }
 
-.optionName {
+.option-name {
 	width: 91%;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
-.gameParent span {
+.game-parent span {
 	width: 85%;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -375,25 +375,25 @@ header h1 {
 	display: inline-block;
 }
 
-.gameParent::before {
+.game-parent::before {
 	top: -1px !important;
 }
 
-.gameParent::after {
+.game-parent::after {
 	top: -22px !important;
 }
 
-#gameFilterSettings input:indeterminate + .gameParent::after {
+#game-filter-settings input:indeterminate + .game-parent::after {
 	top: -24px !important;
 }
 
-#mainSettings .optionName {
+#main-settings .option-name {
 	overflow: visible;
 	max-height: 46px;
 	white-space: normal;
 }
 
-#mainSettings span {
+#main-settings span {
 	width: 80%;
 	display: inline-block;
 }
@@ -449,7 +449,7 @@ input:checked + .slider:before {
 	background-color: #b084f4;
 }
 
-.gameContainer .buttons {
+.game-container .buttons {
 	position: absolute;
 	bottom: 0;
 	margin-bottom: .6em;
@@ -470,50 +470,50 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 1500px) {
-	.gameContainer {
+	.game-container {
 		width: 30%;
 	}
 }
 
 @media (max-width: 1200px) {
-	.gameContainer {
+	.game-container {
 		width: 40%;
 	}
 
-	#filterSearchBox:focus {
+	#filter-search-box:focus {
 		width: 40%;
 	}
 }
 
 @media (max-width: 768px) {
-	.gameContainer {
+	.game-container {
 		width: 90%;
 	}
 
-	#filterSearchOpen {
+	#filter-search-open {
 		display: block;
 	}
 
-	#filterSearchBox {
+	#filter-search-box {
 		width: 0%;
 		display: none;
 	}
 
-	#filterSearchBox:focus {
+	#filter-search-box:focus {
 		width: 85%;
 	}
 
-	#filterSearchBox:focus + h1 {
+	#filter-search-box:focus + h1 {
 		display: none;
 	}
 
-	#filterSearchBox:focus + #filterSearchOpen {
+	#filter-search-box:focus + #filter-search-open {
 		display: none;
 	}
 } 
 
 @media (max-width: 620px) {
-	#filterSearchBox:focus {
+	#filter-search-box:focus {
 		width: 78%;
 	}
 
@@ -528,13 +528,13 @@ input:checked + .slider:before {
 		font-size: 1em;
 	}
 
-	#filterSearchBox:focus {
+	#filter-search-box:focus {
 		width: 75%;
 	}
 }
 
 @media (min-width: 380px) {
-	.menuButt {
+	.menu-btn {
 		margin: .2em .6em .2em .2em;
 	}
 }
@@ -568,7 +568,7 @@ input:checked + .slider:before {
 	background: #322646;
 }
 
-.dark #filterSearchBox {
+.dark #filter-search-box {
 	background: #2c2c2c;
 	color: #eee;
 }
@@ -581,27 +581,27 @@ input:checked + .slider:before {
 	color: #eee;
 }
 
-.dark #menu a:hover, .dark #gameFilterSettings label.optionName:hover {
+.dark #menu a:hover, .dark #game-filter-settings label.option-name:hover {
 	background: rgba(255, 255, 255, .04);
 }
 
-.dark .sectionToggleArrow {
+.dark .section-toggle-arrow {
 	border-color: #686868;
 }
 
-.dark .menuSection {
+.dark .menu-section {
 	border-color: #404040;
 }
 
-.dark .sectionHeading {
+.dark .section-heading {
 	color: #aaa;
 }
 
-.dark .gameContainer {
+.dark .game-container {
 	background: #1d1d1d;
 }
 
-.dark .gameHeader h4 {
+.dark .game-header h4 {
 	color: #aaa;
 }
 
@@ -610,31 +610,31 @@ input:checked + .slider:before {
 	border-color: #404040;
 }
 
-.compact .serverTimes {
+.compact .server-times {
 	display: none;
 }
 
-.compact .localTimes {
+.compact .local-times {
 	display: grid;
 	width: 100%;
 	grid-template-columns: 50% 50%;
 	padding-right: 0;
 }
 
-.compact .localTimes p {
+.compact .local-times p {
 	margin-block-start: .5em;
 	margin-block-end: .2em;
 }
 
-.compact .localTimes p:nth-of-type(even) {
+.compact .local-times p:nth-of-type(even) {
 	grid-row-start: 2;
 	margin: 0;
 }
 
-.hideButtonsHidden .gameContainer {
+.hide-buttons-hidden .game-container {
 	padding: 1em;
 }
 
-.hideButtonsHidden .gameContainer .buttons {
+.hide-buttons-hidden .game-container .buttons {
 	display: none;
 }
