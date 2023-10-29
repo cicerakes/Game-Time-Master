@@ -713,6 +713,13 @@ const gameData = [
 	},
 	{
 		game: "GODDESS OF VICTORY: NIKKE",
+		server: "JP",
+		timezone: "Etc/GMT-9",
+		dailyReset: "05:00",
+		icon: "goddess-of-victory-nikke"
+	},
+	{
+		game: "GODDESS OF VICTORY: NIKKE",
 		server: "NA",
 		timezone: "Etc/GMT-9",
 		dailyReset: "05:00",
