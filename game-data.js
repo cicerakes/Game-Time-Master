@@ -1845,6 +1845,13 @@ const gameData = [
 		icon: "warframe"
 	},
 	{
+		game: "What in Hell is Bad?",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00",
+		icon: "what-in-hell-is-bad"
+	},
+	{
 		game: "World Flipper",
 		server: "Global",
 		timezone: "Etc/UTC",
