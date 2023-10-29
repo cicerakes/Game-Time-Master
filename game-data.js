@@ -1100,7 +1100,7 @@ const gameData = [
 	{
 		game: "Love Nikki",
 		server: "EN",
-		timezone: "Etc/GMT+5",
+		timezone: "Etc/GMT+8",
 		dailyReset: "05:00",
 		icon: "love-nikki"
 	},
