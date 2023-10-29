@@ -327,6 +327,19 @@ function createGameFilterMenu() {
 			label.textContent = " " + gameData[i].server;
 
 			gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
+		} else if (i == (gameData.length - 1)) {
+			// If the game is last in the menu and not a child, it cannot be a parent.
+			const template = document.getElementById("game-menu-entry"),
+			clone = template.content.cloneNode(true),
+			input = clone.querySelectorAll("input")[0],
+			label = clone.querySelectorAll("label")[0];
+
+			input.id = gameData[i].icon;
+			label.htmlFor = gameData[i].icon;
+			label.textContent = gameName;
+			label.title = gameData[i].game;
+
+			gameFilterCont.appendChild(clone);
 		} else if (gameData[i].game === gameData[i+1].game) {
 			// If game has multiple servers and is first server detected.
 			// Save name for checking children.
