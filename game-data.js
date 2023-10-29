@@ -1449,6 +1449,13 @@ const gameData = [
 		icon: "red-pride-of-eden"
 	},
 	{
+		game: "Reverse: 1999",
+		server: "Global",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00",
+		icon: "reverse-1999"
+	},
+	{
 		game: "Revived Witch",
 		server: "EN",
 		timezone: "Etc/GMT+7",
