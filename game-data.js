@@ -1864,5 +1864,12 @@ const gameData = [
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
 		icon: "world-flipper"
-	}
+	},
+	{
+		game: "Yu-Gi-Oh! Duel Links",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "yu-gi-oh-duel-links"
+	},
 ];
