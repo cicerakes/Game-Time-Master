@@ -1029,6 +1029,13 @@ const gameData = [
 		icon: "legends-of-runeterra"
 	},
 	{
+		game: "Life Makeover",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00",
+		icon: "life-makeover"
+	},
+	{
 		game: "Limbus Company",
 		server: "Global",
 		timezone: "Asia/Seoul",
@@ -1773,6 +1780,34 @@ const gameData = [
 		timezone: "America/New_York",
 		dailyReset: "05:00",
 		icon: "tower-of-fantasy"
+	},
+	{
+		game: "Tower of God: New World",
+		server: "America (East)",
+		timezone: "Etc/GMT+5",
+		dailyReset: "19:00",
+		icon: "tower-of-god-new-world"
+	},
+	{
+		game: "Tower of God: New World",
+		server: "America (West)",
+		timezone: "Etc/GMT+8",
+		dailyReset: "16:00",
+		icon: "tower-of-god-new-world"
+	},
+	{
+		game: "Tower of God: New World",
+		server: "Asia & Southeast Asia",
+		timezone: "Etc/GMT-9",
+		dailyReset: "09:00",
+		icon: "tower-of-god-new-world"
+	},
+	{
+		game: "Tower of God: New World",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "01:00",
+		icon: "tower-of-god-new-world"
 	},
 	{
 		game: "Tower of God: The Great Journey",
