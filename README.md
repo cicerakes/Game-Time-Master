@@ -12,6 +12,7 @@ Then this is for you!
 	- By default, this assumes that servers keep the same times (e.g. 06:00 PST -> 06:00 PDT).  
 	If a game doesn't (e.g. 05:00 PST -> 06:00 PDT), then it will be adjusted for that game.
 - Choose between 24-hour and 12-hour time formats.
+- Option to sort games by time remaining, so those closer to the daily reset appear at the top.
 - Search for specific games.
 - Filter specific games and save this setting per browser.
 - Dark/night mode, which is automatically enabled based on system preferences.
