@@ -399,6 +399,11 @@ function createGameFilterMenu() {
 	}
 }
 
+function clearGameFilterMenu() {
+	const gameFilterCont = document.getElementById("game-filter-settings");
+	gameFilterCont.innerHTML = '<h2 class="section-heading">Games</h2><button id="games-menu-section" class="section-toggle-arrow" onclick="gamesMenuSectionToggle(this)"></button><label for="games-menu-section"></label>';
+}
+
 // Trigger onchange to hide/show games and update gameFilter to match what's saved.
 function hideFilteredGames() {
 	// Hide game containers.
@@ -1009,6 +1014,10 @@ function submitCustomGameForm() {
 
 		// Update converted list.
 		gameDataConverted.push(customGameServerObj);
+
+		// Update filter menu.
+		clearGameFilterMenu();
+		createGameFilterMenu();
 
 		// Refresh game results.
 		clearGameResults();
