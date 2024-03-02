@@ -329,6 +329,8 @@ function createGameFilterMenu() {
 		} else {
 			gameName = " " + gameName;
 		}
+		// Generate id based on game name with (most) punctuation and accents removed.
+		const gameId = gameData[i].game.normalize().replace(/[&!:<>"'`=\/\s]/g, "-").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
 
 		// Use template depending on if game has more than 1 region.
 		if (gameData[i].game === currentGameParent) {
@@ -339,8 +341,8 @@ function createGameFilterMenu() {
 			input = clone.querySelectorAll("input")[0],
 			label = clone.querySelectorAll("label")[0];
 
-			input.id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			input.id = gameId + "-" + gameData[i].server.toLowerCase();
+			label.htmlFor = gameId + "-" + gameData[i].server.toLowerCase();
 			label.textContent = " " + gameData[i].server;
 
 			gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
@@ -351,8 +353,8 @@ function createGameFilterMenu() {
 			input = clone.querySelectorAll("input")[0],
 			label = clone.querySelectorAll("label")[0];
 
-			input.id = gameData[i].icon;
-			label.htmlFor = gameData[i].icon;
+			input.id = gameId;
+			label.htmlFor = gameId;
 			label.textContent = gameName;
 			label.title = gameData[i].game;
 
@@ -370,15 +372,15 @@ function createGameFilterMenu() {
 			button = clone.querySelectorAll("button")[0],
 			span = clone.querySelectorAll("span")[0];
 
-			inputs[0].id = gameData[i].icon;
-			labels[0].htmlFor = gameData[i].icon;
+			inputs[0].id = gameId;
+			labels[0].htmlFor = gameId;
 			labels[0].title = gameData[i].game;
 			span.textContent = gameName;
-			button.id = gameData[i].icon + "-children";
-			labels[1].htmlFor = gameData[i].icon + "-children";
+			button.id = gameId + "-children";
+			labels[1].htmlFor = gameId + "-children";
 			// Also add the game as first child.
-			inputs[1].id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			labels[2].htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			inputs[1].id = gameId + "-" + gameData[i].server.toLowerCase();
+			labels[2].htmlFor = gameId + "-" + gameData[i].server.toLowerCase();
 			labels[2].textContent = " " + gameData[i].server;
 
 			gameFilterCont.appendChild(clone);
@@ -389,8 +391,8 @@ function createGameFilterMenu() {
 			input = clone.querySelectorAll("input")[0],
 			label = clone.querySelectorAll("label")[0];
 
-			input.id = gameData[i].icon;
-			label.htmlFor = gameData[i].icon;
+			input.id = gameId;
+			label.htmlFor = gameId;
 			label.textContent = gameName;
 			label.title = gameData[i].game;
 
@@ -1034,7 +1036,6 @@ function submitCustomGameForm() {
 		} else {
 			openCustomGameConfirm();
 		}
-		
 	}
 }
 
