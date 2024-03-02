@@ -1,4 +1,4 @@
-const gameData = [
+var gameData = [
 	{
 		game: "A3!",
 		server: "JP",

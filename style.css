@@ -1,3 +1,7 @@
+a {
+	color: #673ab7;
+}
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	background: #eee;
@@ -27,8 +31,42 @@ header h1 {
 	top: -3px;
 }
 
-.hidden {
-	display: none;
+input[type='radio'] {
+	accent-color: #673ab7;
+}
+
+.btn {
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	padding: .4em .7em;
+	text-transform: uppercase;
+}
+
+.btn-low {
+	background: transparent;
+	border: none;
+	color: #673ab7;
+}
+
+.btn-med {
+	background: transparent;
+	border: 1px solid #d2d2d2;
+	color: #673ab7;
+}
+
+.btn-low:hover, .btn-low:focus, .btn-med:hover, .btn-med:focus {
+	background: rgba(126, 86, 193, .15);
+}
+
+.btn-high {
+	background-color: #673ab7;
+	border: none;
+	color: #fff;
+}
+
+.btn-high:hover {
+	background: #5d34a8;
 }
 
 .menu-btn {
@@ -48,14 +86,14 @@ header h1 {
 }
 
 .menu-btn:hover {
-	background :rgba(77,43,144,.2);
+	background: rgba(77,43,144,.3);
 }
 
 #outside-menu {
 	width: 0;
 	height: 0;
 	position: fixed;
-	z-index: 1;
+	z-index: 2;
 }
 
 #menu {
@@ -69,11 +107,11 @@ header h1 {
 	background: #eee;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 	transition: .2s ease-out;
-	z-index: 2;
+	z-index: 3;
 	overflow-y: auto;
 }
 
-#menu a, #menu p, #menu label {
+#menu a, #menu p, #menu label, button.menu-item {
 	color: #111;
 	text-decoration: none;
 	display: list-item;
@@ -92,12 +130,19 @@ header h1 {
 	padding-bottom: 0;
 }
 
-#menu a, #game-filter-settings label.option-name {
+#menu a, #game-filter-settings label.option-name, button.menu-item {
 	border-radius: 4px;
 }
 
-#menu a:hover, #game-filter-settings label.option-name:hover {
+#menu a:hover, #game-filter-settings label.option-name:hover, button.menu-item:hover {
 	background: rgba(0, 0, 0, .04);
+}
+
+button.menu-item {
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	width: 96%;
 }
 
 .menu-section {
@@ -455,18 +500,97 @@ input:checked + .slider:before {
 	margin-bottom: .6em;
 }
 
-.buttons button {
-	cursor: pointer;
-	background: transparent;
-	color: #673ab7;
-	font-weight: bold;
-	border: 1px solid #d2d2d2;
+.buttons .btn-med {
 	padding: .2em .5em;
-	border-radius: 4px;
 }
 
-.buttons button:hover, .buttons button:focus {
-	background: rgba(126, 86, 193, 0.1);
+#dialog-holder-bg {
+	background: rgba(0, 0, 0, .7);
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.dialog {
+	background: #eee;
+	border-radius: 4px;
+	box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+	margin-top: 100px;
+	max-height: 80%;
+	overflow-y: auto;
+	padding: 1.5em;
+}
+
+.dialog h2 {
+	font-size: 1.4em;
+	margin-block-start: 0;
+}
+
+#add-custom-form {
+	width: 40%;
+}
+
+#add-custom-form input[type="text"], #add-custom-form input[type="time"], #add-custom-form select {
+	border: 1px solid #999;
+	border-radius: 3px;
+	padding: .2em;
+}
+
+#add-custom-form button:last-of-type {
+	margin-left: 1em;
+}
+
+#add-custom-form input[type="text"]:focus, #add-custom-form input[type="time"]:focus, #add-custom-form select:focus {
+	outline: none;
+	border: 2px solid #673ab7
+}
+
+#add-custom-form label {
+	display: inline-block;
+	font-size: 22px;
+	margin-bottom: .3em;
+}
+
+#form-close-btn {
+	border: none;
+	border-radius: 30px;
+	color: #757575;
+	cursor: pointer;
+	float: right;
+	font-size: 28px;
+	margin: -.4em -.3em;
+	padding: .2em;
+	height: 40px;
+	width: 40px;
+}
+
+#form-close-btn:hover {
+	background: rgba(126, 86, 193, .15);
+}
+
+.form-info {
+	color: #333;
+}
+
+.form-info p:first-child {
+	margin-block-start: 0;
+}
+
+.add-custom-form-section {
+	margin-bottom: 1.5em;
+}
+
+.dialog-btns {
+	text-align: right;
+}
+
+.more-info-btn {
+	font-size: 16px;
+	padding: 0.3em 0.5em;
 }
 
 @media (max-width: 1500px) {
@@ -577,11 +701,11 @@ input:checked + .slider:before {
 	background: #242424;
 }
 
-.dark #menu a, .dark #menu p, .dark #menu label {
+.dark #menu a, .dark #menu p, .dark #menu label, .dark button.menu-item {
 	color: #eee;
 }
 
-.dark #menu a:hover, .dark #game-filter-settings label.option-name:hover {
+.dark #menu a:hover, .dark #game-filter-settings label.option-name:hover, .dark button.menu-item:hover {
 	background: rgba(255, 255, 255, .04);
 }
 
@@ -605,7 +729,7 @@ input:checked + .slider:before {
 	color: #aaa;
 }
 
-.dark .buttons button {
+.dark .buttons .btn-med {
 	color: #9575cd;
 	border-color: #404040;
 }
@@ -637,4 +761,8 @@ input:checked + .slider:before {
 
 .hide-buttons-hidden .game-container .buttons {
 	display: none;
+}
+
+.hidden {
+	display: none !important;
 }

@@ -25,8 +25,76 @@
 			<button id="filter-search-open" class="menu-btn" onclick="showSearch(this)"><span style="top:-5px;left:1px;position:relative">⌕</span></button>
 			<h1>Game Time Master</h1>
 		</header>
+		<div id="dialog-holder-bg" class="hidden">
+			<form id="add-custom-form" class="dialog hidden">
+				<button type="button" id="form-close-btn" class="btn" onclick="closeCustomGameForm()">✖</button>
+				<h2>Add custom game server</h2>
+				<p>This game server will be saved locally in your device's browser.<br />It will not show up for anyone else.</p>
+				<div class="add-custom-form-section">
+					<label for="custom-name-input">Game name </label>
+					<br />
+					<input type="text" name="game-name" id="custom-name-input" required />
+				</div>
+				<div class="add-custom-form-section">
+					<label for="custom-server-input">Server region/language</label>
+					<br />
+					<input type="text" name="server" id="custom-server-input" required />
+				</div>
+				<div class="add-custom-form-section">
+					<label for="custom-timezone-input">Server timezone</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>You can check <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">the Wikipedia page</a> for more info on these timezones, and to use Ctrl + F / Command + F.</p>
+					</div>
+					<select name="timezone" id="custom-timezone-input" required />
+						<option value="">---</option>
+					</select>
+				</div>
+				<div class="add-custom-form-section">
+					<label for="custom-daily-reset-input">Server daily reset time</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>This is in the <u>server's</u> timezone.</p>
+					</div>
+					<input type="time" name="daily-reset" id="custom-daily-reset-input" required />
+				</div>
+				<div class="add-custom-form-section">
+					<label>Daily reset affected by daylight savings</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>This only applies if the server itself changes timezones during daylight savings.</p>
+						<p>For example, if the server reset time is 05:00 during PST and also 05:00 during PDT, you would choose "No". <br />
+							If the reset time changed to 06:00 during PDT, you would choose "Yes".</p>
+						<p>Choose "No" if the server uses an offset (UTC or GMT).</p>
+						<p><b>If unsure, you can choose "No"</b> as this is usually the case.</p>
+					</div>
+					<input type="radio" name="daylight-savings" id="custom-no-daylight-savings-input" value="false" required checked />
+					<label for="custom-no-daylight-savings-input">No</label>
+					<br />
+					<input type="radio" name="daylight-savings" id="custom-yes-daylight-savings-input" value="true" required />
+					<label for="custom-yes-daylight-savings-input">Yes</label>
+				</div>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-med" onclick="closeCustomGameForm()" formnovalidate>Cancel</button>
+					<button type="button" class="btn btn-high" onclick="submitCustomGameForm()">Add Game Server</button>
+				</div>
+			</form>
+			<div id="add-custom-form-confirmation" class="dialog hidden">
+				<h2>Game server added</h2>
+				<p id="duplicate-notice" class="hidden"></p>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeCustomGameConfirm()">OK</button>
+				</div>
+			</div>
+		</div>
 		<div id="outside-menu" onclick="toggleMenu()"></div>
 		<div id="menu">
+			<div class="menu-section">
+				<button class="menu-item" onclick="openCustomGameForm();toggleMenu();"><img src="menu-icons/add.png" class="menu-icon">Add custom game</button>
+			</div>
 			<div id="game-filter-settings" class="menu-section">
 				<h2 class="section-heading">Games</h2>
 				<button id="games-menu-section" class="section-toggle-arrow" onclick="gamesMenuSectionToggle(this)"></button>
@@ -127,7 +195,7 @@
 					</div>
 				</div>
 				<div class="buttons">
-					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+					<button title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
 				</div>
 			</div>
 		</template>

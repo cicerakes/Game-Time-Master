@@ -1,3 +1,11 @@
+// Load saved custom game data.
+var customGameData = [];
+
+if (localStorage.getItem('custom-game-data') != null) {
+	customGameData = getLocalStorageObject('custom-game-data');
+	gameData = gameData.concat(customGameData);
+}
+
 // Ensure gameData is sorted.
 gameData.sort(function (a, b) {
 	return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
@@ -123,6 +131,7 @@ for (let i = 0; i < gameData.length; i++) {
 			timezone: gameData[i].timezone,
 			dailyReset: gameData[i].dailyReset,
 			icon: gameData[i].icon,
+			customGameServer: gameData[i].customGameServer,
 			utcDailyReset: gameData[i].utcDailyReset,
 			localDailyReset: localResetTime,
 			serverTime: currentServerTime,
@@ -149,6 +158,9 @@ hideFilteredGames();
 var refresh;
 
 setRefresh();
+
+// Generate list of timezones for custom game form.
+initialiseTimezoneList();
 
 function setRefresh() {
 	// Clear previous interval if it exists.
@@ -203,7 +215,12 @@ function createGameResults() {
 		clone = template.content.cloneNode(true);
 
 		// Add game info.
-		clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
+		// Different icon for custom game servers.
+		if (gameDataConverted[i].customGameServer) {
+			clone.querySelectorAll("img")[0].src = "menu-icons/game.png";
+		} else {
+			clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
+		}
 		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
 		clone.querySelectorAll("h4")[0].textContent = gameDataConverted[i].server;
 
@@ -458,7 +475,7 @@ function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
 	const searchTerm = document.getElementById("filter-search-box").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase(),
 	gameCont = document.getElementById("results-container"),
-    gameServers = gameCont.getElementsByClassName("game-container");
+	gameServers = gameCont.getElementsByClassName("game-container");
 
 	// If empty, reset search display results.
 	if (searchTerm == undefined || searchTerm == "") {
@@ -864,4 +881,172 @@ function refreshFilteredGames() {
 		}
 		
 	}
+}
+
+function initialiseTimezoneList() {
+	const timezones = moment.tz.names(),
+	tzSelect = document.getElementById("custom-timezone-input");
+
+	timezones.forEach(tz => {
+		let tzOption = document.createElement('option'),
+		tzValue = tz;
+		tzOption.innerText = tz;
+		// Reverse the value of offsets so they functionally match display.
+		if (tzValue.includes("GMT") || tzValue.includes("UTC")) {
+			if (tzValue.includes("+")) {
+				tzValue = tzValue.replace("+", "-");
+			} else if (tzValue.includes("-")) {
+				tzValue = tzValue.replace("-", "+");
+			}
+		}
+		tzOption.value = tzValue;
+
+		tzSelect.appendChild(tzOption);
+	});
+}
+
+function toggleFormInfo(btn) {
+	const formInfo = btn.nextElementSibling.nextElementSibling;
+
+	if (btn.innerText == "SHOW MORE INFO") {
+		btn.innerText = "SHOW LESS INFO"
+		formInfo.style.display = "block";
+	} else {
+		btn.innerText = "SHOW MORE INFO"
+		formInfo.removeAttribute("style");
+	}
+}
+
+function openCustomGameForm() {
+	// If confirmation is open, close it.
+	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
+		closeCustomGameConfirm();
+	}
+
+	document.getElementById("dialog-holder-bg").classList.remove("hidden");
+	document.getElementById("add-custom-form").classList.remove("hidden");
+}
+
+function closeCustomGameForm() {
+	const formInfoBtns = document.getElementsByClassName("more-info-btn");
+
+	// Clear fields.
+	document.getElementById("add-custom-form").reset();
+
+	// Hide more info.
+	for (let i = 0; i < formInfoBtns.length; i++) {
+		formInfoBtns[i].innerText = "SHOW MORE INFO"
+		formInfoBtns[i].nextElementSibling.nextElementSibling.removeAttribute("style");
+	}
+
+	//Close form.
+	document.getElementById("add-custom-form").classList.add("hidden");
+	// Close dialog holder.
+	document.getElementById("dialog-holder-bg").classList.add("hidden");
+}
+
+function submitCustomGameForm() {
+	if (document.forms["add-custom-form"].reportValidity()) {
+		const formData = new FormData(document.getElementById("add-custom-form"));
+		// Convert daylight savings from string to boolean.
+		let daylightSavings = (formData.get("daylight-savings") === "true");
+
+		// If duplicate of existing, add number to server.
+		// Find matching game servers.
+		let server = formData.get("server"),
+		numbered = false;
+		const matchingGameName = gameData.filter((serv) => serv.game == formData.get("game-name")),
+		serverReg = new RegExp(server),
+		matchingServers = matchingGameName.filter((serv) => serverReg.test(serv.server));
+
+		if (matchingServers.length > 0) {
+			numbered = true;
+			// Find current highest increment, if any.
+			let currentNum = matchingServers[matchingServers.length - 1].server.match(/\d+$/);
+			if (currentNum != null) {
+				// Increment number.
+				let newNum = parseInt(currentNum[0]) + 1;
+				// Add leading zero to ensure proper sorting.
+				// Only 1 zero as it is assumed users won't be adding more than 99 duplicate game servers.
+				if (newNum < 10) {
+					server = server + "-0" + newNum;
+				} else {
+					server = server + "-" + newNum;
+				}
+			} else {
+				// Add number.
+				server = server + "-01";
+			}
+		}
+
+		let customGameServerObj = {};
+		customGameServerObj.game = formData.get("game-name");
+		customGameServerObj.server = server;
+		customGameServerObj.timezone = formData.get("timezone");
+		customGameServerObj.dailyReset = formData.get("daily-reset");
+		customGameServerObj.utcDailyReset = daylightSavings;
+		customGameServerObj.customGameServer = true;
+
+		// Save to localStorage.
+		customGameData.push(customGameServerObj);
+		localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+
+		// Update game list.
+		gameData.push(customGameServerObj);
+		// Ensure gameData is always alphabetical.
+		gameData.sort(function (a, b) {
+			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+		});
+
+		// Update filter list.
+		gameFilter.push(
+			{
+				game: customGameServerObj.game,
+				server: customGameServerObj.server,
+				shown: "true"
+			}
+		);
+
+		// Update converted list.
+		gameDataConverted.push(customGameServerObj);
+
+		// Refresh game results.
+		clearGameResults();
+		createGameResults();
+		timeCalc();
+		refreshFilteredGames();
+		// Refresh search results in case search is being used during submission.
+		searchFilter();
+
+		closeCustomGameForm();
+		// Show confirmation.
+		if (numbered) {
+			openCustomGameConfirm(server);
+		} else {
+			openCustomGameConfirm();
+		}
+		
+	}
+}
+
+function openCustomGameConfirm(numberedServer) {
+	if (numberedServer) {
+		document.getElementById("duplicate-notice").classList.remove("hidden");
+		document.getElementById("duplicate-notice").innerHTML = "There already exists a game server in the same region/language, so your new one has been added as <b>" + numberedServer + "</b>.";
+	}
+
+	document.getElementById("dialog-holder-bg").classList.remove("hidden");
+	document.getElementById("add-custom-form-confirmation").classList.remove("hidden");
+}
+
+function closeCustomGameConfirm() {
+	// Reset message.
+	if (!document.getElementById("duplicate-notice").classList.contains("hidden")) {
+		document.getElementById("duplicate-notice").classList.add("hidden");
+	}
+	document.getElementById("duplicate-notice").innerHTML = "";
+
+	// Close.
+	document.getElementById("dialog-holder-bg").classList.add("hidden");
+	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
 }
