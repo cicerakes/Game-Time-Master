@@ -507,7 +507,7 @@ input:checked + .slider:before {
 #dialog-holder-bg {
 	background: rgba(0, 0, 0, .7);
 	position: fixed;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: flex-start;
 	width: 100%;
@@ -764,5 +764,5 @@ input:checked + .slider:before {
 }
 
 .hidden {
-	display: none !important;
+	display: none;
 }

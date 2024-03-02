@@ -917,10 +917,10 @@ function toggleFormInfo(btn) {
 
 	if (btn.innerText == "SHOW MORE INFO") {
 		btn.innerText = "SHOW LESS INFO"
-		formInfo.style.display = "block";
+		formInfo.classList.remove("hidden");
 	} else {
 		btn.innerText = "SHOW MORE INFO"
-		formInfo.removeAttribute("style");
+		formInfo.classList.add("hidden");
 	}
 }
 
@@ -930,7 +930,7 @@ function openCustomGameForm() {
 		closeCustomGameConfirm();
 	}
 
-	document.getElementById("dialog-holder-bg").classList.remove("hidden");
+	document.getElementById("dialog-holder-bg").style.display = "flex";
 	document.getElementById("add-custom-form").classList.remove("hidden");
 }
 
@@ -942,14 +942,16 @@ function closeCustomGameForm() {
 
 	// Hide more info.
 	for (let i = 0; i < formInfoBtns.length; i++) {
-		formInfoBtns[i].innerText = "SHOW MORE INFO"
-		formInfoBtns[i].nextElementSibling.nextElementSibling.removeAttribute("style");
+		if (!formInfoBtns[i].nextElementSibling.nextElementSibling.classList.contains("hidden")) {
+			formInfoBtns[i].innerText = "SHOW MORE INFO"
+			formInfoBtns[i].nextElementSibling.nextElementSibling.classList.add("hidden");
+		}
 	}
 
 	//Close form.
 	document.getElementById("add-custom-form").classList.add("hidden");
 	// Close dialog holder.
-	document.getElementById("dialog-holder-bg").classList.add("hidden");
+	document.getElementById("dialog-holder-bg").style.display = "none";
 }
 
 function submitCustomGameForm() {
@@ -1045,7 +1047,7 @@ function openCustomGameConfirm(numberedServer) {
 		document.getElementById("duplicate-notice").innerHTML = "There already exists a game server in the same region/language, so your new one has been added as <b>" + numberedServer + "</b>.";
 	}
 
-	document.getElementById("dialog-holder-bg").classList.remove("hidden");
+	document.getElementById("dialog-holder-bg").style.display = "flex";
 	document.getElementById("add-custom-form-confirmation").classList.remove("hidden");
 }
 
@@ -1057,6 +1059,6 @@ function closeCustomGameConfirm() {
 	document.getElementById("duplicate-notice").innerHTML = "";
 
 	// Close.
-	document.getElementById("dialog-holder-bg").classList.add("hidden");
+	document.getElementById("dialog-holder-bg").style.display = "none";
 	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
 }
