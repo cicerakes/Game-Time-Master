@@ -402,8 +402,8 @@ function createGameFilterMenu() {
 // Trigger onchange to hide/show games and update gameFilter to match what's saved.
 function hideFilteredGames() {
 	// Hide game containers.
-	if (localStorage.getItem('gameFilterList') != null) {
-		const gameFilterSaved = getLocalStorageObject('gameFilterList');
+	if (localStorage.getItem("gameFilterList") != null) {
+		const gameFilterSaved = getLocalStorageObject("gameFilterList");
 
 		for (let i = 0; i < gameFilterSaved.length; i++) {
 			if (gameFilterSaved[i].shown == "false") {
