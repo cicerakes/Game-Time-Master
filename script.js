@@ -933,6 +933,9 @@ function openCustomGameForm() {
 	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
 		closeCustomGameConfirm();
 	}
+	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
+		closeDeleteCustomGameConfirm();
+	}
 
 	document.getElementById("dialog-holder-bg").style.display = "flex";
 	document.getElementById("add-custom-form").classList.remove("hidden");
@@ -952,7 +955,7 @@ function closeCustomGameForm() {
 		}
 	}
 
-	//Close form.
+	// Close form.
 	document.getElementById("add-custom-form").classList.add("hidden");
 	// Close dialog holder.
 	document.getElementById("dialog-holder-bg").style.display = "none";
@@ -1071,11 +1074,37 @@ function closeCustomGameConfirm() {
 	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
 }
 
-function delGameServerButton(button) {
+function openDeleteCustomGameConfirm(button) {
 	// Get game name and server region.
 	const gameHeader = button.parentElement.parentElement.children[0],
 	gameName = gameHeader.children[1].textContent,
-	server = gameHeader.children[2].textContent,
+	server = gameHeader.children[2].textContent;
+
+	// Display confirmation.
+	document.getElementById("del-cust-game").innerText = gameName + " - " + server;
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById("del-custom-form-confirmation").classList.remove("hidden");
+
+	// Prepare to delete.
+	document.getElementById("del-custom-confirm-btn").dataset.gameName = gameName;
+	document.getElementById("del-custom-confirm-btn").dataset.server = server;
+}
+
+function closeDeleteCustomGameConfirm() {
+	// Reset message and button dataset.
+	document.getElementById("del-cust-game").innerText = "";
+	document.getElementById("del-custom-confirm-btn").dataset.gameName = "";
+	document.getElementById("del-custom-confirm-btn").dataset.server = "";
+
+	// Close.
+	document.getElementById("dialog-holder-bg").style.display = "none";
+	document.getElementById("del-custom-form-confirmation").classList.add("hidden");
+}
+
+function delGameServer(button) {
+	// Get game data from button dataset.
+	const gameName = button.dataset.gameName,
+	server = button.dataset.server,
 	// Find position in gameData, customGameData, and converted.
 	gameDataIndex = gameData.findIndex((serv) => serv.game == gameName && serv.server == server),
 	customGameDataIndex = customGameData.findIndex((serv) => serv.game == gameName && serv.server == server),
@@ -1103,4 +1132,7 @@ function delGameServerButton(button) {
 	refreshFilteredGames();
 	// Refresh search results in case search is being used during deletion.
 	searchFilter();
+
+	// Close.
+	closeDeleteCustomGameConfirm();
 }

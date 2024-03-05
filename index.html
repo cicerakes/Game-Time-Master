@@ -27,7 +27,7 @@
 		</header>
 		<div id="dialog-holder-bg">
 			<form id="add-custom-form" class="dialog hidden">
-				<button type="button" id="form-close-btn" class="btn" onclick="closeCustomGameForm()">✖</button>
+				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
 				<h2>Add custom game server</h2>
 				<p>This game server will be saved locally in your device's browser.<br />It will not show up for anyone else.</p>
 				<div class="add-custom-form-section">
@@ -87,6 +87,16 @@
 				<p id="duplicate-notice" class="hidden"></p>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-low" onclick="closeCustomGameConfirm()">OK</button>
+				</div>
+			</div>
+			<div id="del-custom-form-confirmation" class="dialog hidden">
+				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
+				<h2>Game server deletion</h2>
+				<p>Are you sure you want to delete <b id="del-cust-game"></b> server?</p>
+				<p><strong>This action cannot be undone.</strong></p>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDeleteCustomGameConfirm()">Cancel</button>
+					<button type="button" id="del-custom-confirm-btn" class="btn btn-med red-text" onclick="delGameServer(this)" data-game-name="" data-server="">Delete</button>
 				</div>
 			</div>
 		</div>
@@ -221,7 +231,7 @@
 				</div>
 				<div class="buttons">
 					<button type="button" title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
-					<button type="button" title="Delete this game server" class="btn btn-med" onclick="delGameServerButton(this)">DELETE</button>
+					<button type="button" title="Delete this game server" class="btn btn-med" onclick="openDeleteCustomGameConfirm(this)">DELETE</button>
 				</div>
 			</div>
 		</template>

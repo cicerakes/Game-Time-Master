@@ -770,3 +770,7 @@ input:checked + .slider:before {
 .hidden {
 	display: none;
 }
+
+.red-text {
+	color: #d90000;
+}
