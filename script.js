@@ -210,15 +210,19 @@ function createGameResults() {
 
 	// For each game server, clone the template, add game info, then append to results-container.
 	for (let i = 0; i < gameData.length; i++) {
-		const gameCont = document.getElementById("results-container"),
-		template = document.getElementById("game-cont"),
-		clone = template.content.cloneNode(true);
+		const gameCont = document.getElementById("results-container");
+		let template;
+		// Custom game servers use their own template.
+		if (gameDataConverted[i].customGameServer) {
+			template = document.getElementById("custom-game-cont");
+		} else {
+			template = document.getElementById("game-cont");
+		}
+		const clone = template.content.cloneNode(true);
 
 		// Add game info.
-		// Different icon for custom game servers.
-		if (gameDataConverted[i].customGameServer) {
-			clone.querySelectorAll("img")[0].src = "menu-icons/game.png";
-		} else {
+		// No icon needed for custom game servers.
+		if (!gameDataConverted[i].customGameServer) {
 			clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
 		}
 		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
@@ -1015,6 +1019,10 @@ function submitCustomGameForm() {
 				shown: "true"
 			}
 		);
+		// Ensure gameFilter is always alphabetical.
+		gameFilter.sort(function (a, b) {
+			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+		});
 
 		// Update converted list.
 		gameDataConverted.push(customGameServerObj);
@@ -1061,4 +1069,38 @@ function closeCustomGameConfirm() {
 	// Close.
 	document.getElementById("dialog-holder-bg").style.display = "none";
 	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
+}
+
+function delGameServerButton(button) {
+	// Get game name and server region.
+	const gameHeader = button.parentElement.parentElement.children[0],
+	gameName = gameHeader.children[1].textContent,
+	server = gameHeader.children[2].textContent,
+	// Find position in gameData, customGameData, and converted.
+	gameDataIndex = gameData.findIndex((serv) => serv.game == gameName && serv.server == server),
+	customGameDataIndex = customGameData.findIndex((serv) => serv.game == gameName && serv.server == server),
+	convertedGameDataIndex = gameDataConverted.findIndex((serv) => serv.game == gameName && serv.server == server);
+
+	// Delete.
+	customGameData.splice(customGameDataIndex, 1);
+	gameData.splice(gameDataIndex, 1);
+	gameDataConverted.splice(convertedGameDataIndex, 1);
+	// Assumes sorting in filters is same as gameData.
+	gameFilter.splice(gameDataIndex, 1);
+
+	// Update local storage.
+	localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+	// Refresh display.
+	// Update filter menu.
+	clearGameFilterMenu();
+	createGameFilterMenu();
+	// Refresh game results.
+	clearGameResults();
+	createGameResults();
+	timeCalc();
+	refreshFilteredGames();
+	// Refresh search results in case search is being used during deletion.
+	searchFilter();
 }

@@ -196,7 +196,32 @@
 					</div>
 				</div>
 				<div class="buttons">
-					<button title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
+					<button type="button" title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+		</template>
+		<template id="custom-game-cont">
+			<div class="game-container">
+				<div class="game-header">
+					<div class="game-icon">
+						<img src="menu-icons/game.png">
+					</div>
+					<h3></h3>
+					<h4></h4>
+				</div>
+				<div class="game-times">
+					<div class="local-times">
+						<p>Local Reset Time: </p><p></p>
+						<p>Time Until Reset: </p><p></p>
+					</div>
+					<div class="server-times">
+						<p>Server Reset Time: </p><p></p>
+						<p>Current Server Time: </p><p></p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button type="button" title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
+					<button type="button" title="Delete this game server" class="btn btn-med" onclick="delGameServerButton(this)">DELETE</button>
 				</div>
 			</div>
 		</template>
