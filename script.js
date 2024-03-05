@@ -972,7 +972,7 @@ function submitCustomGameForm() {
 		let server = formData.get("server"),
 		numbered = false;
 		const matchingGameName = gameData.filter((serv) => serv.game == formData.get("game-name")),
-		serverReg = new RegExp(server),
+		serverReg = new RegExp("^" + server + "$|^" + server + "-\d+$"),
 		matchingServers = matchingGameName.filter((serv) => serverReg.test(serv.server));
 
 		if (matchingServers.length > 0) {
@@ -1055,7 +1055,7 @@ function submitCustomGameForm() {
 function openCustomGameConfirm(numberedServer) {
 	if (numberedServer) {
 		document.getElementById("duplicate-notice").classList.remove("hidden");
-		document.getElementById("duplicate-notice").innerHTML = "There already exists a game server in the same region/language, so your new one has been added as <b>" + numberedServer + "</b>.";
+		document.getElementById("dup-cust-game").innerHTML = numberedServer;
 	}
 
 	document.getElementById("dialog-holder-bg").style.display = "flex";
@@ -1067,7 +1067,7 @@ function closeCustomGameConfirm() {
 	if (!document.getElementById("duplicate-notice").classList.contains("hidden")) {
 		document.getElementById("duplicate-notice").classList.add("hidden");
 	}
-	document.getElementById("duplicate-notice").innerHTML = "";
+	document.getElementById("dup-cust-game").innerHTML = "";
 
 	// Close.
 	document.getElementById("dialog-holder-bg").style.display = "none";
