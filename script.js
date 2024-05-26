@@ -10,7 +10,7 @@ if (localStorage.getItem('custom-game-data') != null) {
 		if (serv.customGameServer) {
 			// Remove current (if any) increment while searching for dupes.
 			let serverToSearch;
-			const serverRegEx = new RegExp("^[a-zA-Z]+-[0-9]+$"),
+			const serverRegEx = new RegExp("^[a-zA-Z0-9]+-[0-9]+$"),
 			incrementedServ = serverRegEx.test(serv.server);
 			if (incrementedServ) {
 				serverToSearch = serv.server.slice(-3);
@@ -1105,11 +1105,13 @@ function findIncrementDupeGameServer(gameName, server) {
 
 	if (matchingServers.length > 0) {
 		// Find current highest increment, if any.
-		let currentNum = matchingServers[matchingServers.length - 1].server.match(/\d+$/);
+		let currentIncr = matchingServers[matchingServers.length - 1].server.match(/-[0-9]+$/);
 
-		if (currentNum != null) {
+		if (currentIncr != null) {
+			// Remove hyphen.
+			const currentNum = currentIncr[0].slice(-2);
 			// Increment number.
-			let newNum = parseInt(currentNum[0]) + 1;
+			let newNum = parseInt(currentNum) + 1;
 			// Add leading zero to ensure proper sorting.
 			// Only 1 zero as it is assumed users won't be adding more than 99 duplicate game servers.
 			if (newNum < 10) {
