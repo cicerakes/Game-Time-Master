@@ -18,7 +18,7 @@ if (localStorage.getItem('custom-game-data') != null) {
 				serverToSearch = serv.server;
 			}
 
-			let numbered = findIncrementDupeGameServer(serv.game, serverToSearch);
+			let numbered = findIncrementDupeGameServer(serv.game, serverToSearch, true);
 
 			if (numbered) {
 				// Store any duplicates to notify user.
@@ -1097,13 +1097,16 @@ function submitCustomGameForm() {
 }
 
 // Return incremented server number if duplicate found, else false.
-function findIncrementDupeGameServer(gameName, server) {
+function findIncrementDupeGameServer(gameName, server, customOnLoad) {
 	// Find matching game servers.
 	const matchingGameName = gameData.filter((serv) => serv.game.toLowerCase() == gameName.toLowerCase()),
 	serverRegEx = new RegExp("^" + server.toLowerCase() + "$|^" + server.toLowerCase() + "-[0-9]+$"),
 	matchingServers = matchingGameName.filter((serv) => serverRegEx.test(serv.server.toLowerCase()));
 
-	if (matchingServers.length > 0) {
+	// Prevent matching with itself if checking custom game on start up, as it was assumed the checked game had not been added to gameData yet.
+	if (matchingServers.length == 1 && customOnLoad) {
+		return false;
+	} else if (matchingServers.length > 0) {
 		// Find current highest increment, if any.
 		let currentIncr = matchingServers[matchingServers.length - 1].server.match(/-[0-9]+$/);
 
