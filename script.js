@@ -1113,6 +1113,10 @@ function findIncrementDupeGameServer(gameName, server, customOnLoad) {
 		if (currentIncr != null) {
 			// Remove hyphen.
 			const currentNum = currentIncr[0].slice(-2);
+			// If testing on load, avoid matching with self (again).
+			if (customOnLoad && currentNum == matchingServers.length - 1) {
+				return false;
+			}
 			// Increment number.
 			let newNum = parseInt(currentNum) + 1;
 			// Add leading zero to ensure proper sorting.
