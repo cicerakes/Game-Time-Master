@@ -535,9 +535,6 @@ input:checked + .slider:before {
 	margin-block-start: 0;
 }
 
-#add-custom-form {
-	width: 40%;
-}
 
 #add-custom-form input[type="text"], #add-custom-form input[type="time"], #add-custom-form select {
 	border: 1px solid #999;
@@ -643,6 +640,12 @@ input:checked + .slider:before {
 
 	#filter-search-box:focus + #filter-search-open {
 		display: none;
+	}
+
+	#add-custom-form {
+		margin-top: 65px;
+		max-height: 84%;
+		width: 100%;
 	}
 } 
 
