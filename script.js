@@ -1099,9 +1099,9 @@ function submitCustomGameForm() {
 // Return incremented server number if duplicate found, else false.
 function findIncrementDupeGameServer(gameName, server) {
 	// Find matching game servers.
-	const matchingGameName = gameData.filter((serv) => serv.game == gameName),
-	serverRegEx = new RegExp("^" + server + "$|^" + server + "-[0-9]+$"),
-	matchingServers = matchingGameName.filter((serv) => serverRegEx.test(serv.server));
+	const matchingGameName = gameData.filter((serv) => serv.game.toLowerCase() == gameName.toLowerCase()),
+	serverRegEx = new RegExp("^" + server.toLowerCase() + "$|^" + server.toLowerCase() + "-[0-9]+$"),
+	matchingServers = matchingGameName.filter((serv) => serverRegEx.test(serv.server.toLowerCase()));
 
 	if (matchingServers.length > 0) {
 		// Find current highest increment, if any.
