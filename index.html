@@ -84,7 +84,7 @@
 			</form>
 			<div id="add-custom-form-confirmation" class="dialog hidden">
 				<h2>Game server added</h2>
-				<p id="duplicate-notice" class="hidden">There already exists a game server in the same region/language, so your new one has been added as <b id="dup-cust-game"></b>.</p>
+				<p id="duplicate-notice" class="hidden">There already exists a game server in the same region/language, so your new one has been added as <b id="dupe-cust-game"></b>.</p>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-low" onclick="closeCustomGameConfirm()">OK</button>
 				</div>
@@ -97,6 +97,24 @@
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-low" onclick="closeDeleteCustomGameConfirm()">Cancel</button>
 					<button type="button" id="del-custom-confirm-btn" class="btn btn-med red-text" onclick="delGameServer(this)" data-game-name="" data-server="">Delete</button>
+				</div>
+			</div>
+			<div id="dupe-custom-notif" class="dialog hidden">
+				<h2>Custom game server updated</h2>
+				<p id="duplicate-added-notice">The following custom game server(s) have been officially added to the database, so yours have been renamed: </p>
+				<table id="dupe-notif-table">
+					<thead>
+						<tr>
+							<th scope="col">Game</th>
+							<th scope="col">Old Server</th>
+							<th scope="col">New Server</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDupeUpdateNotif()">OK</button>
 				</div>
 			</div>
 		</div>

@@ -597,6 +597,10 @@ input:checked + .slider:before {
 	padding: 0.3em 0.5em;
 }
 
+#dupe-notif-table th, #dupe-notif-table td {
+	padding-right: 1em;
+}
+
 @media (max-width: 1500px) {
 	.game-container {
 		width: 30%;

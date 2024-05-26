@@ -1,9 +1,70 @@
 // Load saved custom game data.
-var customGameData = [];
+var customGameData = [],
+customGameDupes = [];
 
 if (localStorage.getItem('custom-game-data') != null) {
 	customGameData = getLocalStorageObject('custom-game-data');
 	gameData = gameData.concat(customGameData);
+	// Check for duplicates in custom in case it is added later in game-data.js.
+	gameData.forEach(serv => {
+		if (serv.customGameServer) {
+			// Remove current (if any) increment while searching for dupes.
+			let serverToSearch;
+			const serverRegEx = new RegExp("^[a-zA-Z]+-[0-9]+$"),
+			incrementedServ = serverRegEx.test(serv.server);
+			if (incrementedServ) {
+				serverToSearch = serv.server.slice(-3);
+			} else {
+				serverToSearch = serv.server;
+			}
+
+			let numbered = findIncrementDupeGameServer(serv.game, serverToSearch);
+
+			if (numbered) {
+				// Store any duplicates to notify user.
+				let dupeServ = {
+					game: serv.game,
+					oldServer: serv.server,
+					newServer: numbered
+				}
+				customGameDupes.push(dupeServ);
+				// Save new server name.
+				serv.server = numbered;
+
+				// Find matching server in customGameData and update.
+				customGameData.forEach(custServ => {
+					if (custServ.game == serv.game && custServ.server == serv.server) {
+						custServ.server = numbered;
+					}
+				});
+
+				// Save changes to localStorage.
+				localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+			}
+		}
+	});
+}
+
+// Notify user about duplicates that have been updated.
+if (customGameDupes.length > 0) {
+	const dupesTable = document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0];
+	customGameDupes.forEach(serv => {
+		let row = document.createElement("tr"),
+		gameCell = document.createElement("td"),
+		oldServCell = document.createElement("td"),
+		newServCell = document.createElement("td");
+
+		gameCell.innerText = serv.game;
+		oldServCell.innerText = serv.oldServer;
+		newServCell.innerText = serv.newServer;
+		row.appendChild(gameCell);
+		row.appendChild(oldServCell);
+		row.appendChild(newServCell);
+		dupesTable.appendChild(row);
+	});
+
+	// Display notification.
+	openDupeUpdateNotif();
 }
 
 // Ensure gameData is sorted.
@@ -936,6 +997,9 @@ function openCustomGameForm() {
 	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
 		closeDeleteCustomGameConfirm();
 	}
+	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
+		closeDupeUpdateNotif();
+	}
 
 	document.getElementById("dialog-holder-bg").style.display = "flex";
 	document.getElementById("add-custom-form").classList.remove("hidden");
@@ -968,31 +1032,11 @@ function submitCustomGameForm() {
 		let daylightSavings = (formData.get("daylight-savings") === "true");
 
 		// If duplicate of existing, add number to server.
-		// Find matching game servers.
-		let server = formData.get("server"),
-		numbered = false;
-		const matchingGameName = gameData.filter((serv) => serv.game == formData.get("game-name")),
-		serverReg = new RegExp("^" + server + "$|^" + server + "-\d+$"),
-		matchingServers = matchingGameName.filter((serv) => serverReg.test(serv.server));
-
-		if (matchingServers.length > 0) {
-			numbered = true;
-			// Find current highest increment, if any.
-			let currentNum = matchingServers[matchingServers.length - 1].server.match(/\d+$/);
-			if (currentNum != null) {
-				// Increment number.
-				let newNum = parseInt(currentNum[0]) + 1;
-				// Add leading zero to ensure proper sorting.
-				// Only 1 zero as it is assumed users won't be adding more than 99 duplicate game servers.
-				if (newNum < 10) {
-					server = server + "-0" + newNum;
-				} else {
-					server = server + "-" + newNum;
-				}
-			} else {
-				// Add number.
-				server = server + "-01";
-			}
+		let server = formData.get("server");
+		const numbered = findIncrementDupeGameServer(formData.get("game-name"), server);
+		
+		if (numbered) {
+			server = numbered;
 		}
 
 		let customGameServerObj = {};
@@ -1052,10 +1096,42 @@ function submitCustomGameForm() {
 	}
 }
 
+// Return incremented server number if duplicate found, else false.
+function findIncrementDupeGameServer(gameName, server) {
+	// Find matching game servers.
+	const matchingGameName = gameData.filter((serv) => serv.game == gameName),
+	serverRegEx = new RegExp("^" + server + "$|^" + server + "-[0-9]+$"),
+	matchingServers = matchingGameName.filter((serv) => serverRegEx.test(serv.server));
+
+	if (matchingServers.length > 0) {
+		// Find current highest increment, if any.
+		let currentNum = matchingServers[matchingServers.length - 1].server.match(/\d+$/);
+
+		if (currentNum != null) {
+			// Increment number.
+			let newNum = parseInt(currentNum[0]) + 1;
+			// Add leading zero to ensure proper sorting.
+			// Only 1 zero as it is assumed users won't be adding more than 99 duplicate game servers.
+			if (newNum < 10) {
+				server = server + "-0" + newNum;
+			} else {
+				server = server + "-" + newNum;
+			}
+		} else {
+			// Add number.
+			server = server + "-01";
+		}
+
+		return server;
+	} else {
+		return false;
+	}
+}
+
 function openCustomGameConfirm(numberedServer) {
 	if (numberedServer) {
 		document.getElementById("duplicate-notice").classList.remove("hidden");
-		document.getElementById("dup-cust-game").innerHTML = numberedServer;
+		document.getElementById("dupe-cust-game").innerHTML = numberedServer;
 	}
 
 	document.getElementById("dialog-holder-bg").style.display = "flex";
@@ -1067,7 +1143,7 @@ function closeCustomGameConfirm() {
 	if (!document.getElementById("duplicate-notice").classList.contains("hidden")) {
 		document.getElementById("duplicate-notice").classList.add("hidden");
 	}
-	document.getElementById("dup-cust-game").innerHTML = "";
+	document.getElementById("dupe-cust-game").innerHTML = "";
 
 	// Close.
 	document.getElementById("dialog-holder-bg").style.display = "none";
@@ -1135,4 +1211,18 @@ function delGameServer(button) {
 
 	// Close.
 	closeDeleteCustomGameConfirm();
+}
+
+function openDupeUpdateNotif() {
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById("dupe-custom-notif").classList.remove("hidden");
+}
+
+function closeDupeUpdateNotif() {
+	// Reset table contents.
+	document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0].innerHTML = "";
+
+	// Close.
+	document.getElementById("dialog-holder-bg").style.display = "none";
+	document.getElementById("dupe-custom-notif").classList.add("hidden");
 }
