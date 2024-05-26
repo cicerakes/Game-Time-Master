@@ -398,7 +398,7 @@ function createGameFilterMenu() {
 		const gameId = gameData[i].game.normalize().replace(/[&!:<>"'`=\/\s]/g, "-").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
 
 		// Use template depending on if game has more than 1 region.
-		if (gameData[i].game === currentGameParent) {
+		if (gameData[i].game.toLowerCase() === currentGameParent) {
 			// If game has multiple servers and is NOT first server detected.
 			// Create child menu entry.
 			const template = document.getElementById("game-menu-children"),
@@ -424,10 +424,10 @@ function createGameFilterMenu() {
 			label.title = gameData[i].game;
 
 			gameFilterCont.appendChild(clone);
-		} else if (gameData[i].game === gameData[i+1].game) {
+		} else if (gameData[i].game.toLowerCase() === gameData[i+1].game.toLowerCase()) {
 			// If game has multiple servers and is first server detected.
 			// Save name for checking children.
-			currentGameParent = gameData[i].game;
+			currentGameParent = gameData[i].game.toLowerCase();
 
 			// Create parent menu entry.
 			const template = document.getElementById("game-menu-parent"),
