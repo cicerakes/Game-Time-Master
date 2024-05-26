@@ -1,3 +1,72 @@
+// Load saved custom game data.
+var customGameData = [],
+customGameDupes = [];
+
+if (localStorage.getItem('custom-game-data') != null) {
+	customGameData = getLocalStorageObject('custom-game-data');
+	gameData = gameData.concat(customGameData);
+	// Check for duplicates in custom in case it is added later in game-data.js.
+	gameData.forEach(serv => {
+		if (serv.customGameServer) {
+			// Remove current (if any) increment while searching for dupes.
+			let serverToSearch;
+			const serverRegEx = new RegExp("^[a-zA-Z0-9]+-[0-9]+$"),
+			incrementedServ = serverRegEx.test(serv.server);
+			if (incrementedServ) {
+				serverToSearch = serv.server.slice(-3);
+			} else {
+				serverToSearch = serv.server;
+			}
+
+			let numbered = findIncrementDupeGameServer(serv.game, serverToSearch, true);
+
+			if (numbered) {
+				// Store any duplicates to notify user.
+				let dupeServ = {
+					game: serv.game,
+					oldServer: serv.server,
+					newServer: numbered
+				}
+				customGameDupes.push(dupeServ);
+				// Save new server name.
+				serv.server = numbered;
+
+				// Find matching server in customGameData and update.
+				customGameData.forEach(custServ => {
+					if (custServ.game == serv.game && custServ.server == serv.server) {
+						custServ.server = numbered;
+					}
+				});
+
+				// Save changes to localStorage.
+				localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+			}
+		}
+	});
+}
+
+// Notify user about duplicates that have been updated.
+if (customGameDupes.length > 0) {
+	const dupesTable = document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0];
+	customGameDupes.forEach(serv => {
+		let row = document.createElement("tr"),
+		gameCell = document.createElement("td"),
+		oldServCell = document.createElement("td"),
+		newServCell = document.createElement("td");
+
+		gameCell.innerText = serv.game;
+		oldServCell.innerText = serv.oldServer;
+		newServCell.innerText = serv.newServer;
+		row.appendChild(gameCell);
+		row.appendChild(oldServCell);
+		row.appendChild(newServCell);
+		dupesTable.appendChild(row);
+	});
+
+	// Display notification.
+	openDupeUpdateNotif();
+}
+
 // Ensure gameData is sorted.
 gameData.sort(function (a, b) {
 	return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
@@ -123,6 +192,7 @@ for (let i = 0; i < gameData.length; i++) {
 			timezone: gameData[i].timezone,
 			dailyReset: gameData[i].dailyReset,
 			icon: gameData[i].icon,
+			customGameServer: gameData[i].customGameServer,
 			utcDailyReset: gameData[i].utcDailyReset,
 			localDailyReset: localResetTime,
 			serverTime: currentServerTime,
@@ -149,6 +219,9 @@ hideFilteredGames();
 var refresh;
 
 setRefresh();
+
+// Generate list of timezones for custom game form.
+initialiseTimezoneList();
 
 function setRefresh() {
 	// Clear previous interval if it exists.
@@ -198,12 +271,21 @@ function createGameResults() {
 
 	// For each game server, clone the template, add game info, then append to results-container.
 	for (let i = 0; i < gameData.length; i++) {
-		const gameCont = document.getElementById("results-container"),
-		template = document.getElementById("game-cont"),
-		clone = template.content.cloneNode(true);
+		const gameCont = document.getElementById("results-container");
+		let template;
+		// Custom game servers use their own template.
+		if (gameDataConverted[i].customGameServer) {
+			template = document.getElementById("custom-game-cont");
+		} else {
+			template = document.getElementById("game-cont");
+		}
+		const clone = template.content.cloneNode(true);
 
 		// Add game info.
-		clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
+		// No icon needed for custom game servers.
+		if (!gameDataConverted[i].customGameServer) {
+			clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
+		}
 		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
 		clone.querySelectorAll("h4")[0].textContent = gameDataConverted[i].server;
 
@@ -312,9 +394,11 @@ function createGameFilterMenu() {
 		} else {
 			gameName = " " + gameName;
 		}
+		// Generate id based on game name with (most) punctuation and accents removed.
+		const gameId = gameData[i].game.normalize().replace(/[&!:<>"'`=\/\s]/g, "-").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
 
 		// Use template depending on if game has more than 1 region.
-		if (gameData[i].game === currentGameParent) {
+		if (gameData[i].game.toLowerCase() === currentGameParent) {
 			// If game has multiple servers and is NOT first server detected.
 			// Create child menu entry.
 			const template = document.getElementById("game-menu-children"),
@@ -322,8 +406,8 @@ function createGameFilterMenu() {
 			input = clone.querySelectorAll("input")[0],
 			label = clone.querySelectorAll("label")[0];
 
-			input.id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			label.htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			input.id = gameId + "-" + gameData[i].server.toLowerCase();
+			label.htmlFor = gameId + "-" + gameData[i].server.toLowerCase();
 			label.textContent = " " + gameData[i].server;
 
 			gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
@@ -334,16 +418,16 @@ function createGameFilterMenu() {
 			input = clone.querySelectorAll("input")[0],
 			label = clone.querySelectorAll("label")[0];
 
-			input.id = gameData[i].icon;
-			label.htmlFor = gameData[i].icon;
+			input.id = gameId;
+			label.htmlFor = gameId;
 			label.textContent = gameName;
 			label.title = gameData[i].game;
 
 			gameFilterCont.appendChild(clone);
-		} else if (gameData[i].game === gameData[i+1].game) {
+		} else if (gameData[i].game.toLowerCase() === gameData[i+1].game.toLowerCase()) {
 			// If game has multiple servers and is first server detected.
 			// Save name for checking children.
-			currentGameParent = gameData[i].game;
+			currentGameParent = gameData[i].game.toLowerCase();
 
 			// Create parent menu entry.
 			const template = document.getElementById("game-menu-parent"),
@@ -353,15 +437,15 @@ function createGameFilterMenu() {
 			button = clone.querySelectorAll("button")[0],
 			span = clone.querySelectorAll("span")[0];
 
-			inputs[0].id = gameData[i].icon;
-			labels[0].htmlFor = gameData[i].icon;
+			inputs[0].id = gameId;
+			labels[0].htmlFor = gameId;
 			labels[0].title = gameData[i].game;
 			span.textContent = gameName;
-			button.id = gameData[i].icon + "-children";
-			labels[1].htmlFor = gameData[i].icon + "-children";
+			button.id = gameId + "-children";
+			labels[1].htmlFor = gameId + "-children";
 			// Also add the game as first child.
-			inputs[1].id = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
-			labels[2].htmlFor = gameData[i].icon + "-" + gameData[i].server.toLowerCase();
+			inputs[1].id = gameId + "-" + gameData[i].server.toLowerCase();
+			labels[2].htmlFor = gameId + "-" + gameData[i].server.toLowerCase();
 			labels[2].textContent = " " + gameData[i].server;
 
 			gameFilterCont.appendChild(clone);
@@ -372,8 +456,8 @@ function createGameFilterMenu() {
 			input = clone.querySelectorAll("input")[0],
 			label = clone.querySelectorAll("label")[0];
 
-			input.id = gameData[i].icon;
-			label.htmlFor = gameData[i].icon;
+			input.id = gameId;
+			label.htmlFor = gameId;
 			label.textContent = gameName;
 			label.title = gameData[i].game;
 
@@ -382,11 +466,16 @@ function createGameFilterMenu() {
 	}
 }
 
+function clearGameFilterMenu() {
+	const gameFilterCont = document.getElementById("game-filter-settings");
+	gameFilterCont.innerHTML = '<h2 class="section-heading">Games</h2><button id="games-menu-section" class="section-toggle-arrow" onclick="gamesMenuSectionToggle(this)"></button><label for="games-menu-section"></label>';
+}
+
 // Trigger onchange to hide/show games and update gameFilter to match what's saved.
 function hideFilteredGames() {
 	// Hide game containers.
-	if (localStorage.getItem('gameFilterList') != null) {
-		const gameFilterSaved = getLocalStorageObject('gameFilterList');
+	if (localStorage.getItem("gameFilterList") != null) {
+		const gameFilterSaved = getLocalStorageObject("gameFilterList");
 
 		for (let i = 0; i < gameFilterSaved.length; i++) {
 			if (gameFilterSaved[i].shown == "false") {
@@ -458,7 +547,7 @@ function searchFilter () {
 	// Convert search term to uppercase and remove accent marks.
 	const searchTerm = document.getElementById("filter-search-box").value.normalize("NFD").replace(/[\u0300-\u036f\s]/g, "").toUpperCase(),
 	gameCont = document.getElementById("results-container"),
-    gameServers = gameCont.getElementsByClassName("game-container");
+	gameServers = gameCont.getElementsByClassName("game-container");
 
 	// If empty, reset search display results.
 	if (searchTerm == undefined || searchTerm == "") {
@@ -864,4 +953,285 @@ function refreshFilteredGames() {
 		}
 		
 	}
+}
+
+function initialiseTimezoneList() {
+	const timezones = moment.tz.names(),
+	tzSelect = document.getElementById("custom-timezone-input");
+
+	timezones.forEach(tz => {
+		let tzOption = document.createElement('option'),
+		tzValue = tz;
+		tzOption.innerText = tz;
+		// Reverse the value of offsets so they functionally match display.
+		if (tzValue.includes("GMT") || tzValue.includes("UTC")) {
+			if (tzValue.includes("+")) {
+				tzValue = tzValue.replace("+", "-");
+			} else if (tzValue.includes("-")) {
+				tzValue = tzValue.replace("-", "+");
+			}
+		}
+		tzOption.value = tzValue;
+
+		tzSelect.appendChild(tzOption);
+	});
+}
+
+function toggleFormInfo(btn) {
+	const formInfo = btn.nextElementSibling.nextElementSibling;
+
+	if (btn.innerText == "SHOW MORE INFO") {
+		btn.innerText = "SHOW LESS INFO"
+		formInfo.classList.remove("hidden");
+	} else {
+		btn.innerText = "SHOW MORE INFO"
+		formInfo.classList.add("hidden");
+	}
+}
+
+function openCustomGameForm() {
+	// If confirmation is open, close it.
+	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
+		closeCustomGameConfirm();
+	}
+	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
+		closeDeleteCustomGameConfirm();
+	}
+	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
+		closeDupeUpdateNotif();
+	}
+
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById("add-custom-form").classList.remove("hidden");
+}
+
+function closeCustomGameForm() {
+	const formInfoBtns = document.getElementsByClassName("more-info-btn");
+
+	// Clear fields.
+	document.getElementById("add-custom-form").reset();
+
+	// Hide more info.
+	for (let i = 0; i < formInfoBtns.length; i++) {
+		if (!formInfoBtns[i].nextElementSibling.nextElementSibling.classList.contains("hidden")) {
+			formInfoBtns[i].innerText = "SHOW MORE INFO"
+			formInfoBtns[i].nextElementSibling.nextElementSibling.classList.add("hidden");
+		}
+	}
+
+	// Close form.
+	document.getElementById("add-custom-form").classList.add("hidden");
+	// Close dialog holder.
+	document.getElementById("dialog-holder-bg").style.display = "none";
+}
+
+function submitCustomGameForm() {
+	if (document.forms["add-custom-form"].reportValidity()) {
+		const formData = new FormData(document.getElementById("add-custom-form"));
+		// Convert daylight savings from string to boolean.
+		let daylightSavings = (formData.get("daylight-savings") === "true");
+
+		// If duplicate of existing, add number to server.
+		let server = formData.get("server");
+		const numbered = findIncrementDupeGameServer(formData.get("game-name"), server);
+		
+		if (numbered) {
+			server = numbered;
+		}
+
+		let customGameServerObj = {};
+		customGameServerObj.game = formData.get("game-name");
+		customGameServerObj.server = server;
+		customGameServerObj.timezone = formData.get("timezone");
+		customGameServerObj.dailyReset = formData.get("daily-reset");
+		customGameServerObj.utcDailyReset = daylightSavings;
+		customGameServerObj.customGameServer = true;
+
+		// Save to localStorage.
+		customGameData.push(customGameServerObj);
+		localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+
+		// Update game list.
+		gameData.push(customGameServerObj);
+		// Ensure gameData is always alphabetical.
+		gameData.sort(function (a, b) {
+			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+		});
+
+		// Update filter list.
+		gameFilter.push(
+			{
+				game: customGameServerObj.game,
+				server: customGameServerObj.server,
+				shown: "true"
+			}
+		);
+		// Ensure gameFilter is always alphabetical.
+		gameFilter.sort(function (a, b) {
+			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+		});
+
+		// Update converted list.
+		gameDataConverted.push(customGameServerObj);
+
+		// Update filter menu.
+		clearGameFilterMenu();
+		createGameFilterMenu();
+
+		// Refresh game results.
+		clearGameResults();
+		createGameResults();
+		timeCalc();
+		refreshFilteredGames();
+		// Refresh search results in case search is being used during submission.
+		searchFilter();
+
+		closeCustomGameForm();
+		// Show confirmation.
+		if (numbered) {
+			openCustomGameConfirm(server);
+		} else {
+			openCustomGameConfirm();
+		}
+	}
+}
+
+// Return incremented server number if duplicate found, else false.
+function findIncrementDupeGameServer(gameName, server, customOnLoad) {
+	// Find matching game servers.
+	const matchingGameName = gameData.filter((serv) => serv.game.toLowerCase() == gameName.toLowerCase()),
+	serverRegEx = new RegExp("^" + server.toLowerCase() + "$|^" + server.toLowerCase() + "-[0-9]+$"),
+	matchingServers = matchingGameName.filter((serv) => serverRegEx.test(serv.server.toLowerCase()));
+
+	// Prevent matching with itself if checking custom game on start up, as it was assumed the checked game had not been added to gameData yet.
+	if (matchingServers.length == 1 && customOnLoad) {
+		return false;
+	} else if (matchingServers.length > 0) {
+		// Find current highest increment, if any.
+		let currentIncr = matchingServers[matchingServers.length - 1].server.match(/-[0-9]+$/);
+
+		if (currentIncr != null) {
+			// Remove hyphen.
+			const currentNum = currentIncr[0].slice(-2);
+			// If testing on load, avoid matching with self (again).
+			if (customOnLoad && currentNum == matchingServers.length - 1) {
+				return false;
+			}
+			// Increment number.
+			let newNum = parseInt(currentNum) + 1;
+			// Add leading zero to ensure proper sorting.
+			// Only 1 zero as it is assumed users won't be adding more than 99 duplicate game servers.
+			if (newNum < 10) {
+				server = server + "-0" + newNum;
+			} else {
+				server = server + "-" + newNum;
+			}
+		} else {
+			// Add number.
+			server = server + "-01";
+		}
+
+		return server;
+	} else {
+		return false;
+	}
+}
+
+function openCustomGameConfirm(numberedServer) {
+	if (numberedServer) {
+		document.getElementById("duplicate-notice").classList.remove("hidden");
+		document.getElementById("dupe-cust-game").innerHTML = numberedServer;
+	}
+
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById("add-custom-form-confirmation").classList.remove("hidden");
+}
+
+function closeCustomGameConfirm() {
+	// Reset message.
+	if (!document.getElementById("duplicate-notice").classList.contains("hidden")) {
+		document.getElementById("duplicate-notice").classList.add("hidden");
+	}
+	document.getElementById("dupe-cust-game").innerHTML = "";
+
+	// Close.
+	document.getElementById("dialog-holder-bg").style.display = "none";
+	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
+}
+
+function openDeleteCustomGameConfirm(button) {
+	// Get game name and server region.
+	const gameHeader = button.parentElement.parentElement.children[0],
+	gameName = gameHeader.children[1].textContent,
+	server = gameHeader.children[2].textContent;
+
+	// Display confirmation.
+	document.getElementById("del-cust-game").innerText = gameName + " - " + server;
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById("del-custom-form-confirmation").classList.remove("hidden");
+
+	// Prepare to delete.
+	document.getElementById("del-custom-confirm-btn").dataset.gameName = gameName;
+	document.getElementById("del-custom-confirm-btn").dataset.server = server;
+}
+
+function closeDeleteCustomGameConfirm() {
+	// Reset message and button dataset.
+	document.getElementById("del-cust-game").innerText = "";
+	document.getElementById("del-custom-confirm-btn").dataset.gameName = "";
+	document.getElementById("del-custom-confirm-btn").dataset.server = "";
+
+	// Close.
+	document.getElementById("dialog-holder-bg").style.display = "none";
+	document.getElementById("del-custom-form-confirmation").classList.add("hidden");
+}
+
+function delGameServer(button) {
+	// Get game data from button dataset.
+	const gameName = button.dataset.gameName,
+	server = button.dataset.server,
+	// Find position in gameData, customGameData, and converted.
+	gameDataIndex = gameData.findIndex((serv) => serv.game == gameName && serv.server == server),
+	customGameDataIndex = customGameData.findIndex((serv) => serv.game == gameName && serv.server == server),
+	convertedGameDataIndex = gameDataConverted.findIndex((serv) => serv.game == gameName && serv.server == server);
+
+	// Delete.
+	customGameData.splice(customGameDataIndex, 1);
+	gameData.splice(gameDataIndex, 1);
+	gameDataConverted.splice(convertedGameDataIndex, 1);
+	// Assumes sorting in filters is same as gameData.
+	gameFilter.splice(gameDataIndex, 1);
+
+	// Update local storage.
+	localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+	// Refresh display.
+	// Update filter menu.
+	clearGameFilterMenu();
+	createGameFilterMenu();
+	// Refresh game results.
+	clearGameResults();
+	createGameResults();
+	timeCalc();
+	refreshFilteredGames();
+	// Refresh search results in case search is being used during deletion.
+	searchFilter();
+
+	// Close.
+	closeDeleteCustomGameConfirm();
+}
+
+function openDupeUpdateNotif() {
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById("dupe-custom-notif").classList.remove("hidden");
+}
+
+function closeDupeUpdateNotif() {
+	// Reset table contents.
+	document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0].innerHTML = "";
+
+	// Close.
+	document.getElementById("dialog-holder-bg").style.display = "none";
+	document.getElementById("dupe-custom-notif").classList.add("hidden");
 }

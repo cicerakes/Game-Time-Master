@@ -25,8 +25,104 @@
 			<button id="filter-search-open" class="menu-btn" onclick="showSearch(this)"><span style="top:-5px;left:1px;position:relative">⌕</span></button>
 			<h1>Game Time Master</h1>
 		</header>
+		<div id="dialog-holder-bg">
+			<form id="add-custom-form" class="dialog hidden">
+				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
+				<h2>Add custom game server</h2>
+				<p>This game server will be saved locally in your device's browser.<br />It will not show up for anyone else.</p>
+				<div class="add-custom-form-section">
+					<label for="custom-name-input">Game name </label>
+					<br />
+					<input type="text" name="game-name" id="custom-name-input" required />
+				</div>
+				<div class="add-custom-form-section">
+					<label for="custom-server-input">Server region/language</label>
+					<br />
+					<input type="text" name="server" id="custom-server-input" required />
+				</div>
+				<div class="add-custom-form-section">
+					<label for="custom-timezone-input">Server timezone</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>You can check <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">the Wikipedia page</a> for more info on these timezones, and to use Ctrl + F / Command + F.</p>
+					</div>
+					<select name="timezone" id="custom-timezone-input" required />
+						<option value="">---</option>
+					</select>
+				</div>
+				<div class="add-custom-form-section">
+					<label for="custom-daily-reset-input">Server daily reset time</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>This is in the <u>server's</u> timezone.</p>
+					</div>
+					<input type="time" name="daily-reset" id="custom-daily-reset-input" required />
+				</div>
+				<div class="add-custom-form-section">
+					<span>Daily reset affected by daylight savings</span>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>This only applies if the server itself changes timezones during daylight savings.</p>
+						<p>For example, if the server reset time is 05:00 during PST and also 05:00 during PDT, you would choose "No". <br />
+							If the reset time changed to 06:00 during PDT, you would choose "Yes".</p>
+						<p>Choose "No" if the server uses an offset (UTC or GMT).</p>
+						<p><b>If unsure, you can choose "No"</b> as this is usually the case.</p>
+					</div>
+					<input type="radio" name="daylight-savings" id="custom-no-daylight-savings-input" value="false" required checked />
+					<label for="custom-no-daylight-savings-input">No</label>
+					<br />
+					<input type="radio" name="daylight-savings" id="custom-yes-daylight-savings-input" value="true" required />
+					<label for="custom-yes-daylight-savings-input">Yes</label>
+				</div>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-med" onclick="closeCustomGameForm()" formnovalidate>Cancel</button>
+					<button type="button" class="btn btn-high" onclick="submitCustomGameForm()">Add Game Server</button>
+				</div>
+			</form>
+			<div id="add-custom-form-confirmation" class="dialog hidden">
+				<h2>Game server added</h2>
+				<p id="duplicate-notice" class="hidden">There already exists a game server in the same region/language, so your new one has been added as <b id="dupe-cust-game"></b>.</p>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeCustomGameConfirm()">OK</button>
+				</div>
+			</div>
+			<div id="del-custom-form-confirmation" class="dialog hidden">
+				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
+				<h2>Game server deletion</h2>
+				<p>Are you sure you want to delete <b id="del-cust-game"></b> server?</p>
+				<p><strong>This action cannot be undone.</strong></p>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDeleteCustomGameConfirm()">Cancel</button>
+					<button type="button" id="del-custom-confirm-btn" class="btn btn-med red-text" onclick="delGameServer(this)" data-game-name="" data-server="">Delete</button>
+				</div>
+			</div>
+			<div id="dupe-custom-notif" class="dialog hidden">
+				<h2>Custom game server updated</h2>
+				<p id="duplicate-added-notice">The following custom game server(s) have been officially added to the database, so yours have been renamed: </p>
+				<table id="dupe-notif-table">
+					<thead>
+						<tr>
+							<th scope="col">Game</th>
+							<th scope="col">Old Server</th>
+							<th scope="col">New Server</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDupeUpdateNotif()">OK</button>
+				</div>
+			</div>
+		</div>
 		<div id="outside-menu" onclick="toggleMenu()"></div>
 		<div id="menu">
+			<div class="menu-section">
+				<button class="menu-item" onclick="openCustomGameForm();toggleMenu();"><img src="menu-icons/add.png" class="menu-icon">Add custom game</button>
+			</div>
 			<div id="game-filter-settings" class="menu-section">
 				<h2 class="section-heading">Games</h2>
 				<button id="games-menu-section" class="section-toggle-arrow" onclick="gamesMenuSectionToggle(this)"></button>
@@ -92,9 +188,10 @@
 				</label>
 			</div>
 			<div class="menu-section">
-				<h2 class="section-heading">Feedback</h2>
+				<h2 class="section-heading">Links</h2>
 				<a href="https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform"><img src="menu-icons/add.png" class="menu-icon">Request a game</a>
 				<a href="https://docs.google.com/forms/d/e/1FAIpQLSclB9i8A3m0iQOXu7Yry3U6ZK8nZfQOOMFrXwTXrUozfUcyCg/viewform"><img src="menu-icons/report.png" class="menu-icon">Report incorrect times</a>
+				<a href="https://github.com/cicerakes/Game-Time-Master/commits/master/"><img src="menu-icons/changelog.png" class="menu-icon">Changelog</a>
 				<a href="https://github.com/cicerakes/Game-Time-Master"><img src="menu-icons/github.png" class="menu-icon">GitHub</a>
 				<a href="mailto:cicerakes.gtm@gmail.com"><img src="menu-icons/email.png" class="menu-icon">Email</a>
 				<a href="https://ko-fi.com/cicerakes" title="Ko-fi"><img src="menu-icons/ko-fi.png" class="menu-icon">Buy me a coffee</a>
@@ -127,7 +224,32 @@
 					</div>
 				</div>
 				<div class="buttons">
-					<button title="Hide this game server" onclick="hideGameServerButton(this)">HIDE</button>
+					<button type="button" title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
+				</div>
+			</div>
+		</template>
+		<template id="custom-game-cont">
+			<div class="game-container">
+				<div class="game-header">
+					<div class="game-icon">
+						<img src="menu-icons/game.png">
+					</div>
+					<h3></h3>
+					<h4></h4>
+				</div>
+				<div class="game-times">
+					<div class="local-times">
+						<p>Local Reset Time: </p><p></p>
+						<p>Time Until Reset: </p><p></p>
+					</div>
+					<div class="server-times">
+						<p>Server Reset Time: </p><p></p>
+						<p>Current Server Time: </p><p></p>
+					</div>
+				</div>
+				<div class="buttons">
+					<button type="button" title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
+					<button type="button" title="Delete this game server" class="btn btn-med" onclick="openDeleteCustomGameConfirm(this)">DELETE</button>
 				</div>
 			</div>
 		</template>
