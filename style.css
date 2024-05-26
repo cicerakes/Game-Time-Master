@@ -62,7 +62,7 @@ input[type='radio'] {
 .btn-high {
 	background-color: #673ab7;
 	border: none;
-	color: #fff;
+	color: #fff !important;
 }
 
 .btn-high:hover {
@@ -112,6 +112,7 @@ input[type='radio'] {
 }
 
 #menu a, #menu p, #menu label, button.menu-item {
+	background-color: transparent;
 	color: #111;
 	text-decoration: none;
 	display: list-item;
@@ -560,6 +561,7 @@ input:checked + .slider:before {
 }
 
 #form-close-btn {
+	background-color: transparent;
 	border: none;
 	border-radius: 30px;
 	color: #757575;
@@ -696,13 +698,12 @@ input:checked + .slider:before {
 	background:rgba(126,86,193,0.3);
 }
 
-.dark header {
-	background: #322646;
+.dark a {
+	color: #9575cd;
 }
 
-.dark #filter-search-box {
-	background: #2c2c2c;
-	color: #eee;
+.dark header {
+	background: #322646;
 }
 
 .dark #menu {
@@ -737,9 +738,33 @@ input:checked + .slider:before {
 	color: #aaa;
 }
 
-.dark .buttons .btn-med {
+.dark .btn {
 	color: #9575cd;
+}
+
+.dark .btn-med {
 	border-color: #404040;
+}
+
+.dark .dialog {
+	background: #242424;
+}
+
+.dark input, .dark select {
+	background: #2c2c2c;
+	color: #eee;
+}
+
+.dark input[type="time"]::-webkit-calendar-picker-indicator{
+	filter: invert(90%);
+}
+
+.dark .form-info {
+	color: #ccc;
+}
+
+.dark .red-text {
+    color: #ff4646;
 }
 
 .compact .server-times {
