@@ -1908,6 +1908,27 @@ var gameData = [
 		icon: "world-flipper"
 	},
 	{
+		game: "Wuthering Waves",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00",
+		icon: "wuthering-waves"
+	},
+	{
+		game: "Wuthering Waves",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00",
+		icon: "wuthering-waves"
+	},
+	{
+		game: "Wuthering Waves",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "04:00",
+		icon: "wuthering-waves"
+	},
+	{
 		game: "Yu-Gi-Oh! Duel Links",
 		server: "Global",
 		timezone: "Asia/Tokyo",
