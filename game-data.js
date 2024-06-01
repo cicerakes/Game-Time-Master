@@ -274,6 +274,20 @@ var gameData = [
 		icon: "brave-nine"
 	},
 	{
+		game: "BrownDust2",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "browndust2"
+	},
+	{
+		game: "BrownDust2",
+		server: "Korea",
+		timezone: "Asia/Seoul",
+		dailyReset: "09:00",
+		icon: "browndust2"
+	},
+	{
 		game: "Captain Tsubasa: Dream Team",
 		server: "Global",
 		timezone: "Asia/Tokyo",
