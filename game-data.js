@@ -225,6 +225,20 @@ var gameData = [
 		icon: "bang-dream-gbp-jp"
 	},
 	{
+		game: "Black Clover M",
+		server: "AS",
+		timezone: "Etc/GMT-7",
+		dailyReset: "04:00",
+		icon: "black-clover-m"
+	},
+	{
+		game: "Black Clover M",
+		server: "EU",
+		timezone: "Etc/GMT-1",
+		dailyReset: "04:00",
+		icon: "black-clover-m"
+	},
+	{
 		game: "Bleach: Brave Souls",
 		server: "Global",
 		timezone: "Asia/Tokyo",
