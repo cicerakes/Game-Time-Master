@@ -1118,6 +1118,27 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Love and Deepspace",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "love-and-deepspace"
+	},
+	{
+		game: "Love and Deepspace",
+		server: "EU",
+		timezone: "Etc/GMT-2",
+		dailyReset: "05:00",
+		icon: "love-and-deepspace"
+	},
+	{
+		game: "Love and Deepspace",
+		server: "NA",
+		timezone: "Etc/GMT+7",
+		dailyReset: "05:00",
+		icon: "love-and-deepspace"
+	},
+	{
 		game: "Love Live! School Idol Festival 2 MIRACLE LIVE!",
 		server: "JP",
 		timezone: "Asia/Tokyo",
