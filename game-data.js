@@ -422,6 +422,13 @@ var gameData = [
 		icon: "disgaea-rpg"
 	},
 	{
+		game: "Disgaea RPG",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "disgaea-rpg"
+	},
+	{
 		game: "Dislyte",
 		server: "Global",
 		timezone: "Etc/UTC",
