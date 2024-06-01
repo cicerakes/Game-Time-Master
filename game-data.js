@@ -176,6 +176,13 @@ var gameData = [
 		icon: "atelier-online-alchemist-of-bressisle"
 	},
 	{
+		game: "Atelier Resleriana",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "11:00",
+		icon: "atelier-resleriana"
+	},
+	{
 		game: "Attack on Time:Kaisen of girls",
 		server: "EN",
 		timezone: "America/New_York",
