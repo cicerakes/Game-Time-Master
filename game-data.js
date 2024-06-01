@@ -1053,8 +1053,9 @@ var gameData = [
 		game: "LAST CLOUDIA",
 		server: "EN",
 		timezone: "America/Los_Angeles",
-		dailyReset: "05:00",
-		icon: "last-cloudia"
+		dailyReset: "19:00",
+		icon: "last-cloudia",
+		utcDailyReset: true
 	},
 	{
 		game: "Last Origin",
