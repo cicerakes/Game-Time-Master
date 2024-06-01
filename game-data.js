@@ -1929,6 +1929,13 @@ var gameData = [
 		icon: "wuthering-waves"
 	},
 	{
+		game: "Wuthering Waves",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00",
+		icon: "wuthering-waves"
+	},
+	{
 		game: "Yu-Gi-Oh! Duel Links",
 		server: "Global",
 		timezone: "Asia/Tokyo",
