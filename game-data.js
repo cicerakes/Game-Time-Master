@@ -1471,6 +1471,13 @@ var gameData = [
 	},
 	{
 		game: "Reverse: 1999",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "reverse-1999"
+	},
+	{
+		game: "Reverse: 1999",
 		server: "Global",
 		timezone: "Etc/GMT+5",
 		dailyReset: "05:00",
