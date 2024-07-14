@@ -2013,4 +2013,26 @@ var gameData = [
 		dailyReset: "05:00",
 		icon: "yu-gi-oh-duel-links"
 	},
+	{
+		game: "Zenless Zone Zero",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00",
+		icon: "zenless-zone-zero"
+	},
+	{
+		game: "Zenless Zone Zero",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00",
+		icon: "zenless-zone-zero"
+	},
+	{
+		game: "Zenless Zone Zero",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "04:00",
+		icon: "zenless-zone-zero"
+	},
+	
 ];
