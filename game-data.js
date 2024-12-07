@@ -747,6 +747,48 @@ var gameData = [
 		icon: "girls-frontline"
 	},
 	{
+		game: "Girls' Frontline 2: Exilium",
+		server: "Darkwinter",
+		timezone: "Etc/GMT+8",
+		dailyReset: "01:00",
+		icon: "girls-frontline-2"
+	},
+	{
+		game: "Girls' Frontline 2: Exilium",
+		server: "Haoplay Global",
+		timezone: "Etc/GMT+8",
+		dailyReset: "21:00",
+		icon: "girls-frontline-2"
+	},
+	{
+		game: "Girls' Frontline 2: Exilium",
+		server: "Haoplay Asia",
+		timezone: "Etc/GMT+8",
+		dailyReset: "05:00",
+		icon: "girls-frontline-2"
+	},
+	{
+		game: "Girls' Frontline 2: Exilium",
+		server: "Haoplay Japan",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "girls-frontline-2"
+	},
+	{
+		game: "Girls' Frontline 2: Exilium",
+		server: "Haoplay Korea",
+		timezone: "Etc/GMT+9",
+		dailyReset: "05:00",
+		icon: "girls-frontline-2"
+	},
+	{
+		game: "Girls' Frontline 2: Exilium",
+		server: "CN",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "girls-frontline-2"
+	},
+	{
 		game: "GODDESS OF VICTORY: NIKKE",
 		server: "Global",
 		timezone: "Etc/GMT-9",
