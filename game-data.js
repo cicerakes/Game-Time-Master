@@ -763,7 +763,7 @@ var gameData = [
 	{
 		game: "Girls' Frontline 2: Exilium",
 		server: "Haoplay Asia",
-		timezone: "Etc/GMT+8",
+		timezone: "Etc/GMT-8",
 		dailyReset: "05:00",
 		icon: "girls-frontline-2"
 	},
