@@ -78,13 +78,6 @@ var gameData = [
 		icon: "alice-closet-anime-dress-up"
 	},
 	{
-		game: "ALICE Fiction",
-		server: "Global",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "alice-fiction"
-	},
-	{
 		game: "Another Eden",
 		server: "Global",
 		timezone: "Etc/UTC",
@@ -1617,13 +1610,6 @@ var gameData = [
 		timezone: "Etc/GMT+7",
 		dailyReset: "04:00",
 		icon: "revived-witch"
-	},
-	{
-		game: "Revue Starlight Re LIVE",
-		server: "JP & EN",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "revue-starlight-rl"
 	},
 	{
 		game: "Rhythm Hive",
