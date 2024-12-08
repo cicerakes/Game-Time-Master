@@ -1478,6 +1478,13 @@ var gameData = [
 		icon: "pokemon-masters-ex"
 	},
 	{
+		game: "Pokémon TCG Live",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "pokemon-tcg-live"
+	},
+	{
 		game: "Pokémon UNITE",
 		server: "Global",
 		timezone: "Etc/UTC",
