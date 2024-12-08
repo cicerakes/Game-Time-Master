@@ -1247,13 +1247,6 @@ var gameData = [
 		icon: "magic-the-gathering-arena"
 	},
 	{
-		game: "Magicami",
-		server: "EN",
-		timezone: "America/New_York",
-		dailyReset: "00:00",
-		icon: "magicami"
-	},
-	{
 		game: "Mahjong Soul",
 		server: "Global",
 		timezone: "Etc/GMT+7",
