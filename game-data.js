@@ -690,6 +690,14 @@ var gameData = [
 		icon: "ff-record-keeper"
 	},
 	{
+		game: "FINAL FANTASY VII EVER CRISIS",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "20:00",
+		icon: "ff7-ever-crisis",
+		utcDailyReset: true
+	},
+	{
 		game: "FINAL FANTASY XIV",
 		server: "Global",
 		timezone: "Etc/GMT",
