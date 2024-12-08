@@ -1781,6 +1781,27 @@ var gameData = [
 		icon: "summoners-war"
 	},
 	{
+		game: "Summoners War: Chronicles",
+		server: "Asia",
+		timezone: "Etc/GMT-7",
+		dailyReset: "00:00",
+		icon: "summoners-war-chronicles"
+	},
+	{
+		game: "Summoners War: Chronicles",
+		server: "EU",
+		timezone: "Etc/GMT-1",
+		dailyReset: "00:00",
+		icon: "summoners-war-chronicles"
+	},
+	{
+		game: "Summoners War: Chronicles",
+		server: "US",
+		timezone: "Etc/GMT+5",
+		dailyReset: "00:00",
+		icon: "summoners-war-chronicles"
+	},
+	{
 		game: "Tears of Themis",
 		server: "Global",
 		timezone: "Etc/GMT-9",
