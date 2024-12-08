@@ -21,6 +21,13 @@ var gameData = [
 		icon: "afk-arena"
 	},
 	{
+		game: "AFK Journey",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "afk-journey"
+	},
+	{
 		game: "Age of Ishtaria",
 		server: "Global",
 		timezone: "Etc/GMT+8",
