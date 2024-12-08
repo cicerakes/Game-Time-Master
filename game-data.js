@@ -1817,6 +1817,13 @@ var gameData = [
 		icon: "sunflower-land"
 	},
 	{
+		game: "Sword of Convallaria",
+		server: "Global",
+		timezone: "Etc/GMT+4",
+		dailyReset: "00:00",
+		icon: "sword-of-convallaria"
+	},
+	{
 		game: "Tears of Themis",
 		server: "Global",
 		timezone: "Etc/GMT-9",
