@@ -733,6 +733,13 @@ var gameData = [
 		icon: "genshin-impact"
 	},
 	{
+		game: "GensoKishi Online",
+		server: "SG",
+		timezone: "Asia/Singapore",
+		dailyReset: "08:00",
+		icon: "gensokishi-online"
+	},
+	{
 		game: "Girl Cafe Gun",
 		server: "Global",
 		timezone: "Etc/GMT+4",
