@@ -288,6 +288,13 @@ var gameData = [
 		icon: "browndust2"
 	},
 	{
+		game: "Call of Duty: Mobile",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "08:00",
+		icon: "call-of-duty-mobile"
+	},
+	{
 		game: "Captain Tsubasa: Dream Team",
 		server: "Global",
 		timezone: "Asia/Tokyo",
