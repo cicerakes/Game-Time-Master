@@ -2049,6 +2049,13 @@ var gameData = [
 		icon: "what-in-hell-is-bad"
 	},
 	{
+		game: "World Dai Star: Yume no Stellarium",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "5:00",
+		icon: "world-dai-star"
+	},
+	{
 		game: "World Flipper",
 		server: "Global",
 		timezone: "Etc/UTC",
