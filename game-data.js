@@ -1802,6 +1802,13 @@ var gameData = [
 		icon: "summoners-war-chronicles"
 	},
 	{
+		game: "Sunflower Land",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "00:00",
+		icon: "sunflower-land"
+	},
+	{
 		game: "Tears of Themis",
 		server: "Global",
 		timezone: "Etc/GMT-9",
