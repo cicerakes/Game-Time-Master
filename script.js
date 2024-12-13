@@ -64,7 +64,7 @@ if (customGameDupes.length > 0) {
 	});
 
 	// Display notification.
-	openDupeUpdateNotif();
+	openDialog("dupe-custom-notif");
 }
 
 // Ensure gameData is sorted.
@@ -991,18 +991,9 @@ function toggleFormInfo(btn) {
 
 function openCustomGameForm() {
 	// If confirmation is open, close it.
-	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
-		closeCustomGameConfirm();
-	}
-	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
-		closeDeleteCustomGameConfirm();
-	}
-	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
-		closeDupeUpdateNotif();
-	}
+	checkAndCloseConfirmations();
 
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("add-custom-form").classList.remove("hidden");
+	openDialog("add-custom-form");
 }
 
 function closeCustomGameForm() {
@@ -1019,10 +1010,7 @@ function closeCustomGameForm() {
 		}
 	}
 
-	// Close form.
-	document.getElementById("add-custom-form").classList.add("hidden");
-	// Close dialog holder.
-	document.getElementById("dialog-holder-bg").style.display = "none";
+	closeDialog("add-custom-form");
 }
 
 function submitCustomGameForm() {
@@ -1143,8 +1131,7 @@ function openCustomGameConfirm(numberedServer) {
 		document.getElementById("dupe-cust-game").innerHTML = numberedServer;
 	}
 
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("add-custom-form-confirmation").classList.remove("hidden");
+	openDialog("add-custom-form-confirmation");
 }
 
 function closeCustomGameConfirm() {
@@ -1155,8 +1142,7 @@ function closeCustomGameConfirm() {
 	document.getElementById("dupe-cust-game").innerHTML = "";
 
 	// Close.
-	document.getElementById("dialog-holder-bg").style.display = "none";
-	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
+	closeDialog("add-custom-form-confirmation");
 }
 
 function openDeleteCustomGameConfirm(button) {
@@ -1167,8 +1153,7 @@ function openDeleteCustomGameConfirm(button) {
 
 	// Display confirmation.
 	document.getElementById("del-cust-game").innerText = gameName + " - " + server;
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("del-custom-form-confirmation").classList.remove("hidden");
+	openDialog("del-custom-form-confirmation");
 
 	// Prepare to delete.
 	document.getElementById("del-custom-confirm-btn").dataset.gameName = gameName;
@@ -1182,8 +1167,7 @@ function closeDeleteCustomGameConfirm() {
 	document.getElementById("del-custom-confirm-btn").dataset.server = "";
 
 	// Close.
-	document.getElementById("dialog-holder-bg").style.display = "none";
-	document.getElementById("del-custom-form-confirmation").classList.add("hidden");
+	closeDialog("del-custom-form-confirmation");
 }
 
 function delGameServer(button) {
@@ -1222,16 +1206,34 @@ function delGameServer(button) {
 	closeDeleteCustomGameConfirm();
 }
 
-function openDupeUpdateNotif() {
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("dupe-custom-notif").classList.remove("hidden");
-}
-
 function closeDupeUpdateNotif() {
 	// Reset table contents.
 	document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0].innerHTML = "";
 
 	// Close.
+	closeDialog("dupe-custom-notif");
+}
+
+function openDialog(id) {
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById(id).classList.remove("hidden");
+}
+
+function closeDialog(id) {
 	document.getElementById("dialog-holder-bg").style.display = "none";
-	document.getElementById("dupe-custom-notif").classList.add("hidden");
+	document.getElementById(id).classList.add("hidden");
+}
+
+function checkAndCloseConfirmations() {
+	// If confirmation is open, close it.
+	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
+		closeCustomGameConfirm();
+	}
+	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
+		closeDeleteCustomGameConfirm();
+	}
+	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
+		closeDupeUpdateNotif();
+	}
+}
 }
