@@ -27,20 +27,20 @@
 		</header>
 		<div id="dialog-holder-bg">
 			<form id="add-custom-form" class="dialog hidden">
-				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
 				<h2>Add custom game server</h2>
 				<p>This game server will be saved locally in your device's browser.<br />It will not show up for anyone else.</p>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-name-input">Game name </label>
 					<br />
 					<input type="text" name="game-name" id="custom-name-input" required />
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-server-input">Server region/language</label>
 					<br />
 					<input type="text" name="server" id="custom-server-input" required />
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-timezone-input">Server timezone</label>
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
@@ -51,7 +51,7 @@
 						<option value="">---</option>
 					</select>
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-daily-reset-input">Server daily reset time</label>
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
@@ -60,7 +60,7 @@
 					</div>
 					<input type="time" name="daily-reset" id="custom-daily-reset-input" required />
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<span>Daily reset affected by daylight savings</span>
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			<div id="del-custom-form-confirmation" class="dialog hidden">
-				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
 				<h2>Game server deletion</h2>
 				<p>Are you sure you want to delete <b id="del-cust-game"></b> server?</p>
 				<p><strong>This action cannot be undone.</strong></p>

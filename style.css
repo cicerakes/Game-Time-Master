@@ -557,7 +557,7 @@ input:checked + .slider:before {
 	margin-bottom: .3em;
 }
 
-#form-close-btn {
+.form-close-btn {
 	background-color: transparent;
 	border: none;
 	border-radius: 30px;
@@ -571,7 +571,7 @@ input:checked + .slider:before {
 	width: 40px;
 }
 
-#form-close-btn:hover {
+.form-close-btn:hover {
 	background: rgba(126, 86, 193, .15);
 }
 
@@ -583,7 +583,7 @@ input:checked + .slider:before {
 	margin-block-start: 0;
 }
 
-.add-custom-form-section {
+.form-section {
 	margin-bottom: 1.5em;
 }
 
