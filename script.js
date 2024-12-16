@@ -2,8 +2,8 @@
 var customGameData = [],
 customGameDupes = [];
 
-if (localStorage.getItem('custom-game-data') != null) {
-	customGameData = getLocalStorageObject('custom-game-data');
+if (localStorage.getItem("custom-game-data") != null) {
+	customGameData = getLocalStorageObject("custom-game-data");
 	gameData = gameData.concat(customGameData);
 	// Check for duplicates in custom in case it is added later in game-data.js.
 	gameData.forEach(serv => {
@@ -94,19 +94,19 @@ showSeconds = false,
 sortByTimeRemaining = false,
 showHidden = true;
 
-if (localStorage.getItem('12-hr-time-switch') == "true") {
+if (localStorage.getItem("12-hr-time-switch") == "true") {
 	twelveHourFormat = true;
 
 	document.getElementById("12-hr-time-switch").checked = true;
 
 	setTimeFormat();
 }
-if (localStorage.getItem('show-server-date-switch') == "true") {
+if (localStorage.getItem("show-server-date-switch") == "true") {
 	showServerDate = true;
 
 	document.getElementById("show-server-date-switch").checked = true;
 }
-if (localStorage.getItem('show-seconds-switch') == "true") {
+if (localStorage.getItem("show-seconds-switch") == "true") {
 	showSeconds = true;
 
 	document.getElementById("show-seconds-switch").checked = true;
@@ -118,25 +118,25 @@ if (localStorage.getItem("sort-by-time-remaining-switch") == "true") {
 
 	document.getElementById("sort-by-time-remaining-switch").checked = true;
 }
-if (localStorage.getItem('show-hide-buttons-switch') == "false") {
+if (localStorage.getItem("show-hide-buttons-switch") == "false") {
 	document.body.classList.add("hide-buttons-hidden");
 	document.getElementById("show-hide-buttons-switch").checked = false;
 }
-if (localStorage.getItem('show-hidden-in-search-switch') == "false") {
+if (localStorage.getItem("show-hidden-in-search-switch") == "false") {
 	showHidden = false;
 
 	document.getElementById("show-hidden-in-search-switch").checked = false;
 }
-if (localStorage.getItem('compact-mode-switch') == "true") {
+if (localStorage.getItem("compact-mode-switch") == "true") {
 	document.body.classList.add("compact");
 	document.getElementById("compact-mode-switch").checked = true;
 }
 // If there's no saved dark theme setting, check for OS theme and apply that.
 // OS theme is used until user manually changes this setting.
-if (localStorage.getItem('dark-theme-switch') == "true") {
+if (localStorage.getItem("dark-theme-switch") == "true") {
 	document.body.classList.add("dark");
 	document.getElementById("dark-theme-switch").checked = true;
-} else if (localStorage.getItem('dark-theme-switch') == "false") {
+} else if (localStorage.getItem("dark-theme-switch") == "false") {
 	// Do nothing and load default theme.
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 	document.body.classList.add("dark");
@@ -225,7 +225,7 @@ initialiseTimezoneList();
 
 function setRefresh() {
 	// Clear previous interval if it exists.
-	if (typeof refresh !== 'undefined') {
+	if (typeof refresh !== "undefined") {
 		clearInterval(refresh);
 	}
 
@@ -963,7 +963,7 @@ function initialiseTimezoneList() {
 	tzSelect = document.getElementById("custom-timezone-input");
 
 	timezones.forEach(tz => {
-		let tzOption = document.createElement('option'),
+		let tzOption = document.createElement("option"),
 		tzValue = tz;
 		tzOption.innerText = tz;
 		// Reverse the value of offsets so they functionally match display.
