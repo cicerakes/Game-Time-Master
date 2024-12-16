@@ -26,6 +26,35 @@
 			<h1>Game Time Master</h1>
 		</header>
 		<div id="dialog-holder-bg">
+			<form id="export-game-settings-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('export-game-settings-form')">✖</button>
+				<h2>Export game settings</h2>
+				<p>This will export the show/hide status of games, and any custom games you have added.</p>
+				<p>Copy the below text and save it wherever you wish.</p>
+				<div class="form-section">
+					<textarea id="exported-game-settings-textarea"></textarea>
+				</div>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-med" onclick="closeDialog('export-game-settings-form')">Close</button>
+					<button type="button" class="btn btn-high" onclick="exportToClipboard()">Copy to Clipboard</button>
+				</div>
+			</form>
+			<form id="import-game-settings-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeImportGameSettingsForm()">✖</button>
+				<h2>Import game settings</h2>
+				<p>This will import the show/hide status of games, and any custom games you have added.</p>
+				<p>Paste your saved text/code below.</p>
+				<p><strong>This will <u>replace</u> your existing game settings.</strong></p>
+				<p><strong>This action <u>cannot</u> be undone.</strong></p>
+				<p>The page will automatically refresh after importing.</p>
+				<div class="form-section">
+					<textarea id="imported-game-settings-textarea" required></textarea>
+				</div>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-med" onclick="closeImportGameSettingsForm()">Cancel</button>
+					<button type="button" class="btn btn-high" onclick="importGameSettings()">Import</button>
+				</div>
+			</form>
 			<form id="add-custom-form" class="dialog hidden">
 				<button type="button" class="form-close-btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
 				<h2>Add custom game server</h2>
@@ -93,7 +122,7 @@
 				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
 				<h2>Game server deletion</h2>
 				<p>Are you sure you want to delete <b id="del-cust-game"></b> server?</p>
-				<p><strong>This action cannot be undone.</strong></p>
+				<p><strong>This action <u>cannot</u> be undone.</strong></p>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-low" onclick="closeDeleteCustomGameConfirm()">Cancel</button>
 					<button type="button" id="del-custom-confirm-btn" class="btn btn-med red-text" onclick="delGameServer(this)" data-game-name="" data-server="">Delete</button>
@@ -186,6 +215,8 @@
 						<span class="slider"></span>
 					</label>
 				</label>
+				<button class="menu-item" onclick="openExportGameSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Game Settings</button>
+				<button class="menu-item" onclick="openImportGameSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Game Settings</button>
 			</div>
 			<div class="menu-section">
 				<h2 class="section-heading">Links</h2>

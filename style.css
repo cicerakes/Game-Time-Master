@@ -35,6 +35,11 @@ input[type='radio'] {
 	accent-color: #673ab7;
 }
 
+textarea {
+	width: 100%;
+	min-height: 3em;
+}
+
 .btn {
 	border-radius: 4px;
 	cursor: pointer;

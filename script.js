@@ -43,6 +43,8 @@ if (localStorage.getItem("custom-game-data") != null) {
 			}
 		}
 	});
+} else {
+	localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
 }
 
 // Notify user about duplicates that have been updated.
@@ -1239,4 +1241,53 @@ function checkAndCloseConfirmations() {
 		closeDupeUpdateNotif();
 	}
 }
+
+function openExportGameSettingsForm() {
+	checkAndCloseConfirmations();
+
+	openDialog("export-game-settings-form");
+
+	// Export.
+	document.getElementById("exported-game-settings-textarea").value = localStorage.getItem("gameFilterList") + "#SPLIT#" + localStorage.getItem("custom-game-data");
+}
+
+function openImportGameSettingsForm() {
+	checkAndCloseConfirmations();
+
+	openDialog("import-game-settings-form");
+}
+
+function closeImportGameSettingsForm() {
+	// Clear fields.
+	document.getElementById("import-game-settings-form").reset();
+
+	closeDialog("import-game-settings-form");
+}
+
+async function exportToClipboard() {
+	try {
+		await navigator.clipboard.writeText(document.getElementById("exported-game-settings-textarea").value);
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+
+function importGameSettings() {
+	if (document.forms["import-game-settings-form"].reportValidity()) {
+		const importText = document.getElementById("imported-game-settings-textarea").value.split("#SPLIT#");
+		// Update.
+		gameFilter = JSON.parse(importText[0]);
+		customGameData = JSON.parse(importText[1]);
+		// Store.
+		localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+		// Wait a second, then refresh page.
+		setTimeout(
+			function () {
+				location.reload();
+			},
+			1000
+		);
+	}
 }
