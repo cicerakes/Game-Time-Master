@@ -519,6 +519,9 @@ function hideFilteredGames() {
 				}
 			}
 		}
+	} else {
+		// If no saved filter, initialise a default.
+		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 	}
 }
 
