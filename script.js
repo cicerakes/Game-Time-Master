@@ -1273,6 +1273,13 @@ async function exportToClipboard() {
 	}
 }
 
+function exportToFile() {
+	let dlEle = document.createElement("a");
+	dlEle.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById("exported-game-settings-textarea").value);
+	dlEle.download = "game-time-master-export_" + moment().format("YYYY-MM-DD-HHmmss") + ".txt";
+	dlEle.click();
+}
+
 function importGameSettings() {
 	if (document.forms["import-game-settings-form"].reportValidity()) {
 		const importText = document.getElementById("imported-game-settings-textarea").value.split("#SPLIT#");

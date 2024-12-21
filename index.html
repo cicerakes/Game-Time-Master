@@ -30,13 +30,14 @@
 				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('export-game-settings-form')">✖</button>
 				<h2>Export game settings</h2>
 				<p>This will export the show/hide status of games, and any custom games you have added.</p>
-				<p>Copy the below text and save it wherever you wish.</p>
+				<p>Download or copy the below text and save it wherever you wish.</p>
 				<div class="form-section">
-					<textarea id="exported-game-settings-textarea"></textarea>
+					<textarea id="exported-game-settings-textarea" readonly></textarea>
 				</div>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-med" onclick="closeDialog('export-game-settings-form')">Close</button>
 					<button type="button" class="btn btn-high" onclick="exportToClipboard()">Copy to Clipboard</button>
+					<button type="button" class="btn btn-high" onclick="exportToFile()">Download File</button>
 				</div>
 			</form>
 			<form id="import-game-settings-form" class="dialog hidden">
