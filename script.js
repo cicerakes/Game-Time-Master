@@ -995,8 +995,7 @@ function toggleFormInfo(btn) {
 }
 
 function openCustomGameForm() {
-	// If confirmation is open, close it.
-	checkAndCloseConfirmations();
+	checkAndCloseOtherDialogs("add-custom-form");
 
 	openDialog("add-custom-form");
 }
@@ -1229,7 +1228,7 @@ function closeDialog(id) {
 	document.getElementById(id).classList.add("hidden");
 }
 
-function checkAndCloseConfirmations() {
+function checkAndCloseOtherDialogs(toOpen) {
 	// If confirmation is open, close it.
 	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
 		closeCustomGameConfirm();
@@ -1240,10 +1239,38 @@ function checkAndCloseConfirmations() {
 	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
 		closeDupeUpdateNotif();
 	}
+	// If any other form is open, close it.
+	switch (toOpen) {
+		case "add-custom-form":
+			if (!document.getElementById("import-game-settings-form").classList.contains("hidden")) {
+				closeImportGameSettingsForm();
+			}
+			if (!document.getElementById("export-game-settings-form").classList.contains("hidden")) {
+				closeDialog("export-game-settings-form");
+			}
+			break;
+		case "import-game-settings-form":
+			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
+				closeCustomGameForm();
+			}
+			if (!document.getElementById("export-game-settings-form").classList.contains("hidden")) {
+				closeDialog("export-game-settings-form");
+			}
+			break;
+		case "export-game-settings-form":
+			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
+				closeCustomGameForm();
+			}
+			if (!document.getElementById("import-game-settings-form").classList.contains("hidden")) {
+				closeImportGameSettingsForm();
+			}
+		default:
+			break;
+	}
 }
 
 function openExportGameSettingsForm() {
-	checkAndCloseConfirmations();
+	checkAndCloseOtherDialogs("export-game-settings-form");
 
 	openDialog("export-game-settings-form");
 
@@ -1252,7 +1279,7 @@ function openExportGameSettingsForm() {
 }
 
 function openImportGameSettingsForm() {
-	checkAndCloseConfirmations();
+	checkAndCloseOtherDialogs("import-game-settings-form");
 
 	openDialog("import-game-settings-form");
 }
