@@ -1242,54 +1242,96 @@ function checkAndCloseOtherDialogs(toOpen) {
 	// If any other form is open, close it.
 	switch (toOpen) {
 		case "add-custom-form":
-			if (!document.getElementById("import-game-settings-form").classList.contains("hidden")) {
-				closeImportGameSettingsForm();
+			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
+				closeImportGamesSettingsForm();
 			}
-			if (!document.getElementById("export-game-settings-form").classList.contains("hidden")) {
-				closeDialog("export-game-settings-form");
+			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
+				closeDialog("export-games-settings-form");
 			}
 			break;
-		case "import-game-settings-form":
+		case "import-games-settings-form":
 			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
 				closeCustomGameForm();
 			}
-			if (!document.getElementById("export-game-settings-form").classList.contains("hidden")) {
-				closeDialog("export-game-settings-form");
+			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
+				closeDialog("export-games-settings-form");
 			}
 			break;
-		case "export-game-settings-form":
+		case "export-games-settings-form":
 			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
 				closeCustomGameForm();
 			}
-			if (!document.getElementById("import-game-settings-form").classList.contains("hidden")) {
-				closeImportGameSettingsForm();
+			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
+				closeImportGamesSettingsForm();
 			}
 		default:
 			break;
 	}
 }
 
-function openExportGameSettingsForm() {
-	checkAndCloseOtherDialogs("export-game-settings-form");
+function openExportGamesSettingsForm() {
+	checkAndCloseOtherDialogs("export-games-settings-form");
 
-	openDialog("export-game-settings-form");
+	openDialog("export-games-settings-form");
+
+	// Convert saved settings to array for export.
+	let savedSettings = [
+		{
+			name: "12-hr-time-switch",
+			checked: "false"
+		},
+		{
+			name: "show-server-date-switch",
+			checked: "false"
+		},
+		{
+			name: "show-seconds-switch",
+			checked: "false"
+		},
+		{
+			name: "sort-by-time-remaining-switch",
+			checked: "false"
+		},
+		{
+			name: "show-hide-buttons-switch",
+			checked: "true"
+		},
+		{
+			name: "show-hidden-in-search-switch",
+			checked: "true"
+		},
+		{
+			name: "compact-mode-switch",
+			checked: "false"
+		},
+		{
+			name: "dark-theme-switch",
+			checked: "false"
+		}
+	];
+	savedSettings.forEach(setting => {
+		// If setting not yet changed by user, will return null, so leave as default.
+		if (localStorage.getItem(setting.name) != null) {
+			setting.checked = localStorage.getItem(setting.name);
+		}
+	});
 
 	// Export.
-	document.getElementById("exported-game-settings-textarea").value = localStorage.getItem("gameFilterList") + "#SPLIT#" + localStorage.getItem("custom-game-data");
+	document.getElementById("exported-game-settings-textarea").value = localStorage.getItem("gameFilterList") + "#SPLIT#" + localStorage.getItem("custom-game-data") + "#SPLIT#" + JSON.stringify(savedSettings);
 }
 
-function openImportGameSettingsForm() {
-	checkAndCloseOtherDialogs("import-game-settings-form");
+function openImportGamesSettingsForm() {
+	checkAndCloseOtherDialogs("import-games-settings-form");
 
-	openDialog("import-game-settings-form");
+	openDialog("import-games-settings-form");
 }
 
-function closeImportGameSettingsForm() {
+function closeImportGamesSettingsForm() {
 	// Clear fields.
-	document.getElementById("import-game-settings-form").reset();
-	document.getElementById("import-game-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
+	document.getElementById("import-games-settings-form").reset();
+	document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
 
-	closeDialog("import-game-settings-form");
+	closeDialog("import-games-settings-form");
 }
 
 async function exportToClipboard() {
@@ -1307,8 +1349,8 @@ function exportToFile() {
 	dlEle.click();
 }
 
-function importGameSettings() {
-	if (document.forms["import-game-settings-form"].reportValidity()) {
+function importGamesSettings() {
+	if (document.forms["import-games-settings-form"].reportValidity()) {
 		const importText = document.getElementById("imported-game-settings-textarea").value.split("#SPLIT#");
 		try {
 			// Update.
@@ -1318,9 +1360,15 @@ function importGameSettings() {
 			// Store.
 			localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
 			localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+			// Parse and store settings.
+			const importedSettings = JSON.parse(importText[2]);
+			importedSettings.forEach(setting => {
+				localStorage.setItem(setting.name, setting.checked);
+			});
 			
 			// Hide error if currently displayed.
-			document.getElementById("import-game-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
+			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
 	
 			// Wait a second, then refresh page.
 			setTimeout(
@@ -1331,7 +1379,7 @@ function importGameSettings() {
 			);
 		} catch (error) {
 			console.error(error.message);
-			document.getElementById("import-game-settings-form").getElementsByClassName("red-text")[0].classList.remove("hidden");
+			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.remove("hidden");
 		}
 	}
 }

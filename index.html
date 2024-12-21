@@ -26,26 +26,36 @@
 			<h1>Game Time Master</h1>
 		</header>
 		<div id="dialog-holder-bg">
-			<form id="export-game-settings-form" class="dialog hidden">
-				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('export-game-settings-form')">✖</button>
-				<h2>Export game settings</h2>
-				<p>This will export the show/hide status of games, and any custom games you have added.</p>
+			<form id="export-games-settings-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('export-games-settings-form')">✖</button>
+				<h2>Export data</h2>
+				<p>This will export: </p>
+				<ul>
+					<li>the show/hide status of games, </li>
+					<li>any custom games you have added, </li>
+					<li>website settings.</li>
+				</ul>
 				<p>Download or copy the below text and save it wherever you wish.</p>
 				<div class="form-section">
 					<textarea id="exported-game-settings-textarea" readonly></textarea>
 				</div>
 				<div class="dialog-btns">
-					<button type="button" class="btn btn-med" onclick="closeDialog('export-game-settings-form')">Close</button>
+					<button type="button" class="btn btn-med" onclick="closeDialog('export-games-settings-form')">Close</button>
 					<button type="button" class="btn btn-high" onclick="exportToClipboard()">Copy to Clipboard</button>
 					<button type="button" class="btn btn-high" onclick="exportToFile()">Download File</button>
 				</div>
 			</form>
-			<form id="import-game-settings-form" class="dialog hidden">
-				<button type="button" class="form-close-btn" title="Cancel" onclick="closeImportGameSettingsForm()">✖</button>
-				<h2>Import game settings</h2>
-				<p>This will import the show/hide status of games, and any custom games you have added.</p>
+			<form id="import-games-settings-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeImportGamesSettingsForm()">✖</button>
+				<h2>Import data</h2>
+				<p>This will import: </p>
+				<ul>
+					<li>the show/hide status of games, </li>
+					<li>any custom games you have added, </li>
+					<li>website settings.</li>
+				</ul>
 				<p>Paste your saved text/code below.</p>
-				<p><strong>This will <u>replace</u> your existing game settings.</strong></p>
+				<p><strong>This will <u>replace</u> your existing data.</strong></p>
 				<p><strong>This action <u>cannot</u> be undone.</strong></p>
 				<p>The page will automatically refresh after importing.</p>
 				<div class="form-section">
@@ -53,8 +63,8 @@
 					<p class="hidden red-text">An error has occurred while trying to import.<br />Please ensure your import code is valid.</p>
 				</div>
 				<div class="dialog-btns">
-					<button type="button" class="btn btn-med" onclick="closeImportGameSettingsForm()">Cancel</button>
-					<button type="button" class="btn btn-high" onclick="importGameSettings()">Import</button>
+					<button type="button" class="btn btn-med" onclick="closeImportGamesSettingsForm()">Cancel</button>
+					<button type="button" class="btn btn-high" onclick="importGamesSettings()">Import</button>
 				</div>
 			</form>
 			<form id="add-custom-form" class="dialog hidden">
@@ -217,8 +227,8 @@
 						<span class="slider"></span>
 					</label>
 				</label>
-				<button class="menu-item" onclick="openExportGameSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Game Settings</button>
-				<button class="menu-item" onclick="openImportGameSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Game Settings</button>
+				<button class="menu-item" onclick="openExportGamesSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Data</button>
+				<button class="menu-item" onclick="openImportGamesSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Data</button>
 			</div>
 			<div class="menu-section">
 				<h2 class="section-heading">Links</h2>
