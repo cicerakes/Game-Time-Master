@@ -35,6 +35,10 @@ input[type='radio'] {
 	accent-color: #673ab7;
 }
 
+input[type='file'] {
+	background: none !important;
+}
+
 textarea {
 	width: 100%;
 	min-height: 4em;
