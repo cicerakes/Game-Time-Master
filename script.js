@@ -1317,7 +1317,7 @@ function openExportGamesSettingsForm() {
 	});
 
 	// Export.
-	document.getElementById("exported-game-settings-textarea").value = localStorage.getItem("gameFilterList") + "#SPLIT#" + localStorage.getItem("custom-game-data") + "#SPLIT#" + JSON.stringify(savedSettings);
+	document.getElementById("exported-games-settings-textarea").value = localStorage.getItem("gameFilterList") + "#SPLIT#" + localStorage.getItem("custom-game-data") + "#SPLIT#" + JSON.stringify(savedSettings);
 }
 
 function openImportGamesSettingsForm() {
@@ -1336,7 +1336,7 @@ function closeImportGamesSettingsForm() {
 
 async function exportToClipboard() {
 	try {
-		await navigator.clipboard.writeText(document.getElementById("exported-game-settings-textarea").value);
+		await navigator.clipboard.writeText(document.getElementById("exported-games-settings-textarea").value);
 	} catch (error) {
 		console.error(error.message);
 	}
@@ -1344,14 +1344,53 @@ async function exportToClipboard() {
 
 function exportToFile() {
 	let dlEle = document.createElement("a");
-	dlEle.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById("exported-game-settings-textarea").value);
+	dlEle.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById("exported-games-settings-textarea").value);
 	dlEle.download = "game-time-master-export_" + moment().format("YYYY-MM-DD-HHmmss") + ".txt";
 	dlEle.click();
 }
 
-function importGamesSettings() {
+function toggleImportMethodDisplay() {
+	const formData = new FormData(document.getElementById("import-games-settings-form"));
+	if (formData.get("imported-games-settings-method") == "paste") {
+		document.getElementById("import-form-paste-section").classList.remove("hidden");
+		document.getElementById("import-form-file-section").classList.add("hidden");
+
+		document.getElementById("imported-games-settings-textarea").required = true;
+		document.getElementById("imported-games-settings-file-input").required = false;
+	} else if (formData.get("imported-games-settings-method") == "file") {
+		document.getElementById("import-form-file-section").classList.remove("hidden");
+		document.getElementById("import-form-paste-section").classList.add("hidden");
+
+		document.getElementById("imported-games-settings-file-input").required = true;
+		document.getElementById("imported-games-settings-textarea").required = false;
+	}
+}
+
+function readTextFile(file) {
+	return new Promise((resolve, reject) => {
+		const fr = new FileReader();  
+		fr.onload = () => {
+			resolve(fr.result);
+		};
+		fr.onerror = reject;
+		fr.readAsText(file);
+	});
+}
+
+async function importGamesSettings() {
+	let importText;
+	const formData = new FormData(document.getElementById("import-games-settings-form"));
+	
 	if (document.forms["import-games-settings-form"].reportValidity()) {
-		const importText = document.getElementById("imported-game-settings-textarea").value.split("#SPLIT#");
+		// Read input depending on method chosen.
+		if (formData.get("imported-games-settings-method") == "paste") {
+			importText = document.getElementById("imported-games-settings-textarea").value.split("#SPLIT#");
+		} else if (formData.get("imported-games-settings-method") == "file") {
+			const importFile = document.getElementById("imported-games-settings-file-input").files[0];
+			const importedFile = await readTextFile(importFile);
+			importText = importedFile.split("#SPLIT#");
+		}
+		// Process import text.
 		try {
 			// Update.
 			gameFilter = JSON.parse(importText[0]);
@@ -1366,10 +1405,10 @@ function importGamesSettings() {
 			importedSettings.forEach(setting => {
 				localStorage.setItem(setting.name, setting.checked);
 			});
-			
+
 			// Hide error if currently displayed.
 			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
-	
+
 			// Wait a second, then refresh page.
 			setTimeout(
 				function () {

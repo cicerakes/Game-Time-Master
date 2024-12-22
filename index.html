@@ -37,7 +37,7 @@
 				</ul>
 				<p>Download or copy the below text and save it wherever you wish.</p>
 				<div class="form-section">
-					<textarea id="exported-game-settings-textarea" readonly></textarea>
+					<textarea id="exported-games-settings-textarea" readonly></textarea>
 				</div>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-med" onclick="closeDialog('export-games-settings-form')">Close</button>
@@ -54,14 +54,28 @@
 					<li>any custom games you have added, </li>
 					<li>website settings.</li>
 				</ul>
-				<p>Paste your saved text/code below.</p>
 				<p><strong>This will <u>replace</u> your existing data.</strong></p>
 				<p><strong>This action <u>cannot</u> be undone.</strong></p>
 				<p>The page will automatically refresh after importing.</p>
+				<hr>
 				<div class="form-section">
-					<textarea id="imported-game-settings-textarea" required></textarea>
-					<p class="hidden red-text">An error has occurred while trying to import.<br />Please ensure your import code is valid.</p>
+					<span>Import method</span>
+					<br />
+					<input type="radio" name="imported-games-settings-method" id="imported-games-settings-paste-method" value="paste" onchange="toggleImportMethodDisplay()" required checked />
+					<label for="imported-games-settings-paste-method">Paste text/code</label>
+					<br />
+					<input type="radio" name="imported-games-settings-method" id="imported-games-settings-file-method" value="file" onchange="toggleImportMethodDisplay()" required />
+					<label for="imported-games-settings-file-method">Upload file</label>
 				</div>
+				<div id="import-form-paste-section" class="form-section">
+					<p>Paste your saved text/code below, or choose a different method above.</p>
+					<textarea id="imported-games-settings-textarea" required></textarea>
+				</div>
+				<div id="import-form-file-section" class="form-section hidden">
+					<p>Select your saved .txt file below, or choose a different method above.</p>
+					<input type="file" id="imported-games-settings-file-input" accept=".txt" />
+				</div>
+				<p class="hidden red-text">An error has occurred while trying to import.<br />Please ensure your import code/file is valid.</p>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-med" onclick="closeImportGamesSettingsForm()">Cancel</button>
 					<button type="button" class="btn btn-high" onclick="importGamesSettings()">Import</button>

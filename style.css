@@ -40,6 +40,10 @@ textarea {
 	min-height: 4em;
 }
 
+hr {
+	border: 1px solid #d2d2d2;
+}
+
 .btn {
 	border-radius: 4px;
 	cursor: pointer;
@@ -551,7 +555,7 @@ input:checked + .slider:before {
 	border: 2px solid #673ab7
 }
 
-#add-custom-form label, #add-custom-form span {
+form label, form span {
 	display: inline-block;
 	font-size: 22px;
 	margin-bottom: .3em;
@@ -786,6 +790,10 @@ input:checked + .slider:before {
 
 .dark .red-text {
     color: #ff4646;
+}
+
+.dark hr {
+	border-color: #404040;
 }
 
 .compact .server-times {
