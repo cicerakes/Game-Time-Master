@@ -1331,6 +1331,15 @@ function closeImportGamesSettingsForm() {
 	document.getElementById("import-games-settings-form").reset();
 	document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
 
+	// Reset method to paste.
+	document.getElementById("import-form-paste-section").classList.remove("hidden");
+	document.getElementById("import-form-file-section").classList.add("hidden");
+
+	document.getElementById("imported-games-settings-textarea").required = true;
+	document.getElementById("imported-games-settings-file-input").required = false;
+
+	document.getElementById("imported-games-settings-paste-method").checked = true;
+
 	closeDialog("import-games-settings-form");
 }
 
