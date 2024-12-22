@@ -35,6 +35,19 @@ input[type='radio'] {
 	accent-color: #673ab7;
 }
 
+input[type='file'] {
+	background: none !important;
+}
+
+textarea {
+	width: 100%;
+	min-height: 4em;
+}
+
+hr {
+	border: 1px solid #d2d2d2;
+}
+
 .btn {
 	border-radius: 4px;
 	cursor: pointer;
@@ -525,7 +538,7 @@ input:checked + .slider:before {
 	border-radius: 4px;
 	box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
 	margin-top: 100px;
-	max-height: 80%;
+	max-height: calc(93vh - 65px);
 	overflow-y: auto;
 	padding: 1.5em;
 }
@@ -535,29 +548,24 @@ input:checked + .slider:before {
 	margin-block-start: 0;
 }
 
-
-#add-custom-form input[type="text"], #add-custom-form input[type="time"], #add-custom-form select {
+.dialog input[type="text"], .dialog input[type="time"], .dialog select, .dialog textarea {
 	border: 1px solid #999;
 	border-radius: 3px;
 	padding: .2em;
 }
 
-#add-custom-form button:last-of-type {
-	margin-left: 1em;
-}
-
-#add-custom-form input[type="text"]:focus, #add-custom-form input[type="time"]:focus, #add-custom-form select:focus {
+.dialog input[type="text"]:focus, .dialog input[type="time"]:focus, .dialog select:focus, .dialog textarea:focus {
 	outline: none;
 	border: 2px solid #673ab7
 }
 
-#add-custom-form label, #add-custom-form span {
+form label, form span {
 	display: inline-block;
 	font-size: 22px;
 	margin-bottom: .3em;
 }
 
-#form-close-btn {
+.form-close-btn {
 	background-color: transparent;
 	border: none;
 	border-radius: 30px;
@@ -571,7 +579,7 @@ input:checked + .slider:before {
 	width: 40px;
 }
 
-#form-close-btn:hover {
+.form-close-btn:hover {
 	background: rgba(126, 86, 193, .15);
 }
 
@@ -583,12 +591,18 @@ input:checked + .slider:before {
 	margin-block-start: 0;
 }
 
-.add-custom-form-section {
+.form-section {
 	margin-bottom: 1.5em;
 }
 
 .dialog-btns {
-	text-align: right;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+}
+
+.dialog-btns button {
+	margin: 1em 0 0 1em;
 }
 
 .more-info-btn {
@@ -641,12 +655,6 @@ input:checked + .slider:before {
 	#filter-search-box:focus + #filter-search-open {
 		display: none;
 	}
-
-	#add-custom-form {
-		margin-top: 65px;
-		max-height: 84%;
-		width: 100%;
-	}
 } 
 
 @media (max-width: 620px) {
@@ -657,6 +665,20 @@ input:checked + .slider:before {
 	header h1 {
 		font-size: 1.2em;
 		top: -6px;
+	}
+
+	.dialog-btns button {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	form {
+		margin-top: 63px !important;
+		width: 100%;
+	}
+
+	#add-custom-form input[type="text"], #add-custom-form select {
+		width: 100%;
 	}
 }
 
@@ -699,6 +721,10 @@ input:checked + .slider:before {
 
 .dark ::-webkit-scrollbar-thumb:active, .dark::-webkit-scrollbar-thumb:active {
 	background:rgba(126,86,193,0.3);
+}
+
+.dark ::-webkit-scrollbar-corner {
+	background-color:#323232;
 }
 
 .dark a {
@@ -753,7 +779,7 @@ input:checked + .slider:before {
 	background: #242424;
 }
 
-.dark input, .dark select {
+.dark input, .dark select, .dark textarea {
 	background: #2c2c2c;
 	color: #eee;
 }
@@ -768,6 +794,10 @@ input:checked + .slider:before {
 
 .dark .red-text {
     color: #ff4646;
+}
+
+.dark hr {
+	border-color: #404040;
 }
 
 .compact .server-times {

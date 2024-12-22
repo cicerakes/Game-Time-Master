@@ -26,21 +26,76 @@
 			<h1>Game Time Master</h1>
 		</header>
 		<div id="dialog-holder-bg">
+			<form id="export-games-settings-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('export-games-settings-form')">✖</button>
+				<h2>Export data</h2>
+				<p>This will export: </p>
+				<ul>
+					<li>the show/hide status of games, </li>
+					<li>any custom games you have added, </li>
+					<li>website settings.</li>
+				</ul>
+				<p>Download or copy the below text and save it wherever you wish.</p>
+				<div class="form-section">
+					<textarea id="exported-games-settings-textarea" readonly></textarea>
+				</div>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-med" onclick="closeDialog('export-games-settings-form')">Close</button>
+					<button type="button" class="btn btn-high" onclick="exportToClipboard()">Copy to Clipboard</button>
+					<button type="button" class="btn btn-high" onclick="exportToFile()">Download File</button>
+				</div>
+			</form>
+			<form id="import-games-settings-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeImportGamesSettingsForm()">✖</button>
+				<h2>Import data</h2>
+				<p>This will import: </p>
+				<ul>
+					<li>the show/hide status of games, </li>
+					<li>any custom games you have added, </li>
+					<li>website settings.</li>
+				</ul>
+				<p><strong>This will <u>replace</u> your existing data.</strong></p>
+				<p><strong>This action <u>cannot</u> be undone.</strong></p>
+				<p>The page will automatically refresh after importing.</p>
+				<hr>
+				<div class="form-section">
+					<span>Import method</span>
+					<br />
+					<input type="radio" name="imported-games-settings-method" id="imported-games-settings-paste-method" value="paste" onchange="toggleImportMethodDisplay()" required checked />
+					<label for="imported-games-settings-paste-method">Paste text/code</label>
+					<br />
+					<input type="radio" name="imported-games-settings-method" id="imported-games-settings-file-method" value="file" onchange="toggleImportMethodDisplay()" required />
+					<label for="imported-games-settings-file-method">Upload file</label>
+				</div>
+				<div id="import-form-paste-section" class="form-section">
+					<p>Paste your saved text/code below, or choose a different method above.</p>
+					<textarea id="imported-games-settings-textarea" required></textarea>
+				</div>
+				<div id="import-form-file-section" class="form-section hidden">
+					<p>Select your saved .txt file below, or choose a different method above.</p>
+					<input type="file" id="imported-games-settings-file-input" accept=".txt" />
+				</div>
+				<p class="hidden red-text">An error has occurred while trying to import.<br />Please ensure your import code/file is valid.</p>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-med" onclick="closeImportGamesSettingsForm()">Cancel</button>
+					<button type="button" class="btn btn-high" onclick="importGamesSettings()">Import</button>
+				</div>
+			</form>
 			<form id="add-custom-form" class="dialog hidden">
-				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeCustomGameForm()">✖</button>
 				<h2>Add custom game server</h2>
 				<p>This game server will be saved locally in your device's browser.<br />It will not show up for anyone else.</p>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-name-input">Game name </label>
 					<br />
 					<input type="text" name="game-name" id="custom-name-input" required />
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-server-input">Server region/language</label>
 					<br />
 					<input type="text" name="server" id="custom-server-input" required />
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-timezone-input">Server timezone</label>
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
@@ -51,7 +106,7 @@
 						<option value="">---</option>
 					</select>
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<label for="custom-daily-reset-input">Server daily reset time</label>
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
@@ -60,7 +115,7 @@
 					</div>
 					<input type="time" name="daily-reset" id="custom-daily-reset-input" required />
 				</div>
-				<div class="add-custom-form-section">
+				<div class="form-section">
 					<span>Daily reset affected by daylight savings</span>
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
@@ -90,10 +145,10 @@
 				</div>
 			</div>
 			<div id="del-custom-form-confirmation" class="dialog hidden">
-				<button type="button" id="form-close-btn" class="btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDeleteCustomGameConfirm()">✖</button>
 				<h2>Game server deletion</h2>
 				<p>Are you sure you want to delete <b id="del-cust-game"></b> server?</p>
-				<p><strong>This action cannot be undone.</strong></p>
+				<p><strong>This action <u>cannot</u> be undone.</strong></p>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-low" onclick="closeDeleteCustomGameConfirm()">Cancel</button>
 					<button type="button" id="del-custom-confirm-btn" class="btn btn-med red-text" onclick="delGameServer(this)" data-game-name="" data-server="">Delete</button>
@@ -186,6 +241,8 @@
 						<span class="slider"></span>
 					</label>
 				</label>
+				<button class="menu-item" onclick="openExportGamesSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Data</button>
+				<button class="menu-item" onclick="openImportGamesSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Data</button>
 			</div>
 			<div class="menu-section">
 				<h2 class="section-heading">Links</h2>

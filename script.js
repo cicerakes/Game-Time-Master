@@ -2,8 +2,8 @@
 var customGameData = [],
 customGameDupes = [];
 
-if (localStorage.getItem('custom-game-data') != null) {
-	customGameData = getLocalStorageObject('custom-game-data');
+if (localStorage.getItem("custom-game-data") != null) {
+	customGameData = getLocalStorageObject("custom-game-data");
 	gameData = gameData.concat(customGameData);
 	// Check for duplicates in custom in case it is added later in game-data.js.
 	gameData.forEach(serv => {
@@ -43,6 +43,8 @@ if (localStorage.getItem('custom-game-data') != null) {
 			}
 		}
 	});
+} else {
+	localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
 }
 
 // Notify user about duplicates that have been updated.
@@ -64,7 +66,7 @@ if (customGameDupes.length > 0) {
 	});
 
 	// Display notification.
-	openDupeUpdateNotif();
+	openDialog("dupe-custom-notif");
 }
 
 // Ensure gameData is sorted.
@@ -94,19 +96,19 @@ showSeconds = false,
 sortByTimeRemaining = false,
 showHidden = true;
 
-if (localStorage.getItem('12-hr-time-switch') == "true") {
+if (localStorage.getItem("12-hr-time-switch") == "true") {
 	twelveHourFormat = true;
 
 	document.getElementById("12-hr-time-switch").checked = true;
 
 	setTimeFormat();
 }
-if (localStorage.getItem('show-server-date-switch') == "true") {
+if (localStorage.getItem("show-server-date-switch") == "true") {
 	showServerDate = true;
 
 	document.getElementById("show-server-date-switch").checked = true;
 }
-if (localStorage.getItem('show-seconds-switch') == "true") {
+if (localStorage.getItem("show-seconds-switch") == "true") {
 	showSeconds = true;
 
 	document.getElementById("show-seconds-switch").checked = true;
@@ -118,25 +120,25 @@ if (localStorage.getItem("sort-by-time-remaining-switch") == "true") {
 
 	document.getElementById("sort-by-time-remaining-switch").checked = true;
 }
-if (localStorage.getItem('show-hide-buttons-switch') == "false") {
+if (localStorage.getItem("show-hide-buttons-switch") == "false") {
 	document.body.classList.add("hide-buttons-hidden");
 	document.getElementById("show-hide-buttons-switch").checked = false;
 }
-if (localStorage.getItem('show-hidden-in-search-switch') == "false") {
+if (localStorage.getItem("show-hidden-in-search-switch") == "false") {
 	showHidden = false;
 
 	document.getElementById("show-hidden-in-search-switch").checked = false;
 }
-if (localStorage.getItem('compact-mode-switch') == "true") {
+if (localStorage.getItem("compact-mode-switch") == "true") {
 	document.body.classList.add("compact");
 	document.getElementById("compact-mode-switch").checked = true;
 }
 // If there's no saved dark theme setting, check for OS theme and apply that.
 // OS theme is used until user manually changes this setting.
-if (localStorage.getItem('dark-theme-switch') == "true") {
+if (localStorage.getItem("dark-theme-switch") == "true") {
 	document.body.classList.add("dark");
 	document.getElementById("dark-theme-switch").checked = true;
-} else if (localStorage.getItem('dark-theme-switch') == "false") {
+} else if (localStorage.getItem("dark-theme-switch") == "false") {
 	// Do nothing and load default theme.
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 	document.body.classList.add("dark");
@@ -225,7 +227,7 @@ initialiseTimezoneList();
 
 function setRefresh() {
 	// Clear previous interval if it exists.
-	if (typeof refresh !== 'undefined') {
+	if (typeof refresh !== "undefined") {
 		clearInterval(refresh);
 	}
 
@@ -519,6 +521,9 @@ function hideFilteredGames() {
 				}
 			}
 		}
+	} else {
+		// If no saved filter, initialise a default.
+		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
 	}
 }
 
@@ -960,7 +965,7 @@ function initialiseTimezoneList() {
 	tzSelect = document.getElementById("custom-timezone-input");
 
 	timezones.forEach(tz => {
-		let tzOption = document.createElement('option'),
+		let tzOption = document.createElement("option"),
 		tzValue = tz;
 		tzOption.innerText = tz;
 		// Reverse the value of offsets so they functionally match display.
@@ -990,19 +995,9 @@ function toggleFormInfo(btn) {
 }
 
 function openCustomGameForm() {
-	// If confirmation is open, close it.
-	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
-		closeCustomGameConfirm();
-	}
-	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
-		closeDeleteCustomGameConfirm();
-	}
-	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
-		closeDupeUpdateNotif();
-	}
+	checkAndCloseOtherDialogs("add-custom-form");
 
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("add-custom-form").classList.remove("hidden");
+	openDialog("add-custom-form");
 }
 
 function closeCustomGameForm() {
@@ -1019,10 +1014,7 @@ function closeCustomGameForm() {
 		}
 	}
 
-	// Close form.
-	document.getElementById("add-custom-form").classList.add("hidden");
-	// Close dialog holder.
-	document.getElementById("dialog-holder-bg").style.display = "none";
+	closeDialog("add-custom-form");
 }
 
 function submitCustomGameForm() {
@@ -1143,8 +1135,7 @@ function openCustomGameConfirm(numberedServer) {
 		document.getElementById("dupe-cust-game").innerHTML = numberedServer;
 	}
 
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("add-custom-form-confirmation").classList.remove("hidden");
+	openDialog("add-custom-form-confirmation");
 }
 
 function closeCustomGameConfirm() {
@@ -1155,8 +1146,7 @@ function closeCustomGameConfirm() {
 	document.getElementById("dupe-cust-game").innerHTML = "";
 
 	// Close.
-	document.getElementById("dialog-holder-bg").style.display = "none";
-	document.getElementById("add-custom-form-confirmation").classList.add("hidden");
+	closeDialog("add-custom-form-confirmation");
 }
 
 function openDeleteCustomGameConfirm(button) {
@@ -1167,8 +1157,7 @@ function openDeleteCustomGameConfirm(button) {
 
 	// Display confirmation.
 	document.getElementById("del-cust-game").innerText = gameName + " - " + server;
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("del-custom-form-confirmation").classList.remove("hidden");
+	openDialog("del-custom-form-confirmation");
 
 	// Prepare to delete.
 	document.getElementById("del-custom-confirm-btn").dataset.gameName = gameName;
@@ -1182,8 +1171,7 @@ function closeDeleteCustomGameConfirm() {
 	document.getElementById("del-custom-confirm-btn").dataset.server = "";
 
 	// Close.
-	document.getElementById("dialog-holder-bg").style.display = "none";
-	document.getElementById("del-custom-form-confirmation").classList.add("hidden");
+	closeDialog("del-custom-form-confirmation");
 }
 
 function delGameServer(button) {
@@ -1222,16 +1210,224 @@ function delGameServer(button) {
 	closeDeleteCustomGameConfirm();
 }
 
-function openDupeUpdateNotif() {
-	document.getElementById("dialog-holder-bg").style.display = "flex";
-	document.getElementById("dupe-custom-notif").classList.remove("hidden");
-}
-
 function closeDupeUpdateNotif() {
 	// Reset table contents.
 	document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0].innerHTML = "";
 
 	// Close.
+	closeDialog("dupe-custom-notif");
+}
+
+function openDialog(id) {
+	document.getElementById("dialog-holder-bg").style.display = "flex";
+	document.getElementById(id).classList.remove("hidden");
+}
+
+function closeDialog(id) {
 	document.getElementById("dialog-holder-bg").style.display = "none";
-	document.getElementById("dupe-custom-notif").classList.add("hidden");
+	document.getElementById(id).classList.add("hidden");
+}
+
+function checkAndCloseOtherDialogs(toOpen) {
+	// If confirmation is open, close it.
+	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
+		closeCustomGameConfirm();
+	}
+	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
+		closeDeleteCustomGameConfirm();
+	}
+	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
+		closeDupeUpdateNotif();
+	}
+	// If any other form is open, close it.
+	switch (toOpen) {
+		case "add-custom-form":
+			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
+				closeImportGamesSettingsForm();
+			}
+			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
+				closeDialog("export-games-settings-form");
+			}
+			break;
+		case "import-games-settings-form":
+			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
+				closeCustomGameForm();
+			}
+			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
+				closeDialog("export-games-settings-form");
+			}
+			break;
+		case "export-games-settings-form":
+			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
+				closeCustomGameForm();
+			}
+			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
+				closeImportGamesSettingsForm();
+			}
+		default:
+			break;
+	}
+}
+
+function openExportGamesSettingsForm() {
+	checkAndCloseOtherDialogs("export-games-settings-form");
+
+	openDialog("export-games-settings-form");
+
+	// Convert saved settings to array for export.
+	let savedSettings = [
+		{
+			name: "12-hr-time-switch",
+			checked: "false"
+		},
+		{
+			name: "show-server-date-switch",
+			checked: "false"
+		},
+		{
+			name: "show-seconds-switch",
+			checked: "false"
+		},
+		{
+			name: "sort-by-time-remaining-switch",
+			checked: "false"
+		},
+		{
+			name: "show-hide-buttons-switch",
+			checked: "true"
+		},
+		{
+			name: "show-hidden-in-search-switch",
+			checked: "true"
+		},
+		{
+			name: "compact-mode-switch",
+			checked: "false"
+		},
+		{
+			name: "dark-theme-switch",
+			checked: "false"
+		}
+	];
+	savedSettings.forEach(setting => {
+		// If setting not yet changed by user, will return null, so leave as default.
+		if (localStorage.getItem(setting.name) != null) {
+			setting.checked = localStorage.getItem(setting.name);
+		}
+	});
+
+	// Export.
+	document.getElementById("exported-games-settings-textarea").value = localStorage.getItem("gameFilterList") + "#SPLIT#" + localStorage.getItem("custom-game-data") + "#SPLIT#" + JSON.stringify(savedSettings);
+}
+
+function openImportGamesSettingsForm() {
+	checkAndCloseOtherDialogs("import-games-settings-form");
+
+	openDialog("import-games-settings-form");
+}
+
+function closeImportGamesSettingsForm() {
+	// Clear fields.
+	document.getElementById("import-games-settings-form").reset();
+	document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
+
+	// Reset method to paste.
+	document.getElementById("import-form-paste-section").classList.remove("hidden");
+	document.getElementById("import-form-file-section").classList.add("hidden");
+
+	document.getElementById("imported-games-settings-textarea").required = true;
+	document.getElementById("imported-games-settings-file-input").required = false;
+
+	document.getElementById("imported-games-settings-paste-method").checked = true;
+
+	closeDialog("import-games-settings-form");
+}
+
+async function exportToClipboard() {
+	try {
+		await navigator.clipboard.writeText(document.getElementById("exported-games-settings-textarea").value);
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+
+function exportToFile() {
+	let dlEle = document.createElement("a");
+	dlEle.href = "data:text/plain;charset=utf-8," + encodeURIComponent(document.getElementById("exported-games-settings-textarea").value);
+	dlEle.download = "game-time-master-export_" + moment().format("YYYY-MM-DD-HHmmss") + ".txt";
+	dlEle.click();
+}
+
+function toggleImportMethodDisplay() {
+	const formData = new FormData(document.getElementById("import-games-settings-form"));
+	if (formData.get("imported-games-settings-method") == "paste") {
+		document.getElementById("import-form-paste-section").classList.remove("hidden");
+		document.getElementById("import-form-file-section").classList.add("hidden");
+
+		document.getElementById("imported-games-settings-textarea").required = true;
+		document.getElementById("imported-games-settings-file-input").required = false;
+	} else if (formData.get("imported-games-settings-method") == "file") {
+		document.getElementById("import-form-file-section").classList.remove("hidden");
+		document.getElementById("import-form-paste-section").classList.add("hidden");
+
+		document.getElementById("imported-games-settings-file-input").required = true;
+		document.getElementById("imported-games-settings-textarea").required = false;
+	}
+}
+
+function readTextFile(file) {
+	return new Promise((resolve, reject) => {
+		const fr = new FileReader();  
+		fr.onload = () => {
+			resolve(fr.result);
+		};
+		fr.onerror = reject;
+		fr.readAsText(file);
+	});
+}
+
+async function importGamesSettings() {
+	let importText;
+	const formData = new FormData(document.getElementById("import-games-settings-form"));
+	
+	if (document.forms["import-games-settings-form"].reportValidity()) {
+		// Read input depending on method chosen.
+		if (formData.get("imported-games-settings-method") == "paste") {
+			importText = document.getElementById("imported-games-settings-textarea").value.split("#SPLIT#");
+		} else if (formData.get("imported-games-settings-method") == "file") {
+			const importFile = document.getElementById("imported-games-settings-file-input").files[0];
+			const importedFile = await readTextFile(importFile);
+			importText = importedFile.split("#SPLIT#");
+		}
+		// Process import text.
+		try {
+			// Update.
+			gameFilter = JSON.parse(importText[0]);
+			customGameData = JSON.parse(importText[1]);
+		
+			// Store.
+			localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+			localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+			// Parse and store settings.
+			const importedSettings = JSON.parse(importText[2]);
+			importedSettings.forEach(setting => {
+				localStorage.setItem(setting.name, setting.checked);
+			});
+
+			// Hide error if currently displayed.
+			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.add("hidden");
+
+			// Wait a second, then refresh page.
+			setTimeout(
+				function () {
+					location.reload();
+				},
+				1000
+			);
+		} catch (error) {
+			console.error(error.message);
+			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.remove("hidden");
+		}
+	}
 }
