@@ -1486,6 +1486,13 @@ var gameData = [
 		icon: "pokemon-tcg-live"
 	},
 	{
+		game: "Pokémon TCG Pocket",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "06:00",
+		icon: "pokemon-tcg-pocket"
+	},
+	{
 		game: "Pokémon UNITE",
 		server: "Global",
 		timezone: "Etc/UTC",
