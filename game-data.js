@@ -2007,10 +2007,17 @@ var gameData = [
 		icon: "ulala-idle-adventure"
 	},
 	{
-		game: "Uma Musume Pretty Derby",
+		game: "Umamusume: Pretty Derby",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
+		icon: "uma-musume-pretty-derby"
+	},
+	{
+		game: "Umamusume: Pretty Derby",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "03:00",
 		icon: "uma-musume-pretty-derby"
 	},
 	{
