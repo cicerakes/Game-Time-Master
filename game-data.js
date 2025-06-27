@@ -1465,6 +1465,20 @@ var gameData = [
 		icon: "path-to-nowhere"
 	},
 	{
+		game: "Persona5: The Phantom X",
+		server: "Global/CN/TW/JP",
+		timezone: "Etc/UTC",
+		dailyReset: "20:00",
+		icon: "persona5-the-phantom-x"
+	},
+		{
+		game: "Persona5: The Phantom X",
+		server: "KR",
+		timezone: "Asia/Seoul",
+		dailyReset: "09:00",
+		icon: "persona5-the-phantom-x"
+	},
+	{
 		game: "Phantasy Star Online 2: New Genesis",
 		server: "Global",
 		timezone: "America/Los_Angeles",
@@ -2017,7 +2031,7 @@ var gameData = [
 		game: "Umamusume: Pretty Derby",
 		server: "Global",
 		timezone: "Etc/UTC",
-		dailyReset: "03:00",
+		dailyReset: "15:00",
 		icon: "uma-musume-pretty-derby"
 	},
 	{
