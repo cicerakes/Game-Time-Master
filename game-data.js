@@ -2008,6 +2008,13 @@ var gameData = [
 	},
 	{
 		game: "Uma Musume Pretty Derby",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "uma-musume-pretty-derby"
+	},
+	{
+		game: "Uma Musume Pretty Derby",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
