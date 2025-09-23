@@ -1559,7 +1559,7 @@ var gameData = [
 		game: "Punishing: Gray Raven",
 		server: "Global",
 		timezone: "Etc/UTC",
-		dailyReset: "07:00",
+		dailyReset: "05:00",
 		icon: "punishing-gray-raven"
 	},
 	{
