@@ -177,7 +177,7 @@ var gameData = [
 	},
 	{
 		game: "Atelier Resleriana",
-		server: "Global",
+		server: "JP",
 		timezone: "Etc/GMT-8",
 		dailyReset: "11:00",
 		icon: "atelier-resleriana"
