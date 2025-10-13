@@ -672,13 +672,6 @@ var gameData = [
 		icon: "guild-wars-2"
 	},
 	{
-		game: "GUNDAM BREAKER MOBILE",
-		server: "JP & NA",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "gundam-breaker-mobile"
-	},
-	{
 		game: "GYEE",
 		server: "NA",
 		timezone: "Etc/GMT+4",
