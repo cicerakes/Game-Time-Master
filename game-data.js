@@ -516,13 +516,6 @@ var gameData = [
 		icon: "genshin-impact"
 	},
 	{
-		game: "GensoKishi Online",
-		server: "SG",
-		timezone: "Asia/Singapore",
-		dailyReset: "08:00",
-		icon: "gensokishi-online"
-	},
-	{
 		game: "Girls' Frontline",
 		server: "EN",
 		timezone: "Etc/GMT+8",
