@@ -687,6 +687,13 @@ var gameData = [
 	},
 	{
 		game: "Heaven Burns Red",
+		server: "EN",
+		timezone: "Etc/GMT+7",
+		dailyReset: "00:00",
+		icon: "heaven-burns-red"
+	},
+	{
+		game: "Heaven Burns Red",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "04:00",
