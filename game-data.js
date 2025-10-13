@@ -42,49 +42,6 @@ var gameData = [
 		icon: "alchemia-story"
 	},
 	{
-		game: "Alchemy Stars",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "05:00",
-		icon: "alchemy-stars"
-	},
-	{
-		game: "Alchemy Stars",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "10:00",
-		icon: "alchemy-stars"
-	},
-	{
-		game: "Alchemy Stars",
-		server: "LATAM",
-		timezone: "Etc/GMT+3",
-		dailyReset: "05:00",
-		icon: "alchemy-stars"
-	},
-	{
-		game: "Alchemy Stars",
-		server: "SEA",
-		timezone: "Etc/GMT-8",
-		dailyReset: "05:00",
-		icon: "alchemy-stars"
-	},
-	{
-		game: "Alchemy Stars",
-		server: "US",
-		timezone: "America/Chicago",
-		dailyReset: "10:00",
-		icon: "alchemy-stars",
-		utcDailyReset: true
-	},
-	{
-		game: "Alice Closet: Anime Dress Up",
-		server: "EN",
-		timezone: "Etc/GMT+4",
-		dailyReset: "12:00",
-		icon: "alice-closet-anime-dress-up"
-	},
-	{
 		game: "Another Eden",
 		server: "Global",
 		timezone: "Etc/UTC",
@@ -97,13 +54,6 @@ var gameData = [
 		timezone: "Asia/Shanghai",
 		dailyReset: "05:00",
 		icon: "aotu-world"
-	},
-	{
-		game: "Archeland",
-		server: "KR",
-		timezone: "Asia/Seoul",
-		dailyReset: "05:00",
-		icon: "archeland"
 	},
 	{
 		game: "Arknights",
@@ -127,34 +77,6 @@ var gameData = [
 		icon: "arknights"
 	},
 	{
-		game: "Artery Gear: Fusion",
-		server: "America",
-		timezone: "Etc/GMT+5",
-		dailyReset: "05:00",
-		icon: "artery-gear"
-	},
-	{
-		game: "Artery Gear: Fusion",
-		server: "Europe",
-		timezone: "Etc/GMT-1",
-		dailyReset: "05:00",
-		icon: "artery-gear"
-	},
-	{
-		game: "Artery Gear: Fusion",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "artery-gear"
-	},
-	{
-		game: "Artery Gear: Fusion",
-		server: "Pacific",
-		timezone: "Etc/GMT-8",
-		dailyReset: "05:00",
-		icon: "artery-gear"
-	},
-	{
 		game: "Ash Arms",
 		server: "JP",
 		timezone: "Asia/Tokyo",
@@ -169,17 +91,10 @@ var gameData = [
 		icon: "assault-lily-last-bullet"
 	},
 	{
-		game: "Atelier Online: Alchemist of Bressisle",
-		server: "EN",
-		timezone: "Etc/UTC",
-		dailyReset: "04:00",
-		icon: "atelier-online-alchemist-of-bressisle"
-	},
-	{
 		game: "Atelier Resleriana",
-		server: "Global",
-		timezone: "Etc/GMT-8",
-		dailyReset: "11:00",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "12:00",
 		icon: "atelier-resleriana"
 	},
 	{
@@ -188,13 +103,6 @@ var gameData = [
 		timezone: "America/New_York",
 		dailyReset: "02:00",
 		icon: "attack-on-time-kog"
-	},
-	{
-		game: "Auto Heroes",
-		server: "NA",
-		timezone: "America/New_York",
-		dailyReset: "08:00",
-		icon: "auto-heroes"
 	},
 	{
 		game: "Azur Lane",
@@ -232,20 +140,6 @@ var gameData = [
 		icon: "bang-dream-gbp-jp"
 	},
 	{
-		game: "Black Clover M",
-		server: "AS",
-		timezone: "Etc/GMT-7",
-		dailyReset: "04:00",
-		icon: "black-clover-m"
-	},
-	{
-		game: "Black Clover M",
-		server: "EU",
-		timezone: "Etc/GMT-1",
-		dailyReset: "04:00",
-		icon: "black-clover-m"
-	},
-	{
 		game: "Bleach: Brave Souls",
 		server: "Global",
 		timezone: "Asia/Tokyo",
@@ -265,13 +159,6 @@ var gameData = [
 		timezone: "Asia/Tokyo",
 		dailyReset: "04:00",
 		icon: "blue-archive"
-	},
-	{
-		game: "Brave Nine",
-		server: "Global & Europe",
-		timezone: "Etc/UTC",
-		dailyReset: "20:00",
-		icon: "brave-nine"
 	},
 	{
 		game: "BrownDust2",
@@ -302,13 +189,6 @@ var gameData = [
 		icon: "captain-tsubasa-dream-team"
 	},
 	{
-		game: "Cloud Song: Saga of Skywalkers",
-		server: "Global",
-		timezone: "Etc/GMT-8",
-		dailyReset: "06:00",
-		icon: "cloud-song-saga-of-skywalkers"
-	},
-	{
 		game: "Cookie Run: Kingdom",
 		server: "Global",
 		timezone: "Asia/Seoul",
@@ -331,9 +211,9 @@ var gameData = [
 	},
 	{
 		game: "Crash Fever",
-		server: "EN",
-		timezone: "Etc/UTC",
-		dailyReset: "06:00",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
 		icon: "crash-fever"
 	},
 	{
@@ -358,25 +238,11 @@ var gameData = [
 		icon: "d4-dj-groovy-mix"
 	},
 	{
-		game: "DanMachi - MEMORIA FREESE",
-		server: "EN",
-		timezone: "Etc/GMT+8",
-		dailyReset: "22:00",
-		icon: "dan-machi-memoria-freese"
-	},
-	{
-		game: "Darkness Rises",
-		server: "NA",
-		timezone: "America/Los_Angeles",
-		dailyReset: "00:00",
-		icon: "darkness-rises"
-	},
-	{
-		game: "Date A Live: Spirit Pledge",
+		game: "Date A Live: Spirit Echo",
 		server: "Global",
 		timezone: "Etc/GMT+7",
 		dailyReset: "00:00",
-		icon: "date-a-live-spirit-pledge"
+		icon: "date-a-live-spirit-echo"
 	},
 	{
 		game: "DEAD OR ALIVE Xtreme Venus Vacation",
@@ -393,26 +259,12 @@ var gameData = [
 		icon: "demon-god"
 	},
 	{
-		game: "Dengeki Bunko: Crossing Void",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "12:00",
-		icon: "dengeki-bunko-crossing-void"
-	},
-	{
 		game: "Destiny 2",
 		server: "Global",
 		timezone: "America/Los_Angeles",
 		dailyReset: "17:00",
 		icon: "destiny-2",
 		utcDailyReset: true
-	},
-	{
-		game: "Destiny Child",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "04:00",
-		icon: "destiny-child"
 	},
 	{
 		game: "Diablo Immortal",
@@ -458,13 +310,6 @@ var gameData = [
 	},
 	{
 		game: "Disgaea RPG",
-		server: "Global",
-		timezone: "Etc/GMT+4",
-		dailyReset: "00:00",
-		icon: "disgaea-rpg"
-	},
-	{
-		game: "Disgaea RPG",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
@@ -492,13 +337,6 @@ var gameData = [
 		icon: "disney-twisted-wonderland"
 	},
 	{
-		game: "DISSIDIA FINAL FANTASY OPERA OMNIA",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "08:00",
-		icon: "dissidia-ffoo"
-	},
-	{
 		game: "DRAGON BALL LEGENDS",
 		server: "Global",
 		timezone: "Etc/UTC",
@@ -522,9 +360,9 @@ var gameData = [
 	},
 	{
 		game: "DRAGON QUEST TACT",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "12:00",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
 		icon: "dragon-quest-tact"
 	},
 	{
@@ -535,39 +373,11 @@ var gameData = [
 		icon: "dream-girlfriend"
 	},
 	{
-		game: "Dream Meister and the Recollected Black Fairy",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "dream-meister-atrbf"
-	},
-	{
 		game: "Echocalypse",
 		server: "SEA",
 		timezone: "Etc/GMT-8",
 		dailyReset: "00:00",
 		icon: "echocalypse"
-	},
-	{
-		game: "ECHOES of MANA",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "04:00",
-		icon: "echoes-of-mana"
-	},
-	{
-		game: "Eiyuu Senki WWX",
-		server: "EN",
-		timezone: "America/Atikokan",
-		dailyReset: "04:00",
-		icon: "eiyu-senki-wwx"
-	},
-	{
-		game: "Elune",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00",
-		icon: "elune"
 	},
 	{
 		game: "Ensemble Stars!! Basic",
@@ -619,13 +429,6 @@ var gameData = [
 		icon: "epic-seven"
 	},
 	{
-		game: "Eternal Tree",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "20:00",
-		icon: "eternal-tree"
-	},
-	{
 		game: "Eversoul",
 		server: "Asia & NA/EU",
 		timezone: "Etc/UTC",
@@ -638,13 +441,6 @@ var gameData = [
 		timezone: "Etc/GMT-9",
 		dailyReset: "10:00",
 		icon: "evertale"
-	},
-	{
-		game: "Exos Heroes",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "20:00",
-		icon: "exos-heroes"
 	},
 	{
 		game: "Fate/Grand Order",
@@ -662,31 +458,10 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
-		game: "Figure Fantasy",
-		server: "America",
-		timezone: "Etc/GMT+4",
-		dailyReset: "08:00",
-		icon: "figure-fantasy"
-	},
-	{
-		game: "Figure Fantasy",
-		server: "Europe",
-		timezone: "Etc/GMT-2",
-		dailyReset: "06:00",
-		icon: "figure-fantasy"
-	},
-	{
-		game: "FINAL FANTASY BRAVE EXVIUS",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "00:00",
-		icon: "ff-brave-exvius"
-	},
-	{
 		game: "FINAL FANTASY Record Keeper",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "08:00",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
 		icon: "ff-record-keeper"
 	},
 	{
@@ -704,13 +479,6 @@ var gameData = [
 		dailyReset: "15:00",
 		icon: "ff-xiv",
 		utcDailyReset: true
-	},
-	{
-		game: "Final Gear",
-		server: "CN",
-		timezone: "Asia/Shanghai",
-		dailyReset: "00:00",
-		icon: "final-gear"
 	},
 	{
 		game: "Fire Emblem Heroes",
@@ -753,13 +521,6 @@ var gameData = [
 		timezone: "Asia/Singapore",
 		dailyReset: "08:00",
 		icon: "gensokishi-online"
-	},
-	{
-		game: "Girl Cafe Gun",
-		server: "Global",
-		timezone: "Etc/GMT+4",
-		dailyReset: "04:00",
-		icon: "girl-cafe-gun"
 	},
 	{
 		game: "Girls' Frontline",
@@ -868,13 +629,6 @@ var gameData = [
 		icon: "grand-summoners"
 	},
 	{
-		game: "Grimlight",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "04:00",
-		icon: "grimlight"
-	},
-	{
 		game: "Guardian Tales",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
@@ -958,27 +712,6 @@ var gameData = [
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
 		icon: "helios-rising-heroes"
-	},
-	{
-		game: "Hero Cantare",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "00:00",
-		icon: "hero-cantare"
-	},
-	{
-		game: "Higan: Eruthyll",
-		server: "Global",
-		timezone: "Etc/GMT+8",
-		dailyReset: "05:00",
-		icon: "higan-eruthyll"
-	},
-	{
-		game: "HoneyWorks Premium Live",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00",
-		icon: "honey-works-premium-live"
 	},
 	{
 		game: "Honkai Impact 3rd",
@@ -1100,13 +833,6 @@ var gameData = [
 		icon: "kings-raid"
 	},
 	{
-		game: "KonoSuba: Fantastic Days",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00",
-		icon: "kono-suba-fantastic-days"
-	},
-	{
 		game: "Langrisser",
 		server: "Global",
 		timezone: "America/Chicago",
@@ -1127,13 +853,6 @@ var gameData = [
 		timezone: "Asia/Seoul",
 		dailyReset: "09:00",
 		icon: "last-origin"
-	},
-	{
-		game: "Legend Clover",
-		server: "EN",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00",
-		icon: "legend-clover"
 	},
 	{
 		game: "Legends of Runeterra",
@@ -1225,26 +944,11 @@ var gameData = [
 		icon: "love-and-deepspace"
 	},
 	{
-		game: "Love Live! School Idol Festival 2 MIRACLE LIVE!",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00",
-		icon: "love-live-sif-2",
-		menuName: "Love Live! SIF2"
-	},
-	{
 		game: "Love Nikki",
 		server: "EN",
 		timezone: "Etc/GMT+8",
 		dailyReset: "05:00",
 		icon: "love-nikki"
-	},
-	{
-		game: "Magia Record",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00",
-		icon: "magia-record"
 	},
 	{
 		game: "Magic: The Gathering Arena",
@@ -1310,14 +1014,6 @@ var gameData = [
 		icon: "mobile-legends-adventure"
 	},
 	{
-		game: "My Hero Academia: The Strongest Hero",
-		server: "EN",
-		timezone: "America/Los_Angeles",
-		dailyReset: "13:00",
-		icon: "mha-the-strongest-hero",
-		utcDailyReset: true
-	},
-	{
 		game: "MY HERO ULTRA IMPACT",
 		server: "EN",
 		timezone: "Asia/Tokyo",
@@ -1330,13 +1026,6 @@ var gameData = [
 		timezone: "Etc/UTC",
 		dailyReset: "00:00",
 		icon: "mythic-heroes"
-	},
-	{
-		game: "NARUTO X BORUTO NINJA VOLTAGE",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "09:00",
-		icon: "naruto-boruto-ninja-voltage"
 	},
 	{
 		game: "Neural Cloud",
@@ -1358,34 +1047,6 @@ var gameData = [
 		timezone: "Etc/GMT",
 		dailyReset: "06:00",
 		icon: "ni-no-kuni-cross-worlds"
-	},
-	{
-		game: "NieR Re[in]carnation",
-		server: "Global",
-		timezone: "Pacific/Pitcairn",
-		dailyReset: "00:00",
-		icon: "nier-reincarnation"
-	},
-	{
-		game: "NieR Re[in]carnation",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00",
-		icon: "nier-reincarnation"
-	},
-	{
-		game: "NieR Re[in]carnation",
-		server: "SEA",
-		timezone: "Etc/GMT-8",
-		dailyReset: "00:00",
-		icon: "nier-reincarnation"
-	},
-	{
-		game: "Noah's Heart",
-		server: "Global",
-		timezone: "Etc/GMT+5",
-		dailyReset: "00:00",
-		icon: "noahs-heart"
 	},
 	{
 		game: "NU: carnival",
@@ -1465,6 +1126,20 @@ var gameData = [
 		icon: "path-to-nowhere"
 	},
 	{
+		game: "Persona5: The Phantom X",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "20:00",
+		icon: "persona5-the-phantom-x"
+	},
+	{
+		game: "Persona5: The Phantom X",
+		server: "KR",
+		timezone: "Asia/Seoul",
+		dailyReset: "09:00",
+		icon: "persona5-the-phantom-x"
+	},
+	{
 		game: "Phantasy Star Online 2: New Genesis",
 		server: "Global",
 		timezone: "America/Los_Angeles",
@@ -1535,13 +1210,6 @@ var gameData = [
 		icon: "project-sekai-colorful-stage"
 	},
 	{
-		game: "Psychic Idle",
-		server: "Global",
-		timezone: "Asia/Seoul",
-		dailyReset: "00:00",
-		icon: "psychic-idle"
-	},
-	{
 		game: "PUBG MOBILE",
 		server: "Global",
 		timezone: "Etc/UTC",
@@ -1559,7 +1227,7 @@ var gameData = [
 		game: "Punishing: Gray Raven",
 		server: "Global",
 		timezone: "Etc/UTC",
-		dailyReset: "07:00",
+		dailyReset: "05:00",
 		icon: "punishing-gray-raven"
 	},
 	{
@@ -1591,13 +1259,6 @@ var gameData = [
 		icon: "raid-shadow-legends"
 	},
 	{
-		game: "RED: Pride of Eden",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "red-pride-of-eden"
-	},
-	{
 		game: "Reverse: 1999",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
@@ -1613,8 +1274,8 @@ var gameData = [
 	},
 	{
 		game: "Revived Witch",
-		server: "EN",
-		timezone: "Etc/GMT+7",
+		server: "CN",
+		timezone: "Asia/Shanghai",
 		dailyReset: "04:00",
 		icon: "revived-witch"
 	},
@@ -1633,17 +1294,10 @@ var gameData = [
 		icon: "rise-of-eros"
 	},
 	{
-		game: "ROCKMAN X DiVE",
-		server: "Taiwan",
-		timezone: "Etc/GMT-8",
-		dailyReset: "20:00",
-		icon: "rockman-x-dive"
-	},
-	{
 		game: "Romancing SaGa Re;univerSe",
-		server: "Global",
-		timezone: "Etc/GMT-7",
-		dailyReset: "08:00",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00",
 		icon: "romancing-saga-re-universe"
 	},
 	{
@@ -1668,13 +1322,6 @@ var gameData = [
 		icon: "sdorica"
 	},
 	{
-		game: "Senki Zesshou Symphogear XD Unlimited",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00",
-		icon: "senki-zesshou-symphogear-xd-unlimited"
-	},
-	{
 		game: "SEOUL Apocalypse",
 		server: "EN",
 		timezone: "Etc/GMT-8",
@@ -1689,21 +1336,14 @@ var gameData = [
 		icon: "seven-knights-2"
 	},
 	{
-		game: "Seven Mortal Sins X-TASY",
-		server: "EN",
-		timezone: "Etc/GMT+4",
-		dailyReset: "04:00",
-		icon: "seven-mortal-sins-x-tasy"
-	},
-	{
-		game: "Shadowverse",
+		game: "Shadowverse CCG",
 		server: "Global",
 		timezone: "America/Los_Angeles",
 		dailyReset: "12:00",
 		icon: "shadowverse"
 	},
 	{
-		game: "Shadowverse",
+		game: "Shadowverse CCG",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
@@ -1718,13 +1358,6 @@ var gameData = [
 		menuName: "SMT Liberation Dx2"
 	},
 	{
-		game: "Shining Beyond",
-		server: "Global",
-		timezone: "Asia/Singapore",
-		dailyReset: "00:00",
-		icon: "shining-beyond"
-	},
-	{
 		game: "Shining Nikki",
 		server: "EN",
 		timezone: "Etc/GMT+7",
@@ -1732,24 +1365,10 @@ var gameData = [
 		icon: "shining-nikki"
 	},
 	{
-		game: "SINoALICE",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "05:00",
-		icon: "sinoalice"
-	},
-	{
-		game: "SINoALICE",
-		server: "Japan",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00",
-		icon: "sinoalice"
-	},
-	{
 		game: "Skullgirls",
 		server: "Global",
 		timezone: "America/Los_Angeles",
-		dailyReset: "12:00",
+		dailyReset: "10:00",
 		icon: "skullgirls"
 	},
 	{
@@ -1779,13 +1398,6 @@ var gameData = [
 		timezone: "Etc/GMT-8",
 		dailyReset: "04:00",
 		icon: "snowbreak-containment-zone"
-	},
-	{
-		game: "Soul Tide",
-		server: "Global",
-		timezone: "Etc/GMT+7",
-		dailyReset: "04:00",
-		icon: "soul-tide"
 	},
 	{
 		game: "SoulWorker",
@@ -1821,13 +1433,6 @@ var gameData = [
 		timezone: "Etc/GMT+5",
 		dailyReset: "00:00",
 		icon: "summoners-war-chronicles"
-	},
-	{
-		game: "Sunflower Land",
-		server: "Global",
-		timezone: "Etc/GMT",
-		dailyReset: "00:00",
-		icon: "sunflower-land"
 	},
 	{
 		game: "Sword of Convallaria",
@@ -1923,13 +1528,6 @@ var gameData = [
 		icon: "tokyo-afterschool-summoners"
 	},
 	{
-		game: "Tokyo NECRO: SUICIDE MISSION",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00",
-		icon: "tokyo-necro-suicide-mission"
-	},
-	{
 		game: "Toontown Rewritten",
 		server: "EN",
 		timezone: "America/Los_Angeles",
@@ -1986,13 +1584,6 @@ var gameData = [
 		icon: "tower-of-god-new-world"
 	},
 	{
-		game: "Tower of God: The Great Journey",
-		server: "KR",
-		timezone: "Asia/Seoul",
-		dailyReset: "00:00",
-		icon: "tower-of-god-tgj"
-	},
-	{
 		game: "Tower of Saviors",
 		server: "CN & EN",
 		timezone: "Etc/GMT-8",
@@ -2007,11 +1598,18 @@ var gameData = [
 		icon: "ulala-idle-adventure"
 	},
 	{
-		game: "Uma Musume Pretty Derby",
+		game: "Umamusume Pretty Derby",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "15:00",
+		icon: "umamusume-pretty-derby"
+	},
+	{
+		game: "Umamusume Pretty Derby",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
-		icon: "uma-musume-pretty-derby"
+		icon: "umamusume-pretty-derby"
 	},
 	{
 		game: "Valkyrie Connect",
@@ -2019,13 +1617,6 @@ var gameData = [
 		timezone: "Etc/UTC",
 		dailyReset: "06:00",
 		icon: "valkyrie-connect"
-	},
-	{
-		game: "Vanguard ZERO",
-		server: "EN",
-		timezone: "America/Los_Angeles",
-		dailyReset: "00:00",
-		icon: "vanguard-zero"
 	},
 	{
 		game: "Vikingard",
@@ -2036,9 +1627,9 @@ var gameData = [
 	},
 	{
 		game: "WAR OF THE VISIONS FINAL FANTASY BRAVE EXVIUS",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "00:00",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
 		icon: "war-of-the-visions-ffbe"
 	},
 	{
@@ -2068,20 +1659,6 @@ var gameData = [
 		timezone: "Asia/Tokyo",
 		dailyReset: "5:00",
 		icon: "world-dai-star"
-	},
-	{
-		game: "World Flipper",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "20:00",
-		icon: "world-flipper"
-	},
-	{
-		game: "World Flipper",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "world-flipper"
 	},
 	{
 		game: "Wuthering Waves",
@@ -2139,5 +1716,4 @@ var gameData = [
 		dailyReset: "04:00",
 		icon: "zenless-zone-zero"
 	},
-	
 ];
