@@ -930,6 +930,13 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Lost Sword",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "00:00",
+		icon: "lost-sword",
+	},
+	{
 		game: "Love and Deepspace",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
