@@ -161,6 +161,13 @@ var gameData = [
 		icon: "blue-archive"
 	},
 	{
+		game: "Blue Protocol: Star Resonance",
+		server: "Global",
+		timezone: "America/Noronha",
+		dailyReset: "05:00",
+		icon: "blue-protocol-star-resonance"
+	},
+	{
 		game: "BrownDust2",
 		server: "Global",
 		timezone: "Etc/UTC",
