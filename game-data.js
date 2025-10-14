@@ -1078,9 +1078,9 @@ var gameData = [
 	},
 	{
 		game: "OCTOPATH TRAVELER: Champions of the Continent",
-		server: "EN",
-		timezone: "ETC/UTC",
-		dailyReset: "09:00",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "20:00",
 		icon: "octopath-traveler-cotc"
 	},
 	{
