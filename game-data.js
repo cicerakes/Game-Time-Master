@@ -436,6 +436,13 @@ var gameData = [
 		icon: "epic-seven"
 	},
 	{
+		game: "Etheria: Restart",
+		server: "Global",
+		timezone: "Etc/GMT+4",
+		dailyReset: "04:00",
+		icon: "etheria-restart"
+	},
+	{
 		game: "Eversoul",
 		server: "Asia & NA/EU",
 		timezone: "Etc/UTC",
