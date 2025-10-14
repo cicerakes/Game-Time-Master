@@ -1414,6 +1414,13 @@ var gameData = [
 		icon: "snowbreak-containment-zone"
 	},
 	{
+		game: "Solo Leveling:Arise",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "00:00",
+		icon: "solo-leveling-arise"
+	},
+	{
 		game: "SoulWorker",
 		server: "EN",
 		timezone: "Etc/GMT",
