@@ -1,5 +1,5 @@
 a {
-	color: #673ab7;
+	color: #e3d631;
 }
 
 body {
@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5 {
 }
 
 header {
-	background: #7e56c1;
+	background: #e9e059;
 	height: 65px;
 	width: 100%;
 	position: fixed;
@@ -32,7 +32,7 @@ header h1 {
 }
 
 input[type='radio'] {
-	accent-color: #673ab7;
+	accent-color: #e3d631;
 }
 
 input[type='file'] {
@@ -59,13 +59,13 @@ hr {
 .btn-low {
 	background: transparent;
 	border: none;
-	color: #673ab7;
+	color: #e3d631;
 }
 
 .btn-med {
 	background: transparent;
 	border: 1px solid #d2d2d2;
-	color: #673ab7;
+	color: #e3d631;
 }
 
 .btn-low:hover, .btn-low:focus, .btn-med:hover, .btn-med:focus {
@@ -73,13 +73,13 @@ hr {
 }
 
 .btn-high {
-	background-color: #673ab7;
+	background-color: #e3d631;
 	border: none;
 	color: #fff !important;
 }
 
 .btn-high:hover {
-	background: #5d34a8;
+	background: #E9E026;
 }
 
 .menu-btn {
@@ -269,8 +269,8 @@ button.menu-item {
 }
 
 #game-filter-settings input:checked + .option-name::before, #game-filter-settings input:indeterminate + .option-name::before {
-	background-color: #7e57c2;
-	border-color: #7e57c2;
+	background-color: #c2b757;
+	border-color: #c2b757;
 }
 
 #game-filter-settings input:checked + .option-name::after {
@@ -498,14 +498,14 @@ button.menu-item {
 }
 
 input:checked + .slider {
-	background-color: #4d2b90;
+	background-color: #90862b;
 }
 
 input:checked + .slider:before {
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
 	transform: translateX(26px);
-	background-color: #b084f4;
+	background-color: #f4ed84;
 }
 
 .game-container .buttons {
@@ -556,7 +556,7 @@ input:checked + .slider:before {
 
 .dialog input[type="text"]:focus, .dialog input[type="time"]:focus, .dialog select:focus, .dialog textarea:focus {
 	outline: none;
-	border: 2px solid #673ab7
+	border: 2px solid #e3d631
 }
 
 form label, form span {
@@ -728,11 +728,11 @@ form label, form span {
 }
 
 .dark a {
-	color: #9575cd;
+	color: #f7fc73;
 }
 
 .dark header {
-	background: #322646;
+	background: #c9b024;
 }
 
 .dark #menu {
@@ -768,7 +768,7 @@ form label, form span {
 }
 
 .dark .btn {
-	color: #9575cd;
+	color: #f7fc73;
 }
 
 .dark .btn-med {
@@ -776,7 +776,7 @@ form label, form span {
 }
 
 .dark .dialog {
-	background: #242424;
+	background: #BBAE02;
 }
 
 .dark input, .dark select, .dark textarea {
