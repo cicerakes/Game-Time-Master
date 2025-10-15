@@ -2,6 +2,9 @@
 Sick of memorising time zones to convert for games and their daily reset times?  
 Then this is for you!
 
+## THIS IS A FORK!
+I am hosting a seperate deployment because the main repository has not been updated in 10+ months. If [cicerakes](https://github.com/cicerakes/Game-Time-Master) returns and requests for it, I will prepare this branch for merging/takedown. Besides removing EoS games and adding games from the [issues page](https://github.com/cicerakes/Game-Time-Master/issues), I have also removed NFT games. This was not a standard established by the original author, if a merge is requested I can readd them.
+
 ## Features
 - Automatically detects your local time zone.
 - Converts all game server times to your local time zone.
