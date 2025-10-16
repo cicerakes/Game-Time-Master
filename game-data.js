@@ -1140,6 +1140,13 @@ var gameData = [
 		icon: "outerplane"
 	},
 	{
+		game: "OZ Re:write",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00",
+		icon: "oz-rewrite"
+	},
+	{
 		game: "Paladins",
 		server: "NA",
 		timezone: "America/Los_Angeles",
