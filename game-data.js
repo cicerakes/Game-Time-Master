@@ -1647,6 +1647,13 @@ var gameData = [
 		icon: "tower-of-saviors"
 	},
 	{
+		game: "Trickcal: Chibi Go",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "04:00",
+		icon: "trickcal-chibi-go"
+	},
+	{
 		game: "Ulala: Idle Adventure",
 		server: "NA",
 		timezone: "America/New_York",
