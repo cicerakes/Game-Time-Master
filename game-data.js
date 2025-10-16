@@ -777,6 +777,13 @@ var gameData = [
 		icon: "honkai-star-rail"
 	},
 	{
+		game: "Horizon Walker",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "10:00",
+		icon: "horizon-walker"
+	},
+	{
 		game: "Hypnosis Mic -Alternative Rap Battle-",
 		server: "JP",
 		timezone: "Asia/Tokyo",
