@@ -1357,6 +1357,13 @@ var gameData = [
 		icon: "seven-knights-2"
 	},
 	{
+		game: "Seven Knights Re:BIRTH",
+		server: "Global",
+		timezone: "Etc/GMT-7",
+		dailyReset: "07:00",
+		icon: "seven-knights-rebirth"
+	},
+	{
 		game: "Shadowverse CCG",
 		server: "Global",
 		timezone: "America/Los_Angeles",
