@@ -387,6 +387,13 @@ var gameData = [
 		icon: "echocalypse"
 	},
 	{
+		game: "Elpis: Fallen Star",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00",
+		icon: "echocalypse"
+	},
+	{
 		game: "Ensemble Stars!! Basic",
 		server: "JP",
 		timezone: "Asia/Tokyo",
