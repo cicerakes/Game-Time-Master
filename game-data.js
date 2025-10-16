@@ -1021,6 +1021,13 @@ var gameData = [
 		icon: "maplestory-m"
 	},
 	{
+		game: "Mecharashi",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "00:00",
+		icon: "mecharashi"
+	},
+	{
 		game: "MementoMori",
 		server: "EU/Global",
 		timezone: "Etc/GMT-1",
