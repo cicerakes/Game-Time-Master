@@ -1526,6 +1526,13 @@ var gameData = [
 		icon: "starseed-asnia-trigger"
 	},
 	{
+		game: "Stella Sora",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "13:00",
+		icon: "stella-sora"
+	},
+	{
 		game: "Summoners War",
 		server: "Global",
 		timezone: "America/Los_Angeles",
