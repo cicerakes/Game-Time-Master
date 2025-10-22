@@ -1122,6 +1122,13 @@ var gameData = [
 		icon: "iruna-online"
 	},
 	{
+		game: "Jujutsu Kaisen Phantom Parade",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "00:00",
+		icon: "jjk-phantom-parade"
+	},
+	{
 		game: "Kemono Friends 3",
 		server: "JP",
 		timezone: "Asia/Tokyo",
