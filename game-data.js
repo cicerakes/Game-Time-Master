@@ -1072,6 +1072,27 @@ var gameData = [
 		icon: "idolish7"
 	},
 	{
+		game: "Infinity Nikki",
+		server: "America",
+		timezone: "Etc/GMT+7",
+		dailyReset: "4:00",
+		icon: "infinity-nikki"
+	},
+	{
+		game: "Infinity Nikki",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "4:00",
+		icon: "infinity-nikki"
+	},
+	{
+		game: "Infinity Nikki",
+		server: "Europe",
+		timezone: "Etc/GMT-2",
+		dailyReset: "4:00",
+		icon: "infinity-nikki"
+	},
+	{
 		game: "IRUNA Online",
 		server: "Global",
 		timezone: "Etc/GMT+7",
