@@ -1268,6 +1268,13 @@ var gameData = [
 		icon: "love-nikki"
 	},
 	{
+		game: "Madoka Magica Magia Exedra",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "magia-exedra"
+	},
+	{
 		game: "Magia Record",
 		server: "JP",
 		timezone: "Asia/Tokyo",
