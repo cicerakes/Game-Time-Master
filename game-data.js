@@ -1523,17 +1523,31 @@ var gameData = [
 	},
 	{
 		game: "Persona5: The Phantom X",
-		server: "Global/CN/TW/JP",
+		server: "CN",
+		timezone: "Asia/Shanghai",
+		dailyReset: "05:00",
+		icon: "persona5-the-phantom-x-cn"
+	},
+	{
+		game: "Persona5: The Phantom X",
+		server: "EN & JP",
 		timezone: "Etc/UTC",
 		dailyReset: "20:00",
 		icon: "persona5-the-phantom-x"
 	},
-		{
+	{
 		game: "Persona5: The Phantom X",
 		server: "KR",
 		timezone: "Asia/Seoul",
-		dailyReset: "09:00",
-		icon: "persona5-the-phantom-x"
+		dailyReset: "05:00",
+		icon: "persona5-the-phantom-x-kr"
+	},
+	{
+		game: "Persona5: The Phantom X",
+		server: "TW",
+		timezone: "Asia/Taipei",
+		dailyReset: "05:00",
+		icon: "persona5-the-phantom-x-tw"
 	},
 	{
 		game: "Phantasy Star Online 2: New Genesis",
