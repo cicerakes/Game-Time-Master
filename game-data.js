@@ -982,6 +982,13 @@ var gameData = [
 		icon: "helios-rising-heroes"
 	},
 	{
+		game: "Hello Kitty Island Adventure",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "06:00",
+		icon: "hello-kitty-island-adventure"
+	},
+	{
 		game: "Hero Cantare",
 		server: "Global",
 		timezone: "America/Los_Angeles",
