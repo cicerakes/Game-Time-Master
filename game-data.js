@@ -316,6 +316,13 @@ var gameData = [
 		icon: "captain-tsubasa-dream-team"
 	},
 	{
+		game: "Chaos Zero Nightmare",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "18:00",
+		icon: "chaos-zero-nightmare"
+	},
+	{
 		game: "Cloud Song: Saga of Skywalkers",
 		server: "Global",
 		timezone: "Etc/GMT-8",
