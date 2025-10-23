@@ -118,7 +118,6 @@ var gameData = [
 		dailyReset: "02:00",
 		icon: "attack-on-time-kog"
 	},
-
 	{
 		game: "Azur Lane",
 		server: "CN",
@@ -1475,7 +1474,7 @@ var gameData = [
 		game: "Skullgirls",
 		server: "Global",
 		timezone: "America/Los_Angeles",
-		dailyReset: "12:00",
+		dailyReset: "10:00",
 		icon: "skullgirls"
 	},
 	{
