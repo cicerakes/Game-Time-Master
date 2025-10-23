@@ -1442,18 +1442,18 @@ var gameData = [
 		icon: "seven-knights-2"
 	},
 	{
-		game: "Shadowverse",
+		game: "Shadowverse CCG",
 		server: "Global",
 		timezone: "America/Los_Angeles",
 		dailyReset: "12:00",
-		icon: "shadowverse"
+		icon: "shadowverse-ccg"
 	},
 	{
-		game: "Shadowverse",
+		game: "Shadowverse CCG",
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
-		icon: "shadowverse"
+		icon: "shadowverse-ccg"
 	},
 	{
 		game: "SHIN MEGAMI TENSEI Liberation Dx2",
