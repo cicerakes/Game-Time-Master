@@ -1901,6 +1901,13 @@ var gameData = [
 		icon: "soulworker"
 	},
 	{
+		game: "STARSEED: Asnia Trigger",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "starseed-asnia-trigger"
+	},
+	{
 		game: "Stella Sora",
 		server: "Global",
 		timezone: "Etc/GMT+7",
