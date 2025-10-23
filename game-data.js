@@ -641,6 +641,13 @@ var gameData = [
 		icon: "eternal-tree"
 	},
 	{
+		game: "Etheria: Restart",
+		server: "Global",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00",
+		icon: "etheria-restart"
+	},
+	{
 		game: "Eversoul",
 		server: "Asia & NA/EU",
 		timezone: "Etc/UTC",
