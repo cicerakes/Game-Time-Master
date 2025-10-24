@@ -1809,6 +1809,13 @@ var gameData = [
 		icon: "saint-seiya-awakening-sea"
 	},
 	{
+		game: "SD Gundam G Generation ETERNAL",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "01:00",
+		icon: "sd-gundam-g-generation-eternal"
+	},
+	{
 		game: "Sdorica",
 		server: "Global",
 		timezone: "Etc/UTC",
