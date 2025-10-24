@@ -1809,6 +1809,13 @@ var gameData = [
 		icon: "seven-knights-2"
 	},
 	{
+		game: "Seven Knights Re:BIRTH",
+		server: "Global",
+		timezone: "Etc/GMT-7",
+		dailyReset: "07:00",
+		icon: "seven-knights-rebirth"
+	},
+	{
 		game: "Seven Mortal Sins X-TASY",
 		server: "EN",
 		timezone: "Etc/GMT+4",
