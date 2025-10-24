@@ -203,6 +203,13 @@ var gameData = [
 		icon: "captain-tsubasa-dream-team"
 	},
 	{
+		game: "Chaos Zero Nightmare",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "18:00",
+		icon: "chaos-zero-nightmare"
+	},
+	{
 		game: "Cookie Run: Kingdom",
 		server: "Global",
 		timezone: "Asia/Seoul",
@@ -392,6 +399,13 @@ var gameData = [
 		timezone: "Etc/GMT-8",
 		dailyReset: "00:00",
 		icon: "echocalypse"
+	},
+	{
+		game: "Elpis: Fallen Star",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00",
+		icon: "elpis-fallen-star"
 	},
 	{
 		game: "Ensemble Stars!! Basic",
@@ -799,6 +813,13 @@ var gameData = [
 		icon: "honkai-star-rail"
 	},
 	{
+		game: "Horizon Walker",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "10:00",
+		icon: "horizon-walker"
+	},
+	{
 		game: "Hypnosis Mic -Alternative Rap Battle-",
 		server: "JP",
 		timezone: "Asia/Tokyo",
@@ -1106,6 +1127,13 @@ var gameData = [
 		icon: "mobile-legends-adventure"
 	},
 	{
+		game: "Muvluv Girls Garden",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "muvluv-girls-garden"
+	},
+	{
 		game: "MY HERO ULTRA IMPACT",
 		server: "EN",
 		timezone: "Asia/Tokyo",
@@ -1188,6 +1216,13 @@ var gameData = [
 		timezone: "Etc/UTC",
 		dailyReset: "00:00",
 		icon: "outerplane"
+	},
+	{
+		game: "OZ Re:write",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00",
+		icon: "oz-rewrite"
 	},
 	{
 		game: "Paladins",
@@ -1421,6 +1456,13 @@ var gameData = [
 		icon: "saint-seiya-awakening-sea"
 	},
 	{
+		game: "SD Gundam G Generation ETERNAL",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "01:00",
+		icon: "sd-gundam-g-generation-eternal"
+	},
+	{
 		game: "Sdorica",
 		server: "Global",
 		timezone: "Etc/UTC",
@@ -1440,6 +1482,13 @@ var gameData = [
 		timezone: "Etc/UTC",
 		dailyReset: "05:00",
 		icon: "seven-knights-2"
+	},
+	{
+		game: "Seven Knights Re:BIRTH",
+		server: "Global",
+		timezone: "Etc/GMT-7",
+		dailyReset: "07:00",
+		icon: "seven-knights-rebirth"
 	},
 	{
 		game: "Shadowverse CCG",
@@ -1723,6 +1772,13 @@ var gameData = [
 		timezone: "Etc/GMT-8",
 		dailyReset: "00:00",
 		icon: "tower-of-saviors"
+	},
+	{
+		game: "Trickcal: Chibi Go",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "04:00",
+		icon: "trickcal-chibi-go"
 	},
 	{
 		game: "Ulala: Idle Adventure",
