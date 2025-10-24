@@ -1402,6 +1402,13 @@ var gameData = [
 		icon: "mobile-legends-adventure"
 	},
 	{
+		game: "Muvluv Girls Garden",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "muvluv-girls-garden"
+	},
+	{
 		game: "My Hero Academia: The Strongest Hero",
 		server: "EN",
 		timezone: "America/Los_Angeles",
