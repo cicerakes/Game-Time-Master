@@ -394,6 +394,41 @@ var gameData = [
 		icon: "dream-girlfriend"
 	},
 	{
+		game: "Duet Night Abyss",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00",
+		icon: "duet-night-abyss"
+	},
+	{
+		game: "Duet Night Abyss",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "duet-night-abyss"
+	},
+	{
+		game: "Duet Night Abyss",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "05:00",
+		icon: "duet-night-abyss"
+	},
+	{
+		game: "Duet Night Abyss",
+		server: "HMT",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "duet-night-abyss"
+	},
+	{
+		game: "Duet Night Abyss",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "duet-night-abyss"
+	},
+	{
 		game: "Echocalypse",
 		server: "SEA",
 		timezone: "Etc/GMT-8",
