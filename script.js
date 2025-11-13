@@ -174,10 +174,9 @@ for (let i = 0; i < gameData.length; i++) {
 	// Change local reset time to tomorrow if it has already passed.
 	const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
 	if (todayResetPassed) {
-		if (todaysDailyReset.hours() == 0) {
-			// Add 48 hours to fix midnight reset using previous day.
-			localResetTime.add(48, "h");
-		} else {
+		localResetTime.add(24, "h");
+		// Check again in case it is still a day behind.
+		if ((moment.preciseDiff(now, localResetTime, true)).firstDateWasLater) {
 			localResetTime.add(24, "h");
 		}
 	}
@@ -320,10 +319,9 @@ function timeCalc() {
 		// Change local reset time to tomorrow if it has already passed.
 		const todayResetPassed = (moment.preciseDiff(now, localResetTime, true)).firstDateWasLater;
 		if (todayResetPassed) {
-			if (todaysDailyReset.hours() == 0) {
-				// Add 48 hours to fix midnight reset using previous day.
-				localResetTime.add(48, "h");
-			} else {
+			localResetTime.add(24, "h");
+			// Check again in case it is still a day behind.
+			if ((moment.preciseDiff(now, localResetTime, true)).firstDateWasLater) {
 				localResetTime.add(24, "h");
 			}
 		}
