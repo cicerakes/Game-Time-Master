@@ -1555,6 +1555,20 @@ var gameData = [
 		icon: "shining-nikki"
 	},
 	{
+		game: "Silver and Blood",
+		server: "APAC",
+		timezone: "Etc/GMT-8",
+		dailyReset: "09:00",
+		icon: "silver-and-blood"
+	},
+	{
+		game: "Silver and Blood",
+		server: "US & Other Regions",
+		timezone: "Etc/GMT+8",
+		dailyReset: "05:00",
+		icon: "silver-and-blood"
+	},
+	{
 		game: "Skullgirls",
 		server: "Global",
 		timezone: "America/Los_Angeles",
