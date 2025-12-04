@@ -925,6 +925,13 @@ var gameData = [
 		icon: "iruna-online"
 	},
 	{
+		game: "Journeys in the Immortal Realm",
+		server: "Global",
+		timezone: "Etc/GMT+4",
+		dailyReset: "00:00",
+		icon: "journeys-in-the-immortal-realm"
+	},
+	{
 		game: "Jujutsu Kaisen Phantom Parade",
 		server: "Global",
 		timezone: "Etc/GMT-9",
