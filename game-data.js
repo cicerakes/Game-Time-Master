@@ -1281,6 +1281,13 @@ var gameData = [
 		icon: "paladins"
 	},
 	{
+		game: "Palmon: Survival",
+		server: "Global",
+		timezone: "Etc/GMT+2",
+		dailyReset: "04:00",
+		icon: "palmon-survival"
+	},
+	{
 		game: "Path to Nowhere",
 		server: "America",
 		timezone: "Etc/GMT+7",
