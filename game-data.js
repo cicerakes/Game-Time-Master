@@ -1879,6 +1879,13 @@ var gameData = [
 		icon: "what-in-hell-is-bad"
 	},
 	{
+		game: "Where Winds Meet",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "21:00",
+		icon: "where-winds-meet"
+	},
+	{
 		game: "World Dai Star: Yume no Stellarium",
 		server: "JP",
 		timezone: "Asia/Tokyo",
