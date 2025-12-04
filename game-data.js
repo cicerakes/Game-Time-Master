@@ -1747,6 +1747,13 @@ var gameData = [
 		menuName: "THE iDOLM@STER ML! TD"
 	},
 	{
+		game: "The Legend of Neverland",
+		server: "Global",
+		timezone: "Etc/GMT+7",
+		dailyReset: "04:00",
+		icon: "the-legend-of-neverland"
+	},
+	{
 		game: "The Seven Deadly Sins: Grand Cross",
 		server: "Global",
 		timezone: "Etc/GMT+7",
