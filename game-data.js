@@ -1541,6 +1541,13 @@ var gameData = [
 		icon: "seven-knights-2"
 	},
 	{
+		game: "Seven Knights Idle Adventure",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "seven-knights-idle-adventure"
+	},
+	{
 		game: "Seven Knights Re:BIRTH",
 		server: "Global",
 		timezone: "Etc/GMT-7",
