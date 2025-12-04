@@ -1414,6 +1414,14 @@ var gameData = [
 		icon: "punishing-gray-raven"
 	},
 	{
+		game: "Puzzle & Dragons",
+		server: "NA",
+		timezone: "America/Los_Angeles",
+		dailyReset: "12:00",
+		icon: "puzzle-dragons",
+		utcDailyReset: true
+	},
+	{
 		game: "Ragnarok M: Eternal Love",
 		server: "Global",
 		timezone: "Etc/GMT+6",
