@@ -61,8 +61,9 @@ See below for more in-depth details.
 	- If no login reward system exists, use the time that the majority of content resets.
 - Game icon
 	- This can be taken from an official source such as the Google Play store.
-	- Resize this to 90x90 pixels.
+	- Resize this to 96x96 pixels.
 		- If the original icon is not a square, avoid stretching the image and instead add empty padding as needed.
+		- 90x90 is also accepted, but 96x96 preferred.
 	- GIF file format.
 	- Kebab case filename.  
 	Example: `game-name.gif`.
