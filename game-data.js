@@ -1010,6 +1010,13 @@ var gameData = [
 		icon: "looney-tunes-wom"
 	},
 	{
+		game: "Lord of Nazarick",
+		server: "Global",
+		timezone: "Etc/GMT+2",
+		dailyReset: "05:00",
+		icon: "lord-of-nazarick"
+	},
+	{
 		game: "Lost Ark",
 		server: "EU Central",
 		timezone: "Europe/Paris",
