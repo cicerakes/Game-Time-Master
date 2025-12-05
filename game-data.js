@@ -217,6 +217,14 @@ var gameData = [
 		icon: "cookie-run-kingdom"
 	},
 	{
+		game: "Counter-Strike Nexon",
+		server: "Global",
+		timezone: "Europe/Berlin",
+		dailyReset: "22:00",
+		icon: "counter-strike-nexon",
+		utcDailyReset: true
+	},
+	{
 		game: "Counter:Side",
 		server: "Global",
 		timezone: "Etc/GMT-9",
