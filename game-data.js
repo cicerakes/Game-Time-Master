@@ -1697,6 +1697,13 @@ var gameData = [
 		icon: "stella-sora"
 	},
 	{
+		game: "Strinova",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "07:00",
+		icon: "strinova"
+	},
+	{
 		game: "Summoners War",
 		server: "Global",
 		timezone: "America/Los_Angeles",
