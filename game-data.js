@@ -1514,6 +1514,13 @@ var gameData = [
 		icon: "rhythm-hive"
 	},
 	{
+		game: "Riichi City",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "05:00",
+		icon: "riichi-city"
+	},
+	{
 		game: "Rise of Eros",
 		server: "Global",
 		timezone: "Etc/GMT-8",
