@@ -1010,6 +1010,13 @@ var gameData = [
 		icon: "limbus-company"
 	},
 	{
+		game: "Link! Like! Love Live!",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00",
+		icon: "link-like-love-live"
+	},
+	{
 		game: "Looney Tunes World of Mayhem",
 		server: "Global",
 		timezone: "America/Los_Angeles",
