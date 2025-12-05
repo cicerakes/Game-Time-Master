@@ -1832,6 +1832,13 @@ var gameData = [
 		icon: "tokyo-afterschool-summoners"
 	},
 	{
+		game: "Tokyo Debunker",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "tokyo-debunker"
+	},
+	{
 		game: "Toontown Rewritten",
 		server: "EN",
 		timezone: "America/Los_Angeles",
