@@ -1471,6 +1471,13 @@ var gameData = [
 		icon: "raid-shadow-legends"
 	},
 	{
+		game: "Resonance Solstice",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00",
+		icon: "resonance-solstice"
+	},
+	{
 		game: "Reverse: 1999",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
