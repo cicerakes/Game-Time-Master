@@ -7,6 +7,13 @@ var gameData = [
 		icon: "a3"
 	},
 	{
+		game: "Action Taimanin",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "02:00",
+		icon: "action-taimanin"
+	},
+	{
 		game: "Aether Gazer",
 		server: "Global",
 		timezone: "Etc/GMT+7",
