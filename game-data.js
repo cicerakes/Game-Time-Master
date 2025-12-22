@@ -2062,5 +2062,11 @@ var gameData = [
 		dailyReset: "04:00",
 		icon: "zenless-zone-zero"
 	},
-	
+	{
+		game: "Zerowake GATES",
+		server: "NA",
+		timezone: "Asia/Seoul",
+		dailyReset: "09:00",
+		icon: "zerowake-gates"
+	}
 ];
