@@ -274,6 +274,13 @@ var gameData = [
 		icon: "date-a-live-spirit-echo"
 	},
 	{
+		game: "DC: Dark Legion",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "dc-dark-legion"
+	},
+	{
 		game: "DEAD OR ALIVE Xtreme Venus Vacation",
 		server: "Global",
 		timezone: "Etc/UTC",
