@@ -1369,7 +1369,7 @@ var gameData = [
 		game: "Pokémon TCG Live",
 		server: "Global",
 		timezone: "Etc/UTC",
-		dailyReset: "00:00",
+		dailyReset: "17:00",
 		icon: "pokemon-tcg-live"
 	},
 	{
