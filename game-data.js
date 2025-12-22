@@ -1046,6 +1046,13 @@ var gameData = [
 		icon: "link-like-love-live"
 	},
 	{
+		game: "LIVE A HERO",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "live-a-hero"
+	},
+	{
 		game: "Looney Tunes World of Mayhem",
 		server: "Global",
 		timezone: "America/Los_Angeles",
