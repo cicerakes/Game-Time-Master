@@ -1114,6 +1114,13 @@ var gameData = [
 		icon: "love-nikki"
 	},
 	{
+		game: "Mabinogi",
+		server: "NA",
+		timezone: "America/Los_Angeles",
+		dailyReset: "07:00",
+		icon: "mabinogi"
+	},
+	{
 		game: "Madoka Magica Magia Exedra",
 		server: "Global",
 		timezone: "Asia/Tokyo",
