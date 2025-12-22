@@ -933,6 +933,20 @@ var gameData = [
 		icon: "iruna-online"
 	},
 	{
+		game: "Isekai:Slow Life",
+		server: "Americas",
+		timezone: "Etc/GMT+5",
+		dailyReset: "00:00",
+		icon: "isekai-slow-life"
+	},
+	{
+		game: "Isekai:Slow Life",
+		server: "Europe",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "isekai-slow-life"
+	},
+	{
 		game: "Journeys in the Immortal Realm",
 		server: "Global",
 		timezone: "Etc/GMT+4",
