@@ -1135,6 +1135,13 @@ var gameData = [
 		icon: "love-nikki"
 	},
 	{
+		game: "Lovebrush Chronicles",
+		server: "EN",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00",
+		icon: "lovebrush-chronicles"
+	},
+	{
 		game: "Mabinogi",
 		server: "NA",
 		timezone: "America/Los_Angeles",
