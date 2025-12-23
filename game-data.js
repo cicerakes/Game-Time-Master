@@ -926,6 +926,20 @@ var gameData = [
 		icon: "idolish7"
 	},
 	{
+		game: "IDOLY PRIDE : Idol Manager",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "07:00",
+		icon: "idoly-pride-idol-manager"
+	},
+	{
+		game: "IDOLY PRIDE : Idol Manager",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "idoly-pride-idol-manager"
+	},
+	{
 		game: "Infinity Nikki",
 		server: "America",
 		timezone: "Etc/GMT+7",
