@@ -2084,6 +2084,13 @@ var gameData = [
 		icon: "where-winds-meet"
 	},
 	{
+		game: "Wizardry Variants Daphne",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "wizardry-variants-daphne"
+	},
+	{
 		game: "World Dai Star: Yume no Stellarium",
 		server: "JP",
 		timezone: "Asia/Tokyo",
