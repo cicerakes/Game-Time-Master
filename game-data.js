@@ -1,5 +1,12 @@
 var gameData = [
 	{
+		game: "18TRIP",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "18trip"
+	},
+	{
 		game: "A3!",
 		server: "JP",
 		timezone: "Asia/Tokyo",
