@@ -1930,6 +1930,13 @@ var gameData = [
 		icon: "tokyo-debunker"
 	},
 	{
+		game: "Tom Clancy's The Division 2",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "the-division-2"
+	},
+	{
 		game: "Toontown Rewritten",
 		server: "EN",
 		timezone: "America/Los_Angeles",
