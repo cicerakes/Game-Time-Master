@@ -1415,6 +1415,20 @@ var gameData = [
 		icon: "phantasy-star-online-2-ng"
 	},
 	{
+		game: "Pixel Heroes: Tales of Emond",
+		server: "EU",
+		timezone: "Etc/GMT-1",
+		dailyReset: "05:00",
+		icon: "pixel-heroes-tales-of-emond"
+	},
+	{
+		game: "Pixel Heroes: Tales of Emond",
+		server: "NA",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00",
+		icon: "pixel-heroes-tales-of-emond"
+	},
+	{
 		game: "Pokémon Masters EX",
 		server: "Global",
 		timezone: "Etc/UTC",
