@@ -1944,6 +1944,13 @@ var gameData = [
 		icon: "toram-online"
 	},
 	{
+		game: "Touhou Gensou Eclipse",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "touhou-gensou-eclipse"
+	},
+	{
 		game: "Touhou LostWord",
 		server: "Global",
 		timezone: "Etc/UTC",
