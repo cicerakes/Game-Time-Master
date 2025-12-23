@@ -1972,6 +1972,13 @@ var gameData = [
 		icon: "touhou-lost-word"
 	},
 	{
+		game: "Touken Ranbu ONLINE",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "touken-ranbu-online"
+	},
+	{
 		game: "Tower of Fantasy",
 		server: "Global",
 		timezone: "America/New_York",
