@@ -1163,6 +1163,13 @@ var gameData = [
 		icon: "lovebrush-chronicles"
 	},
 	{
+		game: "Lust Goddess",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "18:00",
+		icon: "lust-goddess"
+	},
+	{
 		game: "Mabinogi",
 		server: "NA",
 		timezone: "America/Los_Angeles",
