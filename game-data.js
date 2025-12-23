@@ -2112,6 +2112,22 @@ var gameData = [
 		icon: "world-dai-star"
 	},
 	{
+		game: "World of Warcraft",
+		server: "Americas & Oceania",
+		timezone: "America/Los_Angeles",
+		dailyReset: "15:00",
+		icon: "world-of-warcraft",
+		utcDailyReset: true
+	},
+	{
+		game: "World of Warcraft",
+		server: "Europe",
+		timezone: "Europe/Brussels",
+		dailyReset: "04:00",
+		icon: "world-of-warcraft",
+		utcDailyReset: true
+	},
+	{
 		game: "Wuthering Waves",
 		server: "America",
 		timezone: "Etc/GMT+5",
