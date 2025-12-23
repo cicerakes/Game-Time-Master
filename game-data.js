@@ -996,6 +996,13 @@ var gameData = [
 		icon: "jjk-phantom-parade"
 	},
 	{
+		game: "Kantai Collection",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "kantai-collection"
+	},
+	{
 		game: "Kemono Friends 3",
 		server: "JP",
 		timezone: "Asia/Tokyo",
