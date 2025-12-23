@@ -1254,6 +1254,13 @@ var gameData = [
 		icon: "mobile-legends-adventure"
 	},
 	{
+		game: "MOBILE SUIT GUNDAM U.C. ENGAGE",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "11:00",
+		icon: "mobile-suit-gundam-u-c-engage"
+	},
+	{
 		game: "Muvluv Girls Garden",
 		server: "JP",
 		timezone: "Asia/Tokyo",
