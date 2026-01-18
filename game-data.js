@@ -1187,7 +1187,7 @@ var gameData = [
 		game: "Lost Sword",
 		server: "Global",
 		timezone: "Etc/GMT-9",
-		dailyReset: "22:00",
+		dailyReset: "00:00",
 		icon: "lost-sword"
 	},
 	{
