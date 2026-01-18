@@ -793,6 +793,41 @@ var gameData = [
 		icon: "hatsune-miku-colorful-stage"
 	},
 	{
+		game: "Heartopia",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "06:00",
+		icon: "heartopia"
+	},
+	{
+		game: "Heartopia",
+		server: "Asia",
+		timezone: "Etc/GMT-9",
+		dailyReset: "06:00",
+		icon: "heartopia"
+	},
+	{
+		game: "Heartopia",
+		server: "Global",
+		timezone: "Etc/GMT-1",
+		dailyReset: "06:00",
+		icon: "heartopia"
+	},
+	{
+		game: "Heartopia",
+		server: "SEA",
+		timezone: "Etc/GMT-7",
+		dailyReset: "06:00",
+		icon: "heartopia"
+	},
+	{
+		game: "Heartopia",
+		server: "TW,HK,MO",
+		timezone: "Etc/GMT-8",
+		dailyReset: "06:00",
+		icon: "heartopia"
+	},
+	{
 		game: "Heaven Burns Red",
 		server: "Global",
 		timezone: "Etc/GMT+7",
