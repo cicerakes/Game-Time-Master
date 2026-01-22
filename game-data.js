@@ -91,6 +91,20 @@ var gameData = [
 		icon: "arknights"
 	},
 	{
+		game: "Arknights: Endfield",
+		server: "Americas / Europe",
+		timezone: "Etc/GMT+5",
+		dailyReset: "04:00",
+		icon: "arknights-endfield"
+	},
+	{
+		game: "Arknights: Endfield",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00",
+		icon: "arknights-endfield"
+	},
+	{
 		game: "Ash Arms",
 		server: "JP",
 		timezone: "Asia/Tokyo",
