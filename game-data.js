@@ -1345,6 +1345,13 @@ var gameData = [
 		icon: "mobile-legends-adventure"
 	},
 	{
+		game: "Mobile Legends: Bang Bang",
+		server: "Global",
+		timezone: "Etc/GMT+8",
+		dailyReset: "00:00",
+		icon: "mobile-legends-bang-bang"
+	},
+	{
 		game: "MOBILE SUIT GUNDAM U.C. ENGAGE",
 		server: "Global",
 		timezone: "Asia/Tokyo",
