@@ -743,6 +743,13 @@ var gameData = [
 		icon: "grand-summoners"
 	},
 	{
+		game: "Grand Theft Auto Online",
+		server: "Global",
+		timezone: "Etc/GMT+8",
+		dailyReset: "22:00",
+		icon: "gta-online"
+	},
+	{
 		game: "Guardian Tales",
 		server: "Asia",
 		timezone: "Etc/GMT-8",
