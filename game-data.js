@@ -1282,6 +1282,13 @@ var gameData = [
 		icon: "mahjong-soul"
 	},
 	{
+		game: "MapleStory",
+		server: "GMS",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "maplestory"
+	},
+	{
 		game: "MapleStory M",
 		server: "America",
 		timezone: "Etc/GMT+8",
