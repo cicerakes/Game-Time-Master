@@ -381,11 +381,12 @@ function timeCalc() {
 	}
 }
 
+// Create initial game filter menu with everything checked.
 function createGameFilterMenu() {
 	// Create game server menu entries.
 	let currentGameParent;
 	for (let i = 0; i < gameData.length; i++) {
-		const gameFilterCont = document.getElementById("game-filter-settings");
+		const gameFilterCont = document.getElementById("game-filter-list");
 		// Use custom menu name if it exists.
 		let gameName = gameData[i].game;
 		// Prefix with a space for padding.
@@ -467,11 +468,11 @@ function createGameFilterMenu() {
 }
 
 function clearGameFilterMenu() {
-	const gameFilterCont = document.getElementById("game-filter-settings");
-	gameFilterCont.innerHTML = '<h2 class="section-heading">Games</h2><button id="games-menu-section" class="section-toggle-arrow" onclick="gamesMenuSectionToggle(this)"></button><label for="games-menu-section"></label>';
+	const gameFilterCont = document.getElementById("game-filter-list");
+	gameFilterCont.innerHTML = '';
 }
 
-// Trigger onchange to hide/show games and update gameFilter to match what's saved.
+// Trigger onchange to hide/show games and update gameFilter to match what's saved to local storage.
 function hideFilteredGames() {
 	// Hide game containers.
 	if (localStorage.getItem("gameFilterList") != null) {
@@ -483,8 +484,8 @@ function hideFilteredGames() {
 				skippedParent = false,
 				containerPosition = 0;
 
-				for (let y = 4; y < document.getElementById("game-filter-settings").childElementCount; y+=2, containerPosition++) {
-					const gameLabel = document.getElementById("game-filter-settings").children[y],
+				for (let y = 1; y < document.getElementById("game-filter-list").childElementCount; y+=2, containerPosition++) {
+					const gameLabel = document.getElementById("game-filter-list").children[y],
 					gameName = gameData[containerPosition].game;
 
 					if (gameLabel.className.includes("game-parent")) {
@@ -504,7 +505,7 @@ function hideFilteredGames() {
 					if (skippedParent) {
 						y++;
 						for (let z = 0; z < serverCount; z++, containerPosition++) {
-							const childInput = document.getElementById("game-filter-settings").children[y].getElementsByTagName("input")[z];
+							const childInput = document.getElementById("game-filter-list").children[y].getElementsByTagName("input")[z];
 
 							// Compare current child with server in saved filter to see if there's a match.
 							if (gameFilterSaved[i].game == gameFilter[containerPosition].game && gameFilterSaved[i].server == gameFilter[containerPosition].server) {
@@ -522,6 +523,160 @@ function hideFilteredGames() {
 	} else {
 		// If no saved filter, initialise a default.
 		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+	}
+}
+
+
+// Creates game filter list WITHOUT hiding/showing the game result.
+function createUpdatedGameFilterMenu() {
+	const savedGameFilter = getLocalStorageObject("gameFilterList");
+	// Create game server menu entries.
+	let currentGameParent;
+	for (let i = 0; i < gameData.length; i++) {
+		const gameFilterCont = document.getElementById("game-filter-list");
+		// Use custom menu name if it exists.
+		let gameName = gameData[i].game;
+		// Prefix with a space for padding.
+		if (gameData[i].menuName) {
+			gameName = " " + gameData[i].menuName;
+		} else {
+			gameName = " " + gameName;
+		}
+		// Generate id based on game name with (most) punctuation and accents removed.
+		const gameId = gameData[i].game.normalize().replace(/[&!:<>"'`=\/\s]/g, "-").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
+
+		// Use template depending on if game has more than 1 region.
+		if (gameData[i].game.toLowerCase() === currentGameParent) {
+			// If game has multiple servers and is NOT first server detected.
+			// Create child menu entry.
+			const template = document.getElementById("game-menu-children"),
+			clone = template.content.cloneNode(true),
+			input = clone.querySelectorAll("input")[0],
+			label = clone.querySelectorAll("label")[0];
+
+			input.id = gameId + "-" + gameData[i].server.toLowerCase();
+			label.htmlFor = gameId + "-" + gameData[i].server.toLowerCase();
+			label.textContent = " " + gameData[i].server;
+
+			// Find it in savedGameFilter.
+			//let gameServPos = gameFilterSaved[i].findIndex(x => x.game === gameData[i].game);
+			//let matchingGameServ = arr.find(gameFilter => gameFilter.game === gameData[i].game);
+			var filterForMatchingGameServ = {
+				game: gameData[i].game,
+				server: gameData[i].server
+			};
+			let matchingGameServ = savedGameFilter.filter(gameServ => gameServ.game == filterForMatchingGameServ.game && gameServ.server == filterForMatchingGameServ.server);
+
+			if (matchingGameServ[0].shown === "false") {
+				input.checked = false;
+			}
+
+			gameFilterCont.querySelectorAll(".game-children:last-child")[0].appendChild(clone);
+		} else if (i == (gameData.length - 1)) {
+			// If the game is last in the menu and not a child, it cannot be a parent.
+			const template = document.getElementById("game-menu-entry"),
+			clone = template.content.cloneNode(true),
+			input = clone.querySelectorAll("input")[0],
+			label = clone.querySelectorAll("label")[0];
+
+			input.id = gameId;
+			label.htmlFor = gameId;
+			label.textContent = gameName;
+			label.title = gameData[i].game;
+
+			// Find it in savedGameFilter.
+			var filterForMatchingGameServ = {
+				game: gameData[i].game,
+				server: gameData[i].server
+			};
+			let matchingGameServ = savedGameFilter.filter(gameServ => gameServ.game == filterForMatchingGameServ.game && gameServ.server == filterForMatchingGameServ.server);
+
+			if (matchingGameServ[0].shown === "false") {
+				input.checked = false;
+			}
+
+			gameFilterCont.appendChild(clone);
+		} else if (gameData[i].game.toLowerCase() === gameData[i+1].game.toLowerCase()) {
+			// If game has multiple servers and is first server detected.
+			// Save name for checking children.
+			currentGameParent = gameData[i].game.toLowerCase();
+
+			// Create parent menu entry.
+			const template = document.getElementById("game-menu-parent"),
+			clone = template.content.cloneNode(true),
+			inputs = clone.querySelectorAll("input"),
+			labels = clone.querySelectorAll("label"),
+			button = clone.querySelectorAll("button")[0],
+			span = clone.querySelectorAll("span")[0];
+
+			inputs[0].id = gameId;
+			labels[0].htmlFor = gameId;
+			labels[0].title = gameData[i].game;
+			span.textContent = gameName;
+			button.id = gameId + "-children";
+			labels[1].htmlFor = gameId + "-children";
+			// Also add the game as first child.
+			inputs[1].id = gameId + "-" + gameData[i].server.toLowerCase();
+			labels[2].htmlFor = gameId + "-" + gameData[i].server.toLowerCase();
+			labels[2].textContent = " " + gameData[i].server;
+
+			// Find it in savedGameFilter.
+			var filterForMatchingGameServ = {
+				game: gameData[i].game,
+				server: gameData[i].server
+			};
+			let matchingGameServ = savedGameFilter.filter(gameServ => gameServ.game == filterForMatchingGameServ.game && gameServ.server == filterForMatchingGameServ.server);
+
+			if (matchingGameServ[0].shown === "false") {
+				inputs[1].checked = false;
+			}
+
+			// If any children are hidden, set parent as indeterminate (or unchecked if all hidden).
+			let matchingChildren = savedGameFilter.filter(childServ => childServ.game == gameData[i].game),
+			hiddenMatchingChildren = 0;
+
+			matchingChildren.forEach(childServ => {
+				if (childServ.shown === "false") {
+					hiddenMatchingChildren++;
+				}
+			});
+
+			if (hiddenMatchingChildren == matchingChildren.length) {
+				// Unchecked.
+				inputs[0].checked = false;
+				inputs[0].indeterminate = false;
+			} else if (hiddenMatchingChildren > 0) {
+				// Indeterminate.
+				inputs[0].checked = true;
+				inputs[0].indeterminate = true;
+			}
+
+			gameFilterCont.appendChild(clone);
+		} else {
+			// If the game has only 1 region/server.
+			const template = document.getElementById("game-menu-entry"),
+			clone = template.content.cloneNode(true),
+			input = clone.querySelectorAll("input")[0],
+			label = clone.querySelectorAll("label")[0];
+
+			input.id = gameId;
+			label.htmlFor = gameId;
+			label.textContent = gameName;
+			label.title = gameData[i].game;
+
+			// Find it in savedGameFilter.
+			var filterForMatchingGameServ = {
+				game: gameData[i].game,
+				server: gameData[i].server
+			};
+			let matchingGameServ = savedGameFilter.filter(gameServ => gameServ.game == filterForMatchingGameServ.game && gameServ.server == filterForMatchingGameServ.server);
+
+			if (matchingGameServ[0].shown === "false") {
+				input.checked = false;
+			}
+
+			gameFilterCont.appendChild(clone);
+		}
 	}
 }
 
@@ -1061,12 +1216,15 @@ function submitCustomGameForm() {
 			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
 		});
 
+		// Save updated filter list.
+		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
 		// Update converted list.
 		gameDataConverted.push(customGameServerObj);
 
 		// Update filter menu.
 		clearGameFilterMenu();
-		createGameFilterMenu();
+		createUpdatedGameFilterMenu();
 
 		// Refresh game results.
 		clearGameResults();
@@ -1195,7 +1353,7 @@ function delGameServer(button) {
 	// Refresh display.
 	// Update filter menu.
 	clearGameFilterMenu();
-	createGameFilterMenu();
+	createUpdatedGameFilterMenu();
 	// Refresh game results.
 	clearGameResults();
 	createGameResults();
