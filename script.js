@@ -983,7 +983,7 @@ function toggleGameServerHide(toggle, child) {
 				parentCheck.checked = true;
 				parentCheck.indeterminate = true;
 			}
-		
+
 		} else {
 			// Check if other children are hidden.
 			let allChildrenHidden = true;
@@ -1026,7 +1026,6 @@ function toggleGameParentHide(gameSwitch) {
 				childrenSwitches[i].checked = false;
 				toggleGameServerHide(childrenSwitches[i], true);
 			}
-			
 		}
 	} else {
 		// Show child servers.
@@ -1098,7 +1097,7 @@ function refreshFilteredGames() {
 		if (gameFilter[i].shown == "false") {
 			for (let x = 0; x < gameServers.length; x++) {
 				const gameServer = gameServers[x];
-		
+
 				if (gameServer.getElementsByTagName("h3")[0].innerText == gameFilter[i].game && gameServer.getElementsByTagName("h4")[0].innerText == gameFilter[i].server) {
 					gameServer.classList.add("hidden");
 					// Update button text.
@@ -1109,7 +1108,7 @@ function refreshFilteredGames() {
 				}
 			}
 		}
-		
+
 	}
 }
 
@@ -1179,7 +1178,7 @@ function submitCustomGameForm() {
 		// If duplicate of existing, add number to server.
 		let server = formData.get("server");
 		const numbered = findIncrementDupeGameServer(formData.get("game-name"), server);
-		
+
 		if (numbered) {
 			server = numbered;
 		}
@@ -1533,7 +1532,7 @@ function toggleImportMethodDisplay() {
 
 function readTextFile(file) {
 	return new Promise((resolve, reject) => {
-		const fr = new FileReader();  
+		const fr = new FileReader();
 		fr.onload = () => {
 			resolve(fr.result);
 		};
@@ -1545,7 +1544,7 @@ function readTextFile(file) {
 async function importGamesSettings() {
 	let importText;
 	const formData = new FormData(document.getElementById("import-games-settings-form"));
-	
+
 	if (document.forms["import-games-settings-form"].reportValidity()) {
 		// Read input depending on method chosen.
 		if (formData.get("imported-games-settings-method") == "paste") {
@@ -1560,7 +1559,7 @@ async function importGamesSettings() {
 			// Update.
 			gameFilter = JSON.parse(importText[0]);
 			customGameData = JSON.parse(importText[1]);
-		
+
 			// Store.
 			localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
 			localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
