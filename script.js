@@ -526,6 +526,58 @@ function hideFilteredGames() {
 	}
 }
 
+function toggleAllGamesFilter(hide) {
+	if (hide) {
+		// Hide all.
+		gameFilter.forEach(game => {
+			game['shown'] = "false";
+		});
+	} else {
+		// Show all.
+		// Create list of filtered/hidden games using gameData with everything shown.
+		gameFilter.forEach(game => {
+			game['shown'] = "true";
+		});
+	}
+
+	// Save updated filter list.
+	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+	clearGameFilterMenu();
+	clearGameResults();
+
+	createGameResults();
+	createUpdatedGameFilterMenu();
+	refreshFilteredGames();
+	timeCalc();
+	// Refresh search results in case search is being used during submission.
+	searchFilter();
+
+	updateToggleAllGamesFilterBtn();
+}
+
+function checkIfAllFilteredGamesHidden() {
+	const savedGameFilter = getLocalStorageObject("gameFilterList");
+	for (let i = 0; i < savedGameFilter.length; i++) {
+		if (savedGameFilter[i].shown == "true") {
+			return false;
+		}
+	}
+	return true;
+}
+
+function updateToggleAllGamesFilterBtn() {
+	allGamesHidden = checkIfAllFilteredGamesHidden();
+
+	if (allGamesHidden) {
+		// Show/hide buttons.
+		document.getElementById("show-all-games-btn").classList.remove("hidden");
+		document.getElementById("hide-all-games-btn").classList.add("hidden");
+	} else {
+		document.getElementById("hide-all-games-btn").classList.remove("hidden");
+		document.getElementById("show-all-games-btn").classList.add("hidden");
+	}
+}
 
 // Creates game filter list WITHOUT hiding/showing the game result.
 function createUpdatedGameFilterMenu() {
@@ -1013,6 +1065,9 @@ function toggleGameServerHide(toggle, child) {
 
 	// Store.
 	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+	// If this results in all filtered games being hidden, update toggle all button.
+	updateToggleAllGamesFilterBtn();
 }
 
 function toggleGameParentHide(gameSwitch) {
@@ -1240,6 +1295,8 @@ function submitCustomGameForm() {
 		} else {
 			openCustomGameConfirm();
 		}
+
+		updateToggleAllGamesFilterBtn();
 	}
 }
 
