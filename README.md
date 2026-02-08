@@ -17,7 +17,7 @@ Then this is for you!
 - Filter specific games and save this setting per browser.
 - Add custom game servers (saved locally).
 - Import & export your game server filters, custom game servers, and site settings.
-- Dark/night mode, which is automatically enabled based on system preferences.
+- Dark/night mode, which can be automatically enabled based on system/device preferences.
 
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues), or by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform).
 

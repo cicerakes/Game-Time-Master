@@ -237,13 +237,14 @@
 						<span class="slider"></span>
 					</label>
 				</label>
-				<label class="option-name" for="dark-theme-switch">
-					<span>Dark theme</span>
-					<label class="switch">
-						<input type="checkbox" id="dark-theme-switch" onchange="settingToggle(this)">
-						<span class="slider"></span>
-					</label>
-				</label>
+				<div class="menu-item">
+					<label for="dark-theme-switch" style="width:60%;display:inline-block">Dark theme</label>
+					<select style="width:27%;display:inline-block" name="timezone" id="dark-theme-switch" onchange="settingToggle(this)"/>
+						<option value="auto">Auto</option>
+						<option value="false">Off</option>
+						<option value="true">On</option>
+					</select>
+				</div>
 				<button class="menu-item" onclick="openExportGamesSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Data</button>
 				<button class="menu-item" onclick="openImportGamesSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Data</button>
 			</div>

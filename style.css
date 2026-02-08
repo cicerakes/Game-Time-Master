@@ -548,13 +548,13 @@ input:checked + .slider:before {
 	margin-block-start: 0;
 }
 
-.dialog input[type="text"], .dialog input[type="time"], .dialog select, .dialog textarea {
+.dialog input[type="text"], .dialog input[type="time"], .dialog select, .dialog textarea, #menu select {
 	border: 1px solid #999;
 	border-radius: 3px;
 	padding: .2em;
 }
 
-.dialog input[type="text"]:focus, .dialog input[type="time"]:focus, .dialog select:focus, .dialog textarea:focus {
+.dialog input[type="text"]:focus, .dialog input[type="time"]:focus, .dialog select:focus, .dialog textarea:focus, #menu select:focus {
 	outline: none;
 	border: 2px solid #673ab7
 }

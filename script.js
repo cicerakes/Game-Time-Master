@@ -134,15 +134,16 @@ if (localStorage.getItem("compact-mode-switch") == "true") {
 	document.getElementById("compact-mode-switch").checked = true;
 }
 // If there's no saved dark theme setting, check for OS theme and apply that.
-// OS theme is used until user manually changes this setting.
+const colorSchemeDarkQueury = window.matchMedia("(prefers-color-scheme: dark)");
 if (localStorage.getItem("dark-theme-switch") == "true") {
 	document.body.classList.add("dark");
-	document.getElementById("dark-theme-switch").checked = true;
+	document.getElementById("dark-theme-switch").value = "true";
 } else if (localStorage.getItem("dark-theme-switch") == "false") {
-	// Do nothing and load default theme.
-} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-	document.body.classList.add("dark");
-	document.getElementById("dark-theme-switch").checked = true;
+	document.getElementById("dark-theme-switch").value = "false";
+} else {
+	colorSchemeDarkQueury.addEventListener("change", applyMatchingTheme);
+	document.getElementById("dark-theme-switch").value = "auto";
+	applyMatchingTheme(colorSchemeDarkQueury);
 }
 
 // Show local time data.
@@ -800,70 +801,89 @@ function searchFilter () {
 	}
 }
 
+function applyMatchingTheme(q) {
+	if (q.matches) {
+		document.body.classList.add("dark");
+	} else {
+		document.body.classList.remove("dark");
+	}
+}
+
 function settingToggle(setting) {
 	const settingId = setting.id;
-	localStorage.setItem([settingId], setting.checked);
 
-	if (settingId == "12-hr-time-switch") {
-		if (setting.checked) {
-			twelveHourFormat = true;
-		} else {
-			twelveHourFormat = false;
-		}
-		setTimeFormat()
-		timeCalc();
-	} else if (settingId == "show-server-date-switch") {
-		if (setting.checked) {
-			showServerDate = true;
-		} else {
-			showServerDate = false;
-		}
-		timeCalc();
-	} else if (settingId == "show-seconds-switch") {
-		if (setting.checked) {
-			showSeconds = true;
-		} else {
-			showSeconds = false;
-		}
-		setTimeFormat();
-		timeCalc();
-		setRefresh();
-	} else if (settingId == "sort-by-time-remaining-switch") {
-		if (setting.checked) {
-			sortByTimeRemaining = true;
-		} else {
-			sortByTimeRemaining = false;
-		}
-		clearGameResults();
-		createGameResults();
-		timeCalc();
-		refreshFilteredGames();
-		// Refresh search results in case search is being used during toggle.
-		searchFilter();
-	} else if (settingId == "show-hide-buttons-switch") {
-		if (setting.checked) {
-			document.body.classList.remove("hide-buttons-hidden");
-		} else {
-			document.body.classList.add("hide-buttons-hidden");
-		}
-	} else if (settingId == "show-hidden-in-search-switch") {
-		if (setting.checked) {
-			showHidden = true;
-		} else {
-			showHidden = false;
-		}
-		searchFilter();
-	} else if (settingId == "compact-mode-switch") {
-		if (setting.checked) {
-			document.body.classList.add("compact");
-		} else {
-			document.body.classList.remove("compact");
-		}
-	} else if (settingId == "dark-theme-switch") {
-		if (setting.checked) {
-			document.body.classList.add("dark");
-		} else {
+	if (settingId == "dark-theme-switch") {
+		localStorage.setItem([settingId], setting.value);
+
+		if (setting.value == "auto") {
+			colorSchemeDarkQueury.addEventListener("change", applyMatchingTheme);
+			applyMatchingTheme(colorSchemeDarkQueury);
+		} else if (setting.value == "false") {
+			colorSchemeDarkQueury.removeEventListener("change", applyMatchingTheme);
 			document.body.classList.remove("dark");
+		} else if (setting.value == "true") {
+			colorSchemeDarkQueury.removeEventListener("change", applyMatchingTheme);
+			document.body.classList.add("dark");
+		}
+	} else {
+		// If not a select, save setting using checked.
+		localStorage.setItem([settingId], setting.checked);
+
+		if (settingId == "12-hr-time-switch") {
+			if (setting.checked) {
+				twelveHourFormat = true;
+			} else {
+				twelveHourFormat = false;
+			}
+			setTimeFormat()
+			timeCalc();
+		} else if (settingId == "show-server-date-switch") {
+			if (setting.checked) {
+				showServerDate = true;
+			} else {
+				showServerDate = false;
+			}
+			timeCalc();
+		} else if (settingId == "show-seconds-switch") {
+			if (setting.checked) {
+				showSeconds = true;
+			} else {
+				showSeconds = false;
+			}
+			setTimeFormat();
+			timeCalc();
+			setRefresh();
+		} else if (settingId == "sort-by-time-remaining-switch") {
+			if (setting.checked) {
+				sortByTimeRemaining = true;
+			} else {
+				sortByTimeRemaining = false;
+			}
+			clearGameResults();
+			createGameResults();
+			timeCalc();
+			refreshFilteredGames();
+			// Refresh search results in case search is being used during toggle.
+			searchFilter();
+		} else if (settingId == "show-hide-buttons-switch") {
+			if (setting.checked) {
+				document.body.classList.remove("hide-buttons-hidden");
+			} else {
+				document.body.classList.add("hide-buttons-hidden");
+			}
+		} else if (settingId == "show-hidden-in-search-switch") {
+			if (setting.checked) {
+				showHidden = true;
+			} else {
+				showHidden = false;
+			}
+			searchFilter();
+		} else if (settingId == "compact-mode-switch") {
+			if (setting.checked) {
+				document.body.classList.add("compact");
+			} else {
+				document.body.classList.remove("compact");
+			}
 		}
 	}
 }
@@ -1518,7 +1538,7 @@ function openExportGamesSettingsForm() {
 		},
 		{
 			name: "dark-theme-switch",
-			checked: "false"
+			checked: "auto"
 		}
 	];
 	savedSettings.forEach(setting => {
