@@ -555,8 +555,8 @@ input:checked + .slider:before {
 }
 
 .dialog input[type="text"]:focus, .dialog input[type="time"]:focus, .dialog select:focus, .dialog textarea:focus, #menu select:focus {
-	outline: none;
-	border: 2px solid #673ab7
+	outline: solid #673ab7;
+	border-color: #2c2c2c;
 }
 
 form label, form span {
