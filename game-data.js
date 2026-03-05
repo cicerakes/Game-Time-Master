@@ -203,6 +203,14 @@ var gameData = [
 		icon: "blue-archive"
 	},
 	{
+		game: "Brawlhalla",
+		server: "Global",
+		timezone: "America/New_York",
+		dailyReset: "10:00",
+		icon: "brawlhalla",
+		utcDailyReset: true
+	},
+	{
 		game: "BrownDust2",
 		server: "Global",
 		timezone: "Etc/UTC",
