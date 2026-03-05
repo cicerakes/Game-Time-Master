@@ -1395,6 +1395,13 @@ var gameData = [
 		icon: "my-hero-ultra-impact"
 	},
 	{
+		game: "MY HERO ULTRA RUMBLE",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "14:00",
+		icon: "my-hero-ultra-rumble"
+	},
+	{
 		game: "Mythic Heroes",
 		server: "Global",
 		timezone: "Etc/UTC",
