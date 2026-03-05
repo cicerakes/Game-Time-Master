@@ -2269,6 +2269,13 @@ var gameData = [
 		icon: "yu-gi-oh-duel-links"
 	},
 	{
+		game: "Yu-Gi-Oh! Master Duel",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "03:00",
+		icon: "yu-gi-oh-master-duel"
+	},
+	{
 		game: "Zenless Zone Zero",
 		server: "America",
 		timezone: "Etc/GMT+5",
