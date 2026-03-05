@@ -1374,6 +1374,13 @@ var gameData = [
 		icon: "mobile-suit-gundam-u-c-engage"
 	},
 	{
+		game: "Morimens",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "09:00",
+		icon: "morimens"
+	},
+	{
 		game: "Muvluv Girls Garden",
 		server: "JP",
 		timezone: "Asia/Tokyo",
