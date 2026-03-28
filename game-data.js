@@ -1011,6 +1011,13 @@ var gameData = [
 		icon: "idoly-pride-idol-manager"
 	},
 	{
+		game: "Ikemen Villains",
+		server: "EN",
+		timezone: "America/Los_Angeles",
+		dailyReset: "00:00",
+		icon: "ikemen-villains"
+	},
+	{
 		game: "Infinity Nikki",
 		server: "America",
 		timezone: "Etc/GMT+7",
