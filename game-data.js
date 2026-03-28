@@ -1823,6 +1823,13 @@ var gameData = [
 		icon: "shadowverse-ccg"
 	},
 	{
+		game: "Shadowverse: Worlds Beyond",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "20:00",
+		icon: "shadowverse-worlds-beyond"
+	},
+	{
 		game: "SHIN MEGAMI TENSEI Liberation Dx2",
 		server: "EN",
 		timezone: "America/Los_Angeles",
