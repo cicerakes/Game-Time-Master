@@ -1901,6 +1901,13 @@ var gameData = [
 		icon: "soulworker"
 	},
 	{
+		game: "StarSavior",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "04:00",
+		icon: "starsavior"
+	},
+	{
 		game: "STARSEED: Asnia Trigger",
 		server: "Global",
 		timezone: "Etc/UTC",
