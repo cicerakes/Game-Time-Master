@@ -1095,6 +1095,13 @@ var gameData = [
 		icon: "jjk-phantom-parade"
 	},
 	{
+		game: "Kamihime PROJECT",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "17:00",
+		icon: "kamihime-project"
+	},
+	{
 		game: "Kantai Collection",
 		server: "JP",
 		timezone: "Asia/Tokyo",
