@@ -624,6 +624,13 @@ var gameData = [
 		icon: "food-fantasy"
 	},
 	{
+		game: "Gakuen Idolm@ster",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "gakuen-idolmaster"
+	},
+	{
 		game: "Genshin Impact",
 		server: "America",
 		timezone: "Etc/GMT+5",
