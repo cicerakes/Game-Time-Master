@@ -529,6 +529,13 @@ var gameData = [
 		icon: "ensemble-stars-music"
 	},
 	{
+		game: "Ensemble Stars!! Music",
+		server: "TW",
+		timezone: "Asia/Taipei",
+		dailyReset: "00:00",
+		icon: "ensemble-stars-music"
+	},
+	{
 		game: "Epic Seven",
 		server: "Asia",
 		timezone: "Etc/UTC",
