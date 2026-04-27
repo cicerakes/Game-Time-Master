@@ -1697,6 +1697,13 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Rage of Sage Online",
+		server: "Global",
+		timezone: "America/Panama",
+		dailyReset: "00:00",
+		icon: "rage-of-sage-online"
+	},
+	{
 		game: "Ragnarok M: Eternal Love",
 		server: "Global",
 		timezone: "Etc/GMT+6",
