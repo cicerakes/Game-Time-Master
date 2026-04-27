@@ -594,6 +594,13 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Fap CEO",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "14:00",
+		icon: "fap-ceo"
+	},
+	{
 		game: "FINAL FANTASY Record Keeper",
 		server: "JP",
 		timezone: "Asia/Tokyo",
