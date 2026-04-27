@@ -282,6 +282,13 @@ var gameData = [
 		icon: "crash-fever"
 	},
 	{
+		game: "Crazy Ones",
+		server: "Global",
+		timezone: "Etc/GMT-7",
+		dailyReset: "17:00",
+		icon: "crazy-ones"
+	},
+	{
 		game: "Crusaders Quest",
 		server: "Global",
 		timezone: "America/Los_Angeles",
