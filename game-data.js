@@ -1381,6 +1381,13 @@ var gameData = [
 		icon: "mobile-suit-gundam-u-c-engage"
 	},
 	{
+		game: "MONGIL: STAR DIVE",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "mongil-star-dive"
+	},
+	{
 		game: "Morimens",
 		server: "Global",
 		timezone: "Etc/GMT-8",
