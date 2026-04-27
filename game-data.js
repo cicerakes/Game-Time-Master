@@ -2062,6 +2062,13 @@ var gameData = [
 		icon: "the-ants-underground-kingdom"
 	},
 	{
+		game: "The Battle Cats",
+		server: "Global",
+		timezone: "America/Panama",
+		dailyReset: "00:00",
+		icon: "the-battle-cats"
+	},
+	{
 		game: "The Eminence in Shadow: Master of Garden",
 		server: "EN",
 		timezone: "Etc/UTC",
