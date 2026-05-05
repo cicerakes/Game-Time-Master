@@ -1207,6 +1207,10 @@ function initialiseTimezoneList() {
 
 		tzSelect.appendChild(tzOption);
 	});
+	var config = {
+		maxOptions:null
+	};
+	new TomSelect(tzSelect,config);
 }
 
 function toggleFormInfo(btn) {

@@ -559,6 +559,33 @@ input:checked + .slider:before {
 	border-color: #2c2c2c;
 }
 
+.ts-control {
+	border-color: #999;
+	padding: .2em;
+}
+
+.ts-wrapper.focus .ts-control {
+	outline: solid #673ab7;
+	border-color: #2c2c2c;
+}
+
+.ts-dropdown, .ts-control, .ts-control input {
+	color: #000;
+	font-size: 100%;
+	line-height: normal;
+}
+
+.ts-dropdown .active {
+	background-color: rgba(0, 0, 0, .05);
+	color: #000;
+}
+
+.ts-dropdown [data-selectable] .highlight {
+	background-color: rgba(126, 86, 193, .2);
+	display: inline;
+	font-size: inherit;
+}
+
 form label, form span {
 	display: inline-block;
 	font-size: 22px;
@@ -788,12 +815,32 @@ form label, form span {
 	filter: invert(90%);
 }
 
+.dark .ts-control {
+	background: #2c2c2c;
+	color: #eee;
+}
+
+.dark .ts-wrapper.single.input-active .ts-control {
+	background: #2c2c2c;
+}
+
+.dark .ts-dropdown {
+	background: #2c2c2c;
+	border-color: #404040;
+	color: #eee;
+}
+
+.dark .ts-dropdown .active {
+	background-color: rgba(255, 255, 255, .04);
+	color: #eee;
+}
+
 .dark .form-info {
 	color: #ccc;
 }
 
 .dark .red-text {
-    color: #ff4646;
+	color: #ff4646;
 }
 
 .dark hr {

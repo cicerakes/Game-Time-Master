@@ -121,3 +121,8 @@ For more details see [here](https://github.com/moment/moment/blob/develop/LICENS
 Copyright © 2014 Rob Dawson.  
 Licensed under the MIT License.  
 For more details see [here](https://github.com/codebox/moment-precise-range/blob/master/LICENSE.md).
+
+`tom-select.complete.min.js`
+Copyright © 2013–2023 Contributors.
+Licensed under the Apache License 2.0.
+For more details see [here](https://github.com/orchidjs/tom-select/blob/master/LICENSE).

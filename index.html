@@ -12,11 +12,13 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=2">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Source+Sans+Pro:400,600&display=swap">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css">
 		<link rel="stylesheet" href="style.css">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-10-year-range.min.js"></script>
 		<script src="moment-precise-range.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -103,7 +105,7 @@
 						<p>You can check <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">the Wikipedia page</a> for more info on these timezones, and to use Ctrl + F / Command + F.</p>
 					</div>
 					<select name="timezone" id="custom-timezone-input" required />
-						<option value="">---</option>
+						<option value="">Type to search...</option>
 					</select>
 				</div>
 				<div class="form-section">
