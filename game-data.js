@@ -645,6 +645,13 @@ var gameData = [
 		icon: "food-fantasy"
 	},
 	{
+		game: "Free Fire",
+		server: "Indonesia",
+		timezone: "Asia/Jakarta",
+		dailyReset: "15:30",
+		icon: "free-fire"
+	},
+	{
 		game: "Gakuen Idolm@ster",
 		server: "JP",
 		timezone: "Asia/Tokyo",
