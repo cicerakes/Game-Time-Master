@@ -1472,6 +1472,27 @@ var gameData = [
 		icon: "neural-cloud"
 	},
 	{
+		game: "Neverness to Everness",
+		server: "America",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00",
+		icon: "neverness-to-everness"
+	},
+	{
+		game: "Neverness to Everness",
+		server: "Asia",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "neverness-to-everness"
+	},
+	{
+		game: "Neverness to Everness",
+		server: "Europe",
+		timezone: "Etc/GMT-1",
+		dailyReset: "05:00",
+		icon: "neverness-to-everness"
+	},
+	{
 		game: "Ni no Kuni: Cross Worlds",
 		server: "Global",
 		timezone: "Etc/GMT",
