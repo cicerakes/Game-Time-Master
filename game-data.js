@@ -239,6 +239,13 @@ var gameData = [
 		icon: "captain-tsubasa-dream-team"
 	},
 	{
+		game: "Cat Fantasy",
+		server: "EN",
+		timezone: "Etc/GMT+5",
+		dailyReset: "05:00",
+		icon: "cat-fantasy"
+	},
+	{
 		game: "Chaos Zero Nightmare",
 		server: "Global",
 		timezone: "Etc/UTC",
