@@ -21,9 +21,6 @@ Then this is for you!
 
 Feel free to request for more games to be added by creating an issue [here](https://github.com/cicerakes/Game-Time-Master/issues), or by filling out [this form](https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform).
 
-## Feature Roadmap
-- Manually set time zone (for when auto detect is wrong).
-
 ## Contributing (Adding Game Servers)
 ### Summary:
 - Add game server details to `game-data.js`.

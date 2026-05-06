@@ -247,6 +247,12 @@
 						<option value="true">On</option>
 					</select>
 				</div>
+				<div class="menu-item">
+					<label for="manual-timezone-select" style="width:60%;display:inline-block">Your timezone</label>
+					<select style="width:27%;display:inline-block" name="timezone" id="manual-timezone-select" onchange="setManualTimezone(this.value)"/>
+						<option value="">Auto</option>
+					</select>
+				</div>
 				<button class="menu-item" onclick="openExportGamesSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Data</button>
 				<button class="menu-item" onclick="openImportGamesSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Data</button>
 			</div>

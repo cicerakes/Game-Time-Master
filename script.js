@@ -146,9 +146,12 @@ if (localStorage.getItem("dark-theme-switch") == "true") {
 	applyMatchingTheme(colorSchemeDarkQueury);
 }
 
+// Load manual timezone setting.
+var manualTimezone = localStorage.getItem("manual-timezone");
+
 // Show local time data.
 var now = moment(),
-nowZone = moment.tz.guess();
+nowZone = manualTimezone || moment.tz.guess();
 document.getElementById("current-local-time").textContent = now.format(timeFormat);
 document.getElementById("current-local-date").textContent = now.format("dddd, Do MMMM, YYYY");
 document.getElementById("current-local-timezone").textContent = nowZone + " — " + now.format("[GMT ]Z");
@@ -224,6 +227,9 @@ setRefresh();
 
 // Generate list of timezones for custom game form.
 initialiseTimezoneList();
+
+// Generate list of timezones for manual timezone selector.
+initialiseManualTimezoneList();
 
 function setRefresh() {
 	// Clear previous interval if it exists.
@@ -1213,6 +1219,65 @@ function initialiseTimezoneList() {
 	new TomSelect(tzSelect,config);
 }
 
+function initialiseManualTimezoneList() {
+	const timezones = moment.tz.names(),
+	manualTzSelect = document.getElementById("manual-timezone-select");
+
+	// Track unique UTC offsets and their representative timezone
+	const offsetMap = new Map(); // key: offset in minutes, value: timezone name
+
+	timezones.forEach(tz => {
+		// Get the UTC offset for this timezone in minutes
+		const tzOffsetMinutes = moment.tz(tz).utcOffset();
+		
+		// Only add if we haven't seen this offset yet
+		if (!offsetMap.has(tzOffsetMinutes)) {
+			offsetMap.set(tzOffsetMinutes, tz);
+		}
+	});
+
+	// Convert to array and sort by offset (ascending)
+	const sortedOffsets = Array.from(offsetMap.entries())
+		.sort((a, b) => a[0] - b[0]);
+
+	// Add options to dropdown in sorted order
+	sortedOffsets.forEach(([tzOffsetMinutes, tz]) => {
+		// Convert offset to GMT format
+		const hours = Math.floor(Math.abs(tzOffsetMinutes) / 60);
+		const minutes = Math.abs(tzOffsetMinutes) % 60;
+		const sign = tzOffsetMinutes >= 0 ? '+' : '-';
+		const offsetStr = `GMT${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+		
+		let tzOption = document.createElement("option");
+		tzOption.innerText = offsetStr;
+		tzOption.value = tz;
+		manualTzSelect.appendChild(tzOption);
+	});
+
+	// Set the current value if a manual timezone is saved.
+	if (manualTimezone) {
+		manualTzSelect.value = manualTimezone;
+	}
+}
+
+function setManualTimezone(timezone) {
+	if (timezone === "") {
+		// Clear manual timezone to use auto-detect.
+		localStorage.removeItem("manual-timezone");
+		manualTimezone = null;
+		nowZone = moment.tz.guess();
+	} else {
+		// Set manual timezone.
+		localStorage.setItem("manual-timezone", timezone);
+		manualTimezone = timezone;
+		nowZone = timezone;
+	}
+	// Recalculate all times with the new timezone.
+	timeCalc();
+	// Update the display.
+	document.getElementById("current-local-timezone").textContent = nowZone + " — " + moment().tz(nowZone).format("[GMT ]Z");
+}
+
 function toggleFormInfo(btn) {
 	const formInfo = btn.nextElementSibling.nextElementSibling;
 
@@ -1543,6 +1608,10 @@ function openExportGamesSettingsForm() {
 		{
 			name: "dark-theme-switch",
 			checked: "auto"
+		},
+		{
+			name: "manual-timezone",
+			checked: ""
 		}
 	];
 	savedSettings.forEach(setting => {
