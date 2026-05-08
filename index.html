@@ -130,11 +130,12 @@
 					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
 					<br />
 					<div class="form-info hidden">
+						<p><b>If unsure, you can choose <code>No</code></b> as this is usually the case.</p>
 						<p>This only applies if the server itself changes timezones during daylight savings.</p>
-						<p>For example, if the server reset time is 05:00 during PST and also 05:00 during PDT, you would choose "No". <br />
-							If the reset time changed to 06:00 during PDT, you would choose "Yes".</p>
-						<p>Choose "No" if the server uses an offset (UTC or GMT).</p>
-						<p><b>If unsure, you can choose "No"</b> as this is usually the case.</p>
+						<p>Choose <code>No</code> if the server uses an offset (UTC or GMT).</p>
+						<p>For example, if the server reset time is 05:00 during PST and also 05:00 during PDT, you would choose <code>No</code>. <br />
+							If the reset time changed to 06:00 during PDT, you would choose <code>Yes</code>.</p>
+						<p>If you choose <code>Yes</code> you must convert the daily reset time to UTC and use that for the <code>Server daily reset time</code> section above.</p>
 					</div>
 					<input type="radio" name="daylight-savings" id="custom-no-daylight-savings-input" value="false" required checked />
 					<label for="custom-no-daylight-savings-input">No</label>
