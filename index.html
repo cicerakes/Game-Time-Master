@@ -103,6 +103,14 @@
 					<br />
 					<div class="form-info hidden">
 						<p>You can check <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">the Wikipedia page</a> for more info on these timezones, and to use Ctrl + F / Command + F.</p>
+						<p>For example, if the game uses: 
+							<ul>
+								<li>PT (PDT/PST) then use <code>America/Los_Angeles</code>.</li>
+								<li>ET (EDT/EST) then use <code>America/New_York</code>.</li>
+								<li>JST then use <code>Asia/Tokyo</code>.</li>
+								<li>UTC then search for <code>Etc/GMT</code> below and find the matching sign (+ or -) and number.</li>
+							</ul>
+						</p>
 					</div>
 					<select name="timezone" id="custom-timezone-input" required />
 						<option value="">Type to search...</option>
