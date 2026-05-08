@@ -9,6 +9,14 @@ body {
 	font-size: 20px;
 }
 
+code {
+	background-color: #ebebeb;
+	border: 1px solid #ababab;
+	border-radius: 3px;
+	font-family: "Courier New", monospace, monospace;
+	padding: 0 .2em;
+}
+
 h1, h2, h3, h4, h5 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 600;
@@ -756,6 +764,11 @@ form label, form span {
 
 .dark a {
 	color: #9575cd;
+}
+
+.dark code {
+	background-color: #272727;
+	border: 1px solid #676767;
 }
 
 .dark header {
