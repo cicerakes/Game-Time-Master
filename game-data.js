@@ -508,6 +508,14 @@ var gameData = [
 		icon: "echocalypse"
 	},
 	{
+		game: "Egg, Inc.",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "16:00",
+		icon: "egg-inc",
+		utcDailyReset: true
+	},
+	{
 		game: "Elpis: Fallen Star",
 		server: "Global",
 		timezone: "Etc/UTC",
