@@ -652,6 +652,14 @@ var gameData = [
 		icon: "food-fantasy"
 	},
 	{
+		game: "Fortnite",
+		server: "Global",
+		timezone: "America/New_York",
+		dailyReset: "14:00",
+		icon: "fortnite",
+		utcDailyReset: true
+	},
+	{
 		game: "Free Fire",
 		server: "Indonesia",
 		timezone: "Asia/Jakarta",
