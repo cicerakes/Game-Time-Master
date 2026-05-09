@@ -1523,6 +1523,13 @@ var gameData = [
 		icon: "neverness-to-everness"
 	},
 	{
+		game: "Neverness to Everness",
+		server: "SEA",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "neverness-to-everness"
+	},
+	{
 		game: "Ni no Kuni: Cross Worlds",
 		server: "Global",
 		timezone: "Etc/GMT",
