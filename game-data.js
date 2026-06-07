@@ -260,6 +260,13 @@ var gameData = [
 		icon: "cookie-run-kingdom"
 	},
 	{
+		game: "CookieRun: Tower of Adventures",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00",
+		icon: "cookierun-tower-of-adventures"
+	},
+	{
 		game: "Counter-Strike Nexon",
 		server: "Global",
 		timezone: "Europe/Berlin",
