@@ -880,6 +880,13 @@ var gameData = [
 		icon: "guild-wars-2"
 	},
 	{
+		game: "Guns Girl Z",
+		server: "JP",
+		timezone: "Etc/GMT-9",
+		dailyReset: "05:00",
+		icon: "guns-girl-z"
+	},
+	{
 		game: "GYEE",
 		server: "NA",
 		timezone: "Etc/GMT+4",
