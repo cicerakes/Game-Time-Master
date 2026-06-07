@@ -253,11 +253,11 @@ var gameData = [
 		icon: "chaos-zero-nightmare"
 	},
 	{
-		game: "Cookie Run: Kingdom",
+		game: "CookieRun: Kingdom",
 		server: "Global",
 		timezone: "Asia/Seoul",
 		dailyReset: "00:00",
-		icon: "cookie-run-kingdom"
+		icon: "cookierun-kingdom"
 	},
 	{
 		game: "CookieRun: Tower of Adventures",
