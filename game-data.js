@@ -2157,6 +2157,14 @@ var gameData = [
 		menuName: "THE iDOLM@STER ML! TD"
 	},
 	{
+		game: "THE IDOLM@STER Shiny Colors Song for Prism",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "the-idolmaster-shiny-colors-song-for-prism",
+		menuName: "THE iDOLM@STER SC SFP"
+	},
+	{
 		game: "The Legend of Neverland",
 		server: "Global",
 		timezone: "Etc/GMT+7",
