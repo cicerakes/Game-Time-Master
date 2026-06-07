@@ -2092,6 +2092,13 @@ var gameData = [
 		icon: "sword-of-convallaria"
 	},
 	{
+		game: "Sword x Staff",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "13:00",
+		icon: "sword-x-staff"
+	},
+	{
 		game: "Tears of Themis",
 		server: "Global",
 		timezone: "Etc/GMT-9",
