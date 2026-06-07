@@ -77,6 +77,13 @@ var gameData = [
 		icon: "aotu-world"
 	},
 	{
+		game: "Arcana Tactics",
+		server: "Global",
+		timezone: "Asia/Singapore",
+		dailyReset: "23:00",
+		icon: "arcana-tactics"
+	},
+	{
 		game: "Arknights",
 		server: "CN",
 		timezone: "Asia/Shanghai",
