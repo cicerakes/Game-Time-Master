@@ -1846,6 +1846,13 @@ var gameData = [
 		icon: "rage-of-sage-online"
 	},
 	{
+		game: "Ragnarok Origin",
+		server: "Global",
+		timezone: "Etc/GMT+4",
+		dailyReset: "05:00",
+		icon: "ragnarok-origin"
+	},
+	{
 		game: "Ragnarok M: Eternal Love",
 		server: "Global",
 		timezone: "Etc/GMT+6",
