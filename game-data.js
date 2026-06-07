@@ -623,6 +623,13 @@ var gameData = [
 		icon: "fap-ceo"
 	},
 	{
+		game: "Figure Fantasy",
+		server: "SEA",
+		timezone: "Etc/GMT-7",
+		dailyReset: "05:00",
+		icon: "figure-fantasy"
+	},
+	{
 		game: "FINAL FANTASY Record Keeper",
 		server: "JP",
 		timezone: "Asia/Tokyo",
