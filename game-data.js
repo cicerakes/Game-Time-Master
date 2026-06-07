@@ -2473,5 +2473,12 @@ var gameData = [
 		timezone: "Asia/Seoul",
 		dailyReset: "09:00",
 		icon: "zerowake-gates"
+	},
+	{
+		game: "Zold:Out",
+		server: "Global",
+		timezone: "Asia/Shanghai",
+		dailyReset: "08:00",
+		icon: "zoldout"
 	}
 ];
