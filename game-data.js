@@ -56,6 +56,13 @@ var gameData = [
 		icon: "alchemia-story"
 	},
 	{
+		game: "Animal Crossing: Pocket Camp C",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "06:00",
+		icon: "animal-crossing-pocket-camp-c"
+	},
+	{
 		game: "Another Eden",
 		server: "Global",
 		timezone: "Etc/UTC",
