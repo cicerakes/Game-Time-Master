@@ -480,6 +480,20 @@ var gameData = [
 		icon: "dragon-quest-tact"
 	},
 	{
+		game: "Dragon Raja",
+		server: "AM",
+		timezone: "Etc/GMT+5",
+		dailyReset: "00:00",
+		icon: "dragon-raja"
+	},
+	{
+		game: "Dragon Raja",
+		server: "EU",
+		timezone: "Etc/GMT-1",
+		dailyReset: "00:00",
+		icon: "dragon-raja"
+	},
+	{
 		game: "Dream Girlfriend",
 		server: "EN",
 		timezone: "America/Los_Angeles",
