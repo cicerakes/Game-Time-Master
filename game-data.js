@@ -1013,6 +1013,13 @@ var gameData = [
 		icon: "honkai-star-rail"
 	},
 	{
+		game: "Honor of Kings",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "05:00",
+		icon: "honor-of-kings"
+	},
+	{
 		game: "Horizon Walker",
 		server: "Global",
 		timezone: "Asia/Seoul",
