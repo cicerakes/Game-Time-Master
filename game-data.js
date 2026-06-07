@@ -1167,6 +1167,13 @@ var gameData = [
 		icon: "kemono-friends-3"
 	},
 	{
+		game: "King God Castle",
+		server: "Global",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00",
+		icon: "king-god-castle"
+	},
+	{
 		game: "King's Raid",
 		server: "America",
 		timezone: "America/New_York",
