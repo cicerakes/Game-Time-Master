@@ -1951,6 +1951,13 @@ var gameData = [
 		icon: "rise-of-eros"
 	},
 	{
+		game: "Rise of Kingdoms",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "rise-of-kingdoms"
+	},
+	{
 		game: "Romancing SaGa Re;univerSe",
 		server: "JP",
 		timezone: "Asia/Tokyo",
