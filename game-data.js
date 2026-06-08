@@ -1006,6 +1006,13 @@ var gameData = [
 		icon: "helios-rising-heroes"
 	},
 	{
+		game: "Hello Kitty Dream Village",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "hello-kitty-dream-village"
+	},
+	{
 		game: "Hello Kitty Island Adventure",
 		server: "Global",
 		timezone: "Etc/GMT",
