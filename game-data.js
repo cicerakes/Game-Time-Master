@@ -1260,6 +1260,13 @@ var gameData = [
 	},
 	{
 		game: "Last Origin",
+		server: "Japan",
+		timezone: "Asia/Tokyo",
+		dailyReset: "09:00",
+		icon: "last-origin"
+	},
+	{
+		game: "Last Origin",
 		server: "Korea",
 		timezone: "Asia/Seoul",
 		dailyReset: "09:00",
