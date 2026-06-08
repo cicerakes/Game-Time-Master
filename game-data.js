@@ -1649,6 +1649,13 @@ var gameData = [
 		icon: "octopath-traveler-cotc"
 	},
 	{
+		game: "ONE PIECE Bounty Rush",
+		server: "Global",
+		timezone: "ETC/UTC",
+		dailyReset: "20:00",
+		icon: "one-piece-bounty-rush"
+	},
+	{
 		game: "ONE PIECE TREASURE CRUISE",
 		server: "Global",
 		timezone: "America/Los_Angeles",
