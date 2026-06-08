@@ -239,6 +239,20 @@ var gameData = [
 		icon: "browndust2"
 	},
 	{
+		game: "Bungo Stray Dogs: Tales of the Lost",
+		server: "EN",
+		timezone: "Etc/UTC",
+		dailyReset: "00:00",
+		icon: "bungo-stray-dogs-tales-of-the-lost-en"
+	},
+	{
+		game: "Bungo Stray Dogs: Tales of the Lost",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "00:00",
+		icon: "bungo-stray-dogs-tales-of-the-lost-jp"
+	},
+	{
 		game: "Call of Duty: Mobile",
 		server: "SEA",
 		timezone: "Etc/GMT-8",
