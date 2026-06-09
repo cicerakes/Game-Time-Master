@@ -203,6 +203,13 @@ var gameData = [
 		icon: "black-star-theater-starless"
 	},
 	{
+		game: "Black Star Theater Starless",
+		server: "TW",
+		timezone: "Asia/Tokyo",
+		dailyReset: "15:00",
+		icon: "black-star-theater-starless"
+	},
+	{
 		game: "Bleach: Brave Souls",
 		server: "Global",
 		timezone: "Asia/Tokyo",
