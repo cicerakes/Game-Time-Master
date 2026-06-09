@@ -922,6 +922,13 @@ var gameData = [
 		icon: "guardian-tales"
 	},
 	{
+		game: "Guardian Tales",
+		server: "Switch",
+		timezone: "America/Los_Angeles",
+		dailyReset: "12:00",
+		icon: "guardian-tales"
+	},
+	{
 		game: "Guild Wars 2",
 		server: "EU & NA",
 		timezone: "Etc/UTC",
