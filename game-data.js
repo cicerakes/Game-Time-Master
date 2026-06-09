@@ -885,6 +885,13 @@ var gameData = [
 		icon: "granblue-fantasy"
 	},
 	{
+		game: "Granblue Fantasy Versus: Rising",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "granblue-fantasy-versus-rising"
+	},
+	{
 		game: "Grand Chase: Dimensional Chaser",
 		server: "Asia",
 		timezone: "Etc/GMT-9",
