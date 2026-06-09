@@ -1803,6 +1803,13 @@ var gameData = [
 		icon: "phantasy-star-online-2-ng"
 	},
 	{
+		game: "Phasmophobia",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "00:00",
+		icon: "phasmophobia"
+	},
+	{
 		game: "Pixel Heroes: Tales of Emond",
 		server: "EU",
 		timezone: "Etc/GMT-1",
