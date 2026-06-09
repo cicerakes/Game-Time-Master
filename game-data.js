@@ -1461,7 +1461,7 @@ var gameData = [
 	},
 	{
 		game: "Lovebrush Chronicles",
-		server: "EN",
+		server: "Global",
 		timezone: "Etc/GMT-8",
 		dailyReset: "04:00",
 		icon: "lovebrush-chronicles"
