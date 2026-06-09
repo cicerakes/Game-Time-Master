@@ -409,6 +409,13 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
+		game: "Devil May Cry: Peak of Combat",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "11:00",
+		icon: "devil-may-cry-peak-of-combat"
+	},
+	{
 		game: "Diablo Immortal",
 		server: "East Asia",
 		timezone: "Etc/GMT-9",
