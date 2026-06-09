@@ -1635,6 +1635,13 @@ var gameData = [
 		icon: "mythic-heroes"
 	},
 	{
+		game: "Mythic Samkok",
+		server: "Global",
+		timezone: "Etc/GMT-7",
+		dailyReset: "04:00",
+		icon: "mythic-samkok"
+	},
+	{
 		game: "Neural Cloud",
 		server: "CN",
 		timezone: "Asia/Shanghai",
