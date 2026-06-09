@@ -2281,6 +2281,13 @@ var gameData = [
 		icon: "sunflower-land"
 	},
 	{
+		game: "SUPERSTAR JYPNATION",
+		server: "EN",
+		timezone: "Asia/Seoul",
+		dailyReset: "00:00",
+		icon: "superstar-jypnation"
+	},
+	{
 		game: "Sword of Convallaria",
 		server: "Global",
 		timezone: "Etc/GMT+4",
