@@ -572,6 +572,13 @@ var gameData = [
 	},
 	{
 		game: "Echocalypse",
+		server: "EU",
+		timezone: "Etc/GMT-1",
+		dailyReset: "00:00",
+		icon: "echocalypse"
+	},
+	{
+		game: "Echocalypse",
 		server: "SEA",
 		timezone: "Etc/GMT-8",
 		dailyReset: "00:00",
