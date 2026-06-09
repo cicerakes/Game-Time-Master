@@ -2148,6 +2148,13 @@ var gameData = [
 		icon: "soul-tide"
 	},
 	{
+		game: "SOULS",
+		server: "Global",
+		timezone: "Etc/GMT",
+		dailyReset: "00:00",
+		icon: "souls"
+	},
+	{
 		game: "SoulWorker",
 		server: "EN",
 		timezone: "Etc/GMT",
