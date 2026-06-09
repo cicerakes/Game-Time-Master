@@ -147,6 +147,13 @@ var gameData = [
 		icon: "assault-lily-last-bullet"
 	},
 	{
+		game: "ASTRA: Knights of Veda",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "06:00",
+		icon: "astra-knights-of-veda"
+	},
+	{
 		game: "Atelier Resleriana",
 		server: "JP",
 		timezone: "Etc/GMT-8",
