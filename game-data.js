@@ -2403,6 +2403,13 @@ var gameData = [
 		icon: "toontown-rewritten"
 	},
 	{
+		game: "Toontown: Corporate Clash",
+		server: "Global",
+		timezone: "America/Panama",
+		dailyReset: "00:00",
+		icon: "toontown-corporate-clash"
+	},
+	{
 		game: "Toram Online",
 		server: "Global",
 		timezone: "Asia/Tokyo",
