@@ -879,7 +879,7 @@ var gameData = [
 	},
 	{
 		game: "Granblue Fantasy",
-		server: "JP & EN",
+		server: "Global",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
 		icon: "granblue-fantasy"
