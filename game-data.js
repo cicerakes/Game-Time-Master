@@ -49,6 +49,13 @@ var gameData = [
 		icon: "age-of-ishtaria"
 	},
 	{
+		game: "Airship Knights: Zero",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "12:00",
+		icon: "airship-knights-zero"
+	},
+	{
 		game: "Alchemia Story",
 		server: "Global",
 		timezone: "Asia/Tokyo",
