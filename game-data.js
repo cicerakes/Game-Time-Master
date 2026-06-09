@@ -1121,7 +1121,7 @@ var gameData = [
 		game: "Identity V",
 		server: "NA and EU",
 		timezone: "Etc/GMT+6",
-		dailyReset: "05:00",
+		dailyReset: "00:00",
 		icon: "identity-v"
 	},
 	{
