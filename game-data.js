@@ -338,6 +338,13 @@ var gameData = [
 		icon: "crusaders-quest"
 	},
 	{
+		game: "Crypto Ball Z",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "03:00",
+		icon: "crypto-ball-z"
+	},
+	{
 		game: "D4DJ Groovy Mix",
 		server: "EN",
 		timezone: "Etc/UTC",
