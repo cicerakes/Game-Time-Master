@@ -1044,13 +1044,13 @@ function toggleGameServerHide(toggle, child) {
 			if (beingShown) {
 				gameServer.classList.remove("hidden");
 				// Update button text.
-				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "HIDE";
-				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Hide this game server";
+				gameServer.getElementsByClassName("game-container-btns")[0].getElementsByTagName("button")[0].textContent = "HIDE";
+				gameServer.getElementsByClassName("game-container-btns")[0].getElementsByTagName("button")[0].title = "Hide this game server";
 			} else {
 				gameServer.classList.add("hidden");
 				// Update button text.
-				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
-				gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+				gameServer.getElementsByClassName("game-container-btns")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+				gameServer.getElementsByClassName("game-container-btns")[0].getElementsByTagName("button")[0].title = "Show this game server";
 			}
 
 			break;
@@ -1199,8 +1199,8 @@ function refreshFilteredGames() {
 				if (gameServer.getElementsByTagName("h3")[0].innerText == gameFilter[i].game && gameServer.getElementsByTagName("h4")[0].innerText == gameFilter[i].server) {
 					gameServer.classList.add("hidden");
 					// Update button text.
-					gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].textContent = "SHOW";
-					gameServer.getElementsByClassName("buttons")[0].getElementsByTagName("button")[0].title = "Show this game server";
+					gameServer.getElementsByClassName("game-container-btns")[0].getElementsByTagName("button")[0].textContent = "SHOW";
+					gameServer.getElementsByClassName("game-container-btns")[0].getElementsByTagName("button")[0].title = "Show this game server";
 
 					break;
 				}
