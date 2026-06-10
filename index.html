@@ -298,8 +298,15 @@
 						<p>Current Server Time: </p><p></p>
 					</div>
 				</div>
-				<div class="buttons">
+				<div class="game-container-btns">
 					<button type="button" title="Hide this game server" class="btn btn-med" onclick="hideGameServerButton(this)">HIDE</button>
+					<div class="pos-relative">
+						<button type="button" title="Show more options" class="" onclick="toggleGameServerOptions(this)"><img src="menu-icons/more-vert.png" class=""></button>
+						<div class="game-options-menu hidden">
+							<a title="Report incorrect time" target="_blank"><img src="menu-icons/report.png" class="menu-icon">Report incorrect time</a>
+							<a title="Report shutdown/end of service" target="_blank"><img src="menu-icons/cancel.png" class="menu-icon">Report shutdown/EoS</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</template>

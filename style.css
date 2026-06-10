@@ -156,7 +156,7 @@ hr {
 	border-radius: 4px;
 }
 
-#menu a:hover, #game-filter-settings label.option-name:hover, button.menu-item:hover {
+#menu a:hover, #game-filter-settings label.option-name:hover, button.menu-item:hover, .game-options-menu a:hover {
 	background: rgba(0, 0, 0, .04);
 }
 
@@ -516,18 +516,61 @@ input:checked + .slider:before {
 	background-color: #b084f4;
 }
 
-.game-container .buttons {
+.game-options-menu {
+	background: #f8f8f8;
+	border-radius: 4px;
+	padding: .5em 0;
+	position: absolute;
+	right: 0;
+	width: max-content;
+	box-shadow: 0 2px 7px 3px rgba(0,0,0,0.4);
+	z-index: 2;
+}
+
+.game-options-menu a {
+	color: #111;
+	display: list-item;
+	list-style-type: none;
+	padding: .5em;
+	text-decoration: none;
+}
+
+.game-container-btns {
+	display: flex;
+	justify-content: space-between;
+	width: stretch;
+	max-height: 1.64em;
+	max-width: calc(100% - 30px);
 	position: absolute;
 	bottom: 0;
 	margin-bottom: .6em;
 }
 
-.buttons .btn:not(:first-of-type) {
+.game-container-btns .btn:not(:first-of-type) {
 	margin-left: .5em;
 }
 
-.buttons .btn-med {
+.game-container-btns .btn-med {
 	padding: .2em .5em;
+}
+
+.game-container-btns .pos-relative button {
+	background-color: transparent;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	line-height: 1;
+	padding: .2em;
+	width: 30px;
+}
+
+.game-container-btns .pos-relative button:hover {
+	background-color: rgba(126, 86, 193, .15);
+}
+
+.game-container-btns .pos-relative button img {
+	height: 1em;
+	vertical-align: middle;
 }
 
 #dialog-holder-bg {
@@ -779,11 +822,11 @@ form label, form span {
 	background: #242424;
 }
 
-.dark #menu a, .dark #menu p, .dark #menu label, .dark button.menu-item {
+.dark #menu a, .dark #menu p, .dark #menu label, .dark button.menu-item, .dark .game-options-menu a {
 	color: #eee;
 }
 
-.dark #menu a:hover, .dark #game-filter-settings label.option-name:hover, .dark button.menu-item:hover {
+.dark #menu a:hover, .dark #game-filter-settings label.option-name:hover, .dark button.menu-item:hover, .dark .game-options-menu a:hover {
 	background: rgba(255, 255, 255, .04);
 }
 
@@ -799,7 +842,7 @@ form label, form span {
 	color: #aaa;
 }
 
-.dark .game-container {
+.dark .game-container, .dark .game-options-menu {
 	background: #1d1d1d;
 }
 
@@ -895,4 +938,8 @@ form label, form span {
 
 .red-text {
 	color: #d90000;
+}
+
+.pos-relative {
+	position: relative;
 }

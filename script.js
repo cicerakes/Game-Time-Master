@@ -291,6 +291,10 @@ function createGameResults() {
 		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
 		clone.querySelectorAll("h4")[0].textContent = gameDataConverted[i].server;
 
+		// Generate auto-fill report links.
+		clone.querySelectorAll("a")[0].href = "https://docs.google.com/forms/d/e/1FAIpQLSclB9i8A3m0iQOXu7Yry3U6ZK8nZfQOOMFrXwTXrUozfUcyCg/viewform?usp=pp_url&entry.815976458=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.1881636046=" + encodeURIComponent(gameDataConverted[i].server);
+		clone.querySelectorAll("a")[1].href = "https://docs.google.com/forms/d/e/1FAIpQLSdvjPjFsealB7KN4PbDZoYZhGqOXQqGttmkxIvFkTD-B33ZBA/viewform?entry.317697457=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.1940755195=" + encodeURIComponent(gameDataConverted[i].server);
+
 		gameCont.appendChild(clone);
 	}
 }
@@ -968,6 +972,25 @@ function menuChildrenToggle(dropArrow) {
 
 	// Set new games section height.
 	document.getElementById("game-filter-settings").style.height = gamesMenuSectionHeight + "px";
+}
+
+function toggleGameServerOptions(button) {
+	const menu = button.nextElementSibling;
+
+	if (menu.classList.contains("hidden")) {
+		document.addEventListener("click", outsideGameMenu);
+	} else {
+		document.removeEventListener("click", outsideGameMenu);
+	}
+
+	menu.classList.toggle("hidden");
+
+	function outsideGameMenu(e) {
+		if (!menu.contains(e.target) && !button.contains(e.target)) {
+			menu.classList.add("hidden");
+			document.removeEventListener("click", outsideGameMenu);
+		}
+	}
 }
 
 function toggleGameServerHide(toggle, child) {
