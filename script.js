@@ -135,14 +135,14 @@ if (localStorage.getItem("compact-mode-switch") == "true") {
 }
 // If there's no saved dark theme setting, check for OS theme and apply that.
 const colorSchemeDarkQueury = window.matchMedia("(prefers-color-scheme: dark)");
-if (localStorage.getItem("dark-theme-switch") == "true") {
+if (localStorage.getItem("theme-switch") == "dark") {
 	document.body.classList.add("dark");
-	document.getElementById("dark-theme-switch").value = "true";
-} else if (localStorage.getItem("dark-theme-switch") == "false") {
-	document.getElementById("dark-theme-switch").value = "false";
+	document.getElementById("theme-switch").value = "dark";
+} else if (localStorage.getItem("theme-switch") == "light") {
+	document.getElementById("theme-switch").value = "light";
 } else {
 	colorSchemeDarkQueury.addEventListener("change", applyMatchingTheme);
-	document.getElementById("dark-theme-switch").value = "auto";
+	document.getElementById("theme-switch").value = "auto";
 	applyMatchingTheme(colorSchemeDarkQueury);
 }
 
@@ -816,16 +816,16 @@ function applyMatchingTheme(q) {
 function settingToggle(setting) {
 	const settingId = setting.id;
 
-	if (settingId == "dark-theme-switch") {
+	if (settingId == "theme-switch") {
 		localStorage.setItem([settingId], setting.value);
 
 		if (setting.value == "auto") {
 			colorSchemeDarkQueury.addEventListener("change", applyMatchingTheme);
 			applyMatchingTheme(colorSchemeDarkQueury);
-		} else if (setting.value == "false") {
+		} else if (setting.value == "light") {
 			colorSchemeDarkQueury.removeEventListener("change", applyMatchingTheme);
 			document.body.classList.remove("dark");
-		} else if (setting.value == "true") {
+		} else if (setting.value == "dark") {
 			colorSchemeDarkQueury.removeEventListener("change", applyMatchingTheme);
 			document.body.classList.add("dark");
 		}
@@ -1564,7 +1564,7 @@ function openExportGamesSettingsForm() {
 			checked: "false"
 		},
 		{
-			name: "dark-theme-switch",
+			name: "theme-switch",
 			checked: "auto"
 		}
 	];
