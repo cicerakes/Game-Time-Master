@@ -120,9 +120,9 @@ if (localStorage.getItem("sort-by-time-remaining-switch") == "true") {
 
 	document.getElementById("sort-by-time-remaining-switch").checked = true;
 }
-if (localStorage.getItem("show-hide-buttons-switch") == "false") {
-	document.body.classList.add("hide-buttons-hidden");
-	document.getElementById("show-hide-buttons-switch").checked = false;
+if (localStorage.getItem("show-card-buttons-switch") == "false") {
+	document.body.classList.add("card-buttons-hidden");
+	document.getElementById("show-card-buttons-switch").checked = false;
 }
 if (localStorage.getItem("show-hidden-in-search-switch") == "false") {
 	showHidden = false;
@@ -865,11 +865,11 @@ function settingToggle(setting) {
 			refreshFilteredGames();
 			// Refresh search results in case search is being used during toggle.
 			searchFilter();
-		} else if (settingId == "show-hide-buttons-switch") {
+		} else if (settingId == "show-card-buttons-switch") {
 			if (setting.checked) {
-				document.body.classList.remove("hide-buttons-hidden");
+				document.body.classList.remove("card-buttons-hidden");
 			} else {
-				document.body.classList.add("hide-buttons-hidden");
+				document.body.classList.add("card-buttons-hidden");
 			}
 		} else if (settingId == "show-hidden-in-search-switch") {
 			if (setting.checked) {
@@ -1529,7 +1529,7 @@ function openExportGamesSettingsForm() {
 			checked: "false"
 		},
 		{
-			name: "show-hide-buttons-switch",
+			name: "show-card-buttons-switch",
 			checked: "true"
 		},
 		{

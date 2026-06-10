@@ -881,11 +881,11 @@ form label, form span {
 	margin: 0;
 }
 
-.hide-buttons-hidden .game-container {
+.card-buttons-hidden .game-container {
 	padding: 1em;
 }
 
-.hide-buttons-hidden .game-container .buttons {
+.card-buttons-hidden .game-container-btns {
 	display: none;
 }
 
