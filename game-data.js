@@ -338,13 +338,6 @@ var gameData = [
 		icon: "counter-side-global"
 	},
 	{
-		game: "Counter:Side",
-		server: "SEA",
-		timezone: "Etc/GMT-7",
-		dailyReset: "04:00",
-		icon: "counter-side-sea"
-	},
-	{
 		game: "Crash Fever",
 		server: "JP",
 		timezone: "Asia/Tokyo",
@@ -726,13 +719,6 @@ var gameData = [
 		timezone: "Etc/GMT-7",
 		dailyReset: "05:00",
 		icon: "figure-fantasy"
-	},
-	{
-		game: "FINAL FANTASY Record Keeper",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "ff-record-keeper"
 	},
 	{
 		game: "FINAL FANTASY VII EVER CRISIS",
@@ -1307,20 +1293,6 @@ var gameData = [
 		icon: "king-god-castle"
 	},
 	{
-		game: "King's Raid",
-		server: "America",
-		timezone: "America/New_York",
-		dailyReset: "00:00",
-		icon: "kings-raid"
-	},
-	{
-		game: "King's Raid",
-		server: "Asia",
-		timezone: "Etc/GMT+7",
-		dailyReset: "21:00",
-		icon: "kings-raid"
-	},
-	{
 		game: "Langrisser",
 		server: "Global",
 		timezone: "America/Chicago",
@@ -1628,13 +1600,6 @@ var gameData = [
 		icon: "muvluv-girls-garden"
 	},
 	{
-		game: "MY HERO ULTRA IMPACT",
-		server: "EN",
-		timezone: "Asia/Tokyo",
-		dailyReset: "00:00",
-		icon: "my-hero-ultra-impact"
-	},
-	{
 		game: "MY HERO ULTRA RUMBLE",
 		server: "Global",
 		timezone: "Asia/Tokyo",
@@ -1759,13 +1724,6 @@ var gameData = [
 		timezone: "Etc/UTC",
 		dailyReset: "00:00",
 		icon: "outerplane"
-	},
-	{
-		game: "OZ Re:write",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00",
-		icon: "oz-rewrite"
 	},
 	{
 		game: "Paladins",
@@ -2089,13 +2047,6 @@ var gameData = [
 		timezone: "Etc/GMT-8",
 		dailyReset: "07:00",
 		icon: "seoul-apocalypse"
-	},
-	{
-		game: "Seven Knights 2",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "05:00",
-		icon: "seven-knights-2"
 	},
 	{
 		game: "Seven Knights Idle Adventure",
@@ -2555,13 +2506,6 @@ var gameData = [
 		timezone: "Etc/GMT+6",
 		dailyReset: "00:00",
 		icon: "vikingard"
-	},
-	{
-		game: "WAR OF THE VISIONS FINAL FANTASY BRAVE EXVIUS",
-		server: "JP",
-		timezone: "Asia/Tokyo",
-		dailyReset: "05:00",
-		icon: "war-of-the-visions-ffbe"
 	},
 	{
 		game: "War Thunder",
