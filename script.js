@@ -532,33 +532,39 @@ function hideFilteredGames() {
 }
 
 function toggleAllGamesFilter(hide) {
-	if (hide) {
-		// Hide all.
-		gameFilter.forEach(game => {
-			game['shown'] = "false";
-		});
-	} else {
-		// Show all.
-		// Create list of filtered/hidden games using gameData with everything shown.
-		gameFilter.forEach(game => {
-			game['shown'] = "true";
-		});
-	}
+	setLoadingToggleAllGamesFilterBtn(true);
 
-	// Save updated filter list.
-	localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
-
-	clearGameFilterMenu();
-	clearGameResults();
-
-	createGameResults();
-	createUpdatedGameFilterMenu();
-	refreshFilteredGames();
-	timeCalc();
-	// Refresh search results in case search is being used during submission.
-	searchFilter();
-
-	updateToggleAllGamesFilterBtn();
+	// Wait for button to be set to loading state before toggling games.
+	setTimeout(() => {
+		if (hide) {
+			// Hide all.
+			gameFilter.forEach(game => {
+				game['shown'] = "false";
+			});
+		} else {
+			// Show all.
+			// Create list of filtered/hidden games using gameData with everything shown.
+			gameFilter.forEach(game => {
+				game['shown'] = "true";
+			});
+		}
+	
+		// Save updated filter list.
+		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+	
+		clearGameFilterMenu();
+		clearGameResults();
+	
+		createGameResults();
+		createUpdatedGameFilterMenu();
+		refreshFilteredGames();
+		timeCalc();
+		// Refresh search results in case search is being used during submission.
+		searchFilter();
+	
+		updateToggleAllGamesFilterBtn();
+		setLoadingToggleAllGamesFilterBtn(false);
+	}, 10); 
 }
 
 function checkIfAllFilteredGamesHidden() {
@@ -581,6 +587,20 @@ function updateToggleAllGamesFilterBtn() {
 	} else {
 		document.getElementById("hide-all-games-btn").classList.remove("hidden");
 		document.getElementById("show-all-games-btn").classList.add("hidden");
+	}
+}
+
+function setLoadingToggleAllGamesFilterBtn(started) {
+	if (started) {
+		document.getElementById("hide-all-games-btn").innerText = "Loading...";
+		document.getElementById("show-all-games-btn").innerText = "Loading...";
+		document.getElementById("hide-all-games-btn").disabled = true;
+		document.getElementById("show-all-games-btn").disabled = true;
+	} else {
+		document.getElementById("hide-all-games-btn").innerText = "✕  HIDE ALL GAMES";
+		document.getElementById("show-all-games-btn").innerText = "✓  SHOW ALL GAMES";
+		document.getElementById("hide-all-games-btn").disabled = false;
+		document.getElementById("show-all-games-btn").disabled = false;
 	}
 }
 
