@@ -538,6 +538,7 @@ input:checked + .slider:before {
 .game-container-btns {
 	display: flex;
 	justify-content: space-between;
+	width: -webkit-fill-available;
 	width: stretch;
 	max-height: 1.64em;
 	max-width: calc(100% - 30px);
