@@ -593,6 +593,7 @@ input:checked + .slider:before {
 	max-height: calc(93vh - 65px);
 	overflow-y: auto;
 	padding: 1.5em;
+	overscroll-behavior: contain;
 }
 
 .dialog h2 {
