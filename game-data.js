@@ -242,7 +242,7 @@ var gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "04:00",
-		icon: "blue-archive"
+		icon: "blue-archive-jp"
 	},
 	{
 		game: "Brawlhalla",
@@ -384,7 +384,7 @@ var gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
-		icon: "d4-dj-groovy-mix"
+		icon: "d4-dj-groovy-mix-jp"
 	},
 	{
 		game: "Date A Live: Spirit Echo",
@@ -518,7 +518,7 @@ var gameData = [
 		server: "Global",
 		timezone: "America/Los_Angeles",
 		dailyReset: "00:00",
-		icon: "dragon-ball-z-dokkan-battle-global",
+		icon: "dragon-ball-z-dokkan-battle",
 		utcDailyReset: true
 	},
 	{
@@ -526,7 +526,7 @@ var gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "00:00",
-		icon: "dragon-ball-z-dokkan-battle-jp"
+		icon: "dragon-ball-z-dokkan-battle"
 	},
 	{
 		game: "DRAGON QUEST TACT",
@@ -1340,14 +1340,14 @@ var gameData = [
 		server: "Japan",
 		timezone: "Asia/Tokyo",
 		dailyReset: "09:00",
-		icon: "last-origin"
+		icon: "last-origin-jp"
 	},
 	{
 		game: "Last Origin",
 		server: "Korea",
 		timezone: "Asia/Seoul",
 		dailyReset: "09:00",
-		icon: "last-origin"
+		icon: "last-origin-kr"
 	},
 	{
 		game: "Legend Clover",
@@ -1891,14 +1891,14 @@ var gameData = [
 		server: "JP",
 		timezone: "Asia/Tokyo",
 		dailyReset: "05:00",
-		icon: "princess-connect-re-dive-jp"
+		icon: "princess-connect-re-dive"
 	},
 	{
 		game: "Princess Connect! Re:Dive",
 		server: "TW",
 		timezone: "Asia/Taipei",
 		dailyReset: "05:00",
-		icon: "princess-connect-re-dive-jp"
+		icon: "princess-connect-re-dive"
 	},
 	{
 		game: "Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
