@@ -46,7 +46,7 @@ See below for more in-depth details.
 		- A `Global` game with multiple servers such as `Americas`, `Asia`, and `Europe`.
 		- A `Global` game with just one server.
 		- A game with servers in `English` and `Japanese`.
-		- Regions/languages can be shortened (e.g. to `EN` and `JP`) _unless_ the game officially refers to them in full.
+	- Regions/languages can be shortened (e.g. to `EN` and `JP`) _unless_ the game officially refers to them in full.
 - Game server timezone
 	- This can be a region or offset. 
 	- You will need to find it in the tz database.  
@@ -59,7 +59,7 @@ See below for more in-depth details.
 	- Ensure this is the daily reset time for the **server's** timezone.
 	- This is usually the time when a player receives (daily) login rewards.
 	- If a game has multiple reset times, prioritise what is used for login rewards. 
-		- If no login reward system exists, use the time that the majority of content resets.
+		- If no login reward system exists, use daily missions/tasks/quests. Otherwise, use the time that the majority of content resets.
 - Game icon
 	- This can be taken from an official source such as the Google Play store.
 		- If it does not exist on a (mobile) app store, you can also use:
@@ -67,7 +67,6 @@ See below for more in-depth details.
 			- Social media icon (such as Twitter/X)
 	- Resize this to 96x96 pixels.
 		- If the original icon is not a square, avoid stretching the image and instead add empty padding as needed.
-		- 90x90 is also accepted, but 96x96 preferred.
 	- GIF file format.
 	- Kebab case filename.  
 	Example: `game-name.gif`.
