@@ -1,4 +1,4 @@
-# Game Time Master
+# [Game Time Master](https://cicerakes.github.io/Game-Time-Master)
 Sick of memorising time zones to convert for games and their daily reset times?  
 Then this is for you!
 
