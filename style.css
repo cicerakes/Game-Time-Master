@@ -9,15 +9,6 @@ body {
 	font-size: 20px;
 }
 
-button:disabled {
-	color: #999 !important;
-	cursor: not-allowed;
-}
-
-button:disabled:hover {
-	background-color: transparent;
-}
-
 code {
 	background-color: #ebebeb;
 	border: 1px solid #ababab;
@@ -97,6 +88,19 @@ hr {
 
 .btn-high:hover {
 	background: #5d34a8;
+}
+
+.btn:disabled {
+	color: #999 !important;
+	cursor: not-allowed;
+}
+
+.btn-low:disabled:hover, .btn-med:disabled:hover {
+	background-color: transparent;
+}
+
+.btn-high:disabled {
+	background-color: #ccc;
 }
 
 .menu-btn {
@@ -873,6 +877,10 @@ form label, form span {
 
 .dark .btn-med {
 	border-color: #404040;
+}
+
+.dark .btn-high:disabled {
+	background-color: #333;
 }
 
 .dark .dialog {

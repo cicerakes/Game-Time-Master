@@ -1690,6 +1690,8 @@ async function importGamesSettings() {
 	const formData = new FormData(document.getElementById("import-games-settings-form"));
 
 	if (document.forms["import-games-settings-form"].reportValidity()) {
+		document.getElementById("import-games-settings-btn").disabled = true;
+
 		// Read input depending on method chosen.
 		if (formData.get("imported-games-settings-method") == "paste") {
 			importText = document.getElementById("imported-games-settings-textarea").value.split("#SPLIT#");
@@ -1727,6 +1729,7 @@ async function importGamesSettings() {
 		} catch (error) {
 			console.error(error.message);
 			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.remove("hidden");
+			document.getElementById("import-games-settings-btn").disabled = false;
 		}
 	}
 }
