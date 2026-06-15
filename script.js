@@ -1517,7 +1517,7 @@ function checkAndCloseOtherDialogs(toOpen) {
 	if (!document.getElementById("dupe-custom-notif").classList.contains("hidden")) {
 		closeDupeUpdateNotif();
 	}
-	// If any other form is open, close it.
+	// If any other dialog (from menu) is open, close it.
 	switch (toOpen) {
 		case "add-custom-form":
 			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
@@ -1525,6 +1525,9 @@ function checkAndCloseOtherDialogs(toOpen) {
 			}
 			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
 				closeDialog("export-games-settings-form");
+			}
+			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
+				closeDialog("del-all-data-confirmation");
 			}
 			break;
 		case "import-games-settings-form":
@@ -1534,6 +1537,9 @@ function checkAndCloseOtherDialogs(toOpen) {
 			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
 				closeDialog("export-games-settings-form");
 			}
+			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
+				closeDialog("del-all-data-confirmation");
+			}
 			break;
 		case "export-games-settings-form":
 			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
@@ -1542,6 +1548,21 @@ function checkAndCloseOtherDialogs(toOpen) {
 			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
 				closeImportGamesSettingsForm();
 			}
+			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
+				closeDialog("del-all-data-confirmation");
+			}
+			break;
+		case "del-all-data-confirmation":
+			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
+				closeCustomGameForm();
+			}
+			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
+				closeImportGamesSettingsForm();
+			}
+			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
+				closeDialog("export-games-settings-form");
+			}
+			break;
 		default:
 			break;
 	}
@@ -1708,4 +1729,33 @@ async function importGamesSettings() {
 			document.getElementById("import-games-settings-form").getElementsByClassName("red-text")[0].classList.remove("hidden");
 		}
 	}
+}
+
+function openDeleteAllDataConfirm() {
+	checkAndCloseOtherDialogs("del-all-data-confirmation");
+
+	openDialog("del-all-data-confirmation");
+}
+
+function delAllData() {
+	document.getElementById("del-all-data-confirm-btn").disabled = true;
+
+	localStorage.removeItem("12-hr-time-switch");
+	localStorage.removeItem("compact-mode-switch");
+	localStorage.removeItem("custom-game-data");
+	localStorage.removeItem("gameFilterList");
+	localStorage.removeItem("show-card-buttons-switch");
+	localStorage.removeItem("show-hidden-in-search-switch");
+	localStorage.removeItem("show-seconds-switch");
+	localStorage.removeItem("show-server-date-switch");
+	localStorage.removeItem("sort-by-time-remaining-switch");
+	localStorage.removeItem("theme-switch");
+
+	// Wait a second, then refresh page.
+	setTimeout(
+		function () {
+			location.reload();
+		},
+		1000
+	);
 }

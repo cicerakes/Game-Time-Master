@@ -183,6 +183,17 @@
 					<button type="button" class="btn btn-low" onclick="closeDupeUpdateNotif()">OK</button>
 				</div>
 			</div>
+			<div id="del-all-data-confirmation" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('del-all-data-confirmation')">✖</button>
+				<h2>Delete all data</h2>
+				<p>Are you sure you want to delete all data?</p>
+				<p>This will reset all your settings to default and delete your custom games.</p>
+				<p><strong>This action <u>cannot</u> be undone.</strong></p>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDialog('del-all-data-confirmation')">Cancel</button>
+					<button type="button" id="del-all-data-confirm-btn" class="btn btn-med red-text" onclick="delAllData()">Delete</button>
+				</div>
+			</div>
 		</div>
 		<div id="outside-menu" onclick="toggleMenu()"></div>
 		<div id="menu">
@@ -258,6 +269,7 @@
 				</div>
 				<button class="menu-item" onclick="openExportGamesSettingsForm();toggleMenu();"><img src="menu-icons/export.png" class="menu-icon">Export Data</button>
 				<button class="menu-item" onclick="openImportGamesSettingsForm();toggleMenu();"><img src="menu-icons/import.png" class="menu-icon">Import Data</button>
+				<button class="menu-item" onclick="openDeleteAllDataConfirm();toggleMenu();"><img src="menu-icons/delete.png" class="menu-icon">Clear Data</button>
 			</div>
 			<div class="menu-section">
 				<h2 class="section-heading">Links</h2>
