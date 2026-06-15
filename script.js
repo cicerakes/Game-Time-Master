@@ -284,16 +284,15 @@ function createGameResults() {
 		const clone = template.content.cloneNode(true);
 
 		// Add game info.
-		// No icon needed for custom game servers.
+		// No icon and auto-fill needed for custom game servers.
 		if (!gameDataConverted[i].customGameServer) {
 			clone.querySelectorAll("img")[0].src = "game-icons/" + gameDataConverted[i].icon + ".gif";
+			// Generate auto-fill report links.
+			clone.querySelectorAll("a")[0].href = "https://docs.google.com/forms/d/e/1FAIpQLSclB9i8A3m0iQOXu7Yry3U6ZK8nZfQOOMFrXwTXrUozfUcyCg/viewform?usp=pp_url&entry.815976458=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.1881636046=" + encodeURIComponent(gameDataConverted[i].server);
+			clone.querySelectorAll("a")[1].href = "https://docs.google.com/forms/d/e/1FAIpQLSdvjPjFsealB7KN4PbDZoYZhGqOXQqGttmkxIvFkTD-B33ZBA/viewform?entry.317697457=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.1940755195=" + encodeURIComponent(gameDataConverted[i].server);
 		}
 		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
 		clone.querySelectorAll("h4")[0].textContent = gameDataConverted[i].server;
-
-		// Generate auto-fill report links.
-		clone.querySelectorAll("a")[0].href = "https://docs.google.com/forms/d/e/1FAIpQLSclB9i8A3m0iQOXu7Yry3U6ZK8nZfQOOMFrXwTXrUozfUcyCg/viewform?usp=pp_url&entry.815976458=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.1881636046=" + encodeURIComponent(gameDataConverted[i].server);
-		clone.querySelectorAll("a")[1].href = "https://docs.google.com/forms/d/e/1FAIpQLSdvjPjFsealB7KN4PbDZoYZhGqOXQqGttmkxIvFkTD-B33ZBA/viewform?entry.317697457=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.1940755195=" + encodeURIComponent(gameDataConverted[i].server);
 
 		gameCont.appendChild(clone);
 	}
