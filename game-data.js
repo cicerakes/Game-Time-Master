@@ -1209,6 +1209,13 @@ var gameData = [
 		icon: "ikemen-villains"
 	},
 	{
+		game: "Illusion Connect: Re",
+		server: "EU",
+		timezone: "Etc/GMT-2",
+		dailyReset: "05:00",
+		icon: "illusion-connect-re"
+	},
+	{
 		game: "Infinity Nikki",
 		server: "America",
 		timezone: "Etc/GMT+7",
