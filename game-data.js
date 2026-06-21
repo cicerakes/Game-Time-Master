@@ -134,13 +134,6 @@ var gameData = [
 	},
 	{
 		game: "Ash Echoes",
-		server: "Global",
-		timezone: "Etc/GMT+5",
-		dailyReset: "04:00",
-		icon: "ash-echoes"
-	},
-	{
-		game: "Ash Echoes",
 		server: "SEA",
 		timezone: "Etc/GMT-7",
 		dailyReset: "04:00",
