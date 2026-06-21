@@ -488,9 +488,11 @@ function hideFilteredGames() {
 				skippedParent = false,
 				containerPosition = 0;
 
+				// Look for filtered game in menu.
 				for (let y = 1; y < document.getElementById("game-filter-list").childElementCount; y+=2, containerPosition++) {
 					const gameLabel = document.getElementById("game-filter-list").children[y],
-					gameName = gameData[containerPosition].game;
+					gameName = gameData[containerPosition].game,
+					gameServ = gameData[containerPosition].server;
 
 					if (gameLabel.className.includes("game-parent")) {
 						skippedParent = true;
@@ -500,7 +502,7 @@ function hideFilteredGames() {
 								serverCount++;
 							}
 						}
-					} else if (gameFilterSaved[i].game == gameName) {
+					} else if (gameFilterSaved[i].game == gameName && gameFilterSaved[i].server == gameServ) {
 						gameLabel.previousElementSibling.checked = false;
 						toggleGameServerHide(document.getElementsByClassName("game-server-toggle")[containerPosition]);
 					}
