@@ -637,8 +637,6 @@ function createUpdatedGameFilterMenu() {
 			label.textContent = " " + gameData[i].server;
 
 			// Find it in savedGameFilter.
-			//let gameServPos = gameFilterSaved[i].findIndex(x => x.game === gameData[i].game);
-			//let matchingGameServ = arr.find(gameFilter => gameFilter.game === gameData[i].game);
 			var filterForMatchingGameServ = {
 				game: gameData[i].game,
 				server: gameData[i].server
