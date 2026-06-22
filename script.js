@@ -1,3 +1,6 @@
+window.addEventListener("error", (err) => {
+	document.getElementById("error-log-text").innerHTML += err.message.toString() + " at " + err.source + " " + err.lineno.toString() + ":" + err.colno.toString() + ". \r\n";
+});
 // Load saved custom game data.
 var customGameData = [],
 customGameDupes = [];
@@ -1529,6 +1532,9 @@ function checkAndCloseOtherDialogs(toOpen) {
 			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
 				closeDialog("del-all-data-confirmation");
 			}
+			if (!document.getElementById("error-log-dialog").classList.contains("hidden")) {
+				closeDialog("error-log-dialog");
+			}
 			break;
 		case "import-games-settings-form":
 			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
@@ -1539,6 +1545,9 @@ function checkAndCloseOtherDialogs(toOpen) {
 			}
 			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
 				closeDialog("del-all-data-confirmation");
+			}
+			if (!document.getElementById("error-log-dialog").classList.contains("hidden")) {
+				closeDialog("error-log-dialog");
 			}
 			break;
 		case "export-games-settings-form":
@@ -1551,6 +1560,9 @@ function checkAndCloseOtherDialogs(toOpen) {
 			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
 				closeDialog("del-all-data-confirmation");
 			}
+			if (!document.getElementById("error-log-dialog").classList.contains("hidden")) {
+				closeDialog("error-log-dialog");
+			}
 			break;
 		case "del-all-data-confirmation":
 			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
@@ -1561,6 +1573,23 @@ function checkAndCloseOtherDialogs(toOpen) {
 			}
 			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
 				closeDialog("export-games-settings-form");
+			}
+			if (!document.getElementById("error-log-dialog").classList.contains("hidden")) {
+				closeDialog("error-log-dialog");
+			}
+			break;
+		case "error-log-dialog":
+			if (!document.getElementById("add-custom-form").classList.contains("hidden")) {
+				closeCustomGameForm();
+			}
+			if (!document.getElementById("import-games-settings-form").classList.contains("hidden")) {
+				closeImportGamesSettingsForm();
+			}
+			if (!document.getElementById("export-games-settings-form").classList.contains("hidden")) {
+				closeDialog("export-games-settings-form");
+			}
+			if (!document.getElementById("del-all-data-confirmation").classList.contains("hidden")) {
+				closeDialog("del-all-data-confirmation");
 			}
 			break;
 		default:
@@ -1761,4 +1790,10 @@ function delAllData() {
 		},
 		1000
 	);
+}
+
+function openErrorLogDialog() {
+	checkAndCloseOtherDialogs("error-log-dialog");
+
+	openDialog("error-log-dialog");
 }

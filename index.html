@@ -194,6 +194,14 @@
 					<button type="button" id="del-all-data-confirm-btn" class="btn btn-med red-text" onclick="delAllData()">Delete</button>
 				</div>
 			</div>
+			<div id="error-log-dialog" class="dialog hidden">
+				<h2>Error log</h2>
+				<p>You can send the contents of below when reporting a bug.</p>
+				<textarea id="error-log-text" readonly></textarea>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDialog('error-log-dialog')">OK</button>
+				</div>
+			</div>
 		</div>
 		<div id="outside-menu" onclick="toggleMenu()"></div>
 		<div id="menu">
@@ -280,6 +288,9 @@
 				<a href="https://github.com/cicerakes/Game-Time-Master"><img src="menu-icons/github.png" class="menu-icon">GitHub</a>
 				<a href="mailto:cicerakes.gtm@gmail.com"><img src="menu-icons/email.png" class="menu-icon">Email</a>
 				<a href="https://ko-fi.com/cicerakes" title="Ko-fi"><img src="menu-icons/ko-fi.png" class="menu-icon">Buy me a coffee</a>
+			</div>
+			<div class="menu-section">
+				<button class="menu-item" onclick="openErrorLogDialog();toggleMenu();"><img src="menu-icons/error-log.png" class="menu-icon">Error Log</button>
 			</div>
 		</div>
 		<div id="current-local">
