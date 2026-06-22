@@ -42,7 +42,7 @@
 					<textarea id="exported-games-settings-textarea" readonly></textarea>
 				</div>
 				<div class="dialog-btns">
-					<button type="button" class="btn btn-med" onclick="closeDialog('export-games-settings-form')">Close</button>
+					<button type="button" class="btn btn-low" onclick="closeDialog('export-games-settings-form')">Close</button>
 					<button type="button" class="btn btn-high" onclick="exportToClipboard('export')">Copy to Clipboard</button>
 					<button type="button" class="btn btn-high" onclick="exportToFile()">Download File</button>
 				</div>
@@ -79,7 +79,7 @@
 				</div>
 				<p class="hidden red-text">An error has occurred while trying to import.<br />Please ensure your import code/file is valid.</p>
 				<div class="dialog-btns">
-					<button type="button" class="btn btn-med" onclick="closeImportGamesSettingsForm()">Cancel</button>
+					<button type="button" class="btn btn-low" onclick="closeImportGamesSettingsForm()">Cancel</button>
 					<button type="button" id="import-games-settings-btn" class="btn btn-high" onclick="importGamesSettings()">Import</button>
 				</div>
 			</form>
@@ -144,7 +144,7 @@
 					<label for="custom-yes-daylight-savings-input">Yes</label>
 				</div>
 				<div class="dialog-btns">
-					<button type="button" class="btn btn-med" onclick="closeCustomGameForm()" formnovalidate>Cancel</button>
+					<button type="button" class="btn btn-low" onclick="closeCustomGameForm()" formnovalidate>Cancel</button>
 					<button type="button" class="btn btn-high" onclick="submitCustomGameForm()">Add Game Server</button>
 				</div>
 			</form>
@@ -195,12 +195,13 @@
 				</div>
 			</div>
 			<div id="error-log-dialog" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeDialog('error-log-dialog')">✖</button>
 				<h2>Error log</h2>
 				<p>You can send the contents of below when reporting a bug.</p>
 				<textarea id="error-log-text" readonly></textarea>
 				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeDialog('error-log-dialog')">Close</button>
 					<button type="button" class="btn btn-high" onclick="exportToClipboard('error-log')">Copy to Clipboard</button>
-					<button type="button" class="btn btn-low" onclick="closeDialog('error-log-dialog')">OK</button>
 				</div>
 			</div>
 		</div>
