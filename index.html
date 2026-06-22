@@ -43,7 +43,7 @@
 				</div>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-med" onclick="closeDialog('export-games-settings-form')">Close</button>
-					<button type="button" class="btn btn-high" onclick="exportToClipboard()">Copy to Clipboard</button>
+					<button type="button" class="btn btn-high" onclick="exportToClipboard('export')">Copy to Clipboard</button>
 					<button type="button" class="btn btn-high" onclick="exportToFile()">Download File</button>
 				</div>
 			</form>
@@ -199,6 +199,7 @@
 				<p>You can send the contents of below when reporting a bug.</p>
 				<textarea id="error-log-text" readonly></textarea>
 				<div class="dialog-btns">
+					<button type="button" class="btn btn-high" onclick="exportToClipboard('error-log')">Copy to Clipboard</button>
 					<button type="button" class="btn btn-low" onclick="closeDialog('error-log-dialog')">OK</button>
 				</div>
 			</div>

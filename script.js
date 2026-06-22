@@ -1671,9 +1671,16 @@ function closeImportGamesSettingsForm() {
 	closeDialog("import-games-settings-form");
 }
 
-async function exportToClipboard() {
+async function exportToClipboard(type) {
 	try {
-		await navigator.clipboard.writeText(document.getElementById("exported-games-settings-textarea").value);
+		switch (type) {
+			case "export":
+				await navigator.clipboard.writeText(document.getElementById("exported-games-settings-textarea").value);
+				break;
+			case "error-log":
+				await navigator.clipboard.writeText(document.getElementById("error-log-text").value);
+				break;
+		}
 	} catch (error) {
 		console.error(error.message);
 	}
