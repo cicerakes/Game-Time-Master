@@ -536,6 +536,13 @@ var gameData = [
 		icon: "dragon-raja"
 	},
 	{
+		game: "Dragon Traveler",
+		server: "Global",
+		timezone: "Etc/GMT+5",
+		dailyReset: "17:00",
+		icon: "dragon-traveler"
+	},
+	{
 		game: "Dream Girlfriend",
 		server: "EN",
 		timezone: "America/Los_Angeles",
