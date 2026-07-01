@@ -678,13 +678,6 @@ var gameData = [
 		icon: "etheria-restart"
 	},
 	{
-		game: "Eversoul",
-		server: "Asia & NA/EU",
-		timezone: "Etc/UTC",
-		dailyReset: "00:00",
-		icon: "eversoul"
-	},
-	{
 		game: "Evertale",
 		server: "Asia",
 		timezone: "Etc/GMT-9",
@@ -1362,13 +1355,6 @@ var gameData = [
 		timezone: "Asia/Seoul",
 		dailyReset: "06:00",
 		icon: "limbus-company"
-	},
-	{
-		game: "Link! Like! Love Live!",
-		server: "Global",
-		timezone: "Asia/Tokyo",
-		dailyReset: "04:00",
-		icon: "link-like-love-live"
 	},
 	{
 		game: "LIVE A HERO",
