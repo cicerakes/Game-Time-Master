@@ -1079,7 +1079,7 @@ var gameData = [
 		game: "Hololive Dreams",
 		server: "Global",
 		timezone: "Asia/Tokyo",
-		dailyReset: "5:00",
+		dailyReset: "05:00",
 		icon: "hololive-dreams"
 	},
 	{
