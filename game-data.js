@@ -1076,6 +1076,13 @@ var gameData = [
 		icon: "higan-eruthyll"
 	},
 	{
+		game: "Hololive Dreams",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "hololive-dreams"
+	},
+	{
 		game: "Honkai Impact 3rd",
 		server: "Americas",
 		timezone: "Etc/GMT+5",
