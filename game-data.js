@@ -133,13 +133,6 @@ var gameData = [
 		icon: "ash-arms"
 	},
 	{
-		game: "Ash Echoes",
-		server: "SEA",
-		timezone: "Etc/GMT-7",
-		dailyReset: "04:00",
-		icon: "ash-echoes-sea"
-	},
-	{
 		game: "Assault Lily: Last Bullet",
 		server: "JP",
 		timezone: "Asia/Tokyo",
