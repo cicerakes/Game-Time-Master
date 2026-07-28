@@ -1329,6 +1329,13 @@ var gameData = [
 		icon: "last-origin-kr"
 	},
 	{
+		game: "LAST ORIGIN R+",
+		server: "Global",
+		timezone: "Etc/GMT-8",
+		dailyReset: "08:00",
+		icon: "last-origin-r"
+	},
+	{
 		game: "Legend Clover",
 		server: "EN",
 		timezone: "Etc/UTC",
