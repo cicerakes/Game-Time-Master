@@ -2000,13 +2000,6 @@ var gameData = [
 		icon: "riichi-city"
 	},
 	{
-		game: "Rise of Eros",
-		server: "Global",
-		timezone: "Etc/GMT-8",
-		dailyReset: "11:00",
-		icon: "rise-of-eros"
-	},
-	{
 		game: "Rise of Kingdoms",
 		server: "Global",
 		timezone: "Etc/UTC",
