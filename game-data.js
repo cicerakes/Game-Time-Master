@@ -295,6 +295,13 @@ var gameData = [
 		icon: "chaos-zero-nightmare"
 	},
 	{
+		game: "CookieRun: Crumble",
+		server: "Global",
+		timezone: "Etc/GMT-9",
+		dailyReset: "00:00",
+		icon: "cookierun-crumble"
+	},
+	{
 		game: "CookieRun: Kingdom",
 		server: "Global",
 		timezone: "Asia/Seoul",
