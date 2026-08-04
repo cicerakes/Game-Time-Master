@@ -1279,6 +1279,13 @@ var gameData = [
 		icon: "jjk-phantom-parade"
 	},
 	{
+		game: "KAIJU NO. 8 THE GAME",
+		server: "Global",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "kaiju-no-8"
+	},
+	{
 		game: "Kamihime PROJECT",
 		server: "Global",
 		timezone: "America/Los_Angeles",
