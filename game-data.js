@@ -1378,6 +1378,13 @@ var gameData = [
 		icon: "light-and-night"
 	},
 	{
+		game: "Light and Night",
+		server: "SEA",
+		timezone: "Etc/GMT-7",
+		dailyReset: "05:00",
+		icon: "light-and-night"
+	},
+	{
 		game: "Limbus Company",
 		server: "Global",
 		timezone: "Asia/Seoul",
