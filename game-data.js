@@ -324,13 +324,6 @@ var gameData = [
 		utcDailyReset: true
 	},
 	{
-		game: "Counter:Side",
-		server: "Global",
-		timezone: "Etc/GMT-9",
-		dailyReset: "04:00",
-		icon: "counter-side-global"
-	},
-	{
 		game: "Crash Fever",
 		server: "JP",
 		timezone: "Asia/Tokyo",
