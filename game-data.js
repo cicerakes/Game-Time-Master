@@ -472,6 +472,13 @@ var gameData = [
 		icon: "disney-twisted-wonderland"
 	},
 	{
+		game: "Dot Abyss",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "05:00",
+		icon: "dot-abyss"
+	},
+	{
 		game: "DRAGON BALL LEGENDS",
 		server: "Global",
 		timezone: "Etc/UTC",
