@@ -1747,6 +1747,14 @@ var gameData = [
 		icon: "paladins"
 	},
 	{
+		game: "Palia",
+		server: "Global",
+		timezone: "America/Los_Angeles",
+		dailyReset: "04:00",
+		icon: "palia",
+		utcDailyReset: true
+	},
+	{
 		game: "Palmon: Survival",
 		server: "Global",
 		timezone: "Etc/GMT+2",
