@@ -658,7 +658,7 @@ input:checked + .slider:before {
 	font-size: inherit;
 }
 
-form label, form span {
+form label, .form-section span {
 	display: inline-block;
 	font-size: 22px;
 	margin-bottom: .3em;

@@ -148,9 +148,73 @@
 					<button type="button" class="btn btn-high" onclick="submitCustomGameForm()">Add Game Server</button>
 				</div>
 			</form>
-			<div id="add-custom-form-confirmation" class="dialog hidden">
-				<h2>Game server added</h2>
-				<p id="duplicate-notice" class="hidden">There already exists a game server in the same region/language, so your new one has been added as <b id="dupe-cust-game"></b>.</p>
+			<form id="edit-custom-form" class="dialog hidden">
+				<button type="button" class="form-close-btn" title="Cancel" onclick="closeEditCustomGameForm()">✖</button>
+				<h2>Edit <span id="edit-custom-game-name"></span> (<span id="edit-custom-game-server"></span>)</h2>
+				<div class="form-section">
+					<label for="edit-custom-name-input">Game name </label>
+					<br />
+					<input type="text" name="game-name" id="edit-custom-name-input" required />
+				</div>
+				<div class="form-section">
+					<label for="edit-custom-server-input">Server region/language</label>
+					<br />
+					<input type="text" name="server" id="edit-custom-server-input" required />
+				</div>
+				<div class="form-section">
+					<label for="edit-custom-timezone-input">Server timezone</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>You can check <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List">the Wikipedia page</a> for more info on these timezones, and to use Ctrl + F / Command + F.</p>
+						<p>For example, if the game uses: 
+							<ul>
+								<li>PT (PDT/PST) then use <code>America/Los_Angeles</code>.</li>
+								<li>ET (EDT/EST) then use <code>America/New_York</code>.</li>
+								<li>JST then use <code>Asia/Tokyo</code>.</li>
+								<li>UTC then search for <code>Etc/GMT</code> below and find the matching sign (+ or -) and number.</li>
+							</ul>
+						</p>
+					</div>
+					<select name="timezone" id="edit-custom-timezone-input" required />
+						<option value="">Type to search...</option>
+					</select>
+				</div>
+				<div class="form-section">
+					<label for="edit-custom-daily-reset-input">Server daily reset time</label>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p>This is in the <u>server's</u> timezone.</p>
+					</div>
+					<input type="time" name="daily-reset" id="edit-custom-daily-reset-input" required />
+				</div>
+				<div class="form-section">
+					<span>Daily reset affected by daylight savings</span>
+					<button type="button" class="btn btn-low more-info-btn" onclick="toggleFormInfo(this)">SHOW MORE INFO</button>
+					<br />
+					<div class="form-info hidden">
+						<p><b>If unsure, you can choose <code>No</code></b> as this is usually the case.</p>
+						<p>This only applies if the server itself changes timezones during daylight savings.</p>
+						<p>Choose <code>No</code> if the server uses an offset (UTC or GMT).</p>
+						<p>For example, if the server reset time is 05:00 during PST and also 05:00 during PDT, you would choose <code>No</code>. <br />
+							If the reset time changed to 06:00 during PDT, you would choose <code>Yes</code>.</p>
+						<p>If you choose <code>Yes</code> you must convert the daily reset time to UTC and use that for the <code>Server daily reset time</code> section above.</p>
+					</div>
+					<input type="radio" name="daylight-savings" id="edit-custom-no-daylight-savings-input" value="false" required checked />
+					<label for="edit-custom-no-daylight-savings-input">No</label>
+					<br />
+					<input type="radio" name="daylight-savings" id="edit-custom-yes-daylight-savings-input" value="true" required />
+					<label for="edit-custom-yes-daylight-savings-input">Yes</label>
+				</div>
+				<div class="dialog-btns">
+					<button type="button" class="btn btn-low" onclick="closeEditCustomGameForm()" formnovalidate>Cancel</button>
+					<button type="button" class="btn btn-high" onclick="submitEditCustomGameForm()">Save Changes</button>
+				</div>
+			</form>
+			<div id="custom-form-confirmation" class="dialog hidden">
+				<h2>Game server saved</h2>
+				<p id="duplicate-notice" class="hidden">There already exists a game server in the same region/language, so yours has been added as <b id="dupe-cust-game"></b>.</p>
 				<div class="dialog-btns">
 					<button type="button" class="btn btn-low" onclick="closeCustomGameConfirm()">OK</button>
 				</div>
@@ -359,6 +423,7 @@
 					<div class="pos-relative">
 						<button type="button" title="Show more options" onclick="toggleGameServerOptions(this)"><img src="menu-icons/more-vert.png"></button>
 						<div class="game-options-menu hidden">
+							<a title="Edit this game server" href="#" onclick="openEditCustomGameForm(this)"><img src="menu-icons/edit.png" class="menu-icon">Edit this game server</a>
 							<a title="Request to add this game server to the official database" target="_blank"><img src="menu-icons/add.png" class="menu-icon">Request to add officially</a>
 							<a title="Delete this game server" href="#" onclick="openDeleteCustomGameConfirm(this)"><img src="menu-icons/delete.png" class="menu-icon">Delete this game server</a>
 						</div>

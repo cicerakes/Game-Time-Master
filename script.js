@@ -229,6 +229,7 @@ setRefresh();
 // Store these lists/selects in timezoneLists for later manipulation.
 var timezoneLists = [];
 initialiseTimezoneList("custom-timezone-input");
+initialiseTimezoneList("edit-custom-timezone-input");
 
 function setRefresh() {
 	// Clear previous interval if it exists.
@@ -303,7 +304,7 @@ function createGameResults() {
 				daylightSavings = "Yes";
 				utcDaily = " UTC";
 			}
-			clone.querySelectorAll("a")[0].href = "https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform?usp=pp_url&entry.349241820=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.150389824=" + encodeURIComponent(gameDataConverted[i].server) + "&entry.848346057=" + encodeURIComponent(gameDataConverted[i].timezone) + "&entry.1014455634=" + encodeURIComponent(gameDataConverted[i].dailyReset) + encodeURIComponent(utcDaily) + "&entry.2027999370=" + encodeURIComponent(daylightSavings);
+			clone.querySelectorAll("a")[1].href = "https://docs.google.com/forms/d/e/1FAIpQLSc0T_8Smk0vnp-VtR3eJSnSu3uLa3nFlWbCq9-jMqujmU1qcA/viewform?usp=pp_url&entry.349241820=" + encodeURIComponent(gameDataConverted[i].game) + "&entry.150389824=" + encodeURIComponent(gameDataConverted[i].server) + "&entry.848346057=" + encodeURIComponent(gameDataConverted[i].timezone) + "&entry.1014455634=" + encodeURIComponent(gameDataConverted[i].dailyReset) + encodeURIComponent(utcDaily) + "&entry.2027999370=" + encodeURIComponent(daylightSavings);
 		}
 		clone.querySelectorAll("h3")[0].textContent = gameDataConverted[i].game;
 		clone.querySelectorAll("h4")[0].textContent = gameDataConverted[i].server;
@@ -1430,7 +1431,7 @@ function openCustomGameConfirm(numberedServer) {
 		document.getElementById("dupe-cust-game").innerHTML = numberedServer;
 	}
 
-	openDialog("add-custom-form-confirmation");
+	openDialog("custom-form-confirmation");
 }
 
 function closeCustomGameConfirm() {
@@ -1441,7 +1442,7 @@ function closeCustomGameConfirm() {
 	document.getElementById("dupe-cust-game").innerHTML = "";
 
 	// Close.
-	closeDialog("add-custom-form-confirmation");
+	closeDialog("custom-form-confirmation");
 }
 
 function openDeleteCustomGameConfirm(button) {
@@ -1451,7 +1452,7 @@ function openDeleteCustomGameConfirm(button) {
 	server = gameHeader.children[2].textContent;
 
 	// Display confirmation.
-	document.getElementById("del-cust-game").innerText = gameName + " - " + server;
+	document.getElementById("del-cust-game").innerText = gameName + " (" + server + ")";
 	openDialog("del-custom-form-confirmation");
 
 	// Prepare to delete.
@@ -1505,6 +1506,133 @@ function delGameServer(button) {
 	closeDeleteCustomGameConfirm();
 }
 
+function openEditCustomGameForm(button) {
+	// Get game details.
+	const gameHeader = button.parentElement.parentElement.parentElement.parentElement.children[0],
+	gameName = gameHeader.children[1].textContent,
+	gameServer = gameHeader.children[2].textContent,
+	customGameDataObj = customGameData.find((serv) => serv.game == gameName && serv.server == gameServer);
+
+	// Load form data.
+	document.getElementById("edit-custom-game-name").innerText = gameName;
+	document.getElementById("edit-custom-game-server").innerText = gameServer;
+
+	document.getElementById("edit-custom-name-input").value = gameName;
+	document.getElementById("edit-custom-server-input").value = gameServer;
+
+	const tzSelect = timezoneLists.find((list) => list.inputId == "edit-custom-timezone-input");
+	tzSelect.setValue(customGameDataObj.timezone);
+
+	document.getElementById("edit-custom-daily-reset-input").value = customGameDataObj.dailyReset;
+	if (customGameDataObj.utcDailyReset === true) {
+		document.getElementById("edit-custom-yes-daylight-savings-input").checked = true;
+	}
+
+	// Display form.
+	openDialog("edit-custom-form");
+}
+
+function closeEditCustomGameForm() {
+	const formInfoBtns = document.getElementsByClassName("more-info-btn"),
+	tzSelect = timezoneLists.find((list) => list.inputId == "edit-custom-timezone-input");
+
+	// Clear fields.
+	document.getElementById("edit-custom-form").reset();
+	tzSelect.clear();
+
+	// Hide more info.
+	for (let i = 0; i < formInfoBtns.length; i++) {
+		if (!formInfoBtns[i].nextElementSibling.nextElementSibling.classList.contains("hidden")) {
+			formInfoBtns[i].innerText = "SHOW MORE INFO"
+			formInfoBtns[i].nextElementSibling.nextElementSibling.classList.add("hidden");
+		}
+	}
+
+	// Close.
+	closeDialog("edit-custom-form");
+}
+
+function submitEditCustomGameForm() {
+	if (document.forms["edit-custom-form"].reportValidity()) {
+		const formData = new FormData(document.getElementById("edit-custom-form"));
+		// Convert daylight savings from string to boolean.
+		let daylightSavings = (formData.get("daylight-savings") === "true");
+		const gameName = document.getElementById("edit-custom-game-name").innerText,
+		gameServer = document.getElementById("edit-custom-game-server").innerText,
+		// Find position in gameData, customGameData, and converted.
+		gameDataIndex = gameData.findIndex((serv) => serv.game == gameName && serv.server == gameServer),
+		customGameDataIndex = customGameData.findIndex((serv) => serv.game == gameName && serv.server == gameServer),
+		convertedGameDataIndex = gameDataConverted.findIndex((serv) => serv.game == gameName && serv.server == gameServer);
+
+		// If new server name is duplicate of existing (except itself), add number to server.
+		let formServer = formData.get("server"),
+		numbered;
+		if (gameName == formData.get("game-name") && gameServer == formServer) {
+			numbered = false;
+		} else {
+			numbered = findIncrementDupeGameServer(formData.get("game-name"), formServer);
+		}
+
+		if (numbered) {
+			formServer = numbered;
+		}
+
+		// Create new server object with edited values.
+		const editedCustomGameServerObj = {
+			game: formData.get("game-name"),
+			server: formServer,
+			timezone: formData.get("timezone"),
+			dailyReset: formData.get("daily-reset"),
+			utcDailyReset: daylightSavings,
+			customGameServer: true
+		};
+
+		// Apply changes to game data.
+		customGameData.splice(customGameDataIndex, 1, editedCustomGameServerObj);
+		gameData.splice(gameDataIndex, 1, editedCustomGameServerObj);
+		gameDataConverted.splice(convertedGameDataIndex, 1, editedCustomGameServerObj);
+		// Ensure gameData is always alphabetical.
+		gameData.sort(function (a, b) {
+			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+		});
+
+		// Update name and/or server in gameFilter, while keeping original shown status.
+		// Assumes sorting in filters is same as gameData.
+		gameFilter[gameDataIndex].game = editedCustomGameServerObj.game;
+		gameFilter[gameDataIndex].server = editedCustomGameServerObj.server;
+		// Ensure gameFilter is always alphabetical.
+		gameFilter.sort(function (a, b) {
+			return a.game.localeCompare(b.game) || a.server.localeCompare(b.server);
+		});
+
+		// Update local storage.
+		localStorage.setItem("custom-game-data", JSON.stringify(customGameData));
+		localStorage.setItem("gameFilterList", JSON.stringify(gameFilter));
+
+		// Refresh display.
+		// Update filter menu.
+		clearGameFilterMenu();
+		createUpdatedGameFilterMenu();
+		// Refresh game results.
+		clearGameResults();
+		createGameResults();
+		timeCalc();
+		refreshFilteredGames();
+		// Refresh search results in case search is being used during edit.
+		searchFilter();
+
+		// Close.
+		closeEditCustomGameForm();
+
+		// Show confirmation.
+		if (numbered) {
+			openCustomGameConfirm(formServer);
+		} else {
+			openCustomGameConfirm();
+		}
+	}
+}
+
 function closeDupeUpdateNotif() {
 	// Reset table contents.
 	document.getElementById("dupe-notif-table").getElementsByTagName("tbody")[0].innerHTML = "";
@@ -1525,7 +1653,7 @@ function closeDialog(id) {
 
 function checkAndCloseOtherDialogs(toOpen) {
 	// If confirmation is open, close it.
-	if (!document.getElementById("add-custom-form-confirmation").classList.contains("hidden")) {
+	if (!document.getElementById("custom-form-confirmation").classList.contains("hidden")) {
 		closeCustomGameConfirm();
 	}
 	if (!document.getElementById("del-custom-form-confirmation").classList.contains("hidden")) {
