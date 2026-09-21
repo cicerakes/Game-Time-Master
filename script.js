@@ -225,8 +225,10 @@ var refresh;
 
 setRefresh();
 
-// Generate list of timezones for custom game form.
-initialiseTimezoneList();
+// Generate list of timezones for custom game forms.
+// Store these lists/selects in timezoneLists for later manipulation.
+var timezoneLists = [];
+initialiseTimezoneList("custom-timezone-input");
 
 function setRefresh() {
 	// Clear previous interval if it exists.
@@ -1241,9 +1243,9 @@ function refreshFilteredGames() {
 	}
 }
 
-function initialiseTimezoneList() {
+function initialiseTimezoneList(id) {
 	const timezones = moment.tz.names(),
-	tzSelect = document.getElementById("custom-timezone-input");
+	tzSelect = document.getElementById(id);
 
 	timezones.forEach(tz => {
 		let tzOption = document.createElement("option"),
@@ -1264,7 +1266,8 @@ function initialiseTimezoneList() {
 	var config = {
 		maxOptions:null
 	};
-	new TomSelect(tzSelect,config);
+
+	timezoneLists.push(new TomSelect(tzSelect,config));
 }
 
 function toggleFormInfo(btn) {
@@ -1286,10 +1289,12 @@ function openCustomGameForm() {
 }
 
 function closeCustomGameForm() {
-	const formInfoBtns = document.getElementsByClassName("more-info-btn");
+	const formInfoBtns = document.getElementsByClassName("more-info-btn"),
+	tzSelect = timezoneLists.find((list) => list.inputId == "custom-timezone-input");
 
 	// Clear fields.
 	document.getElementById("add-custom-form").reset();
+	tzSelect.clear();
 
 	// Hide more info.
 	for (let i = 0; i < formInfoBtns.length; i++) {
