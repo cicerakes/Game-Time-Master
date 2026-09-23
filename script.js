@@ -418,6 +418,7 @@ function createGameFilterMenu() {
 		const gameId = gameData[i].game.normalize().replace(/[&!:<>"'`=\/\s]/g, "-").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase();
 
 		// Use template depending on if game has more than 1 region.
+		// Game name is made lower case to avoid duplicates when assigning id later.
 		if (gameData[i].game.toLowerCase() === currentGameParent) {
 			// If game has multiple servers and is NOT first server detected.
 			// Create child menu entry.
@@ -1053,7 +1054,7 @@ function toggleGameServerHide(toggle, child) {
 	// Find game in filter list.
 	for (; position < gameFilter.length; position++) {
 		// Must match both game name and region, unless there's only one.
-		if (gameFilter[position].game == gameName && (gameFilter[position].server == gameRegion || !child)) {
+		if (gameFilter[position].game.toLowerCase() == gameName.toLowerCase() && (gameFilter[position].server.toLowerCase() == gameRegion.toLowerCase() || !child)) {
 			if (gameFilter[position].shown == "false") {
 				// Show.
 				gameFilter[position].shown = "true";
@@ -1395,6 +1396,10 @@ function findIncrementDupeGameServer(gameName, server, customOnLoad) {
 	if (matchingServers.length == 1 && customOnLoad) {
 		return false;
 	} else if (matchingServers.length > 0) {
+		// Sort servers, ignoring game name case.
+		matchingServers.sort(function (a, b) {
+			return a.server.localeCompare(b.server);
+		});
 		// Find current highest increment, if any.
 		let currentIncr = matchingServers[matchingServers.length - 1].server.match(/-[0-9]+$/);
 
