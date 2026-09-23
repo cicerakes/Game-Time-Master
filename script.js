@@ -1054,7 +1054,7 @@ function toggleGameServerHide(toggle, child) {
 	// Find game in filter list.
 	for (; position < gameFilter.length; position++) {
 		// Must match both game name and region, unless there's only one.
-		if (gameFilter[position].game.toLowerCase() == gameName.toLowerCase() && (gameFilter[position].server.toLowerCase() == gameRegion.toLowerCase() || !child)) {
+		if (gameFilter[position].game.toLowerCase() == gameName.toLowerCase() && (!child || gameFilter[position].server.toLowerCase() == gameRegion.toLowerCase())) {
 			if (gameFilter[position].shown == "false") {
 				// Show.
 				gameFilter[position].shown = "true";
