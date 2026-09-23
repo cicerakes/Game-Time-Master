@@ -1119,7 +1119,7 @@ function toggleGameServerHide(toggle, child) {
 			let allChildrenHidden = true;
 
 			for (let i = 0; i < gameFilter.length; i++) {
-				if (gameFilter[i].game == gameName) {
+				if (gameFilter[i].game.toLowerCase() == gameName.toLowerCase()) {
 					if (gameFilter[i].shown == "true") {
 						allChildrenHidden = false;
 
