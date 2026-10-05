@@ -451,13 +451,6 @@ var gameData = [
 		icon: "dislyte"
 	},
 	{
-		game: "Disney Pixel RPG",
-		server: "Global",
-		timezone: "Etc/UTC",
-		dailyReset: "07:00",
-		icon: "disney-pixel-rpg"
-	},
-	{
 		game: "Disney Twisted-Wonderland",
 		server: "EN",
 		timezone: "America/Los_Angeles",
