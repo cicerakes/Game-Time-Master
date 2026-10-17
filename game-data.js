@@ -49,6 +49,13 @@ var gameData = [
 		icon: "age-of-ishtaria"
 	},
 	{
+		game: "AION 2",
+		server: "Global",
+		timezone: "Etc/UTC",
+		dailyReset: "07:00",
+		icon: "aion-2"
+	},
+	{
 		game: "Airship Knights: Zero",
 		server: "Global",
 		timezone: "Etc/GMT-9",
