@@ -1370,13 +1370,6 @@ var gameData = [
 		icon: "live-a-hero"
 	},
 	{
-		game: "Looney Tunes World of Mayhem",
-		server: "Global",
-		timezone: "America/Los_Angeles",
-		dailyReset: "18:00",
-		icon: "looney-tunes-wom"
-	},
-	{
 		game: "Lord of Nazarick",
 		server: "Global",
 		timezone: "Etc/GMT+2",
