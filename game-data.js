@@ -977,6 +977,13 @@ var gameData = [
 		icon: "hatsune-miku-colorful-stage"
 	},
 	{
+		game: "Haze Reverb",
+		server: "EN",
+		timezone: "Etc/GMT+7",
+		dailyReset: "04:00",
+		icon: "haze-reverb"
+	},
+	{
 		game: "Heartopia",
 		server: "America",
 		timezone: "Etc/GMT+5",
