@@ -70,6 +70,13 @@ var gameData = [
 		icon: "alchemia-story"
 	},
 	{
+		game: "Anchor Panic",
+		server: "EN",
+		timezone: "Etc/GMT+5",
+		dailyReset: "03:00",
+		icon: "anchor-panic"
+	},
+	{
 		game: "Animal Crossing: Pocket Camp C",
 		server: "Global",
 		timezone: "Etc/UTC",
