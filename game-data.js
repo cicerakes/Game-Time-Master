@@ -1649,21 +1649,21 @@ var gameData = [
 	},
 	{
 		game: "Monster Hunter Outlanders",
-		server: "APAC",
+		server: "Asia Pacific",
 		timezone: "Etc/GMT-8",
 		dailyReset: "05:00",
 		icon: "monster-hunter-outlanders-apac"
 	},
 	{
 		game: "Monster Hunter Outlanders",
-		server: "EU",
+		server: "Europe",
 		timezone: "Etc/GMT",
 		dailyReset: "05:00",
 		icon: "monster-hunter-outlanders-eu-na"
 	},
 	{
 		game: "Monster Hunter Outlanders",
-		server: "NA",
+		server: "North America",
 		timezone: "Etc/GMT+4",
 		dailyReset: "05:00",
 		icon: "monster-hunter-outlanders-eu-na"
