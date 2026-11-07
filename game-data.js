@@ -77,6 +77,27 @@ var gameData = [
 		icon: "anchor-panic"
 	},
 	{
+		game: "Aniimo",
+		server: "Americas",
+		timezone: "Etc/GMT+4",
+		dailyReset: "04:00",
+		icon: "aniimo"
+	},
+	{
+		game: "Aniimo",
+		server: "APAC",
+		timezone: "Etc/GMT-8",
+		dailyReset: "04:00",
+		icon: "aniimo"
+	},
+	{
+		game: "Aniimo",
+		server: "Europe",
+		timezone: "Etc/GMT",
+		dailyReset: "04:00",
+		icon: "aniimo"
+	},
+	{
 		game: "Animal Crossing: Pocket Camp C",
 		server: "Global",
 		timezone: "Etc/UTC",
