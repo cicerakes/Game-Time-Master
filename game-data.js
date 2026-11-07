@@ -217,6 +217,13 @@ var gameData = [
 		icon: "bang-dream-our-notes"
 	},
 	{
+		game: "BanG Dream! Our Notes",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00",
+		icon: "bang-dream-our-notes"
+	},
+	{
 		game: "Black Star Theater Starless",
 		server: "JP",
 		timezone: "Asia/Tokyo",
