@@ -1627,6 +1627,27 @@ var gameData = [
 		icon: "mongil-star-dive"
 	},
 	{
+		game: "Monster Hunter Outlanders",
+		server: "APAC",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "monster-hunter-outlanders-apac"
+	},
+	{
+		game: "Monster Hunter Outlanders",
+		server: "EU",
+		timezone: "Etc/GMT",
+		dailyReset: "05:00",
+		icon: "monster-hunter-outlanders-eu-na"
+	},
+	{
+		game: "Monster Hunter Outlanders",
+		server: "NA",
+		timezone: "Etc/GMT+4",
+		dailyReset: "05:00",
+		icon: "monster-hunter-outlanders-eu-na"
+	},
+	{
 		game: "Morimens",
 		server: "Global",
 		timezone: "Etc/GMT-8",
