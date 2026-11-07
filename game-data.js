@@ -493,6 +493,13 @@ var gameData = [
 		icon: "disney-twisted-wonderland"
 	},
 	{
+		game: "Dolphin Wave",
+		server: "JP",
+		timezone: "Asia/Tokyo",
+		dailyReset: "04:00",
+		icon: "dolphin-wave"
+	},
+	{
 		game: "Dot Abyss",
 		server: "JP",
 		timezone: "Asia/Tokyo",
