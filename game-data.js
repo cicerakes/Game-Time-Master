@@ -1720,7 +1720,7 @@ var gameData = [
 	{
 		game: "Neverness to Everness",
 		server: "America",
-		timezone: "Etc/GMT+4",
+		timezone: "America/New_York",
 		dailyReset: "05:00",
 		icon: "neverness-to-everness"
 	},
