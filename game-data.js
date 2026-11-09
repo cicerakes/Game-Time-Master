@@ -28,6 +28,13 @@ var gameData = [
 		icon: "aether-gazer"
 	},
 	{
+		game: "Aeons Echo",
+		server: "Global",
+		timezone: "America/New_York",
+		dailyReset: "05:00",
+		icon: "aeons-echo"
+	},
+	{
 		game: "AFK Arena",
 		server: "Global",
 		timezone: "Etc/UTC",
