@@ -2679,6 +2679,13 @@ var gameData = [
 		icon: "wuthering-waves"
 	},
 	{
+		game: "XXL WOOFIA",
+		server: "EN",
+		timezone: "Etc/GMT-8",
+		dailyReset: "05:00",
+		icon: "xxl-woofia"
+	},
+	{
 		game: "Yu-Gi-Oh! Duel Links",
 		server: "Global",
 		timezone: "Asia/Tokyo",
